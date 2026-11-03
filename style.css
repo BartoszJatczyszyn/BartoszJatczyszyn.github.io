@@ -1112,3 +1112,27 @@ button.cont.sel{background:var(--ink-soft);border-color:var(--hl);opacity:1}
 :root[data-theme="light"] .flow-steps li:not(:last-child)::before{color:#c08a00}
 @media (max-width:640px){:root[data-theme="light"] .flow-steps li:not(:last-child)::after{background:repeating-linear-gradient(180deg,#c08a00 0 5px,transparent 5px 9px);background-size:3px 18px}}
 @media (min-width:641px){.flow-steps[style*="--n: 5"] .fe,.flow-steps[style*="--n:5"] .fe{width:76px;height:76px;font-size:34px}}
+
+/* ═══════════════ senses & new secrets ═══════════════ */
+#soundBtn{font-size:15px}
+#soundBtn.off{opacity:.55}
+.kicker{cursor:pointer;display:inline-block;transition:transform .3s var(--spring),color .2s,text-shadow .3s;user-select:none}
+.kicker:hover{transform:rotate(-8deg) scale(1.15)}
+.kicker.lit{color:var(--hl);text-shadow:0 0 14px rgba(255,212,59,.8)}
+:root[data-theme="light"] .kicker.lit{color:#e09a00;text-shadow:0 0 12px rgba(255,190,0,.6)}
+.kicker.zap{animation:zap .5s var(--spring)}
+@keyframes zap{40%{transform:scale(1.5) rotate(10deg)}}
+.rocket{position:fixed;left:50%;bottom:-40px;z-index:170;font-size:72px;pointer-events:none;filter:drop-shadow(0 10px 20px rgba(255,140,0,.6))}
+.chalk-layer{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;transition:opacity 1.5s ease}
+.chalk-layer.fade{opacity:0}
+@media (pointer:fine){.hero{cursor:crosshair}.hero a,.hero button{cursor:pointer}}
+.bar-col .b.ring{animation:ring .5s var(--spring)}
+@keyframes ring{30%{transform:scaleX(1.25) scaleY(1.06)}60%{transform:scaleX(.92) scaleY(.97)}}
+#triDots i.me{cursor:pointer;animation:meBlink 2.4s ease-in-out infinite}
+@keyframes meBlink{50%{box-shadow:0 0 0 8px var(--ink-soft)}}
+#triDots i.passed{background:var(--ink-soft);transform:scale(.75);transition:transform .25s var(--spring),background .2s}
+.medal-card{-webkit-touch-callout:none;user-select:none}
+.medal-card.pulse .medal{animation:none}
+.medal-card.thump .disc{animation:thump .4s var(--ease)}
+@keyframes thump{12%{transform:scale(1.22)}30%{transform:scale(.96)}45%{transform:scale(1.12)}}
+.medal-card.pulse{box-shadow:0 0 0 2px #ff5a6a,0 0 40px rgba(255,90,106,.35)}

@@ -116,7 +116,7 @@ Object.assign(T.pl, {
   tvCountries:"krajów świata", tvRegions:"regionów w GlobeQuest", tvWorld:"% świata odkryte", tvRank:"ranga: Odkrywca",
   tvEurope:"Europa", tvAll:"Cały świat", tvCountriesShort:"krajów świata", tvHint:"Przytrzymaj Ctrl / ⌘, żeby przybliżyć kółkiem", tvTour:"Wycieczka", tvTourStop:"Stop", tvLegVisited:"byłem", tvLegPlanned:"w planie",
   tvNextSmall:"Następny przystanek", tvNext:"Maroko", tvGq:"Te dane pochodzą z mojego GlobeQuesta",
-  tvBanner:"Maroko, czekaj!", copyMail:"Kopiuj e-mail", usedIn:"Użyte w:", tiltOn:"Przechyl telefon, a myśli się przesypią 📱", tiltBtn:"📱 Przechyl", csFlow:"Jak to działa", openApp:"Otwórz aplikację ↗︎", csWhy:"Co jest w tym fajne", csStack:"Z czego to zbudowane", csPrevL:"Poprzedni projekt", csNextL:"Następny projekt", hintHead:"puk, puk?", hintPg:"złap i rzuć!", hintEggs:"22 sekrety… znajdziesz?", cDetails:"zajrzyj", cDrag:"rzuć mną", cMap:"✈️ leć", cTap:"puk!", cThought:"💭 myśl", cDice:"🎲 rzuć", spyStart:"Start", copied:"Skopiowane!", copiedSub:"Adres e-mail jest w schowku", tvBannerSub:"Następny przystanek: Afryka"
+  tvBanner:"Maroko, czekaj!", copyMail:"Kopiuj e-mail", soundOn:"Dźwięk włączony", soundOff:"Dźwięk wyłączony", eHome:"Wszędzie dobrze,<small>ale w domu najlepiej 🏠</small>", eRocket:"Start!", eChalk:"Ładnie rysujesz", eChalkSub:"Kreda zawsze schnie za szybko", eLumos:"Lumos ✨", eNox:"Nox 🌙", eOvertake:"Wyprzedzanie!", eOvertakeSub:"Każda kropka to ktoś, kogo minąłem na trasie", eHeart:"❤️ 150 bpm<small>tak bije serce na 35. km</small>", eOwl:"Też nie śpisz?", eOwlSub:"Najlepsze pomysły przychodzą w nocy 🦉", eBird:"Ranny ptaszek!", eBirdSub:"Pora na kawę i pierwszy commit 🐦", eCoffee:"☕ +10 do kodu", eNewton:"F = m·a", eXylo:"Muzyka commitów 🎶", usedIn:"Użyte w:", tiltOn:"Przechyl telefon, a myśli się przesypią 📱", tiltBtn:"📱 Przechyl", csFlow:"Jak to działa", openApp:"Otwórz aplikację ↗︎", csWhy:"Co jest w tym fajne", csStack:"Z czego to zbudowane", csPrevL:"Poprzedni projekt", csNextL:"Następny projekt", hintHead:"puk, puk?", hintPg:"złap i rzuć!", hintEggs:`${EGGS.length} sekrety… znajdziesz?`, cDetails:"zajrzyj", cDrag:"rzuć mną", cMap:"✈️ leć", cTap:"puk!", cThought:"💭 myśl", cDice:"🎲 rzuć", spyStart:"Start", copied:"Skopiowane!", copiedSub:"Adres e-mail jest w schowku", tvBannerSub:"Następny przystanek: Afryka"
 });
 Object.assign(T.en, {
   navTrail:"Trail", navSkills:"Toolbox",
@@ -146,7 +146,7 @@ Object.assign(T.en, {
   tvCountries:"countries of the world", tvRegions:"regions in GlobeQuest", tvWorld:"% of the world explored", tvRank:"rank: Explorer",
   tvEurope:"Europe", tvAll:"Whole world", tvCountriesShort:"countries", tvHint:"Hold Ctrl / ⌘ to zoom with the wheel", tvTour:"Take the tour", tvTourStop:"Stop", tvLegVisited:"visited", tvLegPlanned:"planned",
   tvNextSmall:"Next stop", tvNext:"Morocco", tvGq:"This data comes from my GlobeQuest",
-  tvBanner:"Morocco, here I come!", copyMail:"Copy e-mail", usedIn:"Used in:", tiltOn:"Tilt your phone and the thoughts will roll 📱", tiltBtn:"📱 Tilt", csFlow:"How it works", openApp:"Open the app ↗︎", csWhy:"What makes it good", csStack:"Built with", csPrevL:"Previous project", csNextL:"Next project", hintHead:"knock, knock?", hintPg:"grab & throw!", hintEggs:"22 secrets… find them?", cDetails:"peek", cDrag:"throw me", cMap:"✈️ fly", cTap:"knock!", cThought:"💭 think", cDice:"🎲 roll", spyStart:"Start", copied:"Copied!", copiedSub:"The e-mail address is on your clipboard", tvBannerSub:"Next stop: Africa"
+  tvBanner:"Morocco, here I come!", copyMail:"Copy e-mail", soundOn:"Sound on", soundOff:"Sound off", eHome:"East or west,<small>home is best 🏠</small>", eRocket:"Lift-off!", eChalk:"Nice drawing", eChalkSub:"Chalk always dries too fast", eLumos:"Lumos ✨", eNox:"Nox 🌙", eOvertake:"Overtaking!", eOvertakeSub:"Every dot is someone I passed on course", eHeart:"❤️ 150 bpm<small>a heart at kilometre 35</small>", eOwl:"Can’t sleep either?", eOwlSub:"The best ideas come at night 🦉", eBird:"Early bird!", eBirdSub:"Time for coffee and the first commit 🐦", eCoffee:"☕ +10 to code", eNewton:"F = m·a", eXylo:"The sound of commits 🎶", usedIn:"Used in:", tiltOn:"Tilt your phone and the thoughts will roll 📱", tiltBtn:"📱 Tilt", csFlow:"How it works", openApp:"Open the app ↗︎", csWhy:"What makes it good", csStack:"Built with", csPrevL:"Previous project", csNextL:"Next project", hintHead:"knock, knock?", hintPg:"grab & throw!", hintEggs:`${EGGS.length} secrets… find them?`, cDetails:"peek", cDrag:"throw me", cMap:"✈️ fly", cTap:"knock!", cThought:"💭 think", cDice:"🎲 roll", spyStart:"Start", copied:"Copied!", copiedSub:"The e-mail address is on your clipboard", tvBannerSub:"Next stop: Africa"
 });
 
 /* ═══════════════════════════ data ═══════════════════════════ */
@@ -732,6 +732,7 @@ let headTaps = [];
 function tapHead(user){
   const h = $("#head");
   h.classList.remove("tap"); void h.offsetWidth; h.classList.add("tap");
+  if (user){ SFX.play("knock"); haptic(14); }
   const k = document.createElement("span");
   k.className = "knock"; k.textContent = T[lang].knock;
   k.style.left = (50 + (Math.random() * 40 - 20)) + "%"; k.style.top = "62%";
@@ -881,6 +882,7 @@ function stepBubbles(){
         a.x -= nx * push * wa; a.y -= ny * push * wa; b.x += nx * push * wb; b.y += ny * push * wb;
         const rel = (b.vx - a.vx) * nx + (b.vy - a.vy) * ny;
         if (rel < 0){
+          if (rel < -2.5 && pgVisible) bubbleBump(-rel);
           const imp = rel * .9;
           if (!a.drag){ a.vx += imp * nx; a.vy += imp * ny; }
           if (!b.drag){ b.vx -= imp * nx; b.vy -= imp * ny; }
@@ -900,7 +902,7 @@ function bindBubble(b){
   b.el.addEventListener("pointerdown", e => {
     e.preventDefault();
     b.el.setPointerCapture(e.pointerId);
-    b.drag = true; moved = 0; b.el.classList.add("drag");
+    b.drag = true; moved = 0; b.el.classList.add("drag"); haptic(6);
     const r = pg.getBoundingClientRect();
     sx = lx = e.clientX - r.left; sy = ly = e.clientY - r.top; lt = performance.now();
   });
@@ -928,9 +930,10 @@ const DICE = ["⚀","⚁","⚂","⚃","⚄","⚅"];
 const rollOne = () => Math.random() < 1/3 ? 6 : 1 + Math.floor(Math.random() * 5);
 function clickBubble(b){
   const d = b.d, L = d[lang], [x, y] = center(b.el);
+  SFX.play("pop", b.r / 50); haptic(10);
   b.vx += (Math.random() - .5) * 6; b.vy -= 4;
   if (d.act === "dice"){
-    const a = rollOne(), c = rollOne();
+    const a = rollOne(), c = rollOne(); SFX.play("rattle");
     setCaption(`<b>${L[0]}</b> ${DICE[a-1]} ${DICE[c-1]} = ${a + c}${a === 6 && c === 6 ? " 🎉" : ""}`, true);
     burst(x, y, ["🎲"], { count: 3, speed: [5, 9], size: [16, 24] });
     if (a === 6 && c === 6){ burst(x, y, ["🎲","✨","🎉"], { count: 22 }); unlock("dice"); }
@@ -953,7 +956,7 @@ function clickBubble(b){
 function popBubble(b){
   if (b.gone) return;
   const [x, y] = center(b.el);
-  b.gone = true; b.el.classList.add("gone");
+  b.gone = true; b.el.classList.add("gone"); SFX.play("pop", .6); haptic([8, 30, 8]);
   burst(x, y, ["💧","✨","🫧"], { count: 14, speed: [4, 10], gravity: .15, size: [12, 20] });
   setCaption(T[lang].popped, true);
   unlock("pop");
@@ -1040,8 +1043,8 @@ async function buildMap(){
     .on("zoom", e => { mapState.k = e.transform.k; g.attr("transform", e.transform); svg.node().style.touchAction = e.transform.k > 1 ? "none" : "pan-y"; g.attr("data-k", e.transform.k > 1.05 ? "in" : "out"); });
   svg.call(zoom); mapState.zoom = zoom;
   svg.on("wheel.hint", e => { if (!(e.ctrlKey || e.metaKey)) flashHint(); }, { passive: true });
-  $("#zIn").onclick = () => svg.transition().duration(450).call(zoom.scaleBy, 1.6);
-  $("#zOut").onclick = () => svg.transition().duration(450).call(zoom.scaleBy, 1 / 1.6);
+  $("#zIn").onclick = () => SFX.play("toggle", true) || svg.transition().duration(450).call(zoom.scaleBy, 1.6);
+  $("#zOut").onclick = () => SFX.play("toggle", false) || svg.transition().duration(450).call(zoom.scaleBy, 1 / 1.6);
   $("#zReset").onclick = () => { stopTour(); hideCard(); hotCountry(null); svg.transition().duration(700).ease(d3.easeCubicInOut).call(zoom.transform, d3.zoomIdentity); };
 
   fitMap(false);
@@ -1078,6 +1081,7 @@ async function buildMap(){
   const tap = e => {
     const now = performance.now(); if (now - lastTap < 400) return; lastTap = now;
     const k = keyAt(e); if (!k) return;
+    if (k === "Poland") homeTap();
     stopTour();
     if (k === PLANNED.key) nextStop();
     tip.classList.remove("on");
@@ -1200,11 +1204,12 @@ function flyPlane(key){
   st.pins.selectAll(".flight").remove();
   const plane = st.pins.append("text").attr("class", "pin flight").attr("text-anchor", "middle").attr("dy", ".35em").text("✈️");
   const am = plane.append("animateMotion").attr("dur", "1.15s").attr("fill", "freeze").attr("rotate", "auto").attr("begin", "indefinite").attr("path", d).attr("keySplines", ".4 0 .2 1").attr("keyTimes", "0;1").attr("calcMode", "spline");
-  am.node().beginElement();
+  am.node().beginElement(); SFX.play("whoosh");
   const a = anchor(BY_KEY.get(key));
   setTimeout(() => {
     plane.remove();
     if (!a) return;
+    SFX.play("land"); haptic(12);
     st.pins.append("circle").attr("class", "landing").attr("cx", a[0]).attr("cy", a[1]).attr("r", 6).on("animationend", function(){ this.remove(); });
   }, 1150);
 }
@@ -1348,6 +1353,7 @@ function openCase(slug, push = true){
   $("#csPrevN").textContent = "← " + prev.icon + " " + prev.name;
   $("#csNextN").textContent = next.icon + " " + next.name + " →";
   $("#caseScroll").scrollTop = 0;
+  SFX.play("swoosh");
   if (!d.open){ d.showModal(); document.documentElement.classList.add("case-open"); requestAnimationFrame(() => document.activeElement && document.activeElement.blur()); }
   if (push) history.replaceState(null, "", "#p/" + slug);
   setTimeout(() => $("#caseFlow").classList.add("in"), shots.length ? 700 : 250);
@@ -1489,6 +1495,180 @@ $("#trailMap").addEventListener("keydown", e => { if (e.key === "Enter"){ const 
 /* the travel bubble and stats fly you to the map */
 $$(".travel-stats div")[0].addEventListener("click", () => { if (!mapState) return; switchZoom("all"); setTimeout(startTour, 600); });
 
+/* ═══════════════════════════ senses: sound, touch, and new secrets ═══════════════════════════ */
+/* global feedback layer: a soft tick on hover, a click + haptic on press */
+let lastTickEl = null, lastTickT = 0;
+document.addEventListener("pointerover", e => {
+  if (e.pointerType !== "mouse") return;
+  const el = e.target.closest("a,button,.card,.chip,.cchip,.bubble,.cont,.bar-col,.hb,.kicker,.frame,.cp-sub .go");
+  if (!el || el === lastTickEl) return;
+  lastTickEl = el;
+  const now = performance.now(); if (now - lastTickT < 60) return; lastTickT = now;
+  SFX.play("tick");
+}, { passive: true });
+document.addEventListener("pointerdown", e => {
+  const el = e.target.closest("a,button,.card,.chip,.cchip,.cont,.frame,.cp-sub .go");
+  if (!el || el.closest(".bubble") || el.id === "soundBtn") return;
+  SFX.play("click"); haptic(8);
+}, { passive: true });
+let bumpT = 0;
+function bubbleBump(v){ const now = performance.now(); if (now - bumpT < 90) return; bumpT = now; SFX.play("bump", v / 40); if (v > 6) haptic(5); }
+
+/* sound toggle */
+const soundBtn = $("#soundBtn");
+const paintSound = () => { soundBtn.textContent = SFX.on ? "🔊︎" : "🔇︎"; soundBtn.classList.toggle("off", !SFX.on); soundBtn.setAttribute("aria-pressed", SFX.on); };
+soundBtn.addEventListener("click", () => { SFX.set(!SFX.on); paintSound(); toast(SFX.on ? "🔊" : "🔇", SFX.on ? T[lang].soundOn : T[lang].soundOff, "", 1600); });
+paintSound();
+
+/* 🎹 music: the commit chart is a xylophone */
+const playedBars = new Set();
+document.addEventListener("click", e => {
+  const col = e.target.closest(".bar-col"); if (!col) return;
+  const cols = $$("#bars .bar-col"), i = cols.indexOf(col);
+  const h = +col.querySelector(".b").dataset.h, max = Math.max(...cols.map(c => +c.querySelector(".b").dataset.h));
+  SFX.play("note", Math.round(h / max * 11) + 1, (i / (cols.length - 1)) * 1.4 - .7); haptic(6);
+  const b = col.querySelector(".b"); b.classList.remove("ring"); void b.offsetWidth; b.classList.add("ring");
+  const r = b.getBoundingClientRect(); burst(r.left + r.width / 2, r.top, ["♪", "♫"], { count: 2, spread: 50, speed: [3, 6], gravity: -.02, life: 1100, size: [16, 22] });
+  playedBars.add(i);
+  if (playedBars.size >= 7 && unlock("xylo")) banner(T[lang].eXylo, 2200);
+});
+
+/* 🚀 space: light every section number for a countdown */
+const litKickers = new Set();
+$$(".kicker").forEach(k => {
+  k.setAttribute("role", "button"); k.tabIndex = 0;
+  k.addEventListener("click", () => {
+    k.classList.remove("zap"); void k.offsetWidth; k.classList.add("zap", "lit");
+    litKickers.add(k.textContent.trim());
+    SFX.play("note", litKickers.size + 2); haptic(8);
+    if (litKickers.size === $$(".kicker").length) launch();
+  });
+});
+function launch(){
+  let n = 3;
+  const tick = () => {
+    if (n > 0){ banner(String(n), 900); SFX.play("knock"); haptic(20); n--; setTimeout(tick, 900); return; }
+    SFX.play("rocket"); haptic([30, 40, 60, 40, 90]);
+    const r = document.createElement("div"); r.className = "rocket"; r.textContent = "🚀"; document.body.appendChild(r);
+    r.animate([{ transform: "translate(-50%,0) rotate(-45deg) scale(.8)" }, { transform: "translate(-50%,-130vh) rotate(-45deg) scale(1.4)" }], { duration: 2400, easing: "cubic-bezier(.5,0,.75,0)" }).onfinish = () => r.remove();
+    const smoke = setInterval(() => burst(innerWidth / 2, innerHeight - 40, ["💨", "☁️", "✨"], { count: 3, spread: 60, angle: 90, speed: [2, 5], gravity: -.05, life: 1600 }), 90);
+    setTimeout(() => clearInterval(smoke), 1300);
+    setTimeout(() => banner(T[lang].eRocket, 2000), 600);
+    unlock("rocket");
+    setTimeout(() => { $$(".kicker").forEach(k => k.classList.remove("lit")); litKickers.clear(); }, 2600);
+  };
+  tick();
+}
+
+/* 🖍️ art: draw with chalk on the hero's chalkboard */
+(function chalk(){
+  const hero = $("#hero"), cv = document.createElement("canvas"); cv.className = "chalk-layer"; hero.appendChild(cv);
+  const ctx = cv.getContext("2d"); let drawing = false, last = null, total = 0, fadeT;
+  const size = () => { const d = Math.min(2, devicePixelRatio || 1); cv.width = hero.clientWidth * d; cv.height = hero.clientHeight * d; ctx.setTransform(d, 0, 0, d, 0, 0); };
+  size(); addEventListener("resize", size);
+  hero.addEventListener("pointerdown", e => {
+    if (e.pointerType === "touch" || e.button || e.target.closest("a,button,.cloud,.head,.mind-art,.cta")) return;
+    const r = hero.getBoundingClientRect(); last = [e.clientX - r.left, e.clientY - r.top];
+    drawing = true; cv.classList.remove("fade"); clearTimeout(fadeT);
+  });
+  addEventListener("pointermove", e => {
+    if (!drawing) return;
+    const r = hero.getBoundingClientRect(), p = [e.clientX - r.left, e.clientY - r.top], d = Math.hypot(p[0] - last[0], p[1] - last[1]);
+    if (d < 2) return;
+    ctx.strokeStyle = "rgba(255,212,59,.85)"; ctx.lineCap = "round"; ctx.lineJoin = "round";
+    for (let k = 0; k < 3; k++){ ctx.lineWidth = 2 + Math.random() * 2.5; ctx.globalAlpha = .35 + Math.random() * .4; ctx.beginPath(); ctx.moveTo(last[0] + (Math.random() - .5) * 2, last[1] + (Math.random() - .5) * 2); ctx.lineTo(p[0] + (Math.random() - .5) * 2, p[1] + (Math.random() - .5) * 2); ctx.stroke(); }
+    ctx.globalAlpha = 1; total += d; last = p;
+    if (Math.random() < .35) SFX.play("chalk");
+    if (total > 900 && unlock("chalk")) toast("🖍️", T[lang].eChalk, T[lang].eChalkSub, 3200);
+  });
+  addEventListener("pointerup", () => {
+    if (!drawing) return; drawing = false;
+    clearTimeout(fadeT); fadeT = setTimeout(() => { cv.classList.add("fade"); setTimeout(() => { if (cv.classList.contains("fade")) ctx.clearRect(0, 0, cv.width, cv.height); }, 1600); }, 2600);
+  });
+})();
+
+/* 🏠 geography: home, three times */
+let homeTaps = [];
+function homeTap(){
+  const now = Date.now(); homeTaps = homeTaps.filter(t => now - t < 2200).concat(now);
+  if (homeTaps.length < 3) return;
+  homeTaps = [];
+  const at = mapState && mapState.anchorClient && mapState.anchorClient(BY_KEY.get("Poland"));
+  if (at) burst(at.clientX, at.clientY, ["🏠", "❤️", "🥟", "✨"], { count: 26, speed: [5, 12], gravity: .1 });
+  banner(T[lang].eHome, 2800); SFX.play("fanfare");
+  unlock("home");
+}
+
+/* 🪄 literature: lumos / nox */
+function lumos(on){
+  const root = document.documentElement, want = on ? "light" : "dark";
+  SFX.play("magic"); haptic([10, 30, 10]);
+  burst(innerWidth / 2, innerHeight / 2, ["✨", "⭐", "✦"], { count: 30, speed: [5, 12], gravity: .02, life: 1400 });
+  banner(on ? T[lang].eLumos : T[lang].eNox, 1800);
+  if (root.dataset.theme !== want){
+    const flip = () => { root.dataset.theme = want; store.set("bj-theme", want); syncThemeColor(); };
+    root.style.setProperty("--vx", "50%"); root.style.setProperty("--vy", "50%");
+    document.startViewTransition && !reduced ? document.startViewTransition(flip) : flip();
+  }
+  unlock("lumos");
+}
+
+/* 🏃 sport: click my dot in the triathlon field */
+$("#triDots").addEventListener("click", e => {
+  const me = e.target.closest("i.me"); if (!me) return;
+  const dots = $$("#triDots i"), idx = dots.indexOf(me);
+  SFX.play("whoosh"); haptic([8, 20, 8, 20, 8]);
+  dots.slice(0, idx).reverse().forEach((d, k) => setTimeout(() => { d.classList.add("passed"); if (k % 3 === 0) SFX.play("tick"); setTimeout(() => d.classList.remove("passed"), 1400); }, k * 45));
+  const r = me.getBoundingClientRect();
+  setTimeout(() => { burst(r.left + r.width / 2, r.top, ["🏃", "💨", "🏅"], { count: 14, speed: [5, 10] }); toast("🏃", T[lang].eOvertake, T[lang].eOvertakeSub, 3200); unlock("overtake"); }, idx * 45 + 200);
+});
+
+/* ❤️ biology: press and hold a medal */
+$("#medals").addEventListener("pointerdown", e => {
+  const m = e.target.closest(".medal-card"); if (!m) return;
+  let beats = 0, iv = null;
+  const hold = setTimeout(() => {
+    m.classList.add("pulse");
+    const beat = () => { SFX.play("beat"); haptic([20, 160, 14]); m.classList.remove("thump"); void m.offsetWidth; m.classList.add("thump"); if (++beats === 4 && unlock("heart")) banner(T[lang].eHeart, 2600); };
+    beat(); iv = setInterval(beat, 400);
+  }, 550);
+  const stop = () => { clearTimeout(hold); clearInterval(iv); m.classList.remove("pulse", "thump"); removeEventListener("pointerup", stop); removeEventListener("pointercancel", stop); };
+  addEventListener("pointerup", stop); addEventListener("pointercancel", stop);
+});
+$("#medals").addEventListener("contextmenu", e => { if (e.target.closest(".medal-card")) e.preventDefault(); });
+
+/* 🦉 time: night owls and early birds */
+setTimeout(() => {
+  const h = new Date().getHours();
+  if (h >= 0 && h < 5){ SFX.play("owl"); toast("🦉", T[lang].eOwl, T[lang].eOwlSub, 4500); unlock("owl"); }
+  else if (h >= 5 && h < 7){ toast("🐦", T[lang].eBird, T[lang].eBirdSub, 4500); unlock("owl"); }
+}, 5000);
+
+/* ☕ food: sip the coffee thought */
+function coffee(){
+  const [x, y] = center($("#cloud"));
+  SFX.play("sip"); haptic([6, 40, 6]);
+  burst(x, y, ["☕", "♨️", "💨", "✨"], { count: 18, angle: -90, spread: 50, speed: [3, 7], gravity: -.06, life: 1800 });
+  banner(T[lang].eCoffee, 2200);
+  unlock("coffee");
+}
+$("#cloud").addEventListener("click", () => { if ($("#thought").textContent.includes("☕")) coffee(); }, { capture: true });
+
+/* 🍎 physics: switch on gravity for the thoughts */
+function newton(){
+  const go = () => {
+    SFX.play("apple"); haptic([10, 400, 30]);
+    const r = pg.getBoundingClientRect();
+    for (let i = 0; i < 6; i++) setTimeout(() => burst(r.left + Math.random() * r.width, r.top + 10, ["🍎"], { count: 1, angle: 90, spread: 20, speed: [1, 3], gravity: .5, life: 1600, size: [26, 34] }), i * 120);
+    tilt.on = true; tilt.x = 0; tilt.y = 1.2;
+    banner(T[lang].eNewton, 2200);
+    setTimeout(() => { tilt.on = $("#tiltBtn").classList.contains("on"); tilt.y = 0; }, 6000);
+    unlock("newton");
+  };
+  const r = pg.getBoundingClientRect();
+  if (r.bottom < 0 || r.top > innerHeight){ smoothTo(pg, -120); setTimeout(go, 1300); } else go();
+}
+
 /* ═══════════════════════════ cursor + global fx ═══════════════════════════ */
 (function cursor(){
   if (!matchMedia("(pointer:fine)").matches) return;
@@ -1602,6 +1782,7 @@ let themeClicks = [];
 let vtBusy = false;
 $("#themeBtn").addEventListener("click", e => {
   const root = document.documentElement;
+  SFX.play("swoosh"); haptic(10);
   const flip = () => { root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light"; store.set("bj-theme", root.dataset.theme); syncThemeColor(); };
   if (document.startViewTransition && !reduced && !vtBusy){
     const [x, y] = center(e.currentTarget);
@@ -1694,6 +1875,10 @@ addEventListener("keydown", e => {
   else if (hit("taco") || hit("quebo")) playRap();
   else if (hit("matrix")) matrix();
   else if (hit("pooh") || hit("puchatek") || hit("hunny") || hit("kubus") || hit("kubuś")) hunny();
+  else if (hit("lumos")) lumos(true);
+  else if (hit("nox")) lumos(false);
+  else if (hit("newton")) newton();
+  else if (hit("kawa") || hit("coffee")) coffee();
   else if (hit("barrel")){ document.documentElement.classList.add("barrel"); setTimeout(() => document.documentElement.classList.remove("barrel"), 1500); unlock("barrel"); }
 });
 function konami(){
@@ -1702,7 +1887,7 @@ function konami(){
   if (!unlock("konami")) toast("🕹️", on ? T[lang].retroOn : T[lang].retroOff, "↑↑↓↓←→←→BA", 2500);
 }
 
-function openEggs(){ renderEggPanel(); if (!$("#eggs").open) $("#eggs").showModal(); }
+function openEggs(){ SFX.play("sparkle"); renderEggPanel(); if (!$("#eggs").open) $("#eggs").showModal(); }
 $("#trophyBtn").addEventListener("click", openEggs);
 $("#eggsClose").addEventListener("click", () => closeDialog($("#eggs")));
 

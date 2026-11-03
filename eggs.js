@@ -23,6 +23,16 @@ const EGGS = [
   { id:"barrel",  icon:"🌀", pl:["Beczka","Wpisz „barrel” jak w starym triku Google."], en:["Barrel Roll","Type “barrel”, like the old Google trick."] },
   { id:"hundred", icon:"💯", pl:["Sto na sto","Wpisz liczbę, która łączy dystans i miejsce na Łemkowynie."], en:["A Hundred for a Hundred","Type the number that links distance and place at Łemkowyna."] },
   { id:"morocco", icon:"🐪", pl:["Następny przystanek","Kliknij kraj, do którego dopiero jadę."], en:["Next Stop","Click the country I haven't visited yet."] },
+  { id:"xylo",    icon:"🎹", pl:["Ksylofon commitów","Wykres commitów też potrafi zagrać. Stuknij kilka słupków."], en:["Commit Xylophone","The commit chart can play too. Tap a few bars."] },
+  { id:"rocket",  icon:"🚀", pl:["Odliczanie","Numery sekcji to nie ozdoba. Zapal wszystkie."], en:["Countdown","Section numbers aren't decoration. Light them all."] },
+  { id:"chalk",   icon:"🖍️", pl:["Kreda","To jest tablica. Spróbuj na niej porysować."], en:["Chalk","This is a chalkboard. Try drawing on it."] },
+  { id:"home",    icon:"🏠", pl:["Dom","Na mapie stuknij trzy razy w kraj, z którego wszystko startuje."], en:["Home","On the map, tap the country where every trip starts three times."] },
+  { id:"lumos",   icon:"🪄", pl:["Lumos","Zaklęcie, które zapala światło. Wpisz je."], en:["Lumos","The spell that turns on the light. Type it."] },
+  { id:"overtake",icon:"🏃", pl:["Wyprzedzanie","Na triathlonie jestem jedną z kropek. Kliknij mnie."], en:["Overtaking","At the triathlon I'm one of the dots. Click me."] },
+  { id:"heart",   icon:"❤️", pl:["Tętno","Przytrzymaj medal dłużej. Poczuj, jak bije serce na trasie."], en:["Heartbeat","Press and hold a medal. Feel the heart beat on course."] },
+  { id:"owl",     icon:"🦉", pl:["Nocny marek","Zajrzyj tu w środku nocy albo o świcie."], en:["Night Owl","Drop by in the middle of the night or at dawn."] },
+  { id:"coffee",  icon:"☕", pl:["Kofeina","Gdy w chmurce pojawi się kawa, weź łyka."], en:["Caffeine","When coffee shows up in the cloud, take a sip."] },
+  { id:"newton",  icon:"🍎", pl:["Grawitacja","Wpisz nazwisko człowieka, któremu jabłko spadło na głowę."], en:["Gravity","Type the name of the man an apple fell on."] },
   { id:"lost",    icon:"🧭", pl:["Zgubiony na szlaku","Wejdź na adres, który nie istnieje."], en:["Lost on the Trail","Visit a page that doesn't exist."] }
 ];
 
@@ -39,6 +49,93 @@ const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const getLang = () => document.documentElement.lang === "en" ? "en" : "pl";
 let found = new Set(store.get("bj-eggs", []));
 
+/* ═══════════ sound: tiny synth, no audio files. Soft, warm, quiet. ═══════════ */
+const SFX = (() => {
+  let ctx = null, master = null, on = store.get("bj-sound", true);
+  const init = () => {
+    if (ctx) return ctx;
+    const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null;
+    ctx = new AC();
+    master = ctx.createGain(); master.gain.value = .2;
+    const comp = ctx.createDynamicsCompressor(); comp.threshold.value = -18;
+    master.connect(comp); comp.connect(ctx.destination);
+    return ctx;
+  };
+  const wake = () => { if (!on) return; init(); if (ctx && ctx.state === "suspended") ctx.resume(); };
+  ["pointerdown", "keydown", "touchend"].forEach(t => addEventListener(t, wake, { passive: true, capture: true }));
+  const ready = () => on && ctx && ctx.state === "running";
+  function tone(freq, { type = "sine", dur = .18, vol = .5, attack = .006, when = 0, slide = 0, filter = 0, pan = 0 } = {}){
+    if (!ready()) return;
+    const t = ctx.currentTime + when, o = ctx.createOscillator(), g = ctx.createGain();
+    o.type = type; o.frequency.setValueAtTime(freq, t);
+    if (slide) o.frequency.exponentialRampToValueAtTime(Math.max(30, freq * slide), t + dur);
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + attack); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+    let node = o;
+    if (filter){ const f = ctx.createBiquadFilter(); f.type = "lowpass"; f.frequency.value = filter; o.connect(f); node = f; }
+    if (pan && ctx.createStereoPanner){ const p = ctx.createStereoPanner(); p.pan.value = pan; node.connect(p); node = p; }
+    node.connect(g); g.connect(master); o.start(t); o.stop(t + dur + .05);
+  }
+  let noiseBuf = null;
+  function noise({ dur = .3, vol = .3, from = 800, to = 3000, when = 0, type = "bandpass", q = 1 } = {}){
+    if (!ready()) return;
+    if (!noiseBuf){ noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 2.5, ctx.sampleRate); const d = noiseBuf.getChannelData(0); for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1; }
+    const t = ctx.currentTime + when, s = ctx.createBufferSource(); s.buffer = noiseBuf;
+    const f = ctx.createBiquadFilter(); f.type = type; f.Q.value = q; f.frequency.setValueAtTime(from, t); f.frequency.exponentialRampToValueAtTime(to, t + dur);
+    const g = ctx.createGain(); g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + dur * .25); g.gain.exponentialRampToValueAtTime(.0001, t + dur);
+    s.connect(f); f.connect(g); g.connect(master); s.start(t, Math.random()); s.stop(t + dur);
+  }
+  /* C major pentatonic: everything played together still sounds nice */
+  const P = [261.63, 293.66, 329.63, 392, 440, 523.25, 587.33, 659.25, 783.99, 880, 1046.5, 1174.66, 1318.51];
+  const lib = {
+    tick: () => tone(2100, { dur: .035, vol: .05 }),
+    click: () => tone(700, { type: "triangle", dur: .08, vol: .2, slide: .62 }),
+    toggle: up => tone(up ? 660 : 495, { type: "triangle", dur: .14, vol: .22, slide: up ? 1.5 : .67 }),
+    pop: (size = 1) => { tone(1100 / size, { dur: .13, vol: .35, slide: .3 }); noise({ dur: .05, vol: .1, from: 4000, to: 1500 }); },
+    bump: (v = .2) => tone(180 + Math.random() * 60, { dur: .07, vol: Math.min(.25, v), slide: .7, filter: 900 }),
+    knock: () => { tone(170, { dur: .12, vol: .55, slide: .5 }); noise({ dur: .045, vol: .18, from: 1400, to: 400, type: "lowpass" }); },
+    chime: () => [5, 7, 9, 12].forEach((n, i) => tone(P[n], { dur: .9, vol: .2, when: i * .085, filter: 5000 })),
+    sparkle: () => [12, 10, 9, 7].forEach((n, i) => tone(P[n] * 1.5, { dur: .3, vol: .08, when: i * .045 })),
+    blip: () => tone(1320, { dur: .08, vol: .1, slide: 1.3 }),
+    whoosh: () => noise({ dur: .7, vol: .28, from: 260, to: 2600, q: .7 }),
+    swoosh: () => noise({ dur: .4, vol: .2, from: 2400, to: 420, q: .6 }),
+    land: () => { tone(330, { dur: .25, vol: .18, slide: .66 }); tone(523, { dur: .3, vol: .1, when: .06 }); },
+    note: (i, pan = 0) => { const f = P[Math.max(0, Math.min(P.length - 1, i))]; tone(f, { type: "triangle", dur: .7, vol: .28, filter: 2600, pan }); tone(f * 2, { dur: .35, vol: .06, pan }); },
+    beat: () => { tone(62, { dur: .16, vol: .9, slide: .55 }); tone(54, { dur: .16, vol: .55, when: .19, slide: .55 }); },
+    rocket: () => { noise({ dur: 2.6, vol: .35, from: 140, to: 1600, q: .4 }); tone(80, { type: "sawtooth", dur: 2.4, vol: .06, slide: 3, filter: 400 }); },
+    chalk: () => noise({ dur: .07, vol: .05, from: 3200, to: 4200, q: 3 }),
+    rattle: () => { for (let i = 0; i < 6; i++) noise({ dur: .04, vol: .12, from: 1800, to: 900, when: i * .05, q: 2 }); },
+    sip: () => { noise({ dur: .35, vol: .14, from: 600, to: 1500, q: 3 }); tone(220, { dur: .2, vol: .1, when: .35, slide: 1.4 }); },
+    magic: () => [0, 2, 4, 5, 7, 9, 12].forEach((n, i) => tone(P[n] * 2, { dur: .5, vol: .09, when: i * .05 })),
+    apple: () => { tone(900, { dur: .5, vol: .12, slide: .25 }); tone(140, { dur: .12, vol: .5, when: .5, slide: .6 }); },
+    owl: () => { tone(392, { dur: .35, vol: .14, slide: .9 }); tone(349, { dur: .5, vol: .14, when: .42, slide: .85 }); },
+    fanfare: () => [[0, 0], [2, .12], [4, .24], [7, .36], [9, .48], [12, .6]].forEach(([n, w]) => tone(P[n] * 2, { type: "triangle", dur: .5, vol: .12, when: w }))
+  };
+  return {
+    play(n, ...a){ try { lib[n] && lib[n](...a); } catch(e){} },
+    get on(){ return on; },
+    set(v){ on = v; store.set("bj-sound", v); if (v){ wake(); setTimeout(() => lib.toggle(true), 30); } }
+  };
+})();
+
+/* haptics: vibrate where supported; on iOS 18+ a hidden <input switch> gives the system "tick" */
+const haptic = (() => {
+  let lbl = null, last = 0;
+  return (pattern = 8) => {
+    if (!SFX.on) return;
+    const now = performance.now(); if (now - last < 40) return; last = now;
+    if (navigator.vibrate){ try { navigator.vibrate(pattern); } catch(e){} return; }
+    if (!matchMedia("(pointer:coarse)").matches) return;
+    if (!lbl){
+      const i = document.createElement("input"); i.type = "checkbox"; i.setAttribute("switch", ""); i.id = "bj-haptic"; i.tabIndex = -1; i.setAttribute("aria-hidden", "true");
+      i.style.cssText = "position:fixed;left:-99px;top:0;opacity:0;pointer-events:none";
+      lbl = document.createElement("label"); lbl.htmlFor = "bj-haptic"; lbl.style.display = "none";
+      document.body.append(i, lbl);
+    }
+    lbl.click();
+  };
+})();
+
+
 function toast(icon, title, sub, ms = 4200){
   const box = document.getElementById("toasts"); if (!box) return;
   const el = document.createElement("div");
@@ -47,6 +144,7 @@ function toast(icon, title, sub, ms = 4200){
   el.querySelector("b").textContent = title;
   el.querySelector("small").textContent = sub || "";
   box.appendChild(el);
+  SFX.play("blip");
   setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 400); }, ms);
 }
 
@@ -76,6 +174,7 @@ function burst(x, y, emojis, { count = 24, spread = 360, angle = -90, speed = [6
 const confetti = () => burst(innerWidth / 2, innerHeight * .9, ["🎉","✨","💛","⭐","🟡","💡"], { count: 40, spread: 70, speed: [14, 24], gravity: .45, life: 2200, size: [12, 24] });
 
 function banner(html, ms = 2600){
+  SFX.play("sparkle");
   const b = document.createElement("div");
   b.className = "banner"; b.innerHTML = `<div>${html}</div>`;
   document.body.appendChild(b);
@@ -88,9 +187,10 @@ function unlock(id){
   found.add(id); store.set("bj-eggs", [...found]);
   const L = getLang(), u = EggUI[L];
   toast(egg.icon, `${u.found} ${egg[L][0]}`, `${found.size} ${u.of} ${EGGS.length}`);
+  setTimeout(() => SFX.play("chime"), 60); haptic([12, 50, 12, 50, 24]);
   updateEggCount(true);
   if (found.size === EGGS.length){
-    setTimeout(() => { confetti(); setTimeout(confetti, 400); toast("🏆", u.all, u.allTxt, 7000); }, 900);
+    setTimeout(() => { confetti(); setTimeout(confetti, 400); SFX.play("fanfare"); toast("🏆", u.all, u.allTxt, 7000); }, 900);
   }
   return true;
 }
