@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bartosz Jatczyszyn · Think, Think, Think</title>
+<meta name="description" content="Bartosz Jatczyszyn: programista, triathlonista i ultramaratończyk z Krakowa. Zajrzyj do głowy: projekty, liczby, myśli i kilka sekretów.">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:title" content="Bartosz Jatczyszyn · Think, Think, Think">
+<meta property="og:description" content="Zajrzyj do głowy: projekty, myśli i kilka sekretów.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Press+Start+2P&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230b0b0c'/><path d='M9 21c-3 0-4-3-2-4-1-3 2-5 4-4 1-3 6-3 7 0 2-2 6 0 5 3 3 1 2 5-1 5-1 2-4 2-5 1-2 2-5 1-6 0z' fill='none' stroke='%23ffd43b' stroke-width='1.8' stroke-linejoin='round'/><circle cx='12' cy='25' r='1.2' fill='%23ffd43b'/><circle cx='10' cy='28' r='.8' fill='%23ffd43b'/></svg>">
+</head>
+<body>
+<!--
+   Think, think, think… 🧠
+   Skoro czytasz źródło, to jesteś z tych, co zaglądają pod maskę.
+   Otwórz konsolę (F12). Tam czeka coś jeszcze.
+-->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="3.5"/></filter>
+  <filter id="rough2"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="3"/><feDisplacementMap in="SourceGraphic" scale="6"/></filter>
+</svg>
+
+<div class="cursor" aria-hidden="true"><div class="cur-ring"><span class="cur-lbl"></span></div><div class="cur-dot"></div></div>
+<div class="track" aria-hidden="true"><div class="track-fill"></div><span class="runner">🏃</span></div>
+
+<div id="intro" aria-hidden="true">
+  <div class="intro-dots"><i></i><i></i><i></i></div>
+</div>
+
+<header class="top">
+  <div class="wrap bar">
+    <button class="logo" id="logo" aria-label="Bartosz Jatczyszyn">
+      <svg viewBox="0 0 64 44"><path d="M14 36c-8 0-10-8-4-10-3-8 5-13 11-9 2-9 15-10 18-2 5-5 15-1 13 6 8 2 6 13-2 13-2 5-10 6-13 2-5 5-13 3-14-2z"/></svg>
+      <span>BJ</span>
+    </button>
+    <nav>
+      <a href="#trail" data-i18n="navTrail"></a>
+      <a href="#projects" data-i18n="navProjects"></a>
+      <a href="#skills" data-i18n="navSkills"></a>
+      <a href="#mind" data-i18n="navMind"></a>
+      <a href="#run" data-i18n="navRun"></a>
+      <a href="#travel" data-i18n="navTravel"></a>
+      <a href="#contact" data-i18n="navContact"></a>
+    </nav>
+    <div class="tools">
+      <button class="chip-btn trophy" id="trophyBtn" aria-label="Easter eggs"><span>🥚</span><b id="eggCount">0</b></button>
+      <button class="chip-btn" id="langBtn" aria-label="Change language">EN</button>
+      <button class="chip-btn" id="themeBtn" aria-label="Toggle theme"><span class="sun">☀︎</span><span class="moon">☾</span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="spy" id="spy" aria-label="Sekcje"></nav>
+<div class="hint h-eggs" id="hintEggs" aria-hidden="true"><svg viewBox="0 0 60 40"><path d="M50 36 C 46 20, 36 8, 14 6 M24 2 L13 6 L22 14"/></svg><span data-i18n="hintEggs"></span></div>
+
+<div id="app">
+<main>
+  <!-- ───────── HERO ───────── -->
+  <section class="hero" id="hero">
+    <canvas id="neurons" aria-hidden="true"></canvas>
+    <button class="wish-star" id="wishStar" aria-label="✨"></button>
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <h1 class="scribble" id="scribble" aria-label="Think, Think, Think">
+          <span class="w">Think,</span> <span class="w">Think,</span> <span class="w">Think</span><span class="pencil" aria-hidden="true">✏️</span>
+        </h1>
+        <p class="hello"><span data-i18n="hello"></span> <span class="name">Bartosz<svg class="underline" viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 40 4, 90 18, 130 9 S 185 6, 197 12"/></svg></span></p>
+        <div class="typer"><span data-i18n="iam"></span> <span class="typed" id="typed"></span><span class="caret">|</span></div>
+        <p class="lead" data-i18n="lead"></p>
+        <div class="cta">
+          <a class="btn primary magnetic" href="#projects"><span data-i18n="ctaProjects"></span> →</a>
+          <a class="btn ghost magnetic" href="https://www.linkedin.com/in/bartosz-jatczyszyn/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            LinkedIn</a>
+          <a class="btn ghost magnetic icon-only" href="https://github.com/BartoszJatczyszyn" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="mind-art">
+        <button class="cloud" id="cloud" aria-label="💭">
+          <svg viewBox="0 0 300 200" aria-hidden="true"><path pathLength="1" d="M62 152 C 18 154, 8 104, 46 96 C 30 54, 78 28, 108 50 C 122 14, 178 8, 192 46 C 218 18, 270 34, 262 76 C 298 86, 292 142, 252 146 C 248 178, 200 188, 180 166 C 160 192, 108 192, 98 166 C 78 182, 46 172, 62 152 Z"/></svg>
+          <span class="thought" id="thought"></span>
+        </button>
+        <div class="tdots" aria-hidden="true"><i></i><i></i></div>
+        <div class="hint h-head" id="hintHead" aria-hidden="true"><span data-i18n="hintHead"></span><svg viewBox="0 0 60 40"><path d="M4 8 C 24 4, 44 14, 52 32 M42 28 L52 33 L54 22"/></svg></div>
+        <button class="head" id="head" aria-label="Think!"><img src="head.png" alt="Bartosz" width="250" height="142"></button>
+      </div>
+    </div>
+    <a class="scroll-hint" href="#marquee"><span data-i18n="scrollHint"></span>
+      <svg viewBox="0 0 40 60" aria-hidden="true"><path d="M20 4 C 14 20, 26 30, 20 52 M10 42 L20 54 L30 42"/></svg></a>
+  </section>
+
+  <!-- ───────── MARQUEE ───────── -->
+  <div class="marquee" id="marquee" aria-hidden="true">
+    <div class="mq-row"><div class="mq-track" id="mq1"></div></div>
+    <div class="mq-row rev"><div class="mq-track" id="mq2"></div></div>
+  </div>
+
+  <!-- ───────── STATS ───────── -->
+  <section class="wrap stats reveal">
+    <div class="stat-card"><div class="num" data-count="3">0</div><div class="lbl" data-i18n="sYears"></div></div>
+    <div class="stat-card"><div class="num" id="statProjects" data-count="19">0</div><div class="lbl" data-i18n="sProjects"></div></div>
+    <div class="stat-card"><div class="num" data-count="2201">0</div><div class="lbl" data-i18n="sCommits"></div></div>
+    <div class="stat-card"><div class="num" data-count="100">0</div><div class="lbl" data-i18n="sUltra"></div></div>
+    <div class="stat-card"><div class="num" data-count="2">0</div><div class="lbl" data-i18n="sDegrees"></div></div>
+  </section>
+
+  <!-- ───────── TRAIL (experience) ───────── -->
+  <section id="trail" class="wrap section">
+    <div class="sec-head reveal">
+      <span class="kicker">01</span>
+      <h2 data-i18n="trailTitle"></h2>
+      <svg class="squiggle" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 10 Q 20 2, 38 10 T 74 10 T 110 10 T 146 10 T 182 10 T 218 10 T 254 10 T 298 10"/></svg>
+      <p data-i18n="trailLead"></p>
+    </div>
+    <div class="trail-map" id="trailMap"></div>
+  </section>
+
+  <!-- ───────── PROJECTS ───────── -->
+  <section id="projects" class="wrap section">
+    <div class="sec-head reveal">
+      <span class="kicker">02</span>
+      <h2 data-i18n="projectsTitle"></h2>
+      <svg class="squiggle" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 10 Q 20 2, 38 10 T 74 10 T 110 10 T 146 10 T 182 10 T 218 10 T 254 10 T 298 10"/></svg>
+      <p data-i18n="projectsLead"></p>
+    </div>
+    <div class="filters reveal" id="filters"><span class="pill"></span></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- ───────── SKILLS ───────── -->
+  <section id="skills" class="wrap section">
+    <div class="sec-head reveal">
+      <span class="kicker">03</span>
+      <h2 data-i18n="skillsTitle"></h2>
+      <svg class="squiggle" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 10 Q 20 2, 38 10 T 74 10 T 110 10 T 146 10 T 182 10 T 218 10 T 254 10 T 298 10"/></svg>
+      <p data-i18n="skillsLead"></p>
+    </div>
+    <div class="skill-tools reveal">
+      <div class="seg-toggle" id="skillToggle"><button class="on" data-mode="all" data-i18n="skAll"></button><button data-mode="pro" data-i18n="skPro"></button></div>
+      <div class="sk-legend"><span><i class="pro"></i><span data-i18n="skLegPro"></span></span><span><i></i><span data-i18n="skLegOwn"></span></span></div>
+    </div>
+    <div class="toolbox" id="toolbox"></div>
+    <div class="extras">
+      <div class="panel sketch reveal"><h3 data-i18n="langsSpoken"></h3><div class="spoken" id="spoken"></div></div>
+      <div class="panel sketch reveal"><h3 data-i18n="certsTitle"></h3><ul class="certs" id="certs"></ul></div>
+    </div>
+  </section>
+
+  <!-- ───────── NUMBERS ───────── -->
+  <section id="numbers" class="wrap section">
+    <div class="sec-head reveal">
+      <span class="kicker">04</span>
+      <h2 data-i18n="numbersTitle"></h2>
+      <svg class="squiggle" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 10 Q 20 2, 38 10 T 74 10 T 110 10 T 146 10 T 182 10 T 218 10 T 254 10 T 298 10"/></svg>
+      <p data-i18n="numbersLead"></p>
+    </div>
+    <div class="charts">
+      <div class="panel sketch reveal" id="langPanel">
+        <h3 data-i18n="chartLangs"></h3>
+        <div class="donut-wrap">
+          <svg class="donut" viewBox="0 0 160 160" id="donut"></svg>
+          <div class="donut-center"><b id="donutVal">21</b><span id="donutLbl"></span></div>
+        </div>
+        <ul class="legend" id="legend"></ul>
+      </div>
+      <div class="panel sketch wide reveal" id="commitPanel">
+        <h3 data-i18n="chartCommits"></h3>
+        <div class="bars" id="bars"></div>
+        <p class="note" data-i18n="chartCommitsNote"></p>
+      </div>
+      <div class="panel sketch wide reveal" id="projPanel">
+        <h3 data-i18n="chartPerProject"></h3>
+        <div class="hbars" id="hbars"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── MIND (bubbles) ───────── -->
+  <section id="mind" class="section mind">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="kicker">05</span>
+        <h2 data-i18n="mindTitle"></h2>
+        <svg class="squiggle" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 10 Q 20 2, 38 10 T 74 10 T 110 10 T 146 10 T 182 10 T 218 10 T 254 10 T 298 10"/></svg>
+        <p data-i18n="mindLead"></p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="playground reveal" id="playground">
+        <div class="hint h-pg" aria-hidden="true"><svg viewBox="0 0 60 40"><path d="M56 6 C 36 4, 16 12, 8 30 M4 20 L8 31 L18 26"/></svg><span data-i18n="hintPg"></span></div>
+        <div class="caption" id="caption"><span id="captionTxt"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── RUN ───────── -->
+  <section id="run" class="wrap section">
+    <div class="sec-head reveal">
+      <span class="kicker">06</span>
+      <h2 data-i18n="runTitle"></h2>
+      <svg class="squiggle" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 10 Q 20 2, 38 10 T 74 10 T 110 10 T 146 10 T 182 10 T 218 10 T 254 10 T 298 10"/></svg>
+      <p data-i18n="runLead"></p>
+    </div>
+    <div class="medals" id="medals"></div>
+    <div class="race-charts">
+      <div class="panel sketch reveal" id="marPanel">
+        <h3 data-i18n="marChartTitle"></h3>
+        <div class="callout" id="marCallout"></div>
+        <svg class="rchart" id="marChart" viewBox="0 0 520 240" aria-label="Cracovia Maraton 2023"></svg>
+        <p class="note" data-i18n="marChartNote"></p>
+      </div>
+      <div class="panel sketch reveal" id="ultPanel">
+        <h3 data-i18n="ultChartTitle"></h3>
+        <div class="callout" id="ultCallout"></div>
+        <svg class="rchart" id="ultChart" viewBox="0 0 520 240" aria-label="Łemkowyna Trail 100"></svg>
+        <p class="note" data-i18n="ultChartNote"></p>
+      </div>
+      <div class="panel sketch reveal" id="triPanel">
+        <h3 data-i18n="triChartTitle"></h3>
+        <div class="dots" id="triDots"></div>
+        <p class="note" data-i18n="triChartNote"></p>
+      </div>
+      <div class="panel sketch distance reveal" id="distance">
+        <h3 data-i18n="distTitle"></h3>
+        <div class="lane"><span class="lane-lbl" data-i18n="distMar"></span><div class="lane-track"><div class="lane-fill" style="--w:20.6%"><span>🏃</span></div></div><b>3:59:43</b></div>
+        <div class="lane"><span class="lane-lbl" data-i18n="distUlt"></span><div class="lane-track"><div class="lane-fill ult" style="--w:100%"><span>🏔️</span></div></div><b>19:26:59</b></div>
+        <p class="note" data-i18n="distNote"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── TRAVEL ───────── -->
+  <section id="travel" class="wrap section">
+    <div class="sec-head reveal">
+      <span class="kicker">07</span>
+      <h2 data-i18n="travelTitle"></h2>
+      <svg class="squiggle" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 10 Q 20 2, 38 10 T 74 10 T 110 10 T 146 10 T 182 10 T 218 10 T 254 10 T 298 10"/></svg>
+      <p data-i18n="travelLead"></p>
+    </div>
+    <div class="travel-stats reveal">
+      <div><b class="num-sm" data-count="24">0</b><span data-i18n="tvCountries"></span></div>
+      <div><b class="num-sm" data-count="25">0</b><span data-i18n="tvRegions"></span></div>
+      <div><b class="num-sm" data-count="3.5" data-dec="1">0</b><span data-i18n="tvWorld"></span></div>
+      <div><b class="num-sm">🧭</b><span data-i18n="tvRank"></span></div>
+    </div>
+    <div class="panel sketch map-panel reveal" id="mapPanel">
+      <div class="map-tools">
+        <div class="seg-toggle" id="mapZoom"><button class="on" data-z="europe" data-i18n="tvEurope"></button><button data-z="all" data-i18n="tvAll"></button></div>
+        <div class="sk-legend"><span><i class="pro"></i><span data-i18n="tvLegVisited"></span></span><span><i class="plan"></i><span data-i18n="tvLegPlanned"></span></span><span>🏠 <span>Kraków</span></span></div>
+      </div>
+      <div class="map-wrap" id="mapWrap">
+        <svg id="worldMap" role="img" aria-label="Mapa odwiedzonych krajów"></svg>
+        <div class="map-tip" id="mapTip"></div>
+        <div class="map-loading" id="mapLoading">✈️ …</div>
+      </div>
+      <div class="country-chips" id="countryChips"></div>
+    </div>
+    <div class="next-stop reveal">
+      <button class="next-card" id="nextStop">
+        <span class="ns-plane">✈️</span>
+        <span class="ns-txt"><small data-i18n="tvNextSmall"></small><b data-i18n="tvNext"></b></span>
+        <span class="ns-flag">🇲🇦</span>
+      </button>
+      <button class="gq-link" id="gqLink"><span data-i18n="tvGq"></span> →</button>
+    </div>
+  </section>
+
+  <!-- ───────── CONTACT ───────── -->
+  <section id="contact" class="contact">
+    <div class="wrap contact-inner reveal">
+      <svg class="contact-cloud" viewBox="0 0 300 200" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M62 152 C 18 154, 8 104, 46 96 C 30 54, 78 28, 108 50 C 122 14, 178 8, 192 46 C 218 18, 270 34, 262 76 C 298 86, 292 142, 252 146 C 248 178, 200 188, 180 166 C 160 192, 108 192, 98 166 C 78 182, 46 172, 62 152 Z"/></svg>
+      <div class="contact-text">
+        <span class="kicker">08</span>
+        <p class="ask" data-i18n="contactAsk"></p>
+        <h2 class="hand" data-i18n="contactTitle"></h2>
+        <div class="cta center">
+          <a class="btn primary magnetic" href="mailto:bartosz.jat@gmail.com">✉️ bartosz.jat@gmail.com</a>
+          <button class="btn ghost magnetic" id="copyMail" type="button">📋 <span data-i18n="copyMail"></span></button>
+          <a class="btn ghost magnetic" href="https://www.linkedin.com/in/bartosz-jatczyszyn/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn ghost magnetic" href="https://github.com/BartoszJatczyszyn" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="finish" id="finish" aria-hidden="true"><span data-i18n="finish"></span></div>
+  <div class="wrap foot">
+    <div class="made">
+      <button class="dragon" id="dragon" aria-label="🐉">🐉</button>
+      <span data-i18n="madeIn"></span>
+    </div>
+    <div class="foot-links">
+      <a href="mailto:bartosz.jat@gmail.com">bartosz.jat@gmail.com</a>
+      <a href="https://www.linkedin.com/in/bartosz-jatczyszyn/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://github.com/BartoszJatczyszyn" target="_blank" rel="noopener">GitHub ↗</a>
+      <span>© <span id="year"></span> Bartosz Jatczyszyn</span>
+    </div>
+  </div>
+</footer>
+</div>
+
+<dialog id="modal" data-lenis-prevent>
+  <div class="modal-cover" id="mCover"><span id="mIcon"></span></div>
+  <div class="modal-body">
+    <div class="modal-kind" id="mKind"></div>
+    <h3 id="mTitle"></h3>
+    <p id="mDesc"></p>
+    <ul id="mPts"></ul>
+    <div class="tags" id="mTags"></div>
+    <div class="modal-foot" id="mFoot"></div>
+  </div>
+  <button class="modal-x" id="mClose" aria-label="Close">✕</button>
+</dialog>
+
+<dialog id="eggs" class="eggs" data-lenis-prevent>
+  <div class="eggs-head">
+    <h3 data-i18n="eggsTitle"></h3>
+    <div class="eggs-progress"><div id="eggBar"></div></div>
+    <p id="eggSummary"></p>
+  </div>
+  <ul id="eggList"></ul>
+  <button class="modal-x" id="eggsClose" aria-label="Close">✕</button>
+</dialog>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<div class="vinyl" id="vinyl" aria-hidden="true">
+  <div class="disc-v"><div class="label">BJ</div></div>
+  <div class="vinyl-txt"><b data-i18n="nowPlaying"></b><span id="vinylTrack"></span></div>
+</div>
+<canvas id="matrix" aria-hidden="true"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="eggs.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

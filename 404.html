@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 · Zgubiony szlak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+  .lost{min-height:100vh;display:grid;place-items:center;text-align:center;padding:40px 20px;position:relative;overflow:hidden}
+  .lost .code{font:700 clamp(110px,24vw,220px)/1 var(--hand);color:var(--ink)}
+  .lost h1{font:700 clamp(36px,6vw,56px)/1.1 var(--hand);letter-spacing:0;margin:8px 0 10px}
+  .lost p{color:var(--muted);max-width:440px;margin:0 auto 26px}
+  .trail{position:relative;width:min(520px,90vw);height:120px;margin:0 auto 24px}
+  .trail svg{width:100%;height:100%}
+  .trail path{fill:none;stroke:var(--ink);stroke-width:2;stroke-dasharray:6 8;opacity:.6}
+  .trail .who{position:absolute;font-size:34px;offset-path:path("M10 100 C 120 10, 200 120, 300 50 S 460 20, 510 90");animation:wander 7s ease-in-out infinite alternate}
+  @keyframes wander{from{offset-distance:0%}to{offset-distance:100%}}
+  .trail .q{position:absolute;font:700 30px var(--hand);color:var(--ink);animation:nudge 3s ease-in-out infinite}
+  .compass{display:inline-block;font-size:.75em;vertical-align:.08em;-webkit-text-fill-color:initial;color:initial;animation:spin 2.5s cubic-bezier(.5,0,.5,1) infinite}
+</style>
+</head>
+<body>
+<main class="lost">
+  <div>
+    <div class="code">4<span class="compass">🧭</span>4</div>
+    <h1 id="h"></h1>
+    <p id="p"></p>
+    <div class="trail" aria-hidden="true">
+      <svg viewBox="0 0 520 120"><path d="M10 100 C 120 10, 200 120, 300 50 S 460 20, 510 90"/></svg>
+      <span class="who">🏃</span>
+      <span class="q" style="left:46%;top:-6px">?</span>
+      <span class="q" style="left:78%;top:30px;animation-delay:-1s">?</span>
+    </div>
+    <a class="btn primary" href="/" id="back"></a>
+  </div>
+</main>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<script src="/eggs.js"></script>
+<script>
+  const L = store.get("bj-lang", null) || ((navigator.language || "pl").toLowerCase().startsWith("pl") ? "pl" : "en");
+  document.documentElement.lang = L;
+  const th = store.get("bj-theme", null); if (th) document.documentElement.dataset.theme = th;
+  const txt = {
+    pl:["Zgubiłeś szlak","Ta ścieżka nie prowadzi do żadnej mety. Spokojnie, zdarza się nawet na ultra.","← Wróć na trasę"],
+    en:["You've lost the trail","This path doesn't lead to any finish line. Relax, it happens even on ultras.","← Back on track"]
+  }[L];
+  document.getElementById("h").textContent = txt[0];
+  document.getElementById("p").textContent = txt[1];
+  document.getElementById("back").textContent = txt[2];
+  setTimeout(() => unlock("lost"), 1200);
+</script>
+</body>
+</html>

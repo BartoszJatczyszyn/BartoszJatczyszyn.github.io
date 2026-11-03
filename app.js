@@ -1,0 +1,1426 @@
+/* ═══════════════════════════ i18n ═══════════════════════════ */
+const T = {
+  pl: {
+    navProjects:"Projekty", navNumbers:"Liczby", navMind:"Głowa", navRun:"Bieg", navContact:"Kontakt",
+    hello:"Cześć, jestem", iam:"Jestem",
+    roles:["programistą","triathlonistą","maratończykiem","ultrasem","graczem","kinomaniakiem","fanem Disneya","wiecznym uczniem"],
+    lead:"Ciągle o czymś myślę. Czasem wychodzi z tego aplikacja, a czasem 100 km w górach.",
+    ctaProjects:"Zobacz projekty", scrollHint:"zajrzyj do głowy",
+    thoughts:["💡 nowa apka?","🏃 jeszcze 5 km…","🍿 jeszcze jeden odcinek","🎲 jeszcze jedna partia","🧠 a gdyby tak… AI?","🌍 dokąd teraz?","🇲🇦 Maroko?","🎧 nowy album?","📚 jeszcze jeden rozdział","☕ najpierw kawa","🍯 …trochę miodu?"],
+    knock:"puk!", gotIt:"💡 Mam!",
+    marquee:["pomysły","kod","triathlon","kino","gry","planszówki","książki","Disney","polski rap","maraton","ultra","AGH","nauka","Kraków"],
+    sProjects:"projektów", sCommits:"commitów", sMarathon:"km maratonu", sUltra:"km ultra", sDegrees:"dyplomy AGH",
+    projectsTitle:"Pomysły, które stały się kodem", projectsLead:"Każdy zaczął się od myśli w chmurce. Kliknij kartę, żeby zajrzeć do środka.",
+    all:"Wszystkie", web:"Web / PWA", mobile:"Mobile", data:"Dane i AI", game:"Gry",
+    priv:"Prywatne", privLong:"Repozytorium prywatne", code:"Zobacz kod ↗", details:"zajrzyj",
+    numbersTitle:"Kod w liczbach", numbersLead:"Prawdziwe dane z moich repozytoriów.",
+    chartLangs:"Języki", langsCenter:"języków", other:"Inne",
+    chartCommits:"Commity w ostatnich 12 miesiącach", chartCommitsNote:"XI 2025 – X 2026, sześć aktywnych projektów. Najedź na słupek.",
+    chartPerProject:"Commity na projekt, od pierwszego dnia",
+    months:["lis","gru","sty","lut","mar","kwi","maj","cze","lip","sie","wrz","paź"],
+    mindTitle:"Co mam w głowie", mindLead:"Przeciągnij bańkę, rzuć nią, kliknij. To moje myśli, baw się nimi.",
+    capIdle:"Kliknij dowolną bańkę 👆",
+    runTitle:"Myśli w biegu", runLead:"Najlepsze pomysły przychodzą po trzydziestym kilometrze.",
+    triTxt:"Pływanie, rower i bieg jednego dnia. Smok ujarzmiony.",
+    marTxt:"Królewski dystans ulicami Krakowa.",
+    ultTxt:"Sto kilometrów górskimi szlakami Beskidu Niskiego.",
+    distTitle:"Maraton kontra ultra", distMar:"Maraton", distUlt:"Ultra",
+    distNote:"Ultra to prawie 2,4 maratonu. Jednym ciągiem.",
+    pathTitle:"Ścieżka", pathLead:"Elektronika, telekomunikacja, teleinformatyka, a teraz własne projekty.",
+    aghFull:"Akademia Górniczo-Hutnicza w Krakowie",
+    eng:"Studia inżynierskie", engField:"Elektronika i Telekomunikacja",
+    engThesis:"Zdalne sterowanie wyposażeniem auta: Android → Bluetooth → Arduino → magistrala CAN.",
+    msc:"Studia magisterskie", mscField:"Teleinformatyka",
+    mscThesis:"Segmentacja zdjęć lotniczych pod kątem stref zagrożenia pożarowego.",
+    seeCode:"Zobacz kod",
+    nowLvl:"Teraz", nowTitle:"Buduję własne projekty", nowTxt:"Web, mobile, dane i AI. A po godzinach trening do kolejnej mety.",
+    contactAsk:"Masz pomysł?", contactTitle:"Pomyślmy razem.",
+    finish:"🏁 Meta! Dzięki za wizytę", madeIn:"Zrobione w Krakowie, pod okiem smoka",
+    eggsTitle:"🥚 Sekrety strony", nowPlaying:"Teraz gra",
+    retroOff:"Tryb retro wyłączony", retroOn:"Tryb retro włączony",
+    agh:"Szczęść Boże!", hakuna:"Hakuna Matata", dont:"Nie panikuj. I weź ręcznik.",
+    force:"Niech moc będzie z Tobą", wish:"When You Wish Upon a Star ✨", ironTitle:"Iron Dragon 🏅",
+    tabAway:"🏃 Wracaj na trasę!", popcorn:"Popcorn XXL!", hunny:"🍯 Hunny!", think:"Think, Think, Think!",
+    popped:"Pyk! Myśl uciekła… ale zaraz wróci."
+  },
+  en: {
+    navProjects:"Projects", navNumbers:"Numbers", navMind:"Mind", navRun:"Run", navContact:"Contact",
+    hello:"Hi, I'm", iam:"I'm a",
+    roles:["developer","triathlete","marathoner","ultrarunner","gamer","movie buff","Disney fan","lifelong learner"],
+    lead:"Always thinking about something. Sometimes it turns into an app, sometimes into 100 km in the mountains.",
+    ctaProjects:"See projects", scrollHint:"peek inside my head",
+    thoughts:["💡 new app?","🏃 just 5 more km…","🍿 one more episode","🎲 one more game","🧠 what if… AI?","🌍 where to next?","🇲🇦 Morocco?","🎧 new album?","📚 one more chapter","☕ coffee first","🍯 …a little honey?"],
+    knock:"knock!", gotIt:"💡 Got it!",
+    marquee:["ideas","code","triathlon","movies","games","board games","books","Disney","Polish rap","marathon","ultra","AGH","learning","Kraków"],
+    sProjects:"projects", sCommits:"commits", sMarathon:"km marathon", sUltra:"km ultra", sDegrees:"AGH degrees",
+    projectsTitle:"Ideas that became code", projectsLead:"Each one started as a thought in the cloud. Click a card to peek inside.",
+    all:"All", web:"Web / PWA", mobile:"Mobile", data:"Data & AI", game:"Games",
+    priv:"Private", privLong:"Private repository", code:"View code ↗", details:"peek inside",
+    numbersTitle:"Code in numbers", numbersLead:"Real data from my repositories.",
+    chartLangs:"Languages", langsCenter:"languages", other:"Other",
+    chartCommits:"Commits in the last 12 months", chartCommitsNote:"Nov 2025 – Oct 2026, six active projects. Hover a bar.",
+    chartPerProject:"Commits per project, since day one",
+    months:["Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct"],
+    mindTitle:"What's on my mind", mindLead:"Drag a bubble, throw it, click it. These are my thoughts, play with them.",
+    capIdle:"Click any bubble 👆",
+    runTitle:"Thoughts on the run", runLead:"The best ideas show up after kilometre thirty.",
+    triTxt:"Swim, bike and run in one day. Dragon tamed.",
+    marTxt:"The royal distance through the streets of Kraków.",
+    ultTxt:"One hundred kilometres of mountain trails in the Low Beskids.",
+    distTitle:"Marathon vs ultra", distMar:"Marathon", distUlt:"Ultra",
+    distNote:"An ultra is almost 2.4 marathons. In one go.",
+    pathTitle:"Path", pathLead:"Electronics, telecoms, ICT, and now my own projects.",
+    aghFull:"AGH University of Krakow",
+    eng:"Engineering degree", engField:"Electronics and Telecommunications",
+    engThesis:"Remote control of car equipment: Android → Bluetooth → Arduino → CAN bus.",
+    msc:"Master's degree", mscField:"ICT (Teleinformatics)",
+    mscThesis:"Segmenting aerial images to detect fire-hazard zones.",
+    seeCode:"View code",
+    nowLvl:"Now", nowTitle:"Building my own projects", nowTxt:"Web, mobile, data and AI. And after hours, training for the next finish line.",
+    contactAsk:"Got an idea?", contactTitle:"Let's think it through.",
+    finish:"🏁 Finish! Thanks for visiting", madeIn:"Made in Kraków, under the dragon's watch",
+    eggsTitle:"🥚 Site secrets", nowPlaying:"Now playing",
+    retroOff:"Retro mode off", retroOn:"Retro mode on",
+    agh:"Szczęść Boże! (Glück auf!)", hakuna:"Hakuna Matata", dont:"Don't panic. And bring a towel.",
+    force:"May the Force be with you", wish:"When You Wish Upon a Star ✨", ironTitle:"Iron Dragon 🏅",
+    tabAway:"🏃 Get back on track!", popcorn:"XXL popcorn!", hunny:"🍯 Hunny!", think:"Think, Think, Think!",
+    popped:"Pop! The thought escaped… it'll be back."
+  }
+};
+
+Object.assign(T.pl, {
+  navTrail:"Trasa", navSkills:"Narzędzia",
+  lead:"Programista w Nivalit, absolwent AGH. Ciągle o czymś myślę: czasem wychodzi z tego aplikacja, a czasem 100 km w górach.",
+  roles:["programistą","triathlonistą","maratończykiem","ultrasem","graczem","kinomaniakiem","fanem Disneya","podróżnikiem","fotografem amatorem","wiecznym uczniem"],
+  marquee:["pomysły","Java","Spring Boot","TypeScript","triathlon","kino","gry","planszówki","podróże","fotografia","Disney","polski rap","góry","ultra","AGH","taniec","Kraków"],
+  sYears:"lata komercyjnie", sProjects:"projektów", sCommits:"commitów", sUltra:"km ultra",
+  trailTitle:"Trasa", trailLead:"Od startu na AGH, przez Comarch, do Nivalit. Każdy punkt kontrolny coś dołożył do plecaka.",
+  projectsLead:"Zawodowe, własne i studenckie. Kliknij kartę, żeby zajrzeć do środka.",
+  all:"Wszystkie", work:"Zawodowe", own:"Własne", uni:"Studia",
+  site:"Zobacz stronę ↗", team:"zespół", solo:"solo",
+  skillsTitle:"Skrzynka z narzędziami", skillsLead:"Wypełnione na żółto to te, których używałem zawodowo. Reszta: studia i projekty po godzinach.",
+  skAll:"Wszystko", skPro:"Tylko zawodowo", skLegPro:"zawodowo", skLegOwn:"studia i projekty",
+  langsSpoken:"Języki obce", certsTitle:"Certyfikaty",
+  chartLangs:"Języki (GitHub)", chartCommitsNote:"XI 2025 – X 2026, siedem aktywnych projektów. Najedź na słupek.",
+  runLead:"Najlepsze pomysły przychodzą po trzydziestym kilometrze. Prawdziwe wyniki, prawdziwe wykresy.",
+  marChartTitle:"Maraton: druga połowa to wyprzedzanie", marCallout:"+809 miejsc między 5. a 40. km",
+  marChartNote:"Linia: miejsce w klasyfikacji na punktach pomiarowych (wyżej = lepiej). Słupki: tempo na odcinkach.",
+  ultChartTitle:"Ultra: 19,5 godziny w górach", ultCallout:"100 km · 100. mężczyzna na mecie 💯",
+  ultChartNote:"Linia: czas na punktach kontrolnych. Słupki: średnia prędkość na odcinkach (km/h).",
+  triChartTitle:"Triathlon: 29. z 44 w kategorii", triChartNote:"Iron Dragon 2024, dystans Standard · 2:57:24 · 126. miejsce w open.",
+  distTitle:"Maraton kontra ultra: czas na trasie", distNote:"Ultra trwało prawie 5 razy dłużej niż maraton.",
+  medalTri:"Pływanie, rower i bieg jednego dnia. Smok ujarzmiony.", medalMar:"Królewski dystans ulicami Krakowa, poniżej czterech godzin.", medalUlt:"Sto kilometrów szlakami Beskidu Niskiego, przez dzień i noc.",
+  open:"open", hundred:"💯 Sto na sto!", hundredSub:"100 km i 100. miejsce wśród mężczyzn",
+  navTravel:"Podróże", travelTitle:"Mapa ciekawości",
+  travelLead:"Uwielbiam poznawać nowe miejsca, kulturę i historię, i łapać je w kadrze. Na żółto: gdzie już byłem. Przerywaną linią: dokąd jadę.",
+  tvCountries:"krajów", tvRegions:"regionów w GlobeQuest", tvWorld:"% świata odkryte", tvRank:"ranga: Odkrywca",
+  tvEurope:"Europa", tvAll:"Cały ślad", tvLegVisited:"byłem", tvLegPlanned:"w planie",
+  tvNextSmall:"Następny przystanek", tvNext:"Maroko", tvGq:"Te dane pochodzą z mojego GlobeQuesta",
+  tvBanner:"Maroko, czekaj!", copyMail:"Kopiuj e-mail", hintHead:"puk, puk?", hintPg:"złap i rzuć!", hintEggs:"22 sekrety… znajdziesz?", cDetails:"zajrzyj", cDrag:"rzuć mną", cMap:"✈️ leć", cTap:"puk!", cThought:"💭 myśl", cDice:"🎲 rzuć", spyStart:"Start", copied:"Skopiowane!", copiedSub:"Adres e-mail jest w schowku", tvBannerSub:"Następny przystanek: Afryka"
+});
+Object.assign(T.en, {
+  navTrail:"Trail", navSkills:"Toolbox",
+  lead:"Developer at Nivalit, AGH graduate. Always thinking about something: sometimes it turns into an app, sometimes into 100 km in the mountains.",
+  roles:["developer","triathlete","marathoner","ultrarunner","gamer","movie buff","Disney fan","traveller","amateur photographer","lifelong learner"],
+  marquee:["ideas","Java","Spring Boot","TypeScript","triathlon","movies","games","board games","travel","photography","Disney","Polish rap","mountains","ultra","AGH","dance","Kraków"],
+  sYears:"years in industry", sProjects:"projects", sCommits:"commits", sUltra:"km ultra",
+  trailTitle:"The trail", trailLead:"From the start line at AGH, through Comarch, to Nivalit. Every checkpoint added something to the backpack.",
+  projectsLead:"Professional, personal and university. Click a card to peek inside.",
+  all:"All", work:"Professional", own:"Personal", uni:"University",
+  site:"Visit site ↗", team:"team", solo:"solo",
+  skillsTitle:"The toolbox", skillsLead:"Filled in yellow: used professionally. The rest: university and after-hours projects.",
+  skAll:"Everything", skPro:"Professional only", skLegPro:"professional", skLegOwn:"university & projects",
+  langsSpoken:"Languages", certsTitle:"Certificates",
+  chartLangs:"Languages (GitHub)", chartCommitsNote:"Nov 2025 – Oct 2026, seven active projects. Hover a bar.",
+  runLead:"The best ideas show up after kilometre thirty. Real results, real charts.",
+  marChartTitle:"Marathon: the second half is overtaking", marCallout:"+809 places between km 5 and 40",
+  marChartNote:"Line: overall position at timing points (higher = better). Bars: pace per segment.",
+  ultChartTitle:"Ultra: 19.5 hours in the mountains", ultCallout:"100 km · 100th man at the finish 💯",
+  ultChartNote:"Line: time at checkpoints. Bars: average speed per segment (km/h).",
+  triChartTitle:"Triathlon: 29th of 44 in category", triChartNote:"Iron Dragon 2024, Standard distance · 2:57:24 · 126th overall.",
+  distTitle:"Marathon vs ultra: time on course", distNote:"The ultra took almost 5 times as long as the marathon.",
+  medalTri:"Swim, bike and run in one day. Dragon tamed.", medalMar:"The royal distance through Kraków, under four hours.", medalUlt:"One hundred kilometres of Low Beskid trails, through day and night.",
+  open:"overall", hundred:"💯 A hundred for a hundred!", hundredSub:"100 km and 100th man at the finish",
+  navTravel:"Travel", travelTitle:"Curiosity map",
+  travelLead:"I love discovering new places, cultures and history, and catching them on camera. Yellow: where I've been. Dashed line: where I'm heading.",
+  tvCountries:"countries", tvRegions:"regions in GlobeQuest", tvWorld:"% of the world explored", tvRank:"rank: Explorer",
+  tvEurope:"Europe", tvAll:"Whole trail", tvLegVisited:"visited", tvLegPlanned:"planned",
+  tvNextSmall:"Next stop", tvNext:"Morocco", tvGq:"This data comes from my GlobeQuest",
+  tvBanner:"Morocco, here I come!", copyMail:"Copy e-mail", hintHead:"knock, knock?", hintPg:"grab & throw!", hintEggs:"22 secrets… find them?", cDetails:"peek", cDrag:"throw me", cMap:"✈️ fly", cTap:"knock!", cThought:"💭 think", cDice:"🎲 roll", spyStart:"Start", copied:"Copied!", copiedSub:"The e-mail address is on your clipboard", tvBannerSub:"Next stop: Africa"
+});
+
+/* ═══════════════════════════ data ═══════════════════════════ */
+const P = (one, kind, desc, pts) => ({ one, kind, desc, pts });
+const PROJECTS = [
+  /* ── work ── */
+  { name:"Mentalio", icon:"🧠", c:"#7f8cff", cat:"work", url:"https://www.mentalio.eu/", org:"Nivalit",
+    tags:["AI","MedTech","Web"],
+    pl:P("AI wspierające specjalistów w diagnozie i terapii młodzieży.","Nivalit · MedTech",
+      "Narzędzie, które pomaga specjalistom zdrowia psychicznego szybciej i dokładniej diagnozować problemy u młodzieży i dobierać ścieżki terapii. Obecnie w badaniach klinicznych.",
+      ["Algorytmy AI analizują dane i sugerują spersonalizowane ścieżki terapii","Badane jest nie tylko dziecko, ale i jego otoczenie","Rozwijane w firmie z certyfikatem ISO 13485"]),
+    en:P("AI that supports specialists in diagnosing and treating young people.","Nivalit · MedTech",
+      "A tool that helps mental health specialists diagnose problems in young people faster and more accurately and choose therapy paths. Currently in clinical trials.",
+      ["AI algorithms analyse data and suggest personalised therapy paths","It looks at the child and their environment","Built at an ISO 13485-certified company"]) },
+  { name:"Scholario", icon:"🏫", c:"#34d399", cat:"work", url:"https://scholario.eu/", org:"Nivalit",
+    tags:["Mobile","Web","RODO"],
+    pl:P("Codzienne wsparcie dobrostanu emocjonalnego uczniów.","Nivalit · EdTech",
+      "Uczeń codziennie krótko zastanawia się nad swoimi emocjami, a szkolny zespół szybciej widzi, komu potrzeba wsparcia.",
+      ["Krótka, codzienna refleksja ucznia nad emocjami","Szybka informacja dla nauczycieli, psychologów i pedagogów","Bezpieczeństwo danych i zgodność z RODO"]),
+    en:P("Everyday support for students' emotional wellbeing.","Nivalit · EdTech",
+      "Students reflect briefly on their emotions every day, so the school team sees sooner who needs support.",
+      ["A short daily reflection on emotions","Quick insight for teachers, psychologists and counsellors","Data security and GDPR compliance"]) },
+  { name:"Comarch Loyalty Management", icon:"⛽", c:"#ff8a3d", cat:"work", org:"Comarch", team:5,
+    tags:["Java","Spring Boot","Hibernate","Oracle","PostgreSQL","Kubernetes"],
+    pl:P("System lojalnościowy dla BP i SASOL. Głównie backend.","Comarch · 2022–2024",
+      "Rozwój i utrzymanie Comarch Loyalty Management dla klientów takich jak BP (Polska, Niemcy, Hiszpania, Portugalia, Austria) i SASOL (RPA).",
+      ["CLM BP (Hiszpania i Portugalia): Java 8, Oracle, WebLogic, Spring Boot, mikroserwisy","CLM SASOL (RPA): Java 17, PostgreSQL, Docker, Kubernetes, Flyway","Zespoły 5-osobowe, GitLab, Jira, Postman, REST API"]),
+    en:P("Loyalty platform for BP and SASOL. Mostly backend.","Comarch · 2022–2024",
+      "Building and maintaining Comarch Loyalty Management for clients such as BP (Poland, Germany, Spain, Portugal, Austria) and SASOL (South Africa).",
+      ["CLM BP (Spain & Portugal): Java 8, Oracle, WebLogic, Spring Boot, microservices","CLM SASOL (South Africa): Java 17, PostgreSQL, Docker, Kubernetes, Flyway","5-person teams, GitLab, Jira, Postman, REST API"]) },
+  { name:"HR System", icon:"👥", c:"#ffb020", cat:"work", org:"Comarch", team:3,
+    tags:["Angular","TypeScript","Java 17","Spring Boot","PostgreSQL"],
+    pl:P("System zarządzania zasobami ludzkimi. Full stack, na stażu.","Comarch · staż 2022",
+      "Trzymiesięczny staż: rozwój systemu zarządzania zasobami ludzkimi razem z zespołem.",
+      ["Frontend w Angularze, backend w Spring Boot","Hibernate, PostgreSQL, Flyway, Swagger","Zespół 3-osobowy"]),
+    en:P("Human resources management system. Full stack, internship.","Comarch · internship 2022",
+      "A three-month internship building an HR management system with the team.",
+      ["Angular frontend, Spring Boot backend","Hibernate, PostgreSQL, Flyway, Swagger","3-person team"]) },
+  /* ── own ── */
+  { name:"Inquisitio", icon:"📝", c:"#ffd43b", cat:"work", org:"Nivalit", team:1,
+    tags:["TypeScript","React","Fastify","PostgreSQL","MongoDB","Turborepo"],
+    pl:P("Platforma do tworzenia i edytowania kwestionariuszy. Robiona solo.","Nivalit · od 2024",
+      "Edytor kwestionariuszy, aplikacja do odpowiadania krok po kroku i moduł zbierania odpowiedzi: sześć aplikacji w jednym monorepo.",
+      ["Podgląd w edytorze to dokładnie to, co zobaczy respondent","Odpowiadanie jeden ekran naraz, odporne na brak sieci","Eksport CSV/XLSX, retencja i audyt odpowiedzi","748 commitów od listopada 2024"]),
+    en:P("A platform for building and editing questionnaires. Built solo.","Nivalit · since 2024",
+      "A questionnaire editor, a step-by-step answering app and a response collection module: six apps in one monorepo.",
+      ["The editor preview is exactly what the respondent sees","One screen at a time, tolerant of going offline","CSV/XLSX export, retention and audit of responses","748 commits since November 2024"]) },
+  { name:"GlobeQuest", icon:"🌍", c:"#12d8a5", cat:"own",
+    tags:["Flutter","Dart","WebAssembly","Supabase"],
+    pl:P("Offline-first mapa podróży z quizami i kapsułami czasu.","Web · iOS · Android",
+      "Zaznaczasz, gdzie byłeś, planujesz, gdzie pojedziesz, i uczysz się czegoś o obu miejscach.",
+      ["Zamalowywanie krajów i regionów + dossier każdego kraju","Planowanie tras, import GPX, dziennik ze zdjęciami do PDF","Kilkanaście trybów quizów, rankingi i odznaki","Kapsuły czasu, które otwierają się dopiero na miejscu"]),
+    en:P("Offline-first travel map with quizzes and time capsules.","Web · iOS · Android",
+      "Mark where you've been, plan where you're going, and learn something about both.",
+      ["Paint countries and regions, with a dossier for each","Trip planning, GPX import, a photo journal exportable to PDF","A dozen quiz modes with rankings and badges","Time Capsules that unlock only on location"]) },
+  { name:"JournAI", icon:"🩺", c:"#9b7bff", cat:"own",
+    tags:["Python","FastAPI","PostgreSQL","React","MCP"],
+    pl:P("Dziennik zdrowia: dane z Garmina, analityka i komentarz LLM.","Dane i AI",
+      "Pobiera dane z Garmin Connect przez serwer MCP, liczy analitykę snu, stresu, treningu i żywienia, a LLM komentuje wyniki.",
+      ["Clean Architecture pilnowana automatycznie","Liczby zawsze z backendu, nigdy z modelu","Zero kosztów, w całości lokalnie"]),
+    en:P("Health diary: Garmin data, analytics and LLM commentary.","Data & AI",
+      "Pulls Garmin Connect data via an MCP server, computes sleep, stress, training and nutrition analytics, and lets an LLM comment.",
+      ["Clean Architecture, enforced automatically","Numbers from the backend, never from the model","Zero cost, runs fully locally"]) },
+  { name:"Składomat", icon:"🥗", c:"#7ed957", cat:"own",
+    tags:["TypeScript","PWA","Monorepo","Offline"],
+    pl:P("Skanujesz produkt i od razu wiesz, co w nim siedzi.","PWA",
+      "Skład produktów z polskich sklepów, makro i mikro, stopień przetworzenia i ocena z uzasadnieniem opartym na źródłach.",
+      ["Skan kodu lub wyszukiwarka, wynik poniżej 150 ms","Wpis do dziennika w dwóch tapnięciach, offline","Budżety wydajności mierzone na średniej klasy Androidzie"]),
+    en:P("Scan a product and instantly see what's inside.","PWA",
+      "Ingredients of products from Polish stores, macros and micros, processing level and a source-backed rating.",
+      ["Barcode scan or search, result under 150 ms","Log a meal in two taps, offline","Performance budgets measured on a mid-range Android"]) },
+  { name:"Kwit", icon:"🧾", c:"#ffb020", cat:"own",
+    tags:["TypeScript","React","IndexedDB","Web Workers"],
+    pl:P("Analiza wydatków z wyciągu CSV, w 100% w przeglądarce.","Finanse · lokalnie",
+      "Wrzucasz wyciąg z banku i domu maklerskiego, a Kwit pokazuje, na co idą pieniądze i gdzie da się oszczędzić.",
+      ["Bez konta i bez serwera, dane nie opuszczają urządzenia","Kwoty w groszach, nigdy we float","Odporne statystyki: mediana zamiast średniej"]),
+    en:P("Spending analysis from a CSV statement, 100% in the browser.","Finance · local",
+      "Drop in a bank and broker statement; Kwit shows where the money goes and where to save.",
+      ["No account, no server, data never leaves the device","Money as integer cents, never floats","Robust statistics: medians, not means"]) },
+  { name:"PatoBox", icon:"🎉", c:"#ff4b6e", cat:"own",
+    tags:["TypeScript","WebSockets","Cloudflare","Vite"],
+    pl:P("Gra imprezowa: telefon to kontroler, telewizor to scena.","Gra imprezowa",
+      "Znajomi, w jednym pokoju albo online, wymyślają najgłupsze odpowiedzi na absurdalne polecenia i głosują.",
+      ["Od kliknięcia linku do pierwszego śmiechu poniżej 2 minut","Dołączenie do 20 s, bez konta i instalacji","Wiele trybów, zasady tłumaczone w trakcie gry"]),
+    en:P("Party game: your phone is the controller, the TV is the stage.","Party game",
+      "Friends, in one room or online, come up with the silliest answers to absurd prompts and vote.",
+      ["From link click to first laugh in under 2 minutes","Join in 20 s, no account, no install","Many modes, rules explained in-game"]) },
+  { name:"OfficeFlow", icon:"🏢", c:"#5b8cff", cat:"own",
+    tags:["TypeScript","React","Supabase","i18n"],
+    pl:P("Zgłoszenia biurowe i usługi cykliczne w jednym miejscu.","Narzędzie dla firm",
+      "Pracownicy zgłaszają potrzeby w dwóch krokach, a office manager decyduje, kto się nimi zajmie.",
+      ["Telefon, laptop i monitor ultrawide","PL/EN, motyw jasny i ciemny","Automatyczna kontrola kontrastu i rozmiaru paczki"]),
+    en:P("Office requests and recurring services in one place.","Business tool",
+      "Employees report needs in two steps; the office manager decides who handles each one.",
+      ["Phone, laptop and ultra-wide monitor","PL/EN, light and dark themes","Automated contrast and bundle-size checks"]) },
+  { name:"Randkomat", icon:"💌", c:"#ff7eb6", cat:"own",
+    tags:["TypeScript","React","PWA","Supabase"],
+    pl:P("Zaproszenie na randkę w 4 tapnięciach, odpowiedź w jednym.","PWA",
+      "Aplikacja do zapraszania jednej konkretnej osoby na randkę. Każda para to osobny, zamknięty świat.",
+      ["4 tapnięcia, by zaprosić; 1, by odpowiedzieć","Pierwsze zaproszenie działa bez konta","Szczegóły odsłaniane dopiero po „tak”"]),
+    en:P("A date invitation in 4 taps, answered in one.","PWA",
+      "A PWA for asking one specific person out. Every couple is its own sealed world.",
+      ["4 taps to invite, 1 to answer","The first invitation works without an account","Details revealed only after a “yes”"]) },
+  { name:"GarminReport", icon:"⌚", c:"#22b8e6", cat:"own", repo:"https://github.com/BartoszJatczyszyn/GarminReport",
+    tags:["Python","CLI","Markdown"],
+    pl:P("Dane z Garmina w jednym raporcie gotowym dla AI.","CLI · open source",
+      "Wyciąga dane treningowe, sen i HRV, liczy metryki, których Garmin nie liczy, i składa jeden raport Markdown.",
+      ["ACWR, monotonia treningu, dług snu","Trendy z regresji, z-score, korelacje z opóźnieniem","Wbudowana instrukcja czytania raportu dla AI"]),
+    en:P("Garmin data in one AI-ready report.","CLI · open source",
+      "Pulls training, sleep and HRV data, computes metrics Garmin doesn't, and writes a single Markdown report.",
+      ["ACWR, training monotony, sleep debt","Regression trends, z-scores, lagged correlations","A built-in “how to read this” section for the AI"]) },
+  /* ── university ── */
+  { name:"FireRisk", icon:"🔥", c:"#ff6a3d", cat:"uni", team:1, repo:"https://github.com/BartoszJatczyszyn/FireRisk-master-s-degree",
+    tags:["Python","TensorFlow","Keras","U-Net"],
+    pl:P("Segmentacja zdjęć lotniczych pod kątem zagrożenia pożarowego.","Praca magisterska · 2024",
+      "Sieć U-Net z enkoderem ResNet34 dzieli zdjęcia lotnicze na budynki, lasy, wodę i drogi: pierwszy krok do wykrywania stref zagrożenia pożarowego.",
+      ["Transfer learning, U-Net + ResNet34","5 klas, focal + Jaccard loss, metryka IoU","Python 3.10, TensorFlow 2.10, scikit-learn, NumPy"]),
+    en:P("Aerial image segmentation for fire-hazard zones.","Master's thesis · 2024",
+      "A U-Net with a ResNet34 encoder splits aerial images into buildings, woodland, water and roads: the first step towards detecting fire-hazard zones.",
+      ["Transfer learning, U-Net + ResNet34","5 classes, focal + Jaccard loss, IoU metric","Python 3.10, TensorFlow 2.10, scikit-learn, NumPy"]) },
+  { name:"CarControl", icon:"🚗", c:"#5b8cff", cat:"uni", team:1, repo:"https://github.com/BartoszJatczyszyn/CarControl",
+    tags:["C++","Arduino","Android","CAN bus"],
+    pl:P("Zdalne sterowanie wyposażeniem auta z telefonu.","Praca inżynierska · 2023",
+      "Aplikacja na Androida łączy się przez Bluetooth z Arduino, które rozmawia z komputerem pokładowym po magistrali CAN.",
+      ["Arduino UNO + MCP2515 (CAN) + HC-05 (Bluetooth)","Aplikacja mobilna w Javie, SQLite","Więcej komfortu w starszych autach"]),
+    en:P("Remote control of car equipment from your phone.","Engineering thesis · 2023",
+      "An Android app talks over Bluetooth to an Arduino, which talks to the onboard computer over the CAN bus.",
+      ["Arduino UNO + MCP2515 (CAN) + HC-05 (Bluetooth)","Java mobile app, SQLite","More comfort for older cars"]) },
+  { name:"Wolność dla łapek", icon:"🐾", c:"#ff9ec4", cat:"uni", team:8,
+    tags:["Python","Django","SQLite","JavaScript"],
+    pl:P("Strona charytatywnej aukcji internetowej.","Projekt studencki",
+      "Serwis aukcyjny, z którego dochód szedł na cel charytatywny.",["Django + SQLite, HTML, CSS, JavaScript","Zespół 8 osób"]),
+    en:P("A charity auction website.","Student project",
+      "An auction site whose proceeds went to charity.",["Django + SQLite, HTML, CSS, JavaScript","8-person team"]) },
+  { name:"QoS w SDN", icon:"📡", c:"#4fd1c5", cat:"uni", team:5,
+    tags:["Java","Python","Floodlight","Mininet"],
+    pl:P("Zarządzanie ruchem w sieci z zapewnieniem jakości usług.","Projekt studencki",
+      "Software-Defined Networking: sterownik Floodlight i emulowana sieć w Mininecie, z priorytetami dla ruchu.",["Floodlight + Mininet","Zespół 5 osób"]),
+    en:P("Network traffic management with Quality of Service.","Student project",
+      "Software-Defined Networking: a Floodlight controller and an emulated Mininet network with traffic priorities.",["Floodlight + Mininet","5-person team"]) },
+  { name:"Domowy alarm", icon:"🚨", c:"#ff5d5d", cat:"uni", team:7,
+    tags:["Java","Android SDK","Arduino","MySQL"],
+    pl:P("Domowy system alarmowy z aplikacją na Androida.","Projekt studencki",
+      "Czujniki na Arduino, baza MySQL i aplikacja mobilna do sterowania alarmem.",["Arduino + Android SDK","Zespół 7 osób"]),
+    en:P("A home alarm system with an Android app.","Student project",
+      "Arduino sensors, a MySQL database and a mobile app to control the alarm.",["Arduino + Android SDK","7-person team"]) },
+  { name:"Movie Analyzer", icon:"🎞️", c:"#c084fc", cat:"uni", team:1, repo:"https://github.com/BartoszJatczyszyn/Movie-scraper-analyzer",
+    tags:["R","Web scraping","Data viz"],
+    pl:P("Web scraping i analiza listy Top 500 Filmwebu.","Projekt studencki",
+      "Narzędzie, które pobiera, analizuje i wizualizuje dane o filmach z rankingu Top 500.",["Scraping, analiza i wykresy w R","Projekt solo"]),
+    en:P("Web scraping and analysis of Filmweb's Top 500.","Student project",
+      "A tool that scrapes, analyses and visualises film data from the Top 500 ranking.",["Scraping, analysis and charts in R","Solo project"]) }
+];
+
+const TRAIL = [
+  { when:"2019", flag:"S", e:"🎓", edu:true, pick:true, link:null,
+    pl:{ role:"Start", title:"AGH w Krakowie", desc:"Wydział Informatyki, Elektroniki i Telekomunikacji. Po drodze: drużyna koszykówki wydziału.", badge:"edukacja" },
+    en:{ role:"Start", title:"AGH University of Krakow", desc:"Faculty of Computer Science, Electronics and Telecommunications. Along the way: the faculty basketball team.", badge:"education" } },
+  { when:"2022", sub:"VI–IX", flag:"1", e:"🧑‍💻", link:null,
+    pl:{ role:"Stażysta", title:"Comarch", desc:"Trzy miesiące w zespole rozwijającym system zarządzania zasobami ludzkimi. Full stack.", badge:"staż",
+         items:[["👥","System HR","Angular, TypeScript, Java 17, Spring Boot, Hibernate, PostgreSQL · zespół 3 osób"]] },
+    en:{ role:"Intern", title:"Comarch", desc:"Three months on the team building a human resources management system. Full stack.", badge:"internship",
+         items:[["👥","HR system","Angular, TypeScript, Java 17, Spring Boot, Hibernate, PostgreSQL · 3-person team"]] } },
+  { when:"2022", sub:"→ 2024", flag:"2", e:"⛽", link:null,
+    pl:{ role:"Programista", title:"Comarch", desc:"Dwa lata przy Comarch Loyalty Management dla klientów takich jak BP i SASOL. Głównie backend.", badge:"2 lata",
+         items:[["🇪🇸","CLM BP (Hiszpania i Portugalia)","Java 8, Oracle, WebLogic, Spring Boot, Hibernate, mikroserwisy · zespół 5 osób"],["🇿🇦","CLM SASOL (RPA)","Java 17, PostgreSQL, Docker, Kubernetes, Flyway · zespół 5 osób"]] },
+    en:{ role:"Developer", title:"Comarch", desc:"Two years on Comarch Loyalty Management for clients such as BP and SASOL. Mostly backend.", badge:"2 years",
+         items:[["🇪🇸","CLM BP (Spain & Portugal)","Java 8, Oracle, WebLogic, Spring Boot, Hibernate, microservices · 5-person team"],["🇿🇦","CLM SASOL (South Africa)","Java 17, PostgreSQL, Docker, Kubernetes, Flyway · 5-person team"]] } },
+  { when:"2023", flag:"3", e:"🚗", edu:true, link:"https://github.com/BartoszJatczyszyn/CarControl",
+    pl:{ role:"Inżynier", title:"Elektronika i Telekomunikacja", desc:"Praca: „System zdalnego sterowania elementami wyposażenia pojazdu samochodowego”.", badge:"AGH" },
+    en:{ role:"BEng", title:"Electronics and Telecommunications", desc:"Thesis: a remote control system for car equipment (mobile app + microcontroller).", badge:"AGH" } },
+  { when:"2024", flag:"4", e:"🔥", edu:true, link:"https://github.com/BartoszJatczyszyn/FireRisk-master-s-degree",
+    pl:{ role:"Magister", title:"Teleinformatyka", desc:"Praca (po angielsku): segmentacja stref zagrożenia pożarowego na zdjęciach lotniczych obszarów miejskich i wiejskich.", badge:"AGH" },
+    en:{ role:"MSc", title:"ICT (Teleinformatics)", desc:"Thesis (in English): fire-hazard zone segmentation in aerial images of urban and rural areas.", badge:"AGH" } },
+  { when:"2024", sub:"XI →", flag:"5", e:"📝", link:null,
+    pl:{ role:"Projekt dla Nivalit", title:"Inquisitio", desc:"Platforma do tworzenia, edytowania i wypełniania kwestionariuszy. Sześć aplikacji w jednym monorepo, zaprojektowana i zbudowana przeze mnie w pojedynkę.", badge:"748 commitów" },
+    en:{ role:"Project for Nivalit", title:"Inquisitio", desc:"A platform for building, editing and answering questionnaires. Six apps in one monorepo, designed and built by me, solo.", badge:"748 commits" } },
+  { when:"2026", sub:"III →", flag:"★", e:"🩺", now:true, link:"https://nivalit.com/",
+    pl:{ role:"Programista", title:"Nivalit", desc:"Software i AI dla ochrony zdrowia. Pracuję przy trzech produktach:", badge:"teraz",
+         items:[["🧠","Mentalio","AI wspierające specjalistów w diagnozie i terapii młodzieży","https://www.mentalio.eu/"],["🏫","Scholario","Codzienne wsparcie dobrostanu emocjonalnego uczniów","https://scholario.eu/"],["📝","Inquisitio","Platforma do kwestionariuszy, którą rozwijam solo"]] },
+    en:{ role:"Developer", title:"Nivalit", desc:"Software and AI for healthcare. I work on three products:", badge:"now",
+         items:[["🧠","Mentalio","AI that supports specialists in diagnosing and treating young people","https://www.mentalio.eu/"],["🏫","Scholario","Everyday support for students' emotional wellbeing","https://scholario.eu/"],["📝","Inquisitio","A questionnaire platform I develop solo"]] } }
+];
+
+/* skills: [name, professional?] */
+const SKILLS = [
+  { e:"☕", pl:"Języki", en:"Languages", s:[["Java",1],["TypeScript",0],["JavaScript",0],["Python",0],["Dart",0],["C",0],["C++",0],["C#",0],["R",0],["HTML",0],["CSS",0]] },
+  { e:"🧩", pl:"Frameworki", en:"Frameworks", s:[["Spring Boot",1],["Hibernate (JPA)",1],["REST API",1],["Mikroserwisy|Microservices",1],["Flyway",1],["JUnit",1],["React",0],["Angular",0],["Flutter",0],["FastAPI",0],["Android SDK",0],["Kafka",0]] },
+  { e:"🗄️", pl:"Bazy danych", en:"Databases", s:[["PostgreSQL",1],["Oracle",1],["MongoDB",0],["MySQL",0],["SQLite",0],["Redis",0],["Cassandra",0]] },
+  { e:"🐳", pl:"DevOps i CI/CD", en:"DevOps & CI/CD", s:[["Docker",1],["Kubernetes",1],["Minikube",1],["Helm",1],["Maven",1],["Git",1],["SonarLint",1],["Jenkins",0]] },
+  { e:"🔐", pl:"API i bezpieczeństwo", en:"API & security", s:[["RAML",1],["Swagger",1],["OAuth 2.0",1],["JWT",1],["OpenAPI",0]] },
+  { e:"🛠️", pl:"Narzędzia", en:"Tools", s:[["IntelliJ IDEA",1],["Postman",1],["Oracle WebLogic",1],["Apache Tomcat",1],["Jira",1],["VS Code",0],["Android Studio",0],["PyCharm",0],["Figma",0]] },
+  { e:"🧠", pl:"ML i dane", en:"ML & data", s:[["TensorFlow",0],["Keras",0],["scikit-learn",0],["NumPy",0],["Web scraping",0],["RStudio",0]] },
+  { e:"☁️", pl:"Chmura i monitoring", en:"Cloud & monitoring", s:[["AWS (S3, EC2, Lambda, RDS)",0],["Grafana",0],["Prometheus",0]] },
+  { e:"🌐", pl:"Sieci", en:"Networking", s:[["SDN",0],["Mininet",0],["Floodlight",0],["Cisco Packet Tracer",0]] },
+  { e:"📋", pl:"Metodyki", en:"Methodologies", s:[["Scrum",1],["Kanban",1]] }
+];
+const SPOKEN = [["🇵🇱",{pl:"Polski",en:"Polish"},{pl:"ojczysty",en:"native"},"100%"],["🇬🇧",{pl:"Angielski",en:"English"},{pl:"B2+",en:"B2+"},"72%"]];
+const CERTS = [
+  ["☕",{pl:"Java (średniozaawansowany)",en:"Java (intermediate)"},"Comarch Training Center"],
+  ["🗄️",{pl:"Java Persistence API / Hibernate",en:"Java Persistence API / Hibernate"},"Comarch Training Center"],
+  ["🤖",{pl:"Kurs AI „Przyszłość zaczyna się dziś”",en:"AI course “The future starts today”"},"Digital University × Microsoft"],
+  ["💬",{pl:"Umiejętności komunikacyjne",en:"Communication skills"},"PFP"],
+  ["🧘",{pl:"Jak radzić sobie z trudnymi emocjami?",en:"Coping with difficult emotions"},"PFP"]
+];
+
+/* races: real results */
+const MARATHON = {
+  splits:[[0,"0:00:00"],[5,"0:27:55"],[10,"0:54:58"],[15,"1:21:49"],[21.0975,"1:55:38"],[30,"2:48:28"],[35,"3:17:23"],[40,"3:46:33"],[42.195,"3:59:43"]],
+  places:[[5,2582],[10,2474],[15,2265],[25,2206],[27,2185],[30,2145],[35,1945],[40,1773]]
+};
+const ULTRA = { splits:[[0,"0:00:00"],[43,"6:25:38"],[63,"9:51:59"],[74,"12:20:44"],[81.5,"14:17:56"],[88,"16:02:41"],[100,"19:26:59"]] };
+const toSec = t => t.split(":").reduce((a, x) => a * 60 + +x, 0);
+const fmtPace = s => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, "0")}`;
+const fmtHM = s => `${Math.floor(s / 3600)}:${String(Math.floor(s % 3600 / 60)).padStart(2, "0")}`;
+
+const LANGS = [
+  { n:"TypeScript", v:39.9, c:"--c1" }, { n:"Dart", v:24.7, c:"--c2" }, { n:"Python", v:20.2, c:"--c3" },
+  { n:"Jupyter", v:9.2, c:"--c4" }, { n:"*other", v:6.0, c:"--c5" }
+];
+const LANG_COUNT = 21;
+const COMMITS_MONTHLY = [56,45,20,9,17,0,11,173,128,234,333,467];
+const COMMITS_PROJECT = [["📝","Inquisitio",748],["🩺","JournAI",540],["🌍","GlobeQuest",497],["🥗","Składomat",131],["🧾","Kwit",117],["🎉","PatoBox",106],["🏢","OfficeFlow",37],["⌚","GarminReport",25]];
+const RAP = ["Taco Hemingway · Marmur","Taco Hemingway · Café Belga","Taco Hemingway · Pocztówka z WWA, lato '19","Quebonafide · Egzotyka","Quebonafide · Romantic Psycho","Taconafide · Soma 0,5 mg","Taco Hemingway · Jarmark"];
+
+const BUBBLES = [
+  { id:"idea", e:"💡", r:64, pl:["Pomysły","Najczęstszy gość w tej głowie."], en:["Ideas","The most frequent visitor in this head."] },
+  { id:"code", e:"💻", r:62, pl:["Kod","Java, TypeScript, Python, Dart i wszystko, co pomoże pomysłowi ożyć."], en:["Code","Java, TypeScript, Python, Dart and whatever brings an idea to life."] },
+  { id:"tri", e:"🏊", r:56, pl:["Triathlon","Iron Dragon 2024, dystans Standard: 2:57:24, 29. z 44 w kategorii."], en:["Triathlon","Iron Dragon 2024, Standard distance: 2:57:24, 29th of 44 in category."] },
+  { id:"mar", e:"🏃", r:54, pl:["Maraton","Cracovia Maraton 2023: 3:59:43. Poniżej czterech godzin o 17 sekund."], en:["Marathon","Cracovia Marathon 2023: 3:59:43. Under four hours by 17 seconds."] },
+  { id:"ult", e:"⛰️", r:60, pl:["Ultra","Łemkowyna Trail 100: 19:26:59 i 100. miejsce wśród mężczyzn. Sto na sto."], en:["Ultra","Łemkowyna Trail 100: 19:26:59 and 100th man at the finish. A hundred for a hundred."] },
+  { id:"agh", e:"🎓", r:52, pl:["AGH","Inżynier Elektroniki i Telekomunikacji, magister Teleinformatyki."], en:["AGH","BEng in Electronics & Telecoms, MSc in ICT."] },
+  { id:"movie", e:"🎬", r:54, act:"popcorn", pl:["Kino","Kinematografia, filmy i seriale. Klikaj dalej, bez popcornu się nie liczy."], en:["Cinema","Films and series. Keep clicking, it doesn't count without popcorn."] },
+  { id:"games", e:"🎮", r:52, pl:["Gry","Pad w dłoni i „jeszcze tylko jedna runda”."], en:["Games","Controller in hand and “just one more round”."] },
+  { id:"board", e:"🎲", r:52, act:"dice", pl:["Planszówki",""], en:["Board games",""] },
+  { id:"books", e:"📚", r:46, pl:["Książki","Zawsze jedna czeka na stoliku nocnym."], en:["Books","There's always one on the nightstand."] },
+  { id:"disney", e:"🏰", r:48, act:"sparkle", pl:["Disney","Bajki, które nie starzeją się nigdy."], en:["Disney","Classics that never get old."] },
+  { id:"rap", e:"🎧", r:50, pl:["Polski rap","Taco Hemingway, Quebonafide i spółka."], en:["Polish rap","Taco Hemingway, Quebonafide and friends."] },
+  { id:"gym", e:"🏋️", r:48, pl:["Siłownia","Trening siłowy, żeby nogi wytrzymały kolejne ultra."], en:["Gym","Strength training, so the legs survive the next ultra."] },
+  { id:"travel", e:"✈️", r:56, pl:["Podróże","24 kraje, nowe kultury i historia. Następny przystanek: Maroko."], en:["Travel","24 countries, new cultures and history. Next stop: Morocco."] },
+  { id:"photo", e:"📷", r:46, pl:["Fotografia","Kadr wszędzie tam, gdzie poniosą nogi."], en:["Photography","A frame wherever my legs take me."] },
+  { id:"hike", e:"🥾", r:48, pl:["Góry","Wędrówki górskie, czyli ultra w wersji spacerowej."], en:["Mountains","Hiking: the ultra, at walking pace."] },
+  { id:"dance", e:"💃", r:44, pl:["Taniec","Kiedy muzyka gra, nogi same idą."], en:["Dance","When the music plays, the feet follow."] },
+  { id:"ball", e:"⚽", r:46, pl:["Gry zespołowe","Junior w Ekoball Stal Sanok, ogólnopolska olimpiada w piłce ręcznej, drużyna koszykówki wydziału na AGH."], en:["Team sports","Junior at Ekoball Stal Sanok, national youth handball olympiad, faculty basketball team at AGH."] },
+  { id:"learn", e:"🧠", r:56, pl:["Nauka","Nowe technologie i pasek doświadczenia, który nigdy się nie zapełnia."], en:["Learning","New tech and an XP bar that never fills up."] },
+  { id:"hunny", e:"🍯", r:26, act:"hunny", mini:true, pl:["",""], en:["",""] }
+];
+
+/* ═══════════════════════════ state ═══════════════════════════ */
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+let lang = store.get("bj-lang", null) || ((navigator.language || "pl").toLowerCase().startsWith("pl") ? "pl" : "en");
+let filter = "all";
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cssVar = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const center = el => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
+
+const savedTheme = store.get("bj-theme", null);
+if (savedTheme) document.documentElement.dataset.theme = savedTheme;
+
+/* ═══════════════════════════ render ═══════════════════════════ */
+function applyI18n(){
+  const t = T[lang];
+  document.documentElement.lang = lang;
+  $$("[data-i18n]").forEach(el => { const v = t[el.dataset.i18n]; if (typeof v === "string") el.textContent = v; });
+  $("#langBtn").textContent = lang === "pl" ? "EN" : "PL";
+  if (typeof splitHeads === "function"){ splitHeads(); renderSpy(); }
+  $("#donutLbl").textContent = t.langsCenter;
+  buildMarquee(); renderFilters(); renderGrid(); renderBars(); renderHBars(); renderLegend(); labelBubbles();
+  renderTrail(); renderSkills(); renderCountryChips(); if (mapState) mapState.svg.attr("aria-label", lang === "pl" ? "Mapa odwiedzonych krajów" : "Map of visited countries"); renderMedals(); renderMarathon(); renderUltra(); renderTri();
+  $("#marCallout").textContent = t.marCallout; $("#ultCallout").textContent = t.ultCallout;
+  setCaption(t.capIdle);
+  if ($("#eggs").open) renderEggPanel();
+  if (heroStarted){ restartTyper(); showThought(true); }
+}
+
+function buildMarquee(){
+  const words = T[lang].marquee;
+  const row = list => { const h = list.map(w => `<span>${esc(w)}</span>`).join(""); return h + h; };
+  $("#mq1").innerHTML = row(words);
+  $("#mq2").innerHTML = row([...words].reverse());
+}
+
+const CATS = ["all","work","own","uni"];
+function renderFilters(){
+  const t = T[lang], f = $("#filters");
+  f.querySelectorAll("button").forEach(b => b.remove());
+  CATS.forEach(c => {
+    const b = document.createElement("button");
+    b.textContent = t[c]; b.dataset.cat = c;
+    if (c === filter) b.className = "on";
+    f.appendChild(b);
+  });
+  requestAnimationFrame(movePill);
+}
+function movePill(){
+  const on = $("#filters button.on"), pill = $("#filters .pill");
+  if (!on) return;
+  Object.assign(pill.style, { left:on.offsetLeft+"px", top:on.offsetTop+"px", width:on.offsetWidth+"px", height:on.offsetHeight+"px" });
+}
+$("#filters").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b || b.dataset.cat === filter) return;
+  filter = b.dataset.cat;
+  $$("#filters button").forEach(x => x.classList.toggle("on", x === b));
+  movePill(); renderGrid(true);
+});
+
+function renderGrid(animate){
+  const t = T[lang];
+  $("#grid").innerHTML = PROJECTS.filter(p => filter === "all" || p.cat === filter).map((p, i) => {
+    const c = p[lang];
+    return `<button class="card${animate ? " enter" : ""}" data-name="${esc(p.name)}" style="--c:${p.c};--d:${i*0.05}s">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="cover"><span class="emo">${p.icon}</span><span class="kind-badge">${t[p.cat]}</span>${p.repo || p.url || p.cat !== "own" ? "" : `<span class="lock">🔒 ${t.priv}</span>`}</div>
+      <div class="card-body">
+        <div class="meta"><span>${esc(c.kind)}</span>${p.team ? `<span>👥 ${p.team === 1 ? t.solo : p.team}</span>` : ""}</div>
+        <h3>${esc(p.name)}</h3>
+        <p class="one">${esc(c.one)}</p>
+        <div class="tags">${p.tags.slice(0,4).map(x => `<span>${esc(x)}</span>`).join("")}</div>
+        <div class="more">${t.details} <i>→</i></div>
+      </div></button>`;
+  }).join("");
+}
+
+/* 3D tilt */
+$("#grid").addEventListener("pointermove", e => {
+  const card = e.target.closest(".card"); if (!card || e.pointerType !== "mouse") return;
+  const r = card.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+  card.style.setProperty("--ry", ((x - .5) * 10) + "deg");
+  card.style.setProperty("--rx", ((.5 - y) * 10) + "deg");
+});
+$("#grid").addEventListener("pointerout", e => {
+  const card = e.target.closest(".card");
+  if (card && !card.contains(e.relatedTarget)){ card.style.setProperty("--rx","0deg"); card.style.setProperty("--ry","0deg"); }
+});
+$("#grid").addEventListener("click", e => {
+  const card = e.target.closest(".card"); if (!card) return;
+  openProject(PROJECTS.find(p => p.name === card.dataset.name));
+});
+
+function openProject(p){
+  const t = T[lang], c = p[lang];
+  $("#mCover").style.background = `radial-gradient(circle at 50% 130%,${p.c},transparent 70%),#0b0b0c`;
+  $("#mIcon").textContent = p.icon;
+  $("#mKind").textContent = c.kind;
+  $("#mTitle").textContent = p.name;
+  $("#mDesc").textContent = c.desc;
+  $("#mPts").innerHTML = c.pts.map(x => `<li>${esc(x)}</li>`).join("");
+  $("#mTags").innerHTML = p.tags.map(x => `<span>${esc(x)}</span>`).join("");
+  const teamTxt = p.team ? `👥 ${p.team === 1 ? t.solo : t.team + " " + p.team}` : "";
+  $("#mFoot").innerHTML = p.repo
+    ? `<span>🟢 Open source ${teamTxt}</span><a class="btn small primary" href="${p.repo}" target="_blank" rel="noopener">${t.code}</a>`
+    : p.url ? `<span>${esc(p.org || "")} ${teamTxt}</span><a class="btn small primary" href="${p.url}" target="_blank" rel="noopener">${t.site}</a>`
+    : `<span>${p.cat === "own" ? "🔒 " + t.privLong : esc(p.org || "")} ${teamTxt}</span>`;
+  $("#modal").showModal();
+}
+$("#mClose").addEventListener("click", () => closeDialog($("#modal")));
+["#modal","#eggs"].forEach(s => $(s).addEventListener("click", e => { if (e.target === $(s)) closeDialog($(s)); }));
+
+
+/* ═══════════════════════════ trail / skills / races ═══════════════════════════ */
+const observe = el => { if (typeof io !== "undefined") io.observe(el); };
+function renderTrail(){
+  const t = T[lang];
+  $("#trailMap").innerHTML = TRAIL.map(c => {
+    const L = c[lang];
+    const title = c.link ? `<a href="${c.link}" target="_blank" rel="noopener">${esc(L.title)}</a>` : esc(L.title);
+    const items = (L.items || []).map(([e, n, d, u]) => `<div><span class="e">${e}</span><span><b>${u ? `<a href="${u}" target="_blank" rel="noopener">${esc(n)} ↗</a>` : esc(n)}</b><small>${esc(d)}</small></span></div>`).join("");
+    const logo = c.pick ? `<button class="cp-logo pick" id="pickaxe" aria-label="AGH">⚒️</button>` : `<span class="cp-logo">${c.e}</span>`;
+    return `<div class="cp reveal${c.now ? " now" : ""}${c.edu ? " edu" : ""}">
+      <div class="cp-when">${c.when}${c.sub ? `<small>${c.sub}</small>` : ""}</div>
+      <div class="cp-flag">${c.flag}</div>
+      <div class="cp-card sketch">
+        <div class="cp-top">${logo}<div><div class="cp-role">${esc(L.role)}</div><h3>${title}</h3></div><span class="cp-badge">${esc(L.badge)}</span></div>
+        <p>${esc(L.desc)}</p>
+        ${items ? `<div class="cp-sub">${items}</div>` : ""}
+      </div></div>`;
+  }).join("");
+  $$("#trailMap .reveal").forEach(observe);
+}
+
+let skillMode = "all";
+function renderSkills(){
+  const nm = n => n.includes("|") ? n.split("|")[lang === "pl" ? 0 : 1] : n;
+  $("#toolbox").innerHTML = SKILLS.map(g =>
+    `<div class="tool-group sketch reveal"><h4><span>${g.e}</span>${esc(g[lang])}</h4><div class="chips">${g.s.map(([n, pro]) => `<span class="chip${pro ? " pro" : ""}">${esc(nm(n))}</span>`).join("")}</div></div>`).join("");
+  $("#toolbox").classList.toggle("pro-only", skillMode === "pro");
+  $$("#toolbox .reveal").forEach(observe);
+  $("#spoken").innerHTML = SPOKEN.map(([f, n, lvl, w]) => `<div><span>${f} ${n[lang]}</span><span class="t"><span class="f" style="--w:${w};display:block"></span></span><b>${lvl[lang]}</b></div>`).join("");
+  $("#certs").innerHTML = CERTS.map(([e, n, by]) => `<li><span class="seal">${e}</span><span>${esc(n[lang])}<small>${esc(by)}</small></span></li>`).join("");
+}
+$("#skillToggle").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  skillMode = b.dataset.mode;
+  $$("#skillToggle button").forEach(x => x.classList.toggle("on", x === b));
+  $("#toolbox").classList.toggle("pro-only", skillMode === "pro");
+});
+
+function renderMedals(){
+  const t = T[lang];
+  const pill = (e, v, l) => `<span>${e} <b>${v}</b>${l ? " " + l : ""}</span>`;
+  $("#medals").innerHTML = `
+    <div class="medal-card sketch reveal" data-sport="tri">
+      <div class="medal"><div class="ribbon"></div><div class="disc"><span>🏊🚴🏃</span></div></div>
+      <div class="year">2024</div><h3>Iron Dragon Triathlon</h3>
+      <div class="disciplines"><span>🏊</span><i></i><span>🚴</span><i></i><span>🏃</span></div>
+      <div class="stats-line">${pill("⏱","2:57:24")}${pill("🏁","126.",t.open)}${pill("👥","29/44","M14-29")}</div>
+      <p>${t.medalTri}</p></div>
+    <div class="medal-card sketch reveal" data-sport="mar">
+      <div class="medal"><div class="ribbon"></div><div class="disc"><span>42</span></div></div>
+      <div class="year">2023</div><h3>Cracovia Maraton</h3>
+      <div class="km">3:59:43</div>
+      <div class="stats-line">${pill("📏","42,195 km")}${pill("⚡","5:41","/km")}${pill("🏁","144.","M20")}</div>
+      <p>${t.medalMar}</p></div>
+    <div class="medal-card sketch reveal" data-sport="ult">
+      <div class="medal"><div class="ribbon"></div><div class="disc"><span>💯</span></div></div>
+      <div class="year">2026</div><h3>Łemkowyna Trail 100</h3>
+      <div class="km">19:26:59</div>
+      <svg class="ridge" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 38 L18 26 L30 31 L48 12 L62 22 L78 8 L96 24 L112 16 L130 30 L146 14 L160 20 L178 6 L200 28"/></svg>
+      <div class="stats-line">${pill("📏","100 km")}${pill("🏁","133.",t.open)}${pill("💯","100.","M")}</div>
+      <p>${t.medalUlt}</p></div>`;
+  $$("#medals .reveal").forEach(observe);
+}
+
+/* hand-drawn race charts in SVG */
+const CW = 520, CH = 240, PADL = 34, PADR = 14;
+const xOf = (km, max) => PADL + km / max * (CW - PADL - PADR);
+function renderMarathon(){
+  const sp = MARATHON.splits, pl = MARATHON.places, max = 42.195;
+  const yP = v => 18 + (v - 1700) / (2650 - 1700) * 120;
+  let g = `<line class="ax" x1="${PADL}" y1="226" x2="${CW - PADR}" y2="226"/>`;
+  [5,10,15,20,25,30,35,40].forEach(k => g += `<line class="grid" x1="${xOf(k,max)}" y1="10" x2="${xOf(k,max)}" y2="226"/><text class="lbl" x="${xOf(k,max)}" y="240" text-anchor="middle">${k}</text>`);
+  for (let i = 1; i < sp.length; i++){
+    const d = sp[i][0] - sp[i-1][0], pace = (toSec(sp[i][1]) - toSec(sp[i-1][1])) / d;
+    const h = Math.max(4, (pace - 300) / 80 * 46), x0 = xOf(sp[i-1][0], max) + 2, w = xOf(sp[i][0], max) - x0 - 2;
+    g += `<g class="hov"><rect class="rbar${pace > 345 ? " slow" : ""}" x="${x0}" y="${224 - h}" width="${w}" height="${h}" rx="3"/><text class="val" x="${x0 + w / 2}" y="${218 - h}" text-anchor="middle">${fmtPace(pace)}</text></g>`;
+  }
+  const pts = pl.map(([k, v]) => [xOf(k, max), yP(v)]);
+  const path = pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+  g += `<path class="area" d="${path} L ${pts.at(-1)[0]} 150 L ${pts[0][0]} 150 Z"/><path class="line" pathLength="1" d="${path}"/>`;
+  pl.forEach(([k, v], i) => { const [x, y] = pts[i]; g += `<g class="hov"><circle class="pt" cx="${x}" cy="${y}" r="5" style="transition-delay:${.3 + i * .15}s"/><text class="val${i === 0 || i === pl.length - 1 ? "" : " tipx"}" x="${x}" y="${y - 11}" text-anchor="middle">${v}</text></g>`; });
+  $("#marChart").innerHTML = g;
+}
+function renderUltra(){
+  const sp = ULTRA.splits, max = 100, total = toSec(sp.at(-1)[1]);
+  const yT = s => 150 - s / total * 128;
+  let g = `<line class="ax" x1="${PADL}" y1="226" x2="${CW - PADR}" y2="226"/>`;
+  sp.slice(1).forEach(([k]) => g += `<line class="grid" x1="${xOf(k,max)}" y1="10" x2="${xOf(k,max)}" y2="226"/><text class="lbl" x="${xOf(k,max)}" y="240" text-anchor="middle">${k}</text>`);
+  for (let i = 1; i < sp.length; i++){
+    const d = sp[i][0] - sp[i-1][0], kmh = d / ((toSec(sp[i][1]) - toSec(sp[i-1][1])) / 3600);
+    const h = kmh / 7 * 52, x0 = xOf(sp[i-1][0], max) + 2, w = xOf(sp[i][0], max) - x0 - 2;
+    g += `<g class="hov"><rect class="rbar" x="${x0}" y="${224 - h}" width="${w}" height="${h}" rx="3" style="opacity:${.45 + kmh / 7 * .5}"/><text class="val" x="${x0 + w / 2}" y="${218 - h}" text-anchor="middle">${kmh.toFixed(1).replace(".", lang === "pl" ? "," : ".")}</text></g>`;
+  }
+  const pts = sp.map(([k, tm]) => [xOf(k, max), yT(toSec(tm))]);
+  const path = pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
+  g += `<path class="area" d="${path} L ${pts.at(-1)[0]} 150 Z"/><path class="line" pathLength="1" d="${path}"/>`;
+  sp.slice(1).forEach(([k, tm], i) => { const [x, y] = pts[i + 1]; g += `<g class="hov"><circle class="pt" cx="${x}" cy="${y}" r="5" style="transition-delay:${.3 + i * .15}s"/><text class="val" x="${x - 6}" y="${y - 10}" text-anchor="end">${fmtHM(toSec(tm))}</text></g>`; });
+  $("#ultChart").innerHTML = g;
+}
+function renderTri(){
+  $("#triDots").innerHTML = Array.from({ length: 44 }, (_, i) => `<i style="--i:${i}"${i === 28 ? ' class="me"' : ""}></i>`).join("");
+}
+
+/* ═══════════════════════════ charts ═══════════════════════════ */
+const C = 2 * Math.PI * 60;
+function buildDonut(){
+  let cum = 0;
+  $("#donut").innerHTML = LANGS.map((l, i) => {
+    const len = Math.max(0, l.v / 100 * C - 4);
+    const s = `<circle cx="80" cy="80" r="60" style="stroke:var(${l.c})" stroke-dasharray="0 ${C}" stroke-dashoffset="${-cum}" data-len="${len}" data-i="${i}"/>`;
+    cum += l.v / 100 * C;
+    return s;
+  }).join("");
+}
+const animateDonut = () => $$("#donut circle").forEach((c, i) => setTimeout(() => c.setAttribute("stroke-dasharray", `${c.dataset.len} ${C}`), i * 140));
+const langName = l => l.n === "*other" ? T[lang].other : l.n;
+function renderLegend(){
+  $("#legend").innerHTML = LANGS.map((l, i) =>
+    `<li data-i="${i}"><i style="background:var(${l.c})"></i>${langName(l)}<b>${l.v.toLocaleString(lang, {minimumFractionDigits:1})}%</b></li>`).join("");
+}
+function hotLang(i){
+  $$("#donut circle").forEach(c => { c.classList.toggle("dim", i !== null && +c.dataset.i !== i); c.classList.toggle("hot", +c.dataset.i === i); });
+  if (i === null){ $("#donutVal").textContent = LANG_COUNT; $("#donutLbl").textContent = T[lang].langsCenter; }
+  else { $("#donutVal").textContent = Math.round(LANGS[i].v) + "%"; $("#donutLbl").textContent = langName(LANGS[i]); }
+}
+$("#langPanel").addEventListener("pointerover", e => { const el = e.target.closest("[data-i]"); hotLang(el ? +el.dataset.i : null); });
+$("#langPanel").addEventListener("pointerleave", () => hotLang(null));
+
+const BAR_H = 190;
+function renderBars(){
+  const max = Math.max(...COMMITS_MONTHLY), t = T[lang];
+  $("#bars").innerHTML = COMMITS_MONTHLY.map((v, i) => {
+    const h = Math.round(v / max * BAR_H);
+    return `<div class="bar-col${v === max ? " peak" : ""}" style="--h:${h}px;--d:${i*0.06}s"><span class="tip">${v}</span><div class="b" data-h="${h}"></div><span class="m">${t.months[i]}</span></div>`;
+  }).join("");
+  if ($("#commitPanel").classList.contains("in")) animateBars();
+}
+const animateBars = () => $$("#bars .b").forEach(b => b.style.height = b.dataset.h + "px");
+function renderHBars(){
+  const max = COMMITS_PROJECT[0][2];
+  $("#hbars").innerHTML = COMMITS_PROJECT.map(([ic, n, v], i) =>
+    `<div class="hb"><span>${ic} ${n}</span><div class="t"><div class="f" data-w="${v/max*100}" style="--d:${i*0.08}s"></div></div><b>${v}</b></div>`).join("");
+  if ($("#projPanel").classList.contains("in")) animateHBars();
+}
+const animateHBars = () => $$("#hbars .f").forEach(f => f.style.width = f.dataset.w + "%");
+
+function countUp(el){
+  const target = +el.dataset.count, dec = +(el.dataset.dec || 0), t0 = performance.now(), dur = 1700;
+  (function step(t){
+    const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+    el.textContent = (target * e).toLocaleString(lang === "pl" ? "pl-PL" : "en-US", { minimumFractionDigits:dec, maximumFractionDigits:dec });
+    if (k < 1) requestAnimationFrame(step);
+  })(t0);
+}
+
+/* ═══════════════════════════ reveal ═══════════════════════════ */
+const onReveal = { langPanel: animateDonut, commitPanel: animateBars, projPanel: animateHBars };
+const io = new IntersectionObserver(entries => entries.forEach(en => {
+  if (!en.isIntersecting) return;
+  const el = en.target;
+  el.classList.add("in");
+  if (onReveal[el.id]) onReveal[el.id]();
+  if (el.classList.contains("stats")) $$(".stats .num[data-count]").forEach(countUp);
+  if (el.classList.contains("travel-stats")) $$(".travel-stats [data-count]").forEach(countUp);
+  io.unobserve(el);
+}), { threshold: .18 });
+$$(".reveal").forEach((el, i) => { el.style.setProperty("--d", ((i % 3) * 0.08) + "s"); io.observe(el); });
+
+const navIO = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) $$("nav a").forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + e.target.id));
+}), { rootMargin: "-45% 0px -50% 0px" });
+$$("main section[id]").forEach(s => navIO.observe(s));
+
+/* ═══════════════════════════ hero ═══════════════════════════ */
+let heroStarted = false, typerTimer, thoughtTimer, thoughtIdx = 0;
+
+function startHero(){
+  if (heroStarted) return;
+  heroStarted = true;
+  $("#hero").classList.add("ready");
+  $("#scribble").classList.add("go");
+  [0, 750, 1500].forEach(d => setTimeout(() => tapHead(false), d + 250));
+  setTimeout(() => { restartTyper(); showThought(true); }, 2300);
+}
+
+function restartTyper(){
+  clearTimeout(typerTimer);
+  const roles = T[lang].roles, el = $("#typed");
+  let ri = 0, ci = 0, del = false;
+  (function tick(){
+    const w = roles[ri];
+    el.textContent = w.slice(0, ci);
+    if (!del && ci === w.length){ del = true; typerTimer = setTimeout(tick, 1600); return; }
+    if (del && ci === 0){ del = false; ri = (ri + 1) % roles.length; }
+    ci += del ? -1 : 1;
+    typerTimer = setTimeout(tick, del ? 40 : 85);
+  })();
+}
+
+function showThought(restart, text){
+  const el = $("#thought"), list = T[lang].thoughts;
+  clearTimeout(thoughtTimer);
+  const swap = () => {
+    el.classList.remove("out"); void el.offsetWidth;
+    el.textContent = text || list[thoughtIdx % list.length];
+    el.classList.add("in");
+    if (!text) thoughtIdx++;
+    thoughtTimer = setTimeout(() => showThought(false), text ? 2600 : 2800);
+  };
+  if (restart || !el.textContent){ swap(); return; }
+  el.classList.remove("in"); el.classList.add("out");
+  setTimeout(swap, 280);
+}
+$("#cloud").addEventListener("click", () => {
+  showThought(false);
+  const [x, y] = center($("#cloud"));
+  burst(x, y, ["✨","💡","✦"], { count: 8, speed: [3, 8], gravity: .05, life: 900, size: [12, 20] });
+});
+
+/* head: Pooh's "think, think, think" */
+let headTaps = [];
+function tapHead(user){
+  const h = $("#head");
+  h.classList.remove("tap"); void h.offsetWidth; h.classList.add("tap");
+  const k = document.createElement("span");
+  k.className = "knock"; k.textContent = T[lang].knock;
+  k.style.left = (50 + (Math.random() * 40 - 20)) + "%"; k.style.top = "62%";
+  $(".mind-art").appendChild(k); setTimeout(() => k.remove(), 800);
+  if (!user) return;
+  const [x, y] = center(h);
+  burst(x, y - 40, ["💡"], { count: 2, spread: 40, speed: [6, 10], gravity: .12, life: 900, size: [16, 24] });
+  const now = Date.now();
+  headTaps = headTaps.filter(t => now - t < 1200).concat(now);
+  if (headTaps.length >= 3){
+    headTaps = [];
+    const [cx, cy] = center($("#cloud"));
+    burst(cx, cy, ["💡","💡","✨","⭐"], { count: 30, speed: [6, 14], gravity: .08 });
+    banner(T[lang].think, 2400);
+    showThought(false, T[lang].gotIt);
+    unlock("think");
+  }
+}
+$("#head").addEventListener("click", () => tapHead(true));
+
+/* ═══════════════════════════ neurons canvas ═══════════════════════════ */
+(function neurons(){
+  const cv = $("#neurons"), ctx = cv.getContext("2d");
+  let W = 0, H = 0, nodes = [], sparks = [], mouse = { x: -9999, y: -9999 }, visible = true, raf;
+  const LINK = 130;
+  function resize(){
+    const dpr = Math.min(2, devicePixelRatio || 1);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.max(26, Math.min(95, Math.round(W * H / 15000)));
+    nodes = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, r: .8 + Math.random() * 1.8, glow: 0 }));
+  }
+  function frame(){
+    ctx.clearRect(0, 0, W, H);
+    for (const n of nodes){
+      const dx = mouse.x - n.x, dy = mouse.y - n.y, d2 = dx * dx + dy * dy;
+      if (d2 < 200 * 200){ n.vx += dx * .00003; n.vy += dy * .00003; }
+      n.vx *= .995; n.vy *= .995;
+      if (Math.abs(n.vx) < .05) n.vx += (Math.random() - .5) * .04;
+      if (Math.abs(n.vy) < .05) n.vy += (Math.random() - .5) * .04;
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+      n.glow *= .94;
+    }
+    for (let i = 0; i < nodes.length; i++){
+      const a = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++){
+        const b = nodes[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
+        if (d < LINK){
+          ctx.strokeStyle = `rgba(255,212,59,${(1 - d / LINK) * (.16 + Math.max(a.glow, b.glow) * .6)})`;
+          ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+        }
+      }
+      const md = Math.hypot(a.x - mouse.x, a.y - mouse.y);
+      if (md < 170){
+        ctx.strokeStyle = `rgba(255,212,59,${(1 - md / 170) * .5})`;
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke();
+      }
+    }
+    for (const n of nodes){
+      ctx.fillStyle = `rgba(255,212,59,${.45 + n.glow * .55})`;
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r + n.glow * 3, 0, 7); ctx.fill();
+    }
+    sparks = sparks.filter(s => s.r < s.max);
+    for (const s of sparks){
+      s.r += 6;
+      ctx.strokeStyle = `rgba(255,212,59,${1 - s.r / s.max})`; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 7); ctx.stroke();
+      for (const n of nodes){ const d = Math.hypot(n.x - s.x, n.y - s.y); if (Math.abs(d - s.r) < 10) n.glow = 1; }
+    }
+    if (visible && !document.hidden) raf = requestAnimationFrame(frame);
+  }
+  const start = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(frame); };
+  resize();
+  if (reduced){ frame(); visible = false; }
+  else start();
+  addEventListener("resize", () => { resize(); if (reduced) frame(); });
+  const hero = $("#hero");
+  hero.addEventListener("pointermove", e => { const r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+  hero.addEventListener("pointerleave", () => { mouse.x = mouse.y = -9999; });
+  hero.addEventListener("click", e => {
+    if (e.target.closest("a,button")) return;
+    const r = cv.getBoundingClientRect();
+    sparks.push({ x: e.clientX - r.left, y: e.clientY - r.top, r: 0, max: 320 });
+  });
+  new IntersectionObserver(([en]) => { visible = en.isIntersecting && !reduced; if (visible) start(); }).observe(hero);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden && visible) start(); });
+})();
+
+/* ═══════════════════════════ mind playground ═══════════════════════════ */
+const pg = $("#playground");
+let bubbles = [], pgW = 0, pgH = 0, pgVisible = false, pgRaf;
+function setCaption(html, flash){
+  $("#captionTxt").innerHTML = html;
+  if (flash){ const c = $("#caption"); c.classList.remove("flash"); void c.offsetWidth; c.classList.add("flash"); }
+}
+function labelBubbles(){
+  bubbles.forEach(b => { b.el.querySelector(".bl").textContent = b.d[lang][0]; });
+}
+function buildBubbles(){
+  pgW = pg.clientWidth; pgH = pg.clientHeight;
+  const scale = Math.max(.72, Math.min(1.35, pgW / 1000));
+  bubbles.forEach(b => b.el.remove());
+  bubbles = BUBBLES.map((d, i) => {
+    const r = d.r * scale, el = document.createElement("div");
+    el.className = "bubble" + (d.mini ? " mini" : "");
+    el.style.width = el.style.height = (r * 2) + "px";
+    el.style.setProperty("--r", r + "px");
+    el.innerHTML = `<span class="be">${d.e}</span><span class="bl"></span>`;
+    pg.appendChild(el);
+    const a = i / BUBBLES.length * Math.PI * 2;
+    const b = { el, d, r, x: pgW / 2 + Math.cos(a) * pgW * .3 + (Math.random() - .5) * 40, y: pgH / 2 + Math.sin(a) * pgH * .28, vx: (Math.random() - .5) * 2, vy: (Math.random() - .5) * 2, drag: false, gone: false };
+    bindBubble(b);
+    return b;
+  });
+  labelBubbles();
+  placeBubbles();
+}
+function placeBubbles(){ for (const b of bubbles) b.el.style.transform = `translate(${b.x - b.r}px,${b.y - b.r}px)`; }
+function stepBubbles(){
+  const cx = pgW / 2, cy = pgH / 2 - 20, pad = 16;
+  for (const b of bubbles){
+    if (b.drag || b.gone) continue;
+    b.vx += (cx - b.x) * .00007; b.vy += (cy - b.y) * .00009;
+    b.vx += (Math.random() - .5) * .04; b.vy += (Math.random() - .5) * .04;
+    b.vx *= .985; b.vy *= .985;
+    b.x += b.vx; b.y += b.vy;
+    if (b.x < b.r + pad){ b.x = b.r + pad; b.vx = Math.abs(b.vx) * .8; }
+    if (b.x > pgW - b.r - pad){ b.x = pgW - b.r - pad; b.vx = -Math.abs(b.vx) * .8; }
+    if (b.y < b.r + pad){ b.y = b.r + pad; b.vy = Math.abs(b.vy) * .8; }
+    if (b.y > pgH - b.r - pad){ b.y = pgH - b.r - pad; b.vy = -Math.abs(b.vy) * .8; }
+  }
+  for (let i = 0; i < bubbles.length; i++){
+    const a = bubbles[i]; if (a.gone) continue;
+    for (let j = i + 1; j < bubbles.length; j++){
+      const b = bubbles[j]; if (b.gone) continue;
+      const dx = b.x - a.x, dy = b.y - a.y, d = Math.hypot(dx, dy) || .01, min = a.r + b.r + 16;
+      if (d < min){
+        const nx = dx / d, ny = dy / d, push = (min - d) / 2;
+        const wa = a.drag ? 0 : (b.drag ? 2 : 1), wb = b.drag ? 0 : (a.drag ? 2 : 1);
+        a.x -= nx * push * wa; a.y -= ny * push * wa; b.x += nx * push * wb; b.y += ny * push * wb;
+        const rel = (b.vx - a.vx) * nx + (b.vy - a.vy) * ny;
+        if (rel < 0){
+          const imp = rel * .9;
+          if (!a.drag){ a.vx += imp * nx; a.vy += imp * ny; }
+          if (!b.drag){ b.vx -= imp * nx; b.vy -= imp * ny; }
+        }
+      }
+    }
+  }
+  placeBubbles();
+  if (pgVisible) pgRaf = requestAnimationFrame(stepBubbles);
+}
+function bindBubble(b){
+  let sx, sy, lx, ly, lt, moved;
+  b.el.addEventListener("pointerdown", e => {
+    e.preventDefault();
+    b.el.setPointerCapture(e.pointerId);
+    b.drag = true; moved = 0; b.el.classList.add("drag");
+    const r = pg.getBoundingClientRect();
+    sx = lx = e.clientX - r.left; sy = ly = e.clientY - r.top; lt = performance.now();
+  });
+  b.el.addEventListener("pointermove", e => {
+    if (!b.drag) return;
+    const r = pg.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top, now = performance.now(), dt = Math.max(8, now - lt);
+    moved = Math.max(moved, Math.hypot(x - sx, y - sy));
+    b.vx = (x - lx) / dt * 16; b.vy = (y - ly) / dt * 16;
+    b.x = Math.max(b.r, Math.min(pgW - b.r, x)); b.y = Math.max(b.r, Math.min(pgH - b.r, y));
+    lx = x; ly = y; lt = now;
+  });
+  const end = () => {
+    if (!b.drag) return;
+    b.drag = false; b.el.classList.remove("drag");
+    const sp = Math.hypot(b.vx, b.vy); if (sp > 24){ b.vx *= 24 / sp; b.vy *= 24 / sp; }
+    if (moved < 6) clickBubble(b);
+  };
+  b.el.addEventListener("pointerup", end);
+  b.el.addEventListener("pointercancel", end);
+  b.el.addEventListener("dblclick", () => popBubble(b));
+}
+
+let popcornClicks = 0;
+const DICE = ["⚀","⚁","⚂","⚃","⚄","⚅"];
+const rollOne = () => Math.random() < 1/3 ? 6 : 1 + Math.floor(Math.random() * 5);
+function clickBubble(b){
+  const d = b.d, L = d[lang], [x, y] = center(b.el);
+  b.vx += (Math.random() - .5) * 6; b.vy -= 4;
+  if (d.act === "dice"){
+    const a = rollOne(), c = rollOne();
+    setCaption(`<b>${L[0]}</b> ${DICE[a-1]} ${DICE[c-1]} = ${a + c}${a === 6 && c === 6 ? " 🎉" : ""}`, true);
+    burst(x, y, ["🎲"], { count: 3, speed: [5, 9], size: [16, 24] });
+    if (a === 6 && c === 6){ burst(x, y, ["🎲","✨","🎉"], { count: 22 }); unlock("dice"); }
+    return;
+  }
+  if (d.act === "popcorn"){
+    popcornClicks++;
+    burst(x, y, ["🍿"], { count: 2 + Math.min(popcornClicks, 6), spread: 60, speed: [5, 10], size: [14, 22] });
+    if (popcornClicks >= 10){
+      popcornClicks = 0;
+      burst(x, y, ["🍿","🍿","🎬","⭐"], { count: 50, speed: [8, 20] });
+      toast("🍿", T[lang].popcorn, "🎬", 3000);
+      unlock("popcorn");
+    }
+  }
+  if (d.act === "sparkle") burst(x, y, ["✨","⭐","✦","🏰"], { count: 16, speed: [4, 10], gravity: .08 });
+  if (d.act === "hunny"){ hunny(); return; }
+  setCaption(`<b>${esc(L[0])}</b> ${esc(L[1])}`, true);
+}
+function popBubble(b){
+  if (b.gone) return;
+  const [x, y] = center(b.el);
+  b.gone = true; b.el.classList.add("gone");
+  burst(x, y, ["💧","✨","🫧"], { count: 14, speed: [4, 10], gravity: .15, size: [12, 20] });
+  setCaption(T[lang].popped, true);
+  unlock("pop");
+  setTimeout(() => { b.x = pgW / 2; b.y = b.r + 20; b.vx = (Math.random() - .5) * 4; b.vy = 2; b.gone = false; b.el.classList.remove("gone"); }, 1600);
+}
+new IntersectionObserver(([en]) => {
+  pgVisible = en.isIntersecting && !reduced;
+  if (pgVisible){ cancelAnimationFrame(pgRaf); pgRaf = requestAnimationFrame(stepBubbles); }
+}).observe(pg);
+let pgResize;
+addEventListener("resize", () => { clearTimeout(pgResize); pgResize = setTimeout(() => { if (Math.abs(pg.clientWidth - pgW) > 40) buildBubbles(); else { pgW = pg.clientWidth; pgH = pg.clientHeight; } }, 200); });
+
+
+/* ═══════════════════════════ travel map ═══════════════════════════ */
+const TRAVEL = [
+  /* [Natural Earth name, flag, pl, en, note pl, note en, lon/lat for the arc (optional)] */
+  ["Poland","🇵🇱","Polska","Poland","dom","home"],
+  ["Norway","🇳🇴","Norwegia","Norway","","",[8.5,61]],
+  ["Sweden","🇸🇪","Szwecja","Sweden","","",[15,61.5]],
+  ["Denmark","🇩🇰","Dania","Denmark","",""],
+  ["Estonia","🇪🇪","Estonia","Estonia","",""],
+  ["United Kingdom","🏴󠁧󠁢󠁳󠁣󠁴󠁿","Szkocja","Scotland","","",[-4.2,56.8]],
+  ["Germany","🇩🇪","Niemcy","Germany","",""],
+  ["Czechia","🇨🇿","Czechy","Czechia","",""],
+  ["Slovakia","🇸🇰","Słowacja","Slovakia","",""],
+  ["Austria","🇦🇹","Austria","Austria","",""],
+  ["Hungary","🇭🇺","Węgry","Hungary","",""],
+  ["Croatia","🇭🇷","Chorwacja","Croatia","","",[16,44.5]],
+  ["Romania","🇷🇴","Rumunia","Romania","",""],
+  ["Bulgaria","🇧🇬","Bułgaria","Bulgaria","",""],
+  ["Ukraine","🇺🇦","Ukraina","Ukraine","",""],
+  ["Italy","🇮🇹","Włochy","Italy","+ Sycylia","+ Sicily",[12.5,42.5]],
+  ["Greece","🇬🇷","Kreta","Crete","Grecja","Greece",[24.9,35.25]],
+  ["France","🇫🇷","Francja","France","","",[2.5,46.6]],
+  ["Spain","🇪🇸","Hiszpania","Spain","","",[-3.7,40.2]],
+  ["Portugal","🇵🇹","Portugalia","Portugal","",""],
+  ["Georgia","🇬🇪","Gruzja","Georgia","",""],
+  ["United Arab Emirates","🇦🇪","ZEA","UAE","",""],
+  ["Thailand","🇹🇭","Tajlandia","Thailand","","",[100.5,15]],
+  ["Laos","🇱🇦","Laos","Laos","",""]
+];
+const PLANNED = ["Morocco","🇲🇦","Maroko","Morocco","w planie","planned",[-6.5,31.8]];
+const HOME = [19.94, 50.06];
+const ZOOMS = { europe:[[-12,27],[44,70]], all:[[-13,8],[108,68]] };
+let mapState = null, mapZoom = "europe";
+const tName = c => lang === "pl" ? c[2] : c[3];
+const tNote = c => lang === "pl" ? c[4] : c[5];
+const whenLibs = () => new Promise(res => { const ok = () => window.d3 && window.topojson; if (ok()) return res(); addEventListener("load", () => res()); });
+
+async function buildMap(){
+  await whenLibs();
+  if (!window.d3 || !window.topojson){ $("#mapLoading").textContent = "🗺️ offline"; return; }
+  let topo;
+  try { topo = await (await fetch("https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json")).json(); }
+  catch(e){ $("#mapLoading").textContent = "🗺️ offline"; return; }
+  const feats = topojson.feature(topo, topo.objects.countries).features.filter(f => f.properties.name !== "Antarctica");
+  const wr = $("#mapWrap"), W = 1000, H = Math.round(1000 * wr.clientHeight / Math.max(1, wr.clientWidth)) || 560;
+  const svg = d3.select("#worldMap").attr("viewBox", `0 0 ${W} ${H}`).attr("preserveAspectRatio", "xMidYMid meet");
+  const proj = d3.geoMercator().scale(1).translate([0, 0]);
+  const path = d3.geoPath(proj);
+  const byName = new Map(feats.map(f => [f.properties.name, f]));
+  const visited = new Map(TRAVEL.map(c => [c[0], c]));
+  const g = svg.append("g").attr("class", "zoomg");
+  g.selectAll("path.land").data(feats).join("path")
+    .attr("class", f => "land" + (f.properties.name === "Poland" ? " visited home" : visited.has(f.properties.name) ? " visited" : f.properties.name === PLANNED[0] ? " planned" : ""))
+    .attr("data-name", f => f.properties.name);
+  const arcs = g.append("g"), pins = g.append("g");
+  mapState = { svg, g, proj, path, byName, visited, arcs, pins, W, H };
+  fitMap(false);
+  $("#mapLoading").classList.add("gone");
+
+  const tip = $("#mapTip"), wrap = $("#mapWrap");
+  const showTip = (name, e) => {
+    const c = visited.get(name) || (name === PLANNED[0] ? PLANNED : null);
+    if (!c){ tip.classList.remove("on"); return; }
+    const r = wrap.getBoundingClientRect();
+    tip.innerHTML = `<b>${c[1]} ${esc(tName(c))}</b>${esc(tNote(c) || "")}`;
+    tip.style.left = (e.clientX - r.left) + "px"; tip.style.top = (e.clientY - r.top) + "px";
+    tip.classList.add("on");
+  };
+  svg.on("pointermove", e => { const n = e.target.dataset && e.target.dataset.name; showTip(n, e); hotCountry(visited.has(n) || n === PLANNED[0] ? n : null); });
+  svg.on("pointerleave", () => { tip.classList.remove("on"); hotCountry(null); });
+  svg.on("click", e => { if (e.target.dataset && e.target.dataset.name === PLANNED[0]) nextStop(); });
+}
+
+function anchor(c){
+  const { byName, proj } = mapState;
+  if (c[6]) return proj(c[6]);
+  const f = byName.get(c[0]); if (!f) return null;
+  return mapState.path.centroid(f);
+}
+function fitMap(animate){
+  const { proj, path, g, W, H, arcs, pins } = mapState;
+  const narrow = innerWidth < 600 && mapZoom === "europe";
+  const [[x0, y0], [x1, y1]] = narrow ? [[-10,30],[34,66]] : ZOOMS[mapZoom];
+  proj.fitExtent([[14, 14], [W - 14, H - 14]], { type: "MultiPoint", coordinates: [[x0, y0], [x1, y1], [x0, y1], [x1, y0]] });
+  g.selectAll("path.land").attr("d", path);
+  const home = proj(HOME);
+  const arc = (to, plan) => {
+    const [x, y] = to, mx = (home[0] + x) / 2, my = (home[1] + y) / 2, d = Math.hypot(x - home[0], y - home[1]);
+    return `M${home[0]},${home[1]} Q${mx},${my - d * .28} ${x},${y}`;
+  };
+  const list = TRAVEL.slice(1).map(c => [c, anchor(c)]).filter(x => x[1]);
+  arcs.selectAll("path").data(list).join("path").attr("class", "arc").attr("pathLength", 1).attr("data-name", d => d[0][0])
+    .attr("d", d => arc(d[1])).style("transition-delay", (d, i) => (i * 0.06) + "s");
+  const pa = anchor(PLANNED);
+  arcs.selectAll("path.planarc").data([pa]).join("path").attr("class", "arc plan planarc").attr("pathLength", 1).attr("d", arc(pa));
+  pins.selectAll("*").remove();
+  pins.append("circle").attr("class", "home-ring").attr("cx", home[0]).attr("cy", home[1]).attr("r", 5);
+  pins.append("circle").attr("class", "home-dot").attr("cx", home[0]).attr("cy", home[1]).attr("r", 5);
+  const plane = pins.append("text").attr("class", "pin").attr("text-anchor", "middle").attr("dy", ".35em").text("✈️");
+  plane.append("animateMotion").attr("dur", "4s").attr("repeatCount", "indefinite").attr("rotate", "auto").attr("path", arc(pa));
+  if (animate){ const p = $("#mapPanel"); p.classList.remove("drawn"); void p.offsetWidth; requestAnimationFrame(() => p.classList.add("drawn")); }
+}
+function hotCountry(name){
+  if (!mapState) return;
+  mapState.g.selectAll("path.land").classed("hot", function(){ return name && this.dataset.name === name; });
+  mapState.arcs.selectAll("path").classed("hot", function(){ return name && this.dataset.name === name; });
+  $$(".cchip").forEach(c => c.classList.toggle("hot", c.dataset.name === name));
+}
+function renderCountryChips(){
+  const chip = (c, plan) => `<button class="cchip${plan ? " plan" : ""}" data-name="${c[0]}">${c[1]} ${esc(tName(c))}${tNote(c) ? ` <small>${esc(tNote(c))}</small>` : ""}</button>`;
+  $("#countryChips").innerHTML = TRAVEL.map(c => chip(c)).join("") + chip(PLANNED, true);
+}
+$("#countryChips").addEventListener("pointerover", e => { const c = e.target.closest(".cchip"); hotCountry(c ? c.dataset.name : null); });
+$("#countryChips").addEventListener("pointerleave", () => hotCountry(null));
+$("#countryChips").addEventListener("click", e => { const c = e.target.closest(".cchip"); if (c && c.dataset.name === PLANNED[0]) nextStop(); });
+$("#mapZoom").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b || b.dataset.z === mapZoom) return;
+  mapZoom = b.dataset.z;
+  $$("#mapZoom button").forEach(x => x.classList.toggle("on", x === b));
+  if (mapState) fitMap(true);
+});
+function nextStop(){
+  const row = document.createElement("div");
+  row.className = "caravan"; row.textContent = "🐪 🐫 🐪   🌴";
+  document.body.appendChild(row);
+  row.animate([{ transform:`translateX(${innerWidth + 40}px)` }, { transform:"translateX(-420px)" }], { duration: 4200, easing: "linear" }).onfinish = () => row.remove();
+  banner(`🇲🇦 ${T[lang].tvBanner}<small>${T[lang].tvBannerSub}</small>`, 2800);
+  unlock("morocco");
+}
+$("#nextStop").addEventListener("click", nextStop);
+$("#copyMail").addEventListener("click", async e => {
+  try { await navigator.clipboard.writeText("bartosz.jat@gmail.com"); } catch(err){ location.href = "mailto:bartosz.jat@gmail.com"; return; }
+  const [x, y] = center(e.currentTarget);
+  burst(x, y, ["✉️","✨","💛"], { count: 12, speed: [4, 9], gravity: .12, size: [14, 22] });
+  toast("✉️", T[lang].copied, T[lang].copiedSub, 2600);
+});
+$("#gqLink").addEventListener("click", () => openProject(PROJECTS.find(p => p.name === "GlobeQuest")));
+new IntersectionObserver(([en], obs) => {
+  if (!en.isIntersecting) return;
+  obs.disconnect();
+  buildMap().then(() => { if (mapState) setTimeout(() => $("#mapPanel").classList.add("drawn"), 300); });
+}, { rootMargin: "300px" }).observe($("#mapPanel"));
+
+/* ═══════════════════════════ cursor + global fx ═══════════════════════════ */
+(function cursor(){
+  if (!matchMedia("(pointer:fine)").matches) return;
+  const cur = $(".cursor"), dot = $(".cur-dot"), ring = $(".cur-ring");
+  let mx = -100, my = -100, rx = -100, ry = -100;
+  addEventListener("pointermove", e => { mx = e.clientX; my = e.clientY; dot.style.transform = `translate(${mx}px,${my}px)`; cur.classList.remove("hide"); }, { passive: true });
+  document.addEventListener("pointerleave", () => cur.classList.add("hide"));
+  addEventListener("pointerdown", () => cur.classList.add("down"));
+  addEventListener("pointerup", () => cur.classList.remove("down"));
+  const lbl = $(".cur-lbl");
+  const labelFor = t => {
+    const L = T[lang];
+    if (t.closest(".card")) return L.cDetails;
+    if (t.closest(".bubble")) return t.closest(".bubble.mini") ? "🍯" : L.cDrag;
+    if (t.closest("#head")) return L.cTap;
+    if (t.closest("#cloud")) return L.cThought;
+    if (t.closest('#worldMap path[data-name="Morocco"]')) return "🐪 ?";
+    if (t.closest("#nextStop")) return "🐪 ?";
+    return "";
+  };
+  document.addEventListener("pointerover", e => {
+    const l = labelFor(e.target);
+    lbl.textContent = l;
+    cur.classList.toggle("label", !!l);
+    cur.classList.toggle("hover", !l && !!e.target.closest("a,button,.bubble,.card,[data-i],.cchip"));
+  });
+  (function loop(){ rx += (mx - rx) * .18; ry += (my - ry) * .18; ring.style.transform = `translate(${rx}px,${ry}px)`; requestAnimationFrame(loop); })();
+})();
+
+document.addEventListener("pointerdown", e => {
+  const b = e.target.closest(".btn"); if (!b) return;
+  const r = b.getBoundingClientRect(), s = Math.max(r.width, r.height) * 2, rp = document.createElement("span");
+  rp.className = "ripple";
+  Object.assign(rp.style, { width:s+"px", height:s+"px", left:(e.clientX - r.left - s/2)+"px", top:(e.clientY - r.top - s/2)+"px" });
+  b.appendChild(rp); setTimeout(() => rp.remove(), 650);
+});
+$$(".magnetic").forEach(b => {
+  b.addEventListener("pointermove", e => {
+    if (e.pointerType !== "mouse") return;
+    const r = b.getBoundingClientRect();
+    b.style.transform = `translate(${(e.clientX - r.left - r.width/2) * .2}px,${(e.clientY - r.top - r.height/2) * .28}px)`;
+  });
+  b.addEventListener("pointerleave", () => b.style.transform = "");
+});
+
+let finishShown = false;
+function onScroll(){
+  const h = document.documentElement.scrollHeight - innerHeight;
+  const p = h > 0 ? Math.min(100, scrollY / h * 100) : 0;
+  const tr = $(".track");
+  tr.style.setProperty("--p", p + "%");
+  tr.style.setProperty("--ro", p > 1 ? 1 : 0);
+  $(".runner").textContent = p > 99.5 ? "🏅" : "🏃";
+  $("header.top").classList.toggle("scrolled", scrollY > 30);
+  if (p > 99.5 && !finishShown && h > 200){
+    finishShown = true;
+    $("#finish").classList.add("won");
+    const r = $("#finish").getBoundingClientRect();
+    burst(innerWidth / 2, r.top, ["🏁","🎉","✨","🏅"], { count: 26, speed: [8, 15] });
+    unlock("finish");
+  }
+}
+addEventListener("scroll", onScroll, { passive: true });
+
+/* ═══════════════════════════ easter eggs ═══════════════════════════ */
+let logoClicks = 0, logoTimer;
+$("#logo").addEventListener("click", () => {
+  logoClicks++; clearTimeout(logoTimer);
+  logoTimer = setTimeout(() => logoClicks = 0, 600);
+  if (logoClicks >= 3){ logoClicks = 0; triathlon(); }
+  else if (logoClicks === 1) smoothTo(0, 0);
+});
+function triathlon(){
+  [["🏊","swim",.62],["🚴","",.52],["🏃","",.42]].forEach(([e, cls, y], i) => setTimeout(() => {
+    const r = document.createElement("div");
+    r.className = "racer " + cls; r.textContent = e; r.style.top = (y * 100) + "%";
+    document.body.appendChild(r);
+    r.animate([{ transform:`translateX(${innerWidth + 60}px)` }, { transform:"translateX(-120px)" }], { duration: 1700, easing: "cubic-bezier(.45,.05,.55,.95)" }).onfinish = () => r.remove();
+  }, i * 900));
+  setTimeout(() => { banner(T[lang].ironTitle); confetti(); unlock("tri"); }, 3300);
+}
+
+$("#dragon").addEventListener("click", e => {
+  const d = e.currentTarget; d.classList.remove("roar"); void d.offsetWidth; d.classList.add("roar");
+  const [x, y] = center(d);
+  burst(x + 14, y - 6, ["🔥","🔥","💥","🔥"], { count: 22, angle: -45, spread: 40, speed: [8, 16], gravity: -.05, life: 1000 });
+  unlock("dragon");
+});
+
+document.addEventListener("click", e => {
+  const a = e.target.closest("#pickaxe"); if (!a) return;
+  a.classList.remove("dig"); void a.offsetWidth; a.classList.add("dig");
+  const [x, y] = center(a);
+  setTimeout(() => burst(x, y, ["🪨","💎","🪨","✨","⚫"], { count: 18, speed: [5, 11] }), 300);
+  setTimeout(() => banner(T[lang].agh, 2200), 400);
+  unlock("agh");
+});
+
+$("#wishStar").addEventListener("click", e => {
+  e.stopPropagation();
+  const [x, y] = center(e.currentTarget);
+  const s = document.createElement("div"); s.className = "shooting"; document.body.appendChild(s);
+  s.animate([{ transform:`translate(${x}px,${y}px) rotate(155deg)`, opacity:1 }, { transform:`translate(${x - 600}px,${y + 300}px) rotate(155deg)`, opacity:0 }], { duration: 1100, easing: "ease-in" }).onfinish = () => s.remove();
+  burst(x, y, ["✨","⭐","✦"], { count: 14, speed: [3, 8], gravity: .1 });
+  toast("⭐", T[lang].wish, "Pinocchio, 1940", 3500);
+  unlock("star");
+});
+
+let themeClicks = [];
+let vtBusy = false;
+$("#themeBtn").addEventListener("click", e => {
+  const root = document.documentElement;
+  const flip = () => { root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light"; store.set("bj-theme", root.dataset.theme); };
+  if (document.startViewTransition && !reduced && !vtBusy){
+    const [x, y] = center(e.currentTarget);
+    root.style.setProperty("--vx", x + "px"); root.style.setProperty("--vy", y + "px");
+    vtBusy = true;
+    const vt = document.startViewTransition(flip);
+    vt.finished.finally(() => vtBusy = false);
+  } else flip();
+  const now = Date.now();
+  themeClicks = themeClicks.filter(t => now - t < 2500).concat(now);
+  if (themeClicks.length >= 5){
+    themeClicks = [];
+    root.dataset.theme = "dark"; store.set("bj-theme", "dark");
+    const s = document.createElement("div"); s.className = "saber"; document.body.appendChild(s);
+    setTimeout(() => s.remove(), 2500);
+    banner(T[lang].force, 2600);
+    unlock("force");
+  }
+});
+
+const realTitle = document.title; let wasAway = false;
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden){ wasAway = true; document.title = T[lang].tabAway; }
+  else { document.title = realTitle; if (wasAway) setTimeout(() => unlock("tab"), 500); }
+});
+
+let vinylTimer, trackTimer;
+function playRap(){
+  const v = $("#vinyl"); let i = 0;
+  $("#vinylTrack").textContent = RAP[0];
+  v.classList.add("on");
+  clearInterval(trackTimer); clearTimeout(vinylTimer);
+  trackTimer = setInterval(() => { i = (i + 1) % RAP.length; $("#vinylTrack").textContent = RAP[i]; }, 2200);
+  vinylTimer = setTimeout(stopRap, 15000);
+  unlock("rap");
+}
+function stopRap(){ $("#vinyl").classList.remove("on"); clearInterval(trackTimer); }
+$("#vinyl").addEventListener("click", stopRap);
+
+function hunny(){
+  const layer = document.createElement("div"); layer.className = "honey";
+  const n = Math.ceil(innerWidth / 70);
+  for (let i = 0; i < n; i++){
+    const d = document.createElement("i");
+    d.style.left = (i / n * 100 + Math.random() * 3) + "%";
+    d.style.setProperty("--w", (26 + Math.random() * 40) + "px");
+    d.style.setProperty("--h", (40 + Math.random() * 220) + "px");
+    d.style.setProperty("--t", (1.8 + Math.random() * 1.4) + "s");
+    layer.appendChild(d);
+  }
+  document.body.appendChild(layer); setTimeout(() => layer.remove(), 3400);
+  for (let i = 0; i < 3; i++) setTimeout(() => burst(Math.random() * innerWidth, innerHeight * .4, ["🐝"], { count: 3, speed: [4, 9], gravity: -.02, life: 2200, size: [20, 28] }), i * 300);
+  banner(T[lang].hunny, 2200);
+  unlock("pooh");
+}
+
+function matrix(){
+  const cv = $("#matrix"), ctx = cv.getContext("2d");
+  cv.width = innerWidth; cv.height = innerHeight; cv.classList.add("on");
+  const fs = 16, cols = Math.ceil(cv.width / fs), drops = Array(cols).fill(0).map(() => Math.random() * -40);
+  const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789BJ";
+  const t0 = performance.now();
+  (function draw(t){
+    ctx.fillStyle = "rgba(0,0,0,.08)"; ctx.fillRect(0, 0, cv.width, cv.height);
+    ctx.fillStyle = "#3dff7a"; ctx.font = fs + "px JetBrains Mono, monospace";
+    drops.forEach((y, i) => {
+      ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fs, y * fs);
+      drops[i] = y * fs > cv.height && Math.random() > .975 ? 0 : y + 1;
+    });
+    if (t - t0 < 6500) requestAnimationFrame(draw);
+    else { cv.classList.remove("on"); setTimeout(() => ctx.clearRect(0, 0, cv.width, cv.height), 900); }
+  })(t0);
+  unlock("matrix");
+}
+
+const KONAMI = ["arrowup","arrowup","arrowdown","arrowdown","arrowleft","arrowright","arrowleft","arrowright","b","a"];
+let kpos = 0, buf = "";
+addEventListener("keydown", e => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const k = e.key.toLowerCase();
+  kpos = k === KONAMI[kpos] ? kpos + 1 : (k === KONAMI[0] ? 1 : 0);
+  if (kpos === KONAMI.length){ kpos = 0; konami(); return; }
+  if (k === "?"){ openEggs(); return; }
+  if (k.length !== 1) return;
+  buf = (buf + k).slice(-12);
+  const hit = w => buf.endsWith(w) && (buf = "", true);
+  if (hit("hakuna")){ banner(T[lang].hakuna); burst(innerWidth / 2, innerHeight * .85, ["🦁","🐗","🌅","✨","🌿"], { count: 30, spread: 80, speed: [10, 20] }); unlock("hakuna"); }
+  else if (hit("100")){ banner(`${T[lang].hundred}<small>${T[lang].hundredSub}</small>`, 3000); burst(innerWidth / 2, innerHeight * .8, ["💯","⛰️","🏃","✨"], { count: 26, spread: 80, speed: [10, 18] }); unlock("hundred"); }
+  else if (hit("42")){ banner(`42<small>${T[lang].dont}</small>`, 3200); burst(innerWidth / 2, innerHeight * .8, ["🐬","🐬","🐟","🌌"], { count: 24, spread: 90, speed: [10, 18] }); unlock("answer"); }
+  else if (hit("taco") || hit("quebo")) playRap();
+  else if (hit("matrix")) matrix();
+  else if (hit("pooh") || hit("puchatek") || hit("hunny") || hit("kubus") || hit("kubuś")) hunny();
+  else if (hit("barrel")){ document.documentElement.classList.add("barrel"); setTimeout(() => document.documentElement.classList.remove("barrel"), 1500); unlock("barrel"); }
+});
+function konami(){
+  const on = document.documentElement.classList.toggle("retro");
+  if (on){ banner("PLAYER 1<small>START ▶</small>"); confetti(); }
+  if (!unlock("konami")) toast("🕹️", on ? T[lang].retroOn : T[lang].retroOff, "↑↑↓↓←→←→BA", 2500);
+}
+
+function openEggs(){ renderEggPanel(); if (!$("#eggs").open) $("#eggs").showModal(); }
+$("#trophyBtn").addEventListener("click", openEggs);
+$("#eggsClose").addEventListener("click", () => closeDialog($("#eggs")));
+
+console.log("%c Think, Think, Think ", "font:700 34px Caveat,cursive;color:#ffd43b;background:#0b0b0c;border-radius:12px;padding:6px 16px");
+console.log("%cHej, deweloperze! 👋  Hey, developer!\n%cWpisz / type:  sekret()", "font:600 14px Inter,sans-serif", "font:500 13px 'JetBrains Mono',monospace;color:#f5a524");
+window.sekret = window.secret = () => { unlock("console"); return "🥚 " + (lang === "pl" ? "Brawo! Masz oko do szczegółów." : "Nice! You've got an eye for detail."); };
+
+$("#langBtn").addEventListener("click", () => { lang = lang === "pl" ? "en" : "pl"; store.set("bj-lang", lang); applyI18n(); });
+
+
+/* ═══════════════════════════ polish: smooth scroll, parallax, feedback ═══════════════════════════ */
+let lenis = null;
+if (window.Lenis && matchMedia("(pointer:fine)").matches && !reduced){
+  try {
+    lenis = new Lenis({ lerp: .09, wheelMultiplier: 1, prevent: n => !!(n.closest && (n.closest("dialog") || n.closest(".map-wrap"))) });
+    const loop = t => { lenis.raf(t); requestAnimationFrame(loop); };
+    requestAnimationFrame(loop);
+    document.documentElement.classList.add("has-lenis");
+  } catch(e){ lenis = null; }
+}
+const smoothTo = (target, offset = -70) => lenis ? lenis.scrollTo(target, { offset, duration: 1.4 }) : (typeof target === "number" ? scrollTo({ top: target, behavior: "smooth" }) : target.scrollIntoView({ behavior: "smooth" }));
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const id = a.getAttribute("href"); const el = id.length > 1 && document.querySelector(id);
+  if (!el) return;
+  e.preventDefault(); smoothTo(el);
+});
+["#modal","#eggs"].forEach(s => { const d = $(s); new MutationObserver(() => { if (!lenis) return; d.open ? lenis.stop() : lenis.start(); }).observe(d, { attributes: true, attributeFilter: ["open"] }); });
+
+/* hero parallax + marquee drift, one rAF per frame */
+let ticking = false;
+function scrollFx(){
+  ticking = false;
+  const y = scrollY, h = innerHeight;
+  if (y < h * 1.2 && !reduced){
+    $(".hero-text").style.transform = `translateY(${y * .28}px)`;
+    $(".hero-text").style.opacity = Math.max(0, 1 - y / (h * .75));
+    $(".mind-art").style.transform = `translateY(${y * -.12}px) scale(${1 - Math.min(y / h, 1) * .08})`;
+  }
+  const rows = $$(".mq-row");
+  if (rows.length && !reduced){ rows[0].style.transform = `translateX(${-y * .12}px)`; rows[1].style.transform = `translateX(${y * .12 - 200}px)`; }
+}
+addEventListener("scroll", () => { if (!ticking){ ticking = true; requestAnimationFrame(scrollFx); } }, { passive: true });
+
+/* pointer spotlight inside surfaces */
+const SPOT = ".card,.panel:not(.map-panel),.tool-group,.cp-card,.medal-card,.stat-card,.travel-stats div";
+let spotEl = null, spotEv = null, spotRaf = 0;
+document.addEventListener("pointermove", e => {
+  if (e.pointerType !== "mouse") return;
+  spotEv = e;
+  if (!spotRaf) spotRaf = requestAnimationFrame(() => {
+    spotRaf = 0;
+    const el = spotEv.target.closest && spotEv.target.closest(SPOT);
+    if (spotEl && spotEl !== el){ spotEl.style.removeProperty("--sx"); spotEl.style.removeProperty("--sy"); }
+    spotEl = el;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--sx", (spotEv.clientX - r.left) + "px");
+    el.style.setProperty("--sy", (spotEv.clientY - r.top) + "px");
+  });
+}, { passive: true });
+
+/* word-by-word headings */
+function splitHeads(){
+  $$(".sec-head h2, .contact .hand").forEach(h => {
+    const words = h.textContent.trim().split(/\s+/);
+    h.innerHTML = words.map((w, i) => `<span class="wl"><span class="wd" style="--i:${i}">${esc(w)}</span></span>`).join(" ");
+  });
+}
+
+/* side scroll-spy */
+const SPY = [["hero","spyStart"],["trail","navTrail"],["projects","navProjects"],["skills","navSkills"],["numbers","numbersTitle"],["mind","navMind"],["run","navRun"],["travel","navTravel"],["contact","navContact"]];
+function renderSpy(){
+  $("#spy").innerHTML = SPY.map(([id, k]) => `<a href="#${id}" aria-label="${esc(T[lang][k])}"><span>${esc(T[lang][k])}</span></a>`).join("");
+  markSpy();
+}
+let spyCurrent = "hero";
+function markSpy(){ $$("#spy a").forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + spyCurrent)); }
+const spyIO = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ spyCurrent = e.target.id; markSpy(); } }), { rootMargin: "-45% 0px -50% 0px" });
+SPY.forEach(([id]) => { const el = document.getElementById(id); if (el) spyIO.observe(el); });
+
+/* handwritten hints, shown once and politely */
+setTimeout(() => { if (!found.has("think")) $("#hintHead").classList.add("on"); }, 3400);
+$("#head").addEventListener("click", () => $("#hintHead").classList.remove("on"));
+if (!store.get("bj-hint-eggs", false)){
+  setTimeout(() => { $("#hintEggs").classList.add("on"); store.set("bj-hint-eggs", true); setTimeout(() => $("#hintEggs").classList.remove("on"), 6500); }, 9000);
+}
+$("#trophyBtn").addEventListener("click", () => $("#hintEggs").classList.remove("on"));
+pg.addEventListener("pointerdown", () => $(".h-pg").classList.remove("on"), { once: true });
+new IntersectionObserver(([en], o) => { if (en.isIntersecting){ setTimeout(() => $(".h-pg").classList.add("on"), 900); o.disconnect(); } }, { threshold: .4 }).observe(pg);
+
+/* ═══════════════════════════ boot ═══════════════════════════ */
+$("#year").textContent = new Date().getFullYear();
+$("#statProjects").dataset.count = PROJECTS.length;
+buildDonut();
+buildBubbles();
+applyI18n();
+updateEggCount(false);
+onScroll();
+addEventListener("resize", movePill);
+document.fonts && document.fonts.ready.then(movePill);
+
+(function intro(){
+  const el = $("#intro");
+  let seen = false;
+  try { seen = sessionStorage.getItem("bj-intro") === "1"; sessionStorage.setItem("bj-intro", "1"); } catch(e){}
+  if (seen || reduced){ el.classList.add("skip"); startHero(); return; }
+  const finish = () => { el.classList.add("done"); startHero(); };
+  const t1 = setTimeout(() => el.classList.add("burst"), 900);
+  const t2 = setTimeout(finish, 1400);
+  el.addEventListener("click", () => { clearTimeout(t1); clearTimeout(t2); finish(); });
+})();
