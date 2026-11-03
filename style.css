@@ -1136,3 +1136,8 @@ button.cont.sel{background:var(--ink-soft);border-color:var(--hl);opacity:1}
 .medal-card.thump .disc{animation:thump .4s var(--ease)}
 @keyframes thump{12%{transform:scale(1.22)}30%{transform:scale(.96)}45%{transform:scale(1.12)}}
 .medal-card.pulse{box-shadow:0 0 0 2px #ff5a6a,0 0 40px rgba(255,90,106,.35)}
+@media (max-width:640px){.map-wrap{aspect-ratio:5/4}}
+.map-tools .tour-btn{margin-left:0}
+.map-tools{justify-content:space-between}
+@media (max-width:640px){.map-wrap{aspect-ratio:16/11}}
+#worldMap .land.visited{stroke-width:1.2px}

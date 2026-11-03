@@ -1008,7 +1008,7 @@ const BY_KEY = new Map(ALL_PLACES.map(c => [c.key, c]));
 const WORLD_TOTAL = 195;
 const CONTINENTS = [["eu","🏰",44,{pl:"Europa",en:"Europe"}],["as","🏯",48,{pl:"Azja",en:"Asia"}],["af","🐪",54,{pl:"Afryka",en:"Africa"}],["na","🗽",23,{pl:"Ameryka Płn.",en:"N. America"}],["sa","🦙",12,{pl:"Ameryka Płd.",en:"S. America"}],["oc","🦘",14,{pl:"Oceania",en:"Oceania"}]];
 const HOME = [19.94, 50.06];
-let mapState = null, mapZoom = "europe";
+let mapState = null, mapZoom = "all";
 const tName = c => c[lang];
 const tNote = c => lang === "pl" ? c.npl : c.nen;
 const whenLibs = () => new Promise(res => { const t0 = Date.now(); (function wait(){ if ((window.d3 && window.topojson) || Date.now() - t0 > 12000) return res(); setTimeout(wait, 100); })(); });
@@ -1038,9 +1038,9 @@ async function buildMap(){
   mapState = { svg, g, defs, sphere, grat, base, visitedL, arcs, pins, byName, feats, W, H, proj: null, path: null, k: 1 };
 
   /* zoom & pan: buttons, ctrl/⌘ + wheel, drag; on touch one finger scrolls the page until zoomed in */
-  const zoom = d3.zoom().scaleExtent([1, 8]).translateExtent([[-W * .2, -H * .2], [W * 1.2, H * 1.2]])
+  const zoom = d3.zoom().scaleExtent([1, 14]).translateExtent([[-W * .2, -H * .2], [W * 1.2, H * 1.2]])
     .filter(e => e.type === "wheel" ? (e.ctrlKey || e.metaKey) : e.type === "dblclick" ? false : (e.touches ? (mapState.k > 1 || e.touches.length > 1) : !e.button))
-    .on("zoom", e => { mapState.k = e.transform.k; g.attr("transform", e.transform); svg.node().style.touchAction = e.transform.k > 1 ? "none" : "pan-y"; g.attr("data-k", e.transform.k > 1.05 ? "in" : "out"); });
+    .on("zoom", e => { mapState.k = e.transform.k; scalePins(); g.attr("transform", e.transform); svg.node().style.touchAction = e.transform.k > 1 ? "none" : "pan-y"; g.attr("data-k", e.transform.k > 1.05 ? "in" : "out"); });
   svg.call(zoom); mapState.zoom = zoom;
   svg.on("wheel.hint", e => { if (!(e.ctrlKey || e.metaKey)) flashHint(); }, { passive: true });
   $("#zIn").onclick = () => SFX.play("toggle", true) || svg.transition().duration(450).call(zoom.scaleBy, 1.6);
@@ -1093,6 +1093,14 @@ async function buildMap(){
   svg.on("click.tap", e => { if (e.detail) tap(e); });
 }
 
+/* keep markers a constant size on screen while the map zooms */
+const PIN_R = { vdot: 2.6, "home-dot": 5, "home-ring": 5, tdot: 4, landing: 6 };
+function scalePins(){
+  const st = mapState; if (!st) return;
+  const k = st.k || 1;
+  st.pins.selectAll("circle").each(function(){ const b = PIN_R[this.getAttribute("class")]; if (b) this.setAttribute("r", b / Math.pow(k, .85)); });
+  st.pins.selectAll("text.pin").style("font-size", (this_ => null)).each(function(){ this.style.fontSize = ((this.classList.contains("flight") ? 22 : 16) / Math.pow(k, .9)) + "px"; });
+}
 function anchor(c){
   const { byName, proj, path } = mapState;
   if (c.at) return proj(c.at);
@@ -1127,6 +1135,7 @@ function fitMap(animate){
     st.pins.append("circle").attr("class", "home-ring").attr("cx", home[0]).attr("cy", home[1]).attr("r", 5);
     st.pins.append("circle").attr("class", "home-dot").attr("cx", home[0]).attr("cy", home[1]).attr("r", 5);
     const plane = st.pins.append("text").attr("class", "pin").attr("text-anchor", "middle").attr("dy", ".35em").text("✈️");
+    scalePins();
     plane.append("animateMotion").attr("dur", "4s").attr("repeatCount", "indefinite").attr("rotate", "auto").attr("path", arc(pa));
   };
   st.svg.call(st.zoom.transform, d3.zoomIdentity);
@@ -1142,7 +1151,7 @@ function hotCountry(key, pin){
   if (!key && pinnedKey) key = pinnedKey;
   mapState.pins.selectAll(".tdot").remove();
   const d = key && mapState.arcFor && mapState.arcFor[key];
-  if (d){ const dot = mapState.pins.append("circle").attr("class", "tdot").attr("r", 4); dot.append("animateMotion").attr("dur", "1.3s").attr("repeatCount", "indefinite").attr("path", d); }
+  if (d){ const dot = mapState.pins.append("circle").attr("class", "tdot").attr("r", 4 / Math.pow(mapState.k || 1, .85)); dot.append("animateMotion").attr("dur", "1.3s").attr("repeatCount", "indefinite").attr("path", d); }
   mapState.visitedL.selectAll("path").classed("hot", function(){ return key && this.dataset.name === key; });
   mapState.base.selectAll("path.planned").classed("hot", key === PLANNED.key);
   mapState.arcs.selectAll("path").classed("hot", function(){ return key && this.dataset.name === key; });
@@ -1176,11 +1185,10 @@ $("#countryChips").addEventListener("click", e => {
 function switchZoom(z){
   if (z === mapZoom) return false;
   mapZoom = z;
-  $$("#mapZoom button").forEach(x => x.classList.toggle("on", x.dataset.z === z));
   if (mapState) fitMap(true);
   return true;
 }
-$("#mapZoom").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ stopTour(); hideCard(); hotCountry(null, false); switchZoom(b.dataset.z); } });
+
 
 /* fly to a country: zoom in, send the plane, pin it, show its card */
 const CONT_BOX = { eu:[[-12,34],[45,71]], as:[[25,-10],[150,60]], af:[[-20,-36],[52,38]], na:[[-170,7],[-50,75]], sa:[[-82,-56],[-34,13]], oc:[[110,-48],[180,0]] };
@@ -1194,7 +1202,7 @@ function flyTo(key){
   const c = BY_KEY.get(key); if (!c) return;
   if (c.cont !== "eu" && mapZoom === "europe"){ switchZoom("all"); setTimeout(() => flyTo(key), 560); return; }
   const f = st.byName.get(c.geo); if (!f) return;
-  zoomToBounds(st.path.bounds(c.clip ? clipPoly(c) : f), mapZoom === "all" ? 5 : 3.2);
+  zoomToBounds(st.path.bounds(c.clip ? clipPoly(c) : f), 9, .38);
   hotCountry(key, true);
   flyPlane(key);
   showCard(key);
@@ -1204,13 +1212,13 @@ function flyPlane(key){
   st.pins.selectAll(".flight").remove();
   const plane = st.pins.append("text").attr("class", "pin flight").attr("text-anchor", "middle").attr("dy", ".35em").text("✈️");
   const am = plane.append("animateMotion").attr("dur", "1.15s").attr("fill", "freeze").attr("rotate", "auto").attr("begin", "indefinite").attr("path", d).attr("keySplines", ".4 0 .2 1").attr("keyTimes", "0;1").attr("calcMode", "spline");
-  am.node().beginElement(); SFX.play("whoosh");
+  am.node().beginElement(); SFX.play("whoosh"); scalePins();
   const a = anchor(BY_KEY.get(key));
   setTimeout(() => {
     plane.remove();
     if (!a) return;
     SFX.play("land"); haptic(12);
-    st.pins.append("circle").attr("class", "landing").attr("cx", a[0]).attr("cy", a[1]).attr("r", 6).on("animationend", function(){ this.remove(); });
+    st.pins.append("circle").attr("class", "landing").attr("cx", a[0]).attr("cy", a[1]).attr("r", 6 / Math.pow(st.k || 1, .85)).on("animationend", function(){ this.remove(); });
   }, 1150);
 }
 let cardIdx = -1;
