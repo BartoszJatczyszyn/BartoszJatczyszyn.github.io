@@ -1340,6 +1340,7 @@ function openCase(slug, push = true){
   const flow = data.flow || [];
   $("#caseFlow").style.display = flow.length ? "" : "none";
   $("#caseFlow").classList.remove("in");
+  $("#flowSteps").style.setProperty("--n", flow.length);
   $("#flowSteps").innerHTML = flow.map((f, k) => `<li style="--i:${k}"><span class="fe">${f.e}<span class="fn">${k + 1}</span></span><span class="fl">${esc(f[lang])}</span></li>`).join("");
   $("#ptCards").innerHTML = c.pts.map(x => `<div class="pt-card">${esc(x)}</div>`).join("");
   $("#csTags").innerHTML = p.tags.map(x => `<span>${esc(x)}</span>`).join("");
