@@ -1051,7 +1051,7 @@ button.cont.sel{background:var(--ink-soft);border-color:var(--hl);opacity:1}
 :root[data-theme="light"] #worldMap .vdot{fill:#fff;stroke:#b07d00}
 :root[data-theme="light"] #worldMap .home-dot{stroke:#fff}
 :root[data-theme="light"] .map-wrap{background:radial-gradient(ellipse at 50% 40%,#fffbea,transparent 70%),#f3eedd}
-:root[data-theme="light"] .cont em,:root[data-theme="light"] .ch-kind{color:#b07d00}
+:root[data-theme="light"] .cont em{color:#b07d00}
 :root[data-theme="light"] .cont.got{border-color:#e6c25a}
 :root[data-theme="light"] .cont i{background:#f0b400}
 :root[data-theme="light"] .map-count b,:root[data-theme="light"] .num-sm{color:#1d1c1a}
@@ -1141,3 +1141,60 @@ button.cont.sel{background:var(--ink-soft);border-color:var(--hl);opacity:1}
 .map-tools{justify-content:space-between}
 @media (max-width:640px){.map-wrap{aspect-ratio:16/11}}
 #worldMap .land.visited{stroke-width:1.2px}
+
+/* ═══════════════ audit fixes ═══════════════ */
+.travel-stats .num-sm span{font:inherit;color:inherit;line-height:inherit}
+.travel-stats .num-sm small{font-size:.5em;color:var(--muted)}
+@media (max-width:640px){
+  .cp-top{flex-wrap:wrap}
+  .cp-badge{flex-basis:auto;order:5;margin:6px 0 0 56px}
+  .cp-top > div{flex:1 1 calc(100% - 60px)}
+}
+@media (max-width:420px){
+  .hero .cta{gap:8px}
+  .hero .cta .btn{padding:11px 14px;font-size:14px}
+  .hero .cta .btn.icon-only{padding:11px 12px}
+}
+@media (max-width:640px){
+  .contact{padding:80px 12px 30px}
+  .contact-inner{padding:84px 18px 96px}
+  .contact-cloud{inset:0 -6px}
+  .contact-text{padding:0}
+  .contact-text .kicker{margin-bottom:10px}
+  .contact .cta.center{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:300px;margin:0 auto}
+  .contact .cta.center .btn{justify-content:center;padding:11px 10px;font-size:14px}
+  .contact .cta.center .btn.primary{grid-column:1/-1;font-size:13.5px}
+}
+.dots i.me::after{background:var(--bg);padding:2px 7px;border-radius:999px;border:1.5px solid var(--hl);bottom:150%;font-size:16px;z-index:2}
+.dots{padding-top:22px}
+.cover .lock{font-size:11px}
+
+.case .lightbox{position:fixed;z-index:20}
+:root[data-theme="light"] .case-gallery{background:linear-gradient(#0b0b0c 0,#1d1b16 120px,#f8f4e8 100%)}
+@media (max-width:640px){
+  .contact-inner{padding:90px 36px 104px}
+  .contact .hand{font-size:clamp(36px,11vw,48px);margin-bottom:20px}
+  .contact .ask{font-size:24px}
+  .contact .cta.center .btn.primary{order:1}
+  .contact .cta.center a[href*="linkedin"]{order:2}
+  .contact .cta.center a[href*="github"]{order:3}
+  .contact .cta.center #copyMail{order:4;grid-column:1/-1;background:none;border-style:dashed}
+}
+@media (max-width:520px) and (orientation:portrait){
+  .mind-art{max-width:min(230px,56vw)}
+  .tdots{height:38px}
+  .tdots i:nth-child(2){top:22px}
+  .head{width:52%;margin-top:-4px}
+  .scribble{font-size:clamp(50px,15vw,68px);margin-bottom:14px}
+  .hello{font-size:24px}
+  .typer{margin:10px 0 10px;font-size:18px}
+  .lead{font-size:15.5px;margin-bottom:20px}
+  .hero{padding-top:calc(72px + env(safe-area-inset-top));padding-bottom:60px}
+  .h-head{font-size:17px}
+}
+@media (max-width:640px){
+  .contact-inner{aspect-ratio:auto;padding:96px 34px 110px}
+  .contact-cloud path{filter:none;stroke-width:3}
+  .contact .cta.center #copyMail{border:1.5px dashed color-mix(in srgb,var(--ink) 50%,transparent)}
+}
+@media (max-width:640px){.contact-cloud path,.contact-inner.in .contact-cloud path{stroke-dasharray:none;stroke-dashoffset:0;vector-effect:non-scaling-stroke}}

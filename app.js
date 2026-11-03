@@ -890,9 +890,10 @@ function stepBubbles(){
       }
     }
   }
+  const floor = pgH - ($("#caption").offsetHeight + 34);
   for (const b of bubbles){
     b.x = Math.max(b.r + 8, Math.min(pgW - b.r - 8, b.x));
-    b.y = Math.max(b.r + 8, Math.min(pgH - b.r - 8, b.y));
+    b.y = Math.max(b.r + 8, Math.min((b.drag ? pgH - 8 : floor) - b.r, b.y));
   }
   placeBubbles();
   if (pgVisible) pgRaf = requestAnimationFrame(stepBubbles);
@@ -1383,6 +1384,7 @@ addEventListener("keydown", e => {
   if (e.key === "ArrowLeft" && e.shiftKey) $("#csPrev").click();
 });
 /* gallery: arrows, dots, drag-to-scroll, lightbox */
+$("#case").appendChild($("#lightbox"));
 const cgTrack = $("#cgTrack");
 const cgStep = dir => { const s = cgTrack.querySelector(".shot"); cgTrack.scrollBy({ left: dir * ((s ? s.offsetWidth : 300) + 28), behavior: "smooth" }); };
 $("#cgPrev").addEventListener("click", () => cgStep(-1));
