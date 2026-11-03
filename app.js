@@ -114,9 +114,9 @@ Object.assign(T.pl, {
   navTravel:"Podróże", travelTitle:"Mapa ciekawości",
   travelLead:"Uwielbiam poznawać nowe miejsca, kulturę i historię, i łapać je w kadrze. Na żółto: gdzie już byłem. Przerywaną linią: dokąd jadę.",
   tvCountries:"krajów świata", tvRegions:"regionów w GlobeQuest", tvWorld:"% świata odkryte", tvRank:"ranga: Odkrywca",
-  tvEurope:"Europa", tvAll:"Cały świat", tvCountriesShort:"krajów świata", tvHint:"Przytrzymaj Ctrl / ⌘, żeby przybliżyć kółkiem", tvLegVisited:"byłem", tvLegPlanned:"w planie",
+  tvEurope:"Europa", tvAll:"Cały świat", tvCountriesShort:"krajów świata", tvHint:"Przytrzymaj Ctrl / ⌘, żeby przybliżyć kółkiem", tvTour:"Wycieczka", tvTourStop:"Stop", tvLegVisited:"byłem", tvLegPlanned:"w planie",
   tvNextSmall:"Następny przystanek", tvNext:"Maroko", tvGq:"Te dane pochodzą z mojego GlobeQuesta",
-  tvBanner:"Maroko, czekaj!", copyMail:"Kopiuj e-mail", csFlow:"Jak to działa", openApp:"Otwórz aplikację ↗︎", csWhy:"Co jest w tym fajne", csStack:"Z czego to zbudowane", csPrevL:"Poprzedni projekt", csNextL:"Następny projekt", hintHead:"puk, puk?", hintPg:"złap i rzuć!", hintEggs:"22 sekrety… znajdziesz?", cDetails:"zajrzyj", cDrag:"rzuć mną", cMap:"✈️ leć", cTap:"puk!", cThought:"💭 myśl", cDice:"🎲 rzuć", spyStart:"Start", copied:"Skopiowane!", copiedSub:"Adres e-mail jest w schowku", tvBannerSub:"Następny przystanek: Afryka"
+  tvBanner:"Maroko, czekaj!", copyMail:"Kopiuj e-mail", usedIn:"Użyte w:", tiltOn:"Przechyl telefon, a myśli się przesypią 📱", tiltBtn:"📱 Przechyl", csFlow:"Jak to działa", openApp:"Otwórz aplikację ↗︎", csWhy:"Co jest w tym fajne", csStack:"Z czego to zbudowane", csPrevL:"Poprzedni projekt", csNextL:"Następny projekt", hintHead:"puk, puk?", hintPg:"złap i rzuć!", hintEggs:"22 sekrety… znajdziesz?", cDetails:"zajrzyj", cDrag:"rzuć mną", cMap:"✈️ leć", cTap:"puk!", cThought:"💭 myśl", cDice:"🎲 rzuć", spyStart:"Start", copied:"Skopiowane!", copiedSub:"Adres e-mail jest w schowku", tvBannerSub:"Następny przystanek: Afryka"
 });
 Object.assign(T.en, {
   navTrail:"Trail", navSkills:"Toolbox",
@@ -144,9 +144,9 @@ Object.assign(T.en, {
   navTravel:"Travel", travelTitle:"Curiosity map",
   travelLead:"I love discovering new places, cultures and history, and catching them on camera. Yellow: where I've been. Dashed line: where I'm heading.",
   tvCountries:"countries of the world", tvRegions:"regions in GlobeQuest", tvWorld:"% of the world explored", tvRank:"rank: Explorer",
-  tvEurope:"Europe", tvAll:"Whole world", tvCountriesShort:"countries", tvHint:"Hold Ctrl / ⌘ to zoom with the wheel", tvLegVisited:"visited", tvLegPlanned:"planned",
+  tvEurope:"Europe", tvAll:"Whole world", tvCountriesShort:"countries", tvHint:"Hold Ctrl / ⌘ to zoom with the wheel", tvTour:"Take the tour", tvTourStop:"Stop", tvLegVisited:"visited", tvLegPlanned:"planned",
   tvNextSmall:"Next stop", tvNext:"Morocco", tvGq:"This data comes from my GlobeQuest",
-  tvBanner:"Morocco, here I come!", copyMail:"Copy e-mail", csFlow:"How it works", openApp:"Open the app ↗︎", csWhy:"What makes it good", csStack:"Built with", csPrevL:"Previous project", csNextL:"Next project", hintHead:"knock, knock?", hintPg:"grab & throw!", hintEggs:"22 secrets… find them?", cDetails:"peek", cDrag:"throw me", cMap:"✈️ fly", cTap:"knock!", cThought:"💭 think", cDice:"🎲 roll", spyStart:"Start", copied:"Copied!", copiedSub:"The e-mail address is on your clipboard", tvBannerSub:"Next stop: Africa"
+  tvBanner:"Morocco, here I come!", copyMail:"Copy e-mail", usedIn:"Used in:", tiltOn:"Tilt your phone and the thoughts will roll 📱", tiltBtn:"📱 Tilt", csFlow:"How it works", openApp:"Open the app ↗︎", csWhy:"What makes it good", csStack:"Built with", csPrevL:"Previous project", csNextL:"Next project", hintHead:"knock, knock?", hintPg:"grab & throw!", hintEggs:"22 secrets… find them?", cDetails:"peek", cDrag:"throw me", cMap:"✈️ fly", cTap:"knock!", cThought:"💭 think", cDice:"🎲 roll", spyStart:"Start", copied:"Copied!", copiedSub:"The e-mail address is on your clipboard", tvBannerSub:"Next stop: Africa"
 });
 
 /* ═══════════════════════════ data ═══════════════════════════ */
@@ -514,7 +514,8 @@ function renderTrail(){
   $("#trailMap").innerHTML = TRAIL.map(c => {
     const L = c[lang];
     const title = c.link ? `<a href="${c.link}" target="_blank" rel="noopener">${esc(L.title)}</a>` : esc(L.title);
-    const items = (L.items || []).map(([e, n, d, u]) => `<div><span class="e">${e}</span><span><b>${u ? `<a href="${u}" target="_blank" rel="noopener">${esc(n)} ↗︎</a>` : esc(n)}</b><small>${esc(d)}</small></span></div>`).join("");
+    const caseFor = n => /CLM/.test(n) ? "clm" : /HR/.test(n) ? "hr" : (PROJECTS.find(p => p.name === n) ? slugOf(PROJECTS.find(p => p.name === n)) : null);
+    const items = (L.items || []).map(([e, n, d]) => { const cs = caseFor(n); return `<div${cs ? ` class="go" data-case="${cs}" tabindex="0" role="button"` : ""}><span class="e">${e}</span><span><b>${esc(n)}</b><small>${esc(d)}</small></span>${cs ? `<i class="arr">→</i>` : ""}</div>`; }).join("");
     const logo = c.pick ? `<button class="cp-logo pick" id="pickaxe" aria-label="AGH">⚒️</button>` : `<span class="cp-logo">${c.e}</span>`;
     return `<div class="cp reveal${c.now ? " now" : ""}${c.edu ? " edu" : ""}">
       <div class="cp-when">${c.when}${c.sub ? `<small>${c.sub}</small>` : ""}</div>
@@ -582,7 +583,7 @@ function renderMarathon(){
   for (let i = 1; i < sp.length; i++){
     const d = sp[i][0] - sp[i-1][0], pace = (toSec(sp[i][1]) - toSec(sp[i-1][1])) / d;
     const h = Math.max(4, (pace - 300) / 80 * 46), x0 = xOf(sp[i-1][0], max) + 2, w = xOf(sp[i][0], max) - x0 - 2;
-    g += `<g class="hov"><rect class="rbar${pace > 345 ? " slow" : ""}" x="${x0}" y="${224 - h}" width="${w}" height="${h}" rx="3"/><text class="val" x="${x0 + w / 2}" y="${218 - h}" text-anchor="middle">${fmtPace(pace)}</text></g>`;
+    g += `<g class="hov"><rect class="rbar${pace > 345 ? " slow" : ""}" x="${x0}" y="${224 - h}" width="${w}" height="${h}" rx="3"/><text class="val${w < 40 ? " tipx" : ""}" x="${x0 + w / 2}" y="${218 - h}" text-anchor="middle">${fmtPace(pace)}</text></g>`;
   }
   const pts = pl.map(([k, v]) => [xOf(k, max), yP(v)]);
   const path = pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
@@ -598,12 +599,12 @@ function renderUltra(){
   for (let i = 1; i < sp.length; i++){
     const d = sp[i][0] - sp[i-1][0], kmh = d / ((toSec(sp[i][1]) - toSec(sp[i-1][1])) / 3600);
     const h = kmh / 7 * 52, x0 = xOf(sp[i-1][0], max) + 2, w = xOf(sp[i][0], max) - x0 - 2;
-    g += `<g class="hov"><rect class="rbar" x="${x0}" y="${224 - h}" width="${w}" height="${h}" rx="3" style="opacity:${.45 + kmh / 7 * .5}"/><text class="val" x="${x0 + w / 2}" y="${218 - h}" text-anchor="middle">${kmh.toFixed(1).replace(".", lang === "pl" ? "," : ".")}</text></g>`;
+    g += `<g class="hov"><rect class="rbar" x="${x0}" y="${224 - h}" width="${w}" height="${h}" rx="3" style="opacity:${.45 + kmh / 7 * .5}"/><text class="val${w < 34 ? " tipx" : ""}" x="${x0 + w / 2}" y="${218 - h}" text-anchor="middle">${kmh.toFixed(1).replace(".", lang === "pl" ? "," : ".")}</text></g>`;
   }
   const pts = sp.map(([k, tm]) => [xOf(k, max), yT(toSec(tm))]);
   const path = pts.map((p, i) => (i ? "L" : "M") + p[0].toFixed(1) + " " + p[1].toFixed(1)).join(" ");
   g += `<path class="area" d="${path} L ${pts.at(-1)[0]} 150 Z"/><path class="line" pathLength="1" d="${path}"/>`;
-  sp.slice(1).forEach(([k, tm], i) => { const [x, y] = pts[i + 1]; g += `<g class="hov"><circle class="pt" cx="${x}" cy="${y}" r="5" style="transition-delay:${.3 + i * .15}s"/><text class="val" x="${x - 6}" y="${y - 10}" text-anchor="end">${fmtHM(toSec(tm))}</text></g>`; });
+  sp.slice(1).forEach(([k, tm], i) => { const [x, y] = pts[i + 1]; g += `<g class="hov"><circle class="pt" cx="${x}" cy="${y}" r="5" style="transition-delay:${.3 + i * .15}s"/><text class="val${i === 0 || i === sp.length - 2 ? "" : " tipx"}" x="${x - 6}" y="${y - 10}" text-anchor="end">${fmtHM(toSec(tm))}</text></g>`; });
   $("#ultChart").innerHTML = g;
 }
 function renderTri(){
@@ -635,12 +636,12 @@ function hotLang(i){
 $("#langPanel").addEventListener("pointerover", e => { const el = e.target.closest("[data-i]"); hotLang(el ? +el.dataset.i : null); });
 $("#langPanel").addEventListener("pointerleave", () => hotLang(null));
 
-const BAR_H = 190;
+const barH = () => innerWidth < 520 ? 150 : 190;
 function renderBars(){
   const max = Math.max(...COMMITS_MONTHLY), t = T[lang];
   $("#bars").innerHTML = COMMITS_MONTHLY.map((v, i) => {
-    const h = Math.round(v / max * BAR_H);
-    return `<div class="bar-col${v === max ? " peak" : ""}" style="--h:${h}px;--d:${i*0.06}s"><span class="tip">${v}</span><div class="b" data-h="${h}"></div><span class="m">${t.months[i]}</span></div>`;
+    const h = Math.round(v / max * barH());
+    return `<div class="bar-col${v === max ? " peak" : ""}" style="--h:${h}px;--d:${i*0.06}s" tabindex="0"><span class="tip"><b>${v}</b> ${t.months[i]}</span><div class="b" data-h="${h}"></div><span class="m">${t.months[i]}</span></div>`;
   }).join("");
   if ($("#commitPanel").classList.contains("in")) animateBars();
 }
@@ -855,7 +856,12 @@ function stepBubbles(){
   const cx = pgW / 2, cy = pgH / 2 - 20, pad = 16;
   for (const b of bubbles){
     if (b.drag || b.gone) continue;
-    b.vx += (cx - b.x) * .00007; b.vy += (cy - b.y) * .00009;
+    b.vx += (cx - b.x) * .00007 * (tilt.on ? .2 : 1); b.vy += (cy - b.y) * .00009 * (tilt.on ? .2 : 1);
+    if (tilt.on){ b.vx += tilt.x * .18; b.vy += tilt.y * .18; }
+    if (pgPointer.on){
+      const dx = b.x - pgPointer.x, dy = b.y - pgPointer.y, d = Math.hypot(dx, dy), R = b.r + 90;
+      if (d < R && d > 0.1){ const f = (1 - d / R) * 1.1; b.vx += dx / d * f; b.vy += dy / d * f; }
+    }
     b.vx += (Math.random() - .5) * .04; b.vy += (Math.random() - .5) * .04;
     b.vx *= .985; b.vy *= .985;
     b.x += b.vx; b.y += b.vy;
@@ -1036,7 +1042,7 @@ async function buildMap(){
   svg.on("wheel.hint", e => { if (!(e.ctrlKey || e.metaKey)) flashHint(); }, { passive: true });
   $("#zIn").onclick = () => svg.transition().duration(450).call(zoom.scaleBy, 1.6);
   $("#zOut").onclick = () => svg.transition().duration(450).call(zoom.scaleBy, 1 / 1.6);
-  $("#zReset").onclick = () => svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity);
+  $("#zReset").onclick = () => { stopTour(); hideCard(); hotCountry(null); svg.transition().duration(700).ease(d3.easeCubicInOut).call(zoom.transform, d3.zoomIdentity); };
 
   fitMap(false);
   $("#mapLoading").classList.add("gone");
@@ -1072,11 +1078,13 @@ async function buildMap(){
   const tap = e => {
     const now = performance.now(); if (now - lastTap < 400) return; lastTap = now;
     const k = keyAt(e); if (!k) return;
+    stopTour();
     if (k === PLANNED.key) nextStop();
-    showTip(k, anchorClient(BY_KEY.get(k)) || e); hotCountry(k);
-    clearTimeout(tipTimer); tipTimer = setTimeout(() => { tip.classList.remove("on"); hotCountry(null); }, 2400);
+    tip.classList.remove("on");
+    flyTo(k);
   };
-  svg.on("pointerdown.tap", e => { down = { x: e.clientX, y: e.clientY, t: performance.now() }; });
+  mapState.showTip = showTip; mapState.anchorClient = anchorClient;
+  svg.on("pointerdown.tap", e => { down = { x: e.clientX, y: e.clientY, t: performance.now() }; stopTour(); });
   svg.on("pointerup.tap", e => { if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) < 8 && performance.now() - down.t < 600) tap(e); down = null; });
   svg.on("click.tap", e => { if (e.detail) tap(e); });
 }
@@ -1106,8 +1114,9 @@ function fitMap(animate){
     const home = st.proj(HOME);
     const arc = to => { const [x, y] = to, mx = (home[0] + x) / 2, my = (home[1] + y) / 2, d = Math.hypot(x - home[0], y - home[1]); return `M${home[0]},${home[1]} Q${mx},${my - d * .3} ${x},${y}`; };
     const list = TRAVEL.slice(1).map(c => [c, anchor(c)]).filter(x => x[1]);
+    st.arcFor = {}; list.forEach(([c, a]) => st.arcFor[c.key] = arc(a));
     st.arcs.selectAll("path.arc:not(.plan)").data(list).join("path").attr("class", "arc").attr("pathLength", 1).attr("data-name", d => d[0].key).attr("d", d => arc(d[1])).style("transition-delay", (d, i) => (i * 0.05) + "s");
-    const pa = anchor(PLANNED);
+    const pa = anchor(PLANNED); st.arcFor[PLANNED.key] = arc(pa);
     st.arcs.selectAll("path.plan").data([pa]).join("path").attr("class", "arc plan").attr("pathLength", 1).attr("d", arc(pa));
     st.pins.selectAll("*").remove();
     list.forEach(([c, a], i) => st.pins.append("circle").attr("class", "vdot").attr("cx", a[0]).attr("cy", a[1]).attr("r", 2.6).style("animation-delay", (0.6 + i * 0.05) + "s"));
@@ -1122,8 +1131,14 @@ function fitMap(animate){
   wrap.classList.add("switching");
   setTimeout(() => { draw(); p.classList.remove("drawn"); void p.offsetWidth; wrap.classList.remove("switching"); requestAnimationFrame(() => p.classList.add("drawn")); }, 260);
 }
-function hotCountry(key){
+let pinnedKey = null;
+function hotCountry(key, pin){
   if (!mapState) return;
+  if (pin !== undefined) pinnedKey = pin ? key : null;
+  if (!key && pinnedKey) key = pinnedKey;
+  mapState.pins.selectAll(".tdot").remove();
+  const d = key && mapState.arcFor && mapState.arcFor[key];
+  if (d){ const dot = mapState.pins.append("circle").attr("class", "tdot").attr("r", 4); dot.append("animateMotion").attr("dur", "1.3s").attr("repeatCount", "indefinite").attr("path", d); }
   mapState.visitedL.selectAll("path").classed("hot", function(){ return key && this.dataset.name === key; });
   mapState.base.selectAll("path.planned").classed("hot", key === PLANNED.key);
   mapState.arcs.selectAll("path").classed("hot", function(){ return key && this.dataset.name === key; });
@@ -1139,23 +1154,104 @@ function renderCountryChips(){
   $("#countryChips").innerHTML = ALL_PLACES.map(chip).join("");
   $("#continents").innerHTML = CONTINENTS.map(([id, e, total, name]) => {
     const n = TRAVEL.filter(c => c.cont === id).length, planned = PLANNED.cont === id;
-    return `<div class="cont${n ? " got" : ""}"><span class="ce">${e}</span><span class="cn">${esc(name[lang])}</span><b>${n}<small>/${total}</small></b><i style="--w:${Math.max(n ? 4 : 0, n / total * 100)}%"></i>${planned ? `<em>+1 ${lang === "pl" ? "w planie" : "planned"}</em>` : ""}</div>`;
+    return `<button class="cont${n ? " got" : ""}" data-c="${id}"><span class="ce">${e}</span><span class="cn">${esc(name[lang])}</span><b>${n}<small>/${total}</small></b><i style="--w:${Math.max(n ? 4 : 0, n / total * 100)}%"></i>${planned ? `<em>+1 ${lang === "pl" ? "w planie" : "planned"}</em>` : ""}</button>`;
   }).join("");
 }
 $("#countryChips").addEventListener("pointerover", e => { const c = e.target.closest(".cchip"); hotCountry(c ? c.dataset.name : null); });
 $("#countryChips").addEventListener("pointerleave", () => hotCountry(null));
+$("#countryChips").addEventListener("pointerover", e => { const c = e.target.closest(".cchip"); if (c && mapState && mapState.anchorClient){ const at = mapState.anchorClient(BY_KEY.get(c.dataset.name)); if (at) mapState.showTip(c.dataset.name, at); } });
+$("#countryChips").addEventListener("pointerleave", () => $("#mapTip").classList.remove("on"));
 $("#countryChips").addEventListener("click", e => {
   const c = e.target.closest(".cchip"); if (!c) return;
+  stopTour();
   if (c.dataset.name === PLANNED.key) nextStop();
-  const place = BY_KEY.get(c.dataset.name);
-  if (mapState && place && place.cont !== "eu" && mapZoom === "europe"){ $$("#mapZoom button")[1].click(); }
-  hotCountry(c.dataset.name);
+  flyTo(c.dataset.name);
+  const m = $("#mapWrap").getBoundingClientRect();
+  if (m.top < 0 || m.bottom > innerHeight) (typeof smoothTo === "function" ? smoothTo($("#mapWrap"), -90) : $("#mapWrap").scrollIntoView({ behavior: "smooth" }));
 });
-$("#mapZoom").addEventListener("click", e => {
-  const b = e.target.closest("button"); if (!b || b.dataset.z === mapZoom) return;
-  mapZoom = b.dataset.z;
-  $$("#mapZoom button").forEach(x => x.classList.toggle("on", x === b));
+function switchZoom(z){
+  if (z === mapZoom) return false;
+  mapZoom = z;
+  $$("#mapZoom button").forEach(x => x.classList.toggle("on", x.dataset.z === z));
   if (mapState) fitMap(true);
+  return true;
+}
+$("#mapZoom").addEventListener("click", e => { const b = e.target.closest("button"); if (b){ stopTour(); hideCard(); hotCountry(null, false); switchZoom(b.dataset.z); } });
+
+/* fly to a country: zoom in, send the plane, pin it, show its card */
+const CONT_BOX = { eu:[[-12,34],[45,71]], as:[[25,-10],[150,60]], af:[[-20,-36],[52,38]], na:[[-170,7],[-50,75]], sa:[[-82,-56],[-34,13]], oc:[[110,-48],[180,0]] };
+function zoomToBounds([[x0, y0], [x1, y1]], maxK = 6, fill = .42, dur = 1200){
+  const st = mapState, dx = Math.max(1, x1 - x0), dy = Math.max(1, y1 - y0), cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+  const k = Math.max(1, Math.min(maxK, fill / Math.max(dx / st.W, dy / st.H)));
+  st.svg.transition().duration(dur).ease(d3.easeCubicInOut).call(st.zoom.transform, d3.zoomIdentity.translate(st.W / 2 - k * cx, st.H / 2 - k * cy).scale(k));
+}
+function flyTo(key){
+  const st = mapState; if (!st) return;
+  const c = BY_KEY.get(key); if (!c) return;
+  if (c.cont !== "eu" && mapZoom === "europe"){ switchZoom("all"); setTimeout(() => flyTo(key), 560); return; }
+  const f = st.byName.get(c.geo); if (!f) return;
+  zoomToBounds(st.path.bounds(c.clip ? clipPoly(c) : f), mapZoom === "all" ? 5 : 3.2);
+  hotCountry(key, true);
+  flyPlane(key);
+  showCard(key);
+}
+function flyPlane(key){
+  const st = mapState, d = st.arcFor && st.arcFor[key]; if (!d) return;
+  st.pins.selectAll(".flight").remove();
+  const plane = st.pins.append("text").attr("class", "pin flight").attr("text-anchor", "middle").attr("dy", ".35em").text("✈️");
+  const am = plane.append("animateMotion").attr("dur", "1.15s").attr("fill", "freeze").attr("rotate", "auto").attr("begin", "indefinite").attr("path", d).attr("keySplines", ".4 0 .2 1").attr("keyTimes", "0;1").attr("calcMode", "spline");
+  am.node().beginElement();
+  const a = anchor(BY_KEY.get(key));
+  setTimeout(() => {
+    plane.remove();
+    if (!a) return;
+    st.pins.append("circle").attr("class", "landing").attr("cx", a[0]).attr("cy", a[1]).attr("r", 6).on("animationend", function(){ this.remove(); });
+  }, 1150);
+}
+let cardIdx = -1;
+function showCard(key){
+  const c = BY_KEY.get(key); if (!c) return;
+  cardIdx = ALL_PLACES.indexOf(c);
+  const cont = CONTINENTS.find(x => x[0] === c.cont);
+  const card = $("#mapCard");
+  card.querySelector(".mcf").textContent = c.flag;
+  card.querySelector("b").textContent = tName(c);
+  card.querySelector("small").textContent = [tNote(c), cont && cont[3][lang]].filter(Boolean).join(" · ");
+  card.querySelector(".mci").textContent = `${cardIdx + 1}/${ALL_PLACES.length}`;
+  card.classList.remove("on"); void card.offsetWidth; card.classList.add("on");
+}
+function hideCard(){ $("#mapCard").classList.remove("on"); cardIdx = -1; }
+$("#mapCard").addEventListener("click", e => {
+  const b = e.target.closest("[data-d]"); if (!b) return;
+  stopTour();
+  const n = ALL_PLACES[(cardIdx + +b.dataset.d + ALL_PLACES.length) % ALL_PLACES.length];
+  flyTo(n.key);
+});
+let tourTimer = null;
+function startTour(){
+  stopTour();
+  $("#tourBtn").classList.add("on"); $("#tourBtn").innerHTML = "⏸︎ " + esc(T[lang].tvTourStop);
+  let i = Math.max(0, cardIdx);
+  const step = () => { flyTo(ALL_PLACES[i % ALL_PLACES.length].key); i++; tourTimer = setTimeout(step, 2600); };
+  step();
+}
+function stopTour(){
+  if (!tourTimer && !$("#tourBtn").classList.contains("on")) return;
+  clearTimeout(tourTimer); tourTimer = null;
+  $("#tourBtn").classList.remove("on"); $("#tourBtn").innerHTML = "▶︎ " + esc(T[lang].tvTour);
+}
+$("#tourBtn").addEventListener("click", () => tourTimer ? stopTour() : startTour());
+$("#continents").addEventListener("click", e => {
+  const t = e.target.closest(".cont"); if (!t || !mapState) return;
+  stopTour(); hideCard(); hotCountry(null, false);
+  const id = t.dataset.c;
+  const go = () => {
+    zoomToBounds(mapState.path.bounds({ type: "MultiPoint", coordinates: [CONT_BOX[id][0], CONT_BOX[id][1], [CONT_BOX[id][0][0], CONT_BOX[id][1][1]], [CONT_BOX[id][1][0], CONT_BOX[id][0][1]]] }), 4, .9);
+    mapState.visitedL.selectAll("path").classed("wave", false);
+    mapState.visitedL.selectAll("path").filter(function(){ const c = BY_KEY.get(this.dataset.name); return c && c.cont === id; }).each(function(_, i){ const el = this; setTimeout(() => { el.classList.add("wave"); setTimeout(() => el.classList.remove("wave"), 900); }, i * 70); });
+  };
+  if (id !== "eu" && switchZoom("all")) setTimeout(go, 560); else go();
+  $$(".cont").forEach(x => x.classList.toggle("sel", x === t));
 });
 
 function nextStop(){
@@ -1295,6 +1391,102 @@ addEventListener("keydown", e => { if (e.key === "Escape" && $("#lightbox").clas
 /* deep links: #p/kwit */
 function routeCase(){ const m = location.hash.match(/^#p\/([\w-]+)/); if (m) openCase(m[1], false); }
 addEventListener("hashchange", routeCase);
+
+
+/* ═══════════════════════════ cross-links: things that react to each other ═══════════════════════════ */
+/* bubbles feel the pointer… and the phone's tilt */
+const pgPointer = { on: false, x: 0, y: 0 };
+const tilt = { on: false, x: 0, y: 0 };
+pg.addEventListener("pointermove", e => { if (e.pointerType !== "mouse") return; const r = pg.getBoundingClientRect(); pgPointer.x = e.clientX - r.left; pgPointer.y = e.clientY - r.top; pgPointer.on = !bubbles.some(b => b.drag); });
+pg.addEventListener("pointerleave", () => pgPointer.on = false);
+const tiltBtn = $("#tiltBtn");
+if (matchMedia("(pointer:coarse)").matches && "DeviceOrientationEvent" in window) tiltBtn.hidden = false;
+tiltBtn.addEventListener("click", async () => {
+  if (tilt.on){ tilt.on = false; tiltBtn.classList.remove("on"); return; }
+  try { if (typeof DeviceOrientationEvent.requestPermission === "function" && (await DeviceOrientationEvent.requestPermission()) !== "granted") return; } catch(e){ return; }
+  tilt.on = true; tiltBtn.classList.add("on");
+  setCaption(T[lang].tiltOn, true);
+});
+addEventListener("deviceorientation", e => {
+  if (!tilt.on || e.gamma == null) return;
+  tilt.x = Math.max(-1, Math.min(1, e.gamma / 35));
+  tilt.y = Math.max(-1, Math.min(1, (e.beta - 35) / 35));
+});
+
+/* donut ↔ project bars: hover a language, see where it lives */
+const LANG_PROJECTS = { TypeScript:["Inquisitio","Składomat","Kwit","PatoBox","OfficeFlow"], Dart:["GlobeQuest"], Python:["JournAI","GarminReport"], Jupyter:[], "*other":[] };
+const _hotLang = hotLang;
+hotLang = function(i){
+  _hotLang(i);
+  const names = i === null ? null : LANG_PROJECTS[LANGS[i].n] || [];
+  $$("#hbars .hb").forEach(r => { const n = r.querySelector("span").textContent.replace(/^\S+\s/, ""); r.classList.toggle("dim", !!names && !names.includes(n)); r.classList.toggle("lit", !!names && names.includes(n)); });
+};
+$("#hbars").addEventListener("pointerover", e => {
+  const r = e.target.closest(".hb"); if (!r) return;
+  const n = r.querySelector("span").textContent.replace(/^\S+\s/, "");
+  const li = LANGS.findIndex(l => (LANG_PROJECTS[l.n] || []).includes(n));
+  $$("#donut circle").forEach(c => { c.classList.toggle("dim", li >= 0 && +c.dataset.i !== li); c.classList.toggle("hot", +c.dataset.i === li); });
+  $$("#hbars .hb").forEach(x => x.classList.toggle("lit", x === r));
+});
+$("#hbars").addEventListener("pointerleave", () => { hotLang(null); $$("#hbars .hb").forEach(x => x.classList.remove("lit", "dim")); });
+$("#hbars").addEventListener("click", e => {
+  const r = e.target.closest(".hb"); if (!r) return;
+  const n = r.querySelector("span").textContent.replace(/^\S+\s/, "");
+  const p = PROJECTS.find(x => x.name === n); if (p) openCase(slugOf(p));
+});
+
+/* charts on touch: tap a bar or point to pin its label */
+document.addEventListener("click", e => {
+  const col = e.target.closest(".bar-col");
+  if (col){ const on = !col.classList.contains("on"); $$(".bar-col").forEach(c => c.classList.remove("on")); col.classList.toggle("on", on); $("#bars").classList.toggle("touched", on); }
+  const g = e.target.closest(".rchart g.hov");
+  if (g){ const on = !g.classList.contains("on"); g.closest("svg").querySelectorAll("g.hov").forEach(x => x.classList.remove("on")); g.classList.toggle("on", on); }
+});
+
+/* toolbox ↔ projects: hover a skill to see where it's used, click to jump there */
+const skillKey = n => n.toLowerCase().replace(/\s*\(.*\)/, "").replace("|", " ").split(" ")[0];
+function projectsUsing(name){
+  const k = skillKey(name);
+  return PROJECTS.filter(p => p.tags.some(t => t.toLowerCase().startsWith(k)) || (p.pl.pts.join(" ") + p.pl.desc).toLowerCase().includes(name.toLowerCase().replace(/\s*\(.*\)/, "")));
+}
+const skillPop = document.createElement("div"); skillPop.className = "skill-pop"; document.body.appendChild(skillPop);
+let popFor = null;
+function showSkillPop(chip){
+  const list = projectsUsing(chip.textContent);
+  if (!list.length){ hideSkillPop(); return; }
+  popFor = chip;
+  skillPop.innerHTML = `<small>${esc(T[lang].usedIn)}</small><div>${list.slice(0, 6).map(p => `<span>${p.icon} ${esc(p.name)}</span>`).join("")}</div>`;
+  const r = chip.getBoundingClientRect();
+  skillPop.style.left = Math.min(innerWidth - 16, Math.max(16, r.left + r.width / 2)) + "px";
+  skillPop.style.top = (r.top - 10) + "px";
+  skillPop.classList.add("on");
+  chip.classList.add("has");
+}
+function hideSkillPop(){ skillPop.classList.remove("on"); if (popFor) popFor.classList.remove("has"); popFor = null; }
+$("#toolbox").addEventListener("pointerover", e => { const c = e.target.closest(".chip"); if (c && e.pointerType === "mouse") showSkillPop(c); });
+$("#toolbox").addEventListener("pointerleave", hideSkillPop);
+addEventListener("scroll", hideSkillPop, { passive: true });
+$("#toolbox").addEventListener("click", e => {
+  const c = e.target.closest(".chip"); if (!c) return;
+  const list = projectsUsing(c.textContent); if (!list.length) return;
+  if (e.pointerType !== "mouse" && popFor !== c){ showSkillPop(c); return; }
+  hideSkillPop();
+  const names = new Set(list.map(p => p.name));
+  if (filter !== "all"){ $('#filters button[data-cat="all"]').click(); }
+  smoothTo($("#grid"), -110);
+  setTimeout(() => $$("#grid .card").forEach((card, i) => {
+    const hit = names.has(card.dataset.name);
+    card.classList.toggle("glow", hit); card.classList.toggle("fade", !hit);
+    setTimeout(() => card.classList.remove("glow", "fade"), 3200);
+  }), 700);
+});
+
+/* trail checkpoints ↔ case studies */
+$("#trailMap").addEventListener("click", e => { const g = e.target.closest("[data-case]"); if (g) openCase(g.dataset.case); });
+$("#trailMap").addEventListener("keydown", e => { if (e.key === "Enter"){ const g = e.target.closest("[data-case]"); if (g) openCase(g.dataset.case); } });
+
+/* the travel bubble and stats fly you to the map */
+$$(".travel-stats div")[0].addEventListener("click", () => { if (!mapState) return; switchZoom("all"); setTimeout(startTour, 600); });
 
 /* ═══════════════════════════ cursor + global fx ═══════════════════════════ */
 (function cursor(){
