@@ -113,10 +113,10 @@ Object.assign(T.pl, {
   open:"open", hundred:"💯 Sto na sto!", hundredSub:"100 km i 100. miejsce wśród mężczyzn",
   navTravel:"Podróże", travelTitle:"Mapa ciekawości",
   travelLead:"Uwielbiam poznawać nowe miejsca, kulturę i historię, i łapać je w kadrze. Na żółto: gdzie już byłem. Przerywaną linią: dokąd jadę.",
-  tvCountries:"krajów", tvRegions:"regionów w GlobeQuest", tvWorld:"% świata odkryte", tvRank:"ranga: Odkrywca",
-  tvEurope:"Europa", tvAll:"Cały ślad", tvLegVisited:"byłem", tvLegPlanned:"w planie",
+  tvCountries:"krajów świata", tvRegions:"regionów w GlobeQuest", tvWorld:"% świata odkryte", tvRank:"ranga: Odkrywca",
+  tvEurope:"Europa", tvAll:"Cały świat", tvCountriesShort:"krajów świata", tvHint:"Przytrzymaj Ctrl / ⌘, żeby przybliżyć kółkiem", tvLegVisited:"byłem", tvLegPlanned:"w planie",
   tvNextSmall:"Następny przystanek", tvNext:"Maroko", tvGq:"Te dane pochodzą z mojego GlobeQuesta",
-  tvBanner:"Maroko, czekaj!", copyMail:"Kopiuj e-mail", hintHead:"puk, puk?", hintPg:"złap i rzuć!", hintEggs:"22 sekrety… znajdziesz?", cDetails:"zajrzyj", cDrag:"rzuć mną", cMap:"✈️ leć", cTap:"puk!", cThought:"💭 myśl", cDice:"🎲 rzuć", spyStart:"Start", copied:"Skopiowane!", copiedSub:"Adres e-mail jest w schowku", tvBannerSub:"Następny przystanek: Afryka"
+  tvBanner:"Maroko, czekaj!", copyMail:"Kopiuj e-mail", csFlow:"Jak to działa", openApp:"Otwórz aplikację ↗︎", csWhy:"Co jest w tym fajne", csStack:"Z czego to zbudowane", csPrevL:"Poprzedni projekt", csNextL:"Następny projekt", hintHead:"puk, puk?", hintPg:"złap i rzuć!", hintEggs:"22 sekrety… znajdziesz?", cDetails:"zajrzyj", cDrag:"rzuć mną", cMap:"✈️ leć", cTap:"puk!", cThought:"💭 myśl", cDice:"🎲 rzuć", spyStart:"Start", copied:"Skopiowane!", copiedSub:"Adres e-mail jest w schowku", tvBannerSub:"Następny przystanek: Afryka"
 });
 Object.assign(T.en, {
   navTrail:"Trail", navSkills:"Toolbox",
@@ -143,10 +143,10 @@ Object.assign(T.en, {
   open:"overall", hundred:"💯 A hundred for a hundred!", hundredSub:"100 km and 100th man at the finish",
   navTravel:"Travel", travelTitle:"Curiosity map",
   travelLead:"I love discovering new places, cultures and history, and catching them on camera. Yellow: where I've been. Dashed line: where I'm heading.",
-  tvCountries:"countries", tvRegions:"regions in GlobeQuest", tvWorld:"% of the world explored", tvRank:"rank: Explorer",
-  tvEurope:"Europe", tvAll:"Whole trail", tvLegVisited:"visited", tvLegPlanned:"planned",
+  tvCountries:"countries of the world", tvRegions:"regions in GlobeQuest", tvWorld:"% of the world explored", tvRank:"rank: Explorer",
+  tvEurope:"Europe", tvAll:"Whole world", tvCountriesShort:"countries", tvHint:"Hold Ctrl / ⌘ to zoom with the wheel", tvLegVisited:"visited", tvLegPlanned:"planned",
   tvNextSmall:"Next stop", tvNext:"Morocco", tvGq:"This data comes from my GlobeQuest",
-  tvBanner:"Morocco, here I come!", copyMail:"Copy e-mail", hintHead:"knock, knock?", hintPg:"grab & throw!", hintEggs:"22 secrets… find them?", cDetails:"peek", cDrag:"throw me", cMap:"✈️ fly", cTap:"knock!", cThought:"💭 think", cDice:"🎲 roll", spyStart:"Start", copied:"Copied!", copiedSub:"The e-mail address is on your clipboard", tvBannerSub:"Next stop: Africa"
+  tvBanner:"Morocco, here I come!", copyMail:"Copy e-mail", csFlow:"How it works", openApp:"Open the app ↗︎", csWhy:"What makes it good", csStack:"Built with", csPrevL:"Previous project", csNextL:"Next project", hintHead:"knock, knock?", hintPg:"grab & throw!", hintEggs:"22 secrets… find them?", cDetails:"peek", cDrag:"throw me", cMap:"✈️ fly", cTap:"knock!", cThought:"💭 think", cDice:"🎲 roll", spyStart:"Start", copied:"Copied!", copiedSub:"The e-mail address is on your clipboard", tvBannerSub:"Next stop: Africa"
 });
 
 /* ═══════════════════════════ data ═══════════════════════════ */
@@ -194,7 +194,7 @@ const PROJECTS = [
     en:P("A platform for building and editing questionnaires. Built solo.","Nivalit · since 2024",
       "A questionnaire editor, a step-by-step answering app and a response collection module: six apps in one monorepo.",
       ["The editor preview is exactly what the respondent sees","One screen at a time, tolerant of going offline","CSV/XLSX export, retention and audit of responses","748 commits since November 2024"]) },
-  { name:"GlobeQuest", icon:"🌍", c:"#12d8a5", cat:"own",
+  { name:"GlobeQuest", app:"https://globequest.pages.dev/", icon:"🌍", c:"#12d8a5", cat:"own",
     tags:["Flutter","Dart","WebAssembly","Supabase"],
     pl:P("Offline-first mapa podróży z quizami i kapsułami czasu.","Web · iOS · Android",
       "Zaznaczasz, gdzie byłeś, planujesz, gdzie pojedziesz, i uczysz się czegoś o obu miejscach.",
@@ -210,7 +210,7 @@ const PROJECTS = [
     en:P("Health diary: Garmin data, analytics and LLM commentary.","Data & AI",
       "Pulls Garmin Connect data via an MCP server, computes sleep, stress, training and nutrition analytics, and lets an LLM comment.",
       ["Clean Architecture, enforced automatically","Numbers from the backend, never from the model","Zero cost, runs fully locally"]) },
-  { name:"Składomat", icon:"🥗", c:"#7ed957", cat:"own",
+  { name:"Składomat", app:"https://skladomat.pages.dev/", icon:"🥗", c:"#7ed957", cat:"own",
     tags:["TypeScript","PWA","Monorepo","Offline"],
     pl:P("Skanujesz produkt i od razu wiesz, co w nim siedzi.","PWA",
       "Skład produktów z polskich sklepów, makro i mikro, stopień przetworzenia i ocena z uzasadnieniem opartym na źródłach.",
@@ -226,7 +226,7 @@ const PROJECTS = [
     en:P("Spending analysis from a CSV statement, 100% in the browser.","Finance · local",
       "Drop in a bank and broker statement; Kwit shows where the money goes and where to save.",
       ["No account, no server, data never leaves the device","Money as integer cents, never floats","Robust statistics: medians, not means"]) },
-  { name:"PatoBox", icon:"🎉", c:"#ff4b6e", cat:"own",
+  { name:"PatoBox", app:"https://gra.patobox.workers.dev/", icon:"🎉", c:"#ff4b6e", cat:"own",
     tags:["TypeScript","WebSockets","Cloudflare","Vite"],
     pl:P("Gra imprezowa: telefon to kontroler, telewizor to scena.","Gra imprezowa",
       "Znajomi, w jednym pokoju albo online, wymyślają najgłupsze odpowiedzi na absurdalne polecenia i głosują.",
@@ -234,7 +234,7 @@ const PROJECTS = [
     en:P("Party game: your phone is the controller, the TV is the stage.","Party game",
       "Friends, in one room or online, come up with the silliest answers to absurd prompts and vote.",
       ["From link click to first laugh in under 2 minutes","Join in 20 s, no account, no install","Many modes, rules explained in-game"]) },
-  { name:"OfficeFlow", icon:"🏢", c:"#5b8cff", cat:"own",
+  { name:"OfficeFlow", app:"https://officeflow.pages.dev/", icon:"🏢", c:"#5b8cff", cat:"own",
     tags:["TypeScript","React","Supabase","i18n"],
     pl:P("Zgłoszenia biurowe i usługi cykliczne w jednym miejscu.","Narzędzie dla firm",
       "Pracownicy zgłaszają potrzeby w dwóch krokach, a office manager decyduje, kto się nimi zajmie.",
@@ -242,7 +242,7 @@ const PROJECTS = [
     en:P("Office requests and recurring services in one place.","Business tool",
       "Employees report needs in two steps; the office manager decides who handles each one.",
       ["Phone, laptop and ultra-wide monitor","PL/EN, light and dark themes","Automated contrast and bundle-size checks"]) },
-  { name:"Randkomat", icon:"💌", c:"#ff7eb6", cat:"own",
+  { name:"Randkomat", app:"https://randkomat.pages.dev/", icon:"💌", c:"#ff7eb6", cat:"own",
     tags:["TypeScript","React","PWA","Supabase"],
     pl:P("Zaproszenie na randkę w 4 tapnięciach, odpowiedź w jednym.","PWA",
       "Aplikacja do zapraszania jednej konkretnej osoby na randkę. Każda para to osobny, zamknięty świat.",
@@ -460,7 +460,7 @@ function renderGrid(animate){
     const c = p[lang];
     return `<button class="card${animate ? " enter" : ""}" data-name="${esc(p.name)}" style="--c:${p.c};--d:${i*0.05}s">
       <span class="tape" aria-hidden="true"></span>
-      <div class="cover"><span class="emo">${p.icon}</span><span class="kind-badge">${t[p.cat]}</span>${p.repo || p.url || p.cat !== "own" ? "" : `<span class="lock">🔒 ${t.priv}</span>`}</div>
+      <div class="cover"><span class="emo">${p.icon}</span><span class="kind-badge">${t[p.cat]}</span>${p.app ? `<span class="lock live">● live</span>` : p.repo || p.url || p.cat !== "own" ? "" : `<span class="lock">🔒 ${t.priv}</span>`}</div>
       <div class="card-body">
         <div class="meta"><span>${esc(c.kind)}</span>${p.team ? `<span>👥 ${p.team === 1 ? t.solo : p.team}</span>` : ""}</div>
         <h3>${esc(p.name)}</h3>
@@ -484,7 +484,7 @@ $("#grid").addEventListener("pointerout", e => {
 });
 $("#grid").addEventListener("click", e => {
   const card = e.target.closest(".card"); if (!card) return;
-  openProject(PROJECTS.find(p => p.name === card.dataset.name));
+  openCase(slugOf(PROJECTS.find(p => p.name === card.dataset.name)));
 });
 
 function openProject(p){
@@ -962,40 +962,48 @@ addEventListener("resize", () => { clearTimeout(pgResize); pgResize = setTimeout
 
 
 /* ═══════════════════════════ travel map ═══════════════════════════ */
+/* One entry per country visited. `geo` = Natural Earth name; `clip` limits the highlight to the
+   region actually visited (Scotland, Crete), so the map, chips and tooltips always agree. */
 const TRAVEL = [
-  /* [Natural Earth name, flag, pl, en, note pl, note en, lon/lat for the arc (optional)] */
-  ["Poland","🇵🇱","Polska","Poland","dom","home"],
-  ["Norway","🇳🇴","Norwegia","Norway","","",[8.5,61]],
-  ["Sweden","🇸🇪","Szwecja","Sweden","","",[15,61.5]],
-  ["Denmark","🇩🇰","Dania","Denmark","",""],
-  ["Estonia","🇪🇪","Estonia","Estonia","",""],
-  ["United Kingdom","🏴󠁧󠁢󠁳󠁣󠁴󠁿","Szkocja","Scotland","","",[-4.2,56.8]],
-  ["Germany","🇩🇪","Niemcy","Germany","",""],
-  ["Czechia","🇨🇿","Czechy","Czechia","",""],
-  ["Slovakia","🇸🇰","Słowacja","Slovakia","",""],
-  ["Austria","🇦🇹","Austria","Austria","",""],
-  ["Hungary","🇭🇺","Węgry","Hungary","",""],
-  ["Croatia","🇭🇷","Chorwacja","Croatia","","",[16,44.5]],
-  ["Romania","🇷🇴","Rumunia","Romania","",""],
-  ["Bulgaria","🇧🇬","Bułgaria","Bulgaria","",""],
-  ["Ukraine","🇺🇦","Ukraina","Ukraine","",""],
-  ["Italy","🇮🇹","Włochy","Italy","+ Sycylia","+ Sicily",[12.5,42.5]],
-  ["Greece","🇬🇷","Kreta","Crete","Grecja","Greece",[24.9,35.25]],
-  ["France","🇫🇷","Francja","France","","",[2.5,46.6]],
-  ["Spain","🇪🇸","Hiszpania","Spain","","",[-3.7,40.2]],
-  ["Portugal","🇵🇹","Portugalia","Portugal","",""],
-  ["Georgia","🇬🇪","Gruzja","Georgia","",""],
-  ["United Arab Emirates","🇦🇪","ZEA","UAE","",""],
-  ["Thailand","🇹🇭","Tajlandia","Thailand","","",[100.5,15]],
-  ["Laos","🇱🇦","Laos","Laos","",""]
+  { key:"Poland", geo:"Poland", flag:"🇵🇱", pl:"Polska", en:"Poland", npl:"dom", nen:"home", cont:"eu" },
+  { key:"Norway", geo:"Norway", flag:"🇳🇴", pl:"Norwegia", en:"Norway", at:[8.5,61], cont:"eu" },
+  { key:"Sweden", geo:"Sweden", flag:"🇸🇪", pl:"Szwecja", en:"Sweden", at:[15,61.5], cont:"eu" },
+  { key:"Denmark", geo:"Denmark", flag:"🇩🇰", pl:"Dania", en:"Denmark", cont:"eu" },
+  { key:"Estonia", geo:"Estonia", flag:"🇪🇪", pl:"Estonia", en:"Estonia", cont:"eu" },
+  { key:"Scotland", geo:"United Kingdom", flag:"🏴󠁧󠁢󠁳󠁣󠁴󠁿", pl:"Szkocja", en:"Scotland", npl:"Wielka Brytania", nen:"United Kingdom", at:[-4.2,56.9], cont:"eu",
+    clip:[[-9,54.6],[-5.2,54.6],[-3.4,54.95],[-3.05,55.05],[-2.6,55.2],[-2.2,55.6],[-2.03,55.81],[2,56.2],[2,61.5],[-9,61.5],[-9,54.6]] },
+  { key:"Germany", geo:"Germany", flag:"🇩🇪", pl:"Niemcy", en:"Germany", cont:"eu" },
+  { key:"Czechia", geo:"Czechia", flag:"🇨🇿", pl:"Czechy", en:"Czechia", cont:"eu" },
+  { key:"Slovakia", geo:"Slovakia", flag:"🇸🇰", pl:"Słowacja", en:"Slovakia", cont:"eu" },
+  { key:"Austria", geo:"Austria", flag:"🇦🇹", pl:"Austria", en:"Austria", cont:"eu" },
+  { key:"Hungary", geo:"Hungary", flag:"🇭🇺", pl:"Węgry", en:"Hungary", cont:"eu" },
+  { key:"Croatia", geo:"Croatia", flag:"🇭🇷", pl:"Chorwacja", en:"Croatia", at:[16,44.5], cont:"eu" },
+  { key:"Romania", geo:"Romania", flag:"🇷🇴", pl:"Rumunia", en:"Romania", cont:"eu" },
+  { key:"Bulgaria", geo:"Bulgaria", flag:"🇧🇬", pl:"Bułgaria", en:"Bulgaria", cont:"eu" },
+  { key:"Ukraine", geo:"Ukraine", flag:"🇺🇦", pl:"Ukraina", en:"Ukraine", cont:"eu" },
+  { key:"Italy", geo:"Italy", flag:"🇮🇹", pl:"Włochy", en:"Italy", npl:"z Sycylią", nen:"incl. Sicily", at:[12.5,42.5], cont:"eu" },
+  { key:"Crete", geo:"Greece", flag:"🇬🇷", pl:"Kreta", en:"Crete", npl:"Grecja", nen:"Greece", at:[24.9,35.25], cont:"eu",
+    clip:[[23.2,34.6],[26.6,34.6],[26.6,35.8],[23.2,35.8],[23.2,34.6]] },
+  { key:"France", geo:"France", flag:"🇫🇷", pl:"Francja", en:"France", at:[2.5,46.6], cont:"eu",
+    clip:[[-6,41],[10,41],[10,51.5],[-6,51.5],[-6,41]] },
+  { key:"Spain", geo:"Spain", flag:"🇪🇸", pl:"Hiszpania", en:"Spain", at:[-3.7,40.2], cont:"eu" },
+  { key:"Portugal", geo:"Portugal", flag:"🇵🇹", pl:"Portugalia", en:"Portugal", cont:"eu" },
+  { key:"Georgia", geo:"Georgia", flag:"🇬🇪", pl:"Gruzja", en:"Georgia", cont:"as" },
+  { key:"UAE", geo:"United Arab Emirates", flag:"🇦🇪", pl:"ZEA", en:"UAE", cont:"as" },
+  { key:"Thailand", geo:"Thailand", flag:"🇹🇭", pl:"Tajlandia", en:"Thailand", at:[100.5,15], cont:"as" },
+  { key:"Laos", geo:"Laos", flag:"🇱🇦", pl:"Laos", en:"Laos", cont:"as" }
 ];
-const PLANNED = ["Morocco","🇲🇦","Maroko","Morocco","w planie","planned",[-6.5,31.8]];
+const PLANNED = { key:"Morocco", geo:"Morocco", flag:"🇲🇦", pl:"Maroko", en:"Morocco", npl:"w planie", nen:"planned", at:[-6.5,31.8], cont:"af", plan:true };
+const ALL_PLACES = [...TRAVEL, PLANNED];
+const BY_KEY = new Map(ALL_PLACES.map(c => [c.key, c]));
+const WORLD_TOTAL = 195;
+const CONTINENTS = [["eu","🏰",44,{pl:"Europa",en:"Europe"}],["as","🏯",48,{pl:"Azja",en:"Asia"}],["af","🐪",54,{pl:"Afryka",en:"Africa"}],["na","🗽",23,{pl:"Ameryka Płn.",en:"N. America"}],["sa","🦙",12,{pl:"Ameryka Płd.",en:"S. America"}],["oc","🦘",14,{pl:"Oceania",en:"Oceania"}]];
 const HOME = [19.94, 50.06];
-const ZOOMS = { europe:[[-12,27],[44,70]], all:[[-13,8],[108,68]] };
 let mapState = null, mapZoom = "europe";
-const tName = c => lang === "pl" ? c[2] : c[3];
-const tNote = c => lang === "pl" ? c[4] : c[5];
+const tName = c => c[lang];
+const tNote = c => lang === "pl" ? c.npl : c.nen;
 const whenLibs = () => new Promise(res => { const t0 = Date.now(); (function wait(){ if ((window.d3 && window.topojson) || Date.now() - t0 > 12000) return res(); setTimeout(wait, 100); })(); });
+const clipPoly = c => ({ type: "Polygon", coordinates: [c.clip.slice().reverse()] });
 
 async function buildMap(){
   await whenLibs();
@@ -1004,112 +1012,152 @@ async function buildMap(){
   try { topo = await (await fetch("https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-110m.json")).json(); }
   catch(e){ $("#mapLoading").textContent = "🗺️ offline"; return; }
   const feats = topojson.feature(topo, topo.objects.countries).features.filter(f => f.properties.name !== "Antarctica");
+  const byName = new Map(feats.map(f => [f.properties.name, f]));
   const wr = $("#mapWrap"), W = 1000, H = Math.round(1000 * wr.clientHeight / Math.max(1, wr.clientWidth)) || 560;
   const svg = d3.select("#worldMap").attr("viewBox", `0 0 ${W} ${H}`).attr("preserveAspectRatio", "xMidYMid meet");
-  const proj = d3.geoMercator().scale(1).translate([0, 0]);
-  const path = d3.geoPath(proj);
-  const byName = new Map(feats.map(f => [f.properties.name, f]));
-  const visited = new Map(TRAVEL.map(c => [c[0], c]));
+  const defs = svg.append("defs");
   const g = svg.append("g").attr("class", "zoomg");
-  g.selectAll("path.land").data(feats).join("path")
-    .attr("class", f => "land" + (f.properties.name === "Poland" ? " visited home" : visited.has(f.properties.name) ? " visited" : f.properties.name === PLANNED[0] ? " planned" : ""))
-    .attr("data-name", f => f.properties.name);
-  const arcs = g.append("g"), pins = g.append("g");
-  mapState = { svg, g, proj, path, byName, visited, arcs, pins, W, H };
+  const sphere = g.append("path").attr("class", "sphere");
+  const grat = g.append("path").attr("class", "graticule");
+  const base = g.append("g"), visitedL = g.append("g"), arcs = g.append("g"), pins = g.append("g");
+  base.selectAll("path").data(feats).join("path").attr("class", f => "land" + (f.properties.name === PLANNED.geo ? " planned" : "")).attr("data-name", f => f.properties.name === PLANNED.geo ? PLANNED.key : null);
+  ALL_PLACES.filter(c => !c.plan).forEach(c => {
+    const f = byName.get(c.geo); if (!f) return;
+    const p = visitedL.append("path").datum(f).attr("class", "land visited" + (c.key === "Poland" ? " home" : "")).attr("data-name", c.key);
+    if (c.clip){ const id = "clip-" + c.key; defs.append("clipPath").attr("id", id).append("path").attr("class", "clipp").datum(clipPoly(c)); p.attr("clip-path", `url(#${id})`); }
+  });
+  mapState = { svg, g, defs, sphere, grat, base, visitedL, arcs, pins, byName, feats, W, H, proj: null, path: null, k: 1 };
+
+  /* zoom & pan: buttons, ctrl/⌘ + wheel, drag; on touch one finger scrolls the page until zoomed in */
+  const zoom = d3.zoom().scaleExtent([1, 8]).translateExtent([[-W * .2, -H * .2], [W * 1.2, H * 1.2]])
+    .filter(e => e.type === "wheel" ? (e.ctrlKey || e.metaKey) : e.type === "dblclick" ? false : (e.touches ? (mapState.k > 1 || e.touches.length > 1) : !e.button))
+    .on("zoom", e => { mapState.k = e.transform.k; g.attr("transform", e.transform); svg.node().style.touchAction = e.transform.k > 1 ? "none" : "pan-y"; g.attr("data-k", e.transform.k > 1.05 ? "in" : "out"); });
+  svg.call(zoom); mapState.zoom = zoom;
+  svg.on("wheel.hint", e => { if (!(e.ctrlKey || e.metaKey)) flashHint(); }, { passive: true });
+  $("#zIn").onclick = () => svg.transition().duration(450).call(zoom.scaleBy, 1.6);
+  $("#zOut").onclick = () => svg.transition().duration(450).call(zoom.scaleBy, 1 / 1.6);
+  $("#zReset").onclick = () => svg.transition().duration(600).call(zoom.transform, d3.zoomIdentity);
+
   fitMap(false);
   $("#mapLoading").classList.add("gone");
+  animateCount();
 
   const tip = $("#mapTip"), wrap = $("#mapWrap");
-  const showTip = (name, e) => {
-    const c = visited.get(name) || (name === PLANNED[0] ? PLANNED : null);
+  const showTip = (key, at) => {
+    const c = BY_KEY.get(key);
     if (!c){ tip.classList.remove("on"); return; }
     const r = wrap.getBoundingClientRect();
-    tip.innerHTML = `<b>${c[1]} ${esc(tName(c))}</b>${esc(tNote(c) || "")}`;
-    tip.style.left = (e.clientX - r.left) + "px"; tip.style.top = (e.clientY - r.top) + "px";
+    tip.innerHTML = `<b>${c.flag} ${esc(tName(c))}</b>${esc(tNote(c) || "")}`;
+    tip.style.left = (at.clientX - r.left) + "px"; tip.style.top = (at.clientY - r.top) + "px";
     tip.classList.add("on");
   };
-  svg.on("pointermove", e => { if (e.pointerType !== "mouse") return; const n = e.target.dataset && e.target.dataset.name; showTip(n, e); hotCountry(visited.has(n) || n === PLANNED[0] ? n : null); });
-  svg.on("pointerleave", e => { if (e.pointerType !== "mouse") return; tip.classList.remove("on"); hotCountry(null); });
-  /* tap handling via pointer events: iOS Safari doesn't reliably fire click on SVG shapes */
-  let tipTimer, down = null;
-  const nameAt = e => {
+  const anchorClient = c => {
+    const a = anchor(c); if (!a) return null;
+    const pt = svg.node().createSVGPoint(); pt.x = a[0]; pt.y = a[1];
+    const q = pt.matrixTransform(g.node().getScreenCTM()); return { clientX: q.x, clientY: q.y };
+  };
+  /* hit-test geometrically: Safari reports the <svg> as the target for filtered shapes */
+  const keyAt = e => {
     const own = e.target.dataset && e.target.dataset.name;
-    if (own && (visited.has(own) || own === PLANNED[0])) return own;
+    if (own && BY_KEY.has(own)) return own;
     const pt = svg.node().createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
-    const p = pt.matrixTransform(svg.node().getScreenCTM().inverse());
-    const ll = mapState.proj.invert([p.x, p.y]);
-    const f = ll && feats.find(f => (visited.has(f.properties.name) || f.properties.name === PLANNED[0]) && d3.geoContains(f, ll));
-    return f ? f.properties.name : own;
+    const p = pt.matrixTransform(g.node().getScreenCTM().inverse());
+    const ll = mapState.proj.invert([p.x, p.y]); if (!ll) return null;
+    const hit = ALL_PLACES.find(c => { const f = byName.get(c.geo); return f && d3.geoContains(f, ll) && (!c.clip || d3.geoContains(clipPoly(c), ll)); });
+    return hit ? hit.key : null;
   };
-  const tapCountry = e => {
-    const n = nameAt(e);
-    if (n === PLANNED[0]) nextStop();
-    if (visited.has(n) || n === PLANNED[0]){
-      const c = visited.get(n) || PLANNED, a = anchor(c);
-      let at = e;
-      if (a){ const pt = svg.node().createSVGPoint(); pt.x = a[0]; pt.y = a[1]; const q = pt.matrixTransform(svg.node().getScreenCTM()); at = { clientX: q.x, clientY: q.y }; }
-      showTip(n, at); hotCountry(n);
-      clearTimeout(tipTimer); tipTimer = setTimeout(() => { tip.classList.remove("on"); hotCountry(null); }, 2200);
-    }
+  svg.on("pointermove", e => { if (e.pointerType !== "mouse" || e.buttons) return; const k = keyAt(e); if (k) showTip(k, anchorClient(BY_KEY.get(k)) || e); else tip.classList.remove("on"); hotCountry(k); });
+  svg.on("pointerleave", e => { if (e.pointerType !== "mouse") return; tip.classList.remove("on"); hotCountry(null); });
+  let tipTimer, down = null, lastTap = 0;
+  const tap = e => {
+    const now = performance.now(); if (now - lastTap < 400) return; lastTap = now;
+    const k = keyAt(e); if (!k) return;
+    if (k === PLANNED.key) nextStop();
+    showTip(k, anchorClient(BY_KEY.get(k)) || e); hotCountry(k);
+    clearTimeout(tipTimer); tipTimer = setTimeout(() => { tip.classList.remove("on"); hotCountry(null); }, 2400);
   };
-  let lastTap = 0;
-  const once = e => { const now = performance.now(); if (now - lastTap < 400) return; lastTap = now; tapCountry(e); };
-  svg.on("pointerdown", e => { down = { x: e.clientX, y: e.clientY, t: performance.now() }; });
-  svg.on("pointerup", e => {
-    if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) < 10 && performance.now() - down.t < 600) once(e);
-    down = null;
-  });
-  svg.on("click", once);
+  svg.on("pointerdown.tap", e => { down = { x: e.clientX, y: e.clientY, t: performance.now() }; });
+  svg.on("pointerup.tap", e => { if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) < 8 && performance.now() - down.t < 600) tap(e); down = null; });
+  svg.on("click.tap", e => { if (e.detail) tap(e); });
 }
 
 function anchor(c){
-  const { byName, proj } = mapState;
-  if (c[6]) return proj(c[6]);
-  const f = byName.get(c[0]); if (!f) return null;
-  return mapState.path.centroid(f);
+  const { byName, proj, path } = mapState;
+  if (c.at) return proj(c.at);
+  const f = byName.get(c.geo); return f ? path.centroid(f) : null;
 }
 function fitMap(animate){
-  const { proj, path, g, W, H, arcs, pins } = mapState;
-  const narrow = innerWidth < 600 && mapZoom === "europe";
-  const [[x0, y0], [x1, y1]] = narrow ? [[-10,30],[34,66]] : ZOOMS[mapZoom];
-  proj.fitExtent([[14, 14], [W - 14, H - 14]], { type: "MultiPoint", coordinates: [[x0, y0], [x1, y1], [x0, y1], [x1, y0]] });
-  g.selectAll("path.land").attr("d", path);
-  const home = proj(HOME);
-  const arc = (to, plan) => {
-    const [x, y] = to, mx = (home[0] + x) / 2, my = (home[1] + y) / 2, d = Math.hypot(x - home[0], y - home[1]);
-    return `M${home[0]},${home[1]} Q${mx},${my - d * .28} ${x},${y}`;
+  const st = mapState, { W, H, g } = st;
+  const world = mapZoom === "all";
+  const narrow = innerWidth < 600;
+  st.proj = world ? d3.geoNaturalEarth1() : d3.geoMercator();
+  if (world) st.proj.fitExtent([[10, 10], [W - 10, H - 10]], { type: "Sphere" });
+  else {
+    const [[x0, y0], [x1, y1]] = narrow ? [[-10, 30], [34, 66]] : [[-12, 27], [44, 70]];
+    st.proj.fitExtent([[14, 14], [W - 14, H - 14]], { type: "MultiPoint", coordinates: [[x0, y0], [x1, y1], [x0, y1], [x1, y0]] });
+  }
+  st.path = d3.geoPath(st.proj);
+  const draw = () => {
+    st.sphere.attr("d", world ? st.path({ type: "Sphere" }) : null);
+    st.grat.attr("d", st.path(d3.geoGraticule10()));
+    st.base.selectAll("path").attr("d", st.path);
+    st.visitedL.selectAll("path").attr("d", st.path);
+    st.defs.selectAll("path.clipp").attr("d", st.path);
+    const home = st.proj(HOME);
+    const arc = to => { const [x, y] = to, mx = (home[0] + x) / 2, my = (home[1] + y) / 2, d = Math.hypot(x - home[0], y - home[1]); return `M${home[0]},${home[1]} Q${mx},${my - d * .3} ${x},${y}`; };
+    const list = TRAVEL.slice(1).map(c => [c, anchor(c)]).filter(x => x[1]);
+    st.arcs.selectAll("path.arc:not(.plan)").data(list).join("path").attr("class", "arc").attr("pathLength", 1).attr("data-name", d => d[0].key).attr("d", d => arc(d[1])).style("transition-delay", (d, i) => (i * 0.05) + "s");
+    const pa = anchor(PLANNED);
+    st.arcs.selectAll("path.plan").data([pa]).join("path").attr("class", "arc plan").attr("pathLength", 1).attr("d", arc(pa));
+    st.pins.selectAll("*").remove();
+    list.forEach(([c, a], i) => st.pins.append("circle").attr("class", "vdot").attr("cx", a[0]).attr("cy", a[1]).attr("r", 2.6).style("animation-delay", (0.6 + i * 0.05) + "s"));
+    st.pins.append("circle").attr("class", "home-ring").attr("cx", home[0]).attr("cy", home[1]).attr("r", 5);
+    st.pins.append("circle").attr("class", "home-dot").attr("cx", home[0]).attr("cy", home[1]).attr("r", 5);
+    const plane = st.pins.append("text").attr("class", "pin").attr("text-anchor", "middle").attr("dy", ".35em").text("✈️");
+    plane.append("animateMotion").attr("dur", "4s").attr("repeatCount", "indefinite").attr("rotate", "auto").attr("path", arc(pa));
   };
-  const list = TRAVEL.slice(1).map(c => [c, anchor(c)]).filter(x => x[1]);
-  arcs.selectAll("path").data(list).join("path").attr("class", "arc").attr("pathLength", 1).attr("data-name", d => d[0][0])
-    .attr("d", d => arc(d[1])).style("transition-delay", (d, i) => (i * 0.06) + "s");
-  const pa = anchor(PLANNED);
-  arcs.selectAll("path.planarc").data([pa]).join("path").attr("class", "arc plan planarc").attr("pathLength", 1).attr("d", arc(pa));
-  pins.selectAll("*").remove();
-  pins.append("circle").attr("class", "home-ring").attr("cx", home[0]).attr("cy", home[1]).attr("r", 5);
-  pins.append("circle").attr("class", "home-dot").attr("cx", home[0]).attr("cy", home[1]).attr("r", 5);
-  const plane = pins.append("text").attr("class", "pin").attr("text-anchor", "middle").attr("dy", ".35em").text("✈️");
-  plane.append("animateMotion").attr("dur", "4s").attr("repeatCount", "indefinite").attr("rotate", "auto").attr("path", arc(pa));
-  if (animate){ const p = $("#mapPanel"); p.classList.remove("drawn"); void p.offsetWidth; requestAnimationFrame(() => p.classList.add("drawn")); }
+  st.svg.call(st.zoom.transform, d3.zoomIdentity);
+  if (!animate){ draw(); return; }
+  const p = $("#mapPanel"), wrap = $("#mapWrap");
+  wrap.classList.add("switching");
+  setTimeout(() => { draw(); p.classList.remove("drawn"); void p.offsetWidth; wrap.classList.remove("switching"); requestAnimationFrame(() => p.classList.add("drawn")); }, 260);
 }
-function hotCountry(name){
+function hotCountry(key){
   if (!mapState) return;
-  mapState.g.selectAll("path.land").classed("hot", function(){ return name && this.dataset.name === name; });
-  mapState.arcs.selectAll("path").classed("hot", function(){ return name && this.dataset.name === name; });
-  $$(".cchip").forEach(c => c.classList.toggle("hot", c.dataset.name === name));
+  mapState.visitedL.selectAll("path").classed("hot", function(){ return key && this.dataset.name === key; });
+  mapState.base.selectAll("path.planned").classed("hot", key === PLANNED.key);
+  mapState.arcs.selectAll("path").classed("hot", function(){ return key && this.dataset.name === key; });
+  $$(".cchip").forEach(c => c.classList.toggle("hot", c.dataset.name === key));
 }
+function animateCount(){
+  const fg = $(".mc-fg"); if (fg) requestAnimationFrame(() => fg.style.strokeDasharray = `${TRAVEL.length / WORLD_TOTAL * 100} 100`);
+}
+let hintTimer;
+function flashHint(){ const h = $("#mapHint"); h.classList.add("on"); clearTimeout(hintTimer); hintTimer = setTimeout(() => h.classList.remove("on"), 1600); }
 function renderCountryChips(){
-  const chip = (c, plan) => `<button class="cchip${plan ? " plan" : ""}" data-name="${c[0]}">${c[1]} ${esc(tName(c))}${tNote(c) ? ` <small>${esc(tNote(c))}</small>` : ""}</button>`;
-  $("#countryChips").innerHTML = TRAVEL.map(c => chip(c)).join("") + chip(PLANNED, true);
+  const chip = c => `<button class="cchip${c.plan ? " plan" : ""}" data-name="${c.key}">${c.flag} ${esc(tName(c))}${tNote(c) ? ` <small>${esc(tNote(c))}</small>` : ""}</button>`;
+  $("#countryChips").innerHTML = ALL_PLACES.map(chip).join("");
+  $("#continents").innerHTML = CONTINENTS.map(([id, e, total, name]) => {
+    const n = TRAVEL.filter(c => c.cont === id).length, planned = PLANNED.cont === id;
+    return `<div class="cont${n ? " got" : ""}"><span class="ce">${e}</span><span class="cn">${esc(name[lang])}</span><b>${n}<small>/${total}</small></b><i style="--w:${Math.max(n ? 4 : 0, n / total * 100)}%"></i>${planned ? `<em>+1 ${lang === "pl" ? "w planie" : "planned"}</em>` : ""}</div>`;
+  }).join("");
 }
 $("#countryChips").addEventListener("pointerover", e => { const c = e.target.closest(".cchip"); hotCountry(c ? c.dataset.name : null); });
 $("#countryChips").addEventListener("pointerleave", () => hotCountry(null));
-$("#countryChips").addEventListener("click", e => { const c = e.target.closest(".cchip"); if (c && c.dataset.name === PLANNED[0]) nextStop(); });
+$("#countryChips").addEventListener("click", e => {
+  const c = e.target.closest(".cchip"); if (!c) return;
+  if (c.dataset.name === PLANNED.key) nextStop();
+  const place = BY_KEY.get(c.dataset.name);
+  if (mapState && place && place.cont !== "eu" && mapZoom === "europe"){ $$("#mapZoom button")[1].click(); }
+  hotCountry(c.dataset.name);
+});
 $("#mapZoom").addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b || b.dataset.z === mapZoom) return;
   mapZoom = b.dataset.z;
   $$("#mapZoom button").forEach(x => x.classList.toggle("on", x === b));
   if (mapState) fitMap(true);
 });
+
 function nextStop(){
   const row = document.createElement("div");
   row.className = "caravan"; row.textContent = "🐪 🐫 🐪   🌴";
@@ -1125,12 +1173,128 @@ $("#copyMail").addEventListener("click", async e => {
   burst(x, y, ["✉️","✨","💛"], { count: 12, speed: [4, 9], gravity: .12, size: [14, 22] });
   toast("✉️", T[lang].copied, T[lang].copiedSub, 2600);
 });
-$("#gqLink").addEventListener("click", () => openProject(PROJECTS.find(p => p.name === "GlobeQuest")));
+$("#gqLink").addEventListener("click", () => openCase("globequest"));
 new IntersectionObserver(([en], obs) => {
   if (!en.isIntersecting) return;
   obs.disconnect();
   buildMap().then(() => { if (mapState) setTimeout(() => $("#mapPanel").classList.add("drawn"), 300); });
 }, { rootMargin: "300px" }).observe($("#mapPanel"));
+
+/* ═══════════════════════════ project case studies ═══════════════════════════ */
+const SLUGS = { "Mentalio":"mentalio","Scholario":"scholario","Comarch Loyalty Management":"clm","HR System":"hr","Inquisitio":"inquisitio","GlobeQuest":"globequest","JournAI":"journai","Składomat":"skladomat","Kwit":"kwit","PatoBox":"patobox","OfficeFlow":"officeflow","Randkomat":"randkomat","GarminReport":"garminreport","FireRisk":"firerisk","CarControl":"carcontrol","Wolność dla łapek":"lapki","QoS w SDN":"qos","Domowy alarm":"alarm","Movie Analyzer":"movies" };
+const slugOf = p => SLUGS[p.name] || p.name.toLowerCase();
+/* shots: [file, kind, caption pl, caption en]; flow: [emoji, pl, en] */
+const S = (f, k, pl, en) => ({ f, k, pl, en });
+const F = (e, pl, en) => ({ e, pl, en });
+const CASE = {
+  mentalio:{ shots:[S("mentalio-1","desktop","Strona produktu","The product site"),S("mentalio-2","phone","Dla rodzica i specjalisty","For parents and specialists"),S("mentalio-3","phone","Skala problemu w liczbach","The problem, in numbers")],
+    flow:[F("👨‍👩‍👧","Rodzic i dziecko wypełniają kwestionariusz","Parent and child fill in a questionnaire"),F("🧠","AI analizuje odpowiedzi","AI analyses the answers"),F("🩺","Specjalista dostaje wskazówki","The specialist gets insights"),F("🌱","Terapia szyta na miarę","Therapy that fits")] },
+  scholario:{ shots:[S("scholario-1","desktop","Strona produktu","The product site"),S("scholario-2","phone","Czym jest Scholario","What Scholario is"),S("scholario-3","phone","Najważniejsze cechy","Key features")],
+    flow:[F("🧒","Uczeń: krótka refleksja","Student: a short reflection"),F("📊","Analiza na bieżąco","Instant analysis"),F("🧑‍🏫","Zespół szkolny reaguje","The school team responds"),F("💛","Uczeń czuje się zauważony","The student feels seen")] },
+  clm:{ flow:[F("⛽","Klient na stacji","A customer at the station"),F("⭐","Punkty i nagrody","Points and rewards"),F("⚙️","Backend CLM: Java + Spring","CLM backend: Java + Spring"),F("🌍","BP i SASOL na 6 rynkach","BP and SASOL in 6 markets")] },
+  hr:{ flow:[F("🖥️","Interfejs w Angularze","Angular UI"),F("🔌","REST API w Spring Boot","Spring Boot REST API"),F("🗄️","PostgreSQL + Flyway","PostgreSQL + Flyway"),F("👥","Zespół 3 osób, full stack","3-person team, full stack")] },
+  inquisitio:{ flow:[F("✏️","Edytor kwestionariusza","Questionnaire editor"),F("👀","Podgląd 1:1","1:1 preview"),F("🔗","Link dla respondenta","A link for the respondent"),F("📱","Ekran po ekranie","Screen by screen"),F("📊","Odpowiedzi i eksport","Responses and export")] },
+  globequest:{ shots:[S("globequest-1","desktop","Moja mapa: 25 regionów, Maroko w planach","My map: 25 regions, Morocco planned"),S("globequest-2","desktop","Witaj w GlobeQuest","Welcome to GlobeQuest"),S("globequest-3","phone","Na telefonie","On the phone"),S("globequest-4","phone","Samouczek krok po kroku","Step-by-step tour")],
+    flow:[F("🗺️","Zaznacz, gdzie byłeś","Mark where you've been"),F("📇","Dossier kraju","Country dossier"),F("✈️","Zaplanuj trasę","Plan a trip"),F("🧩","Quiz","Quiz"),F("🏅","Odznaki i ranga","Badges and rank")] },
+  journai:{ flow:[F("⌚","Garmin Connect","Garmin Connect"),F("🔌","Serwer MCP","MCP server"),F("🗄️","PostgreSQL","PostgreSQL"),F("📈","Analityka","Analytics"),F("💬","Komentarz LLM","LLM commentary")] },
+  skladomat:{ shots:[S("skladomat-1","phone","Dziennik: wpisz albo podyktuj","Diary: type or dictate"),S("skladomat-2","phone","Szukaj produktu","Find a product"),S("skladomat-3","phone","Ocena składu z uzasadnieniem","Ingredient score, explained"),S("skladomat-4","phone","Wartości odżywcze co do grama","Nutrition, gram by gram"),S("skladomat-5","phone","Analiza i trendy","Analysis and trends"),S("skladomat-6","desktop","Na komputerze","On desktop")],
+    flow:[F("📷","Skan albo wyszukiwarka","Scan or search"),F("🔬","Skład i ocena","Ingredients and score"),F("➕","Do dziennika w 2 tapnięcia","Logged in 2 taps"),F("📊","Analiza tygodni","Weekly analysis")] },
+  kwit:{ shots:[S("kwit-1","phone","Wyciąg CSV: wszystko rozpoznane","CSV statement: all recognised"),S("kwit-2","phone","Pulpit: wydatki i trend","Dashboard: spending and trend"),S("kwit-3","phone","Ile wpłynęło, ile zostało","What came in, what's left"),S("kwit-4","phone","Na co idą pieniądze","Where the money goes"),S("kwit-5","phone","Każda transakcja na miejscu","Every transaction in place"),S("kwit-6","phone","Portfel inwestycyjny","Investment portfolio")],
+    flow:[F("🏦","Wyciąg CSV z banku","Bank CSV statement"),F("🔍","Rozpoznaje sam","Recognised automatically"),F("🏷️","Kategorie i zachcianki","Categories and impulses"),F("📊","Wnioski","Insights"),F("🔒","Wszystko zostaje na urządzeniu","Everything stays on device")] },
+  patobox:{ shots:[S("patobox-1","phone","Telefon: kod z telewizora i imię","Phone: TV code and a name"),S("patobox-2","phone","Bank pomysłów na polecenia","An idea bank for prompts"),S("patobox-3","desktop","Wejście na dużym ekranie","Joining on the big screen")],
+    flow:[F("📺","Telewizor pokazuje kod","The TV shows a code"),F("📱","Telefony dołączają","Phones join in"),F("✍️","Najgłupsze odpowiedzi","The silliest answers"),F("🗳️","Głosowanie","Voting"),F("😂","Śmiech w 2 minuty","A laugh within 2 minutes")] },
+  officeflow:{ shots:[S("officeflow-1","phone","Zgłoszenie czeka na decyzję","A request awaits a decision"),S("officeflow-2","phone","Aplikacja podpowiada, kto się tym zajmie","The app suggests who handles it"),S("officeflow-3","phone","Stałe usługi w kalendarzu","Recurring services on a calendar"),S("officeflow-4","phone","Firmy i ludzie w jednym miejscu","Vendors and people in one place"),S("officeflow-5","desktop","Na dużym ekranie","On a big screen")],
+    flow:[F("🙋","Zgłoszenie w 2 krokach","A request in 2 steps"),F("🤖","Propozycja: kto i kiedy","Suggestion: who and when"),F("👩‍💼","Office manager decyduje","The office manager decides"),F("📅","Kalendarz usług","Service calendar")] },
+  randkomat:{ shots:[S("randkomat-1","phone","Kim jesteś: nick, nastrój, kolor","Who you are: nick, mood, colour"),S("randkomat-2","phone","Twój vibe w 3 tapnięcia","Your vibe in 3 taps"),S("randkomat-3","phone","Jedno dotknięcie do zaproszenia","One tap to an invitation")],
+    flow:[F("💌","Zaproszenie w 4 tapnięcia","An invite in 4 taps"),F("🔗","Link do jednej osoby","A link for one person"),F("👆","Odpowiedź jednym ruchem","Answered in one move"),F("🎉","Szczegóły po „tak”","Details after “yes”")] },
+  garminreport:{ flow:[F("⌚","Garmin Connect","Garmin Connect"),F("🧮","ACWR, HRV, dług snu","ACWR, HRV, sleep debt"),F("📝","Raport Markdown","Markdown report"),F("🤖","Analiza z AI","AI analysis")] },
+  firerisk:{ flow:[F("🛰️","Zdjęcie lotnicze","Aerial image"),F("✂️","Kafelki 256×256","256×256 tiles"),F("🧠","U-Net + ResNet34","U-Net + ResNet34"),F("🗺️","Mapa 5 klas","A 5-class map"),F("🔥","Strefy ryzyka","Risk zones")] },
+  carcontrol:{ flow:[F("📱","Aplikacja Android","Android app"),F("📶","Bluetooth HC-05","HC-05 Bluetooth"),F("🔌","Arduino + MCP2515","Arduino + MCP2515"),F("🚗","Magistrala CAN auta","The car's CAN bus")] },
+  lapki:{ flow:[F("🐾","Przedmiot na aukcję","An item for auction"),F("💸","Licytacja","Bidding"),F("❤️","Dochód na cel","Proceeds to charity")] },
+  qos:{ flow:[F("📦","Ruch w sieci","Network traffic"),F("🎛️","Sterownik Floodlight","Floodlight controller"),F("🚦","Priorytety QoS","QoS priorities"),F("🖧","Sieć w Mininecie","A Mininet network")] },
+  alarm:{ flow:[F("🚪","Czujniki","Sensors"),F("🔌","Arduino","Arduino"),F("🗄️","MySQL","MySQL"),F("📱","Aplikacja Android","Android app")] },
+  movies:{ flow:[F("🎬","Filmweb Top 500","Filmweb Top 500"),F("🕸️","Scraping","Scraping"),F("🧮","Analiza w R","Analysis in R"),F("📊","Wykresy","Charts")] }
+};
+
+let caseIdx = -1;
+const caseList = () => PROJECTS;
+function openCase(slug, push = true){
+  const list = caseList(), i = list.findIndex(p => slugOf(p) === slug);
+  if (i < 0) return;
+  caseIdx = i;
+  const p = list[i], c = p[lang], t = T[lang], data = CASE[slug] || {};
+  const d = $("#case");
+  d.style.setProperty("--c", p.c);
+  $("#caseHero").style.setProperty("--c", p.c);
+  $("#chEmoji").textContent = p.icon;
+  $("#chKind").textContent = c.kind;
+  $("#chTitle").textContent = p.name;
+  $("#chOne").textContent = c.desc;
+  const meta = [t[p.cat], p.org, p.team ? (p.team === 1 ? "👤 " + t.solo : "👥 " + t.team + " " + p.team) : null].filter(Boolean);
+  $("#chMeta").innerHTML = meta.map(m => `<span>${esc(m)}</span>`).join("");
+  $("#chActions").innerHTML = [p.app ? `<a class="btn primary" href="${p.app}" target="_blank" rel="noopener">${t.openApp}</a>` : "", p.url ? `<a class="btn primary" href="${p.url}" target="_blank" rel="noopener">${t.site}</a>` : "", p.repo ? `<a class="btn ${p.url || p.app ? "ghost" : "primary"}" href="${p.repo}" target="_blank" rel="noopener">${t.code}</a>` : "", !p.app && !p.url && !p.repo && p.cat === "own" ? `<span class="ch-lock">🔒 ${t.privLong}</span>` : ""].join("");
+  $$("#caseHero .ch-text > *, #chEmoji").forEach((el, k) => { el.classList.remove("reveal-in"); void el.offsetWidth; el.style.animationDelay = (k * 0.07) + "s"; el.classList.add("reveal-in"); });
+  /* gallery */
+  const shots = data.shots || [];
+  $("#caseGallery").classList.toggle("empty", !shots.length);
+  $("#cgTrack").innerHTML = shots.map((s, k) => `<figure class="shot" style="--i:${k}"><div class="frame ${s.k}" data-full="img/p/${s.f}.webp"><img src="img/p/${s.f}.webp" alt="${esc(s[lang])}" loading="lazy" decoding="async"></div><figcaption>${esc(s[lang])}</figcaption></figure>`).join("");
+  $("#cgDots").innerHTML = shots.map((_, k) => `<i class="${k ? "" : "on"}"></i>`).join("");
+  $("#cgTrack").scrollLeft = 0;
+  /* flow */
+  const flow = data.flow || [];
+  $("#caseFlow").style.display = flow.length ? "" : "none";
+  $("#caseFlow").classList.remove("in");
+  $("#flowSteps").innerHTML = flow.map((f, k) => `<li style="--i:${k}"><span class="fe">${f.e}<span class="fn">${k + 1}</span></span><span class="fl">${esc(f[lang])}</span></li>`).join("");
+  $("#ptCards").innerHTML = c.pts.map(x => `<div class="pt-card">${esc(x)}</div>`).join("");
+  $("#csTags").innerHTML = p.tags.map(x => `<span>${esc(x)}</span>`).join("");
+  const prev = list[(i - 1 + list.length) % list.length], next = list[(i + 1) % list.length];
+  $("#csPrevN").textContent = "← " + prev.icon + " " + prev.name;
+  $("#csNextN").textContent = next.icon + " " + next.name + " →";
+  $("#caseScroll").scrollTop = 0;
+  if (!d.open){ d.showModal(); document.documentElement.classList.add("case-open"); requestAnimationFrame(() => document.activeElement && document.activeElement.blur()); }
+  if (push) history.replaceState(null, "", "#p/" + slug);
+  setTimeout(() => $("#caseFlow").classList.add("in"), shots.length ? 700 : 250);
+}
+function closeCase(){
+  const d = $("#case"); if (!d.open) return;
+  d.classList.add("closing");
+  setTimeout(() => { d.classList.remove("closing"); d.close(); document.documentElement.classList.remove("case-open"); }, 280);
+  history.replaceState(null, "", location.pathname + location.search);
+}
+$("#caseClose").addEventListener("click", closeCase);
+$("#case").addEventListener("cancel", e => { e.preventDefault(); closeCase(); });
+$("#case").addEventListener("click", e => { if (e.target === $("#case")) closeCase(); });
+$("#csPrev").addEventListener("click", () => { const l = caseList(); openCase(slugOf(l[(caseIdx - 1 + l.length) % l.length])); });
+$("#csNext").addEventListener("click", () => { const l = caseList(); openCase(slugOf(l[(caseIdx + 1) % l.length])); });
+addEventListener("keydown", e => {
+  if (!$("#case").open || $("#lightbox").classList.contains("on")) return;
+  if (e.key === "ArrowRight" && e.shiftKey) $("#csNext").click();
+  if (e.key === "ArrowLeft" && e.shiftKey) $("#csPrev").click();
+});
+/* gallery: arrows, dots, drag-to-scroll, lightbox */
+const cgTrack = $("#cgTrack");
+const cgStep = dir => { const s = cgTrack.querySelector(".shot"); cgTrack.scrollBy({ left: dir * ((s ? s.offsetWidth : 300) + 28), behavior: "smooth" }); };
+$("#cgPrev").addEventListener("click", () => cgStep(-1));
+$("#cgNext").addEventListener("click", () => cgStep(1));
+cgTrack.addEventListener("scroll", () => {
+  const shots = [...cgTrack.querySelectorAll(".shot")]; if (!shots.length) return;
+  const mid = cgTrack.scrollLeft + cgTrack.clientWidth / 2;
+  let best = 0, bd = 1e9; shots.forEach((s, k) => { const d = Math.abs(s.offsetLeft + s.offsetWidth / 2 - mid); if (d < bd){ bd = d; best = k; } });
+  $$("#cgDots i").forEach((dt, k) => dt.classList.toggle("on", k === best));
+}, { passive: true });
+let drag = null;
+cgTrack.addEventListener("pointerdown", e => { if (e.pointerType !== "mouse") return; drag = { x: e.clientX, l: cgTrack.scrollLeft, moved: false }; cgTrack.style.scrollSnapType = "none"; });
+addEventListener("pointermove", e => { if (!drag) return; const dx = e.clientX - drag.x; if (Math.abs(dx) > 4) drag.moved = true; cgTrack.scrollLeft = drag.l - dx; });
+addEventListener("pointerup", () => { if (!drag) return; const moved = drag.moved; drag = null; cgTrack.style.scrollSnapType = ""; if (moved) cgTrack.dataset.justDragged = "1", setTimeout(() => delete cgTrack.dataset.justDragged, 50); });
+cgTrack.addEventListener("click", e => {
+  const f = e.target.closest(".frame"); if (!f || cgTrack.dataset.justDragged) return;
+  $("#lbImg").src = f.dataset.full; $("#lightbox").classList.add("on");
+});
+$("#lightbox").addEventListener("click", () => $("#lightbox").classList.remove("on"));
+addEventListener("keydown", e => { if (e.key === "Escape" && $("#lightbox").classList.contains("on")){ e.preventDefault(); $("#lightbox").classList.remove("on"); } }, true);
+/* deep links: #p/kwit */
+function routeCase(){ const m = location.hash.match(/^#p\/([\w-]+)/); if (m) openCase(m[1], false); }
+addEventListener("hashchange", routeCase);
 
 /* ═══════════════════════════ cursor + global fx ═══════════════════════════ */
 (function cursor(){
@@ -1144,6 +1308,7 @@ new IntersectionObserver(([en], obs) => {
   const lbl = $(".cur-lbl");
   const labelFor = t => {
     const L = T[lang];
+    if (t.closest(".frame")) return "🔍";
     if (t.closest(".card")) return L.cDetails;
     if (t.closest(".bubble")) return t.closest(".bubble.mini") ? "🍯" : L.cDrag;
     if (t.closest("#head")) return L.cTap;
@@ -1439,6 +1604,7 @@ new IntersectionObserver(([en], o) => { if (en.isIntersecting){ setTimeout(() =>
 
 function syncThemeColor(){ const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = document.documentElement.dataset.theme === "light" ? "#f8f4e8" : "#0b0b0c"; }
 syncThemeColor();
+setTimeout(routeCase, 0);
 
 /* ═══════════════════════════ boot ═══════════════════════════ */
 $("#year").textContent = new Date().getFullYear();

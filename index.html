@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Press+Start+2P&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=16">
+<link rel="stylesheet" href="style.css?v=21">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230b0b0c'/><path d='M9 21c-3 0-4-3-2-4-1-3 2-5 4-4 1-3 6-3 7 0 2-2 6 0 5 3 3 1 2 5-1 5-1 2-4 2-5 1-2 2-5 1-6 0z' fill='none' stroke='%23ffd43b' stroke-width='1.8' stroke-linejoin='round'/><circle cx='12' cy='25' r='1.2' fill='%23ffd43b'/><circle cx='10' cy='28' r='.8' fill='%23ffd43b'/></svg>">
 </head>
 <body>
@@ -245,9 +245,9 @@
       <p data-i18n="travelLead"></p>
     </div>
     <div class="travel-stats reveal">
-      <div><b class="num-sm" data-count="24">0</b><span data-i18n="tvCountries"></span></div>
+      <div><b class="num-sm"><span data-count="24">0</span><small>/195</small></b><span data-i18n="tvCountries"></span></div>
       <div><b class="num-sm" data-count="25">0</b><span data-i18n="tvRegions"></span></div>
-      <div><b class="num-sm" data-count="3.5" data-dec="1">0</b><span data-i18n="tvWorld"></span></div>
+      <div><b class="num-sm"><span data-count="3.5" data-dec="1">0</span><small>%</small></b><span data-i18n="tvWorld"></span></div>
       <div><b class="num-sm">🧭</b><span data-i18n="tvRank"></span></div>
     </div>
     <div class="panel sketch map-panel reveal" id="mapPanel">
@@ -257,9 +257,18 @@
       </div>
       <div class="map-wrap" id="mapWrap">
         <svg id="worldMap" role="img" aria-label="Mapa odwiedzonych krajów"></svg>
+        <div class="map-count" id="mapCount" aria-hidden="true">
+          <svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" class="mc-bg"/><circle cx="22" cy="22" r="18" class="mc-fg" pathLength="100"/></svg>
+          <div><b><span id="mcNum">24</span><small>/195</small></b><span data-i18n="tvCountriesShort"></span></div>
+        </div>
+        <div class="map-zoom" aria-label="Zoom">
+          <button id="zIn" aria-label="Zoom in">+</button><button id="zOut" aria-label="Zoom out">−</button><button id="zReset" aria-label="Reset">⟲</button>
+        </div>
+        <div class="map-hint" id="mapHint" data-i18n="tvHint"></div>
         <div class="map-tip" id="mapTip"></div>
         <div class="map-loading" id="mapLoading">✈️ …</div>
       </div>
+      <div class="continents" id="continents"></div>
       <div class="country-chips" id="countryChips"></div>
     </div>
     <div class="next-stop reveal">
@@ -321,6 +330,44 @@
   <button class="modal-x" id="mClose" aria-label="Close">✕</button>
 </dialog>
 
+<dialog id="case" class="case" data-lenis-prevent aria-label="Projekt">
+  <div class="case-scroll" id="caseScroll">
+    <header class="case-hero" id="caseHero">
+      <div class="ch-bg" aria-hidden="true"></div>
+      <div class="ch-emoji" id="chEmoji"></div>
+      <div class="ch-text">
+        <div class="ch-kind" id="chKind"></div>
+        <h2 id="chTitle"></h2>
+        <p id="chOne"></p>
+        <div class="ch-meta" id="chMeta"></div>
+        <div class="ch-actions" id="chActions"></div>
+      </div>
+    </header>
+    <section class="case-gallery" id="caseGallery">
+      <div class="cg-track" id="cgTrack"></div>
+      <div class="cg-nav"><button id="cgPrev" aria-label="Poprzedni">←</button><div class="cg-dots" id="cgDots"></div><button id="cgNext" aria-label="Następny">→</button></div>
+    </section>
+    <section class="case-flow" id="caseFlow">
+      <h3 class="cs-h" data-i18n="csFlow"></h3>
+      <ol class="flow-steps" id="flowSteps"></ol>
+    </section>
+    <section class="case-points">
+      <h3 class="cs-h" data-i18n="csWhy"></h3>
+      <div class="pt-cards" id="ptCards"></div>
+    </section>
+    <section class="case-stack">
+      <h3 class="cs-h" data-i18n="csStack"></h3>
+      <div class="tags big" id="csTags"></div>
+    </section>
+    <footer class="case-nav">
+      <button id="csPrev"><small data-i18n="csPrevL"></small><b id="csPrevN"></b></button>
+      <button id="csNext"><small data-i18n="csNextL"></small><b id="csNextN"></b></button>
+    </footer>
+  </div>
+  <button class="case-x" id="caseClose" aria-label="Zamknij">✕</button>
+</dialog>
+<div class="lightbox" id="lightbox" aria-hidden="true"><img id="lbImg" alt=""><button class="case-x" id="lbClose" aria-label="Zamknij">✕</button></div>
+
 <dialog id="eggs" class="eggs" data-lenis-prevent>
   <div class="eggs-head">
     <h3 data-i18n="eggsTitle"></h3>
@@ -341,7 +388,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="eggs.js?v=16"></script>
-<script src="app.js?v=16"></script>
+<script src="eggs.js?v=21"></script>
+<script src="app.js?v=21"></script>
 </body>
 </html>
