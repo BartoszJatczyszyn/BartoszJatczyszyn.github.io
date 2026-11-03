@@ -621,7 +621,7 @@ footer{margin-top:60px;position:relative}
 .sk-legend i.plan{border:2px dashed var(--hl);background:transparent}
 .map-wrap{position:relative;border-radius:16px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,color-mix(in srgb,var(--ink) 6%,transparent),transparent 70%),var(--surface2);aspect-ratio:16/9}
 @media (max-width:600px){.map-wrap{aspect-ratio:4/3}}
-#worldMap{width:100%;height:100%;display:block;touch-action:pan-y}
+#worldMap{width:100%;height:100%;display:block;touch-action:manipulation}
 #worldMap .zoomg{transition:transform 1.2s var(--ease)}
 #worldMap .land{fill:color-mix(in srgb,var(--text) 9%,transparent);stroke:color-mix(in srgb,var(--text) 18%,transparent);stroke-width:.4;vector-effect:non-scaling-stroke;transition:fill .3s}
 #worldMap .land.visited{fill:color-mix(in srgb,var(--hl) 70%,transparent);stroke:var(--hl);stroke-width:1.2;cursor:pointer;filter:url(#rough)}
@@ -777,3 +777,52 @@ html.lenis,html.lenis body{height:auto}
 @media (max-width:520px){.hero-text{text-align:left}}
 @media (max-width:900px){.extras{grid-template-columns:1fr}}
 @media (max-width:900px) and (min-width:521px) and (orientation:portrait){.pencil{display:none}}
+
+/* ═══════════════ iOS / touch polish ═══════════════ */
+header.top{padding-top:env(safe-area-inset-top)}
+.track{top:env(safe-area-inset-top)}
+.hero{padding-top:calc(96px + env(safe-area-inset-top))}
+@media (max-width:420px){.hero{padding-top:calc(84px + env(safe-area-inset-top))}}
+html{scroll-padding-top:calc(80px + env(safe-area-inset-top))}
+.toasts{bottom:calc(20px + env(safe-area-inset-bottom))}
+.vinyl{bottom:calc(20px + env(safe-area-inset-bottom));opacity:0;visibility:hidden;transition:transform .7s var(--spring),opacity .4s,visibility 0s .7s}
+.vinyl.on{opacity:1;visibility:visible;transition:transform .7s var(--spring),opacity .3s,visibility 0s}
+footer .foot{padding-bottom:calc(40px + env(safe-area-inset-bottom))}
+
+/* no sticky hover states after a tap on touch screens */
+@media (hover:none){
+  .card:hover{--rot:inherit;--ty:0px;box-shadow:var(--shadow)}
+  .card:nth-child(4n+1):hover{--rot:-1.2deg}.card:nth-child(4n+2):hover{--rot:.8deg}.card:nth-child(4n+3):hover{--rot:-.5deg}.card:nth-child(4n):hover{--rot:1.3deg}
+  .card:hover .cover .emo{transform:none}
+  .medal-card:hover,.cp-card:hover,.stat-card:hover,.next-card:hover,.agh:hover{transform:none;box-shadow:none}
+  .chip:hover,.cchip:hover{transform:none}
+  .cchip:hover:not(.hot){background:none;color:var(--text);border-color:color-mix(in srgb,var(--ink) 40%,transparent)}
+  .sketch:hover::before{border-color:color-mix(in srgb,var(--ink) 55%,transparent)}
+  .head:hover,.logo:hover,.dragon:hover{transform:none}
+  .card:active{transform:scale(.98)}
+}
+
+/* compact project cards on phones: icon left, text right */
+@media (max-width:560px){
+  .grid{gap:18px}
+  .card{flex-direction:row;align-items:stretch}
+  .card .tape{left:62px;width:54px;height:18px;top:-8px}
+  .cover{width:92px;height:auto;min-height:100%;flex:none;border-radius:18px 0 0 18px}
+  .cover .emo{font-size:38px}
+  .cover .kind-badge{display:none}
+  .cover .lock{top:auto;bottom:8px;right:50%;transform:translateX(50%);font-size:10px;padding:3px 6px}
+  .card-body{padding:12px 14px 14px;gap:4px;min-width:0}
+  .card h3{font-size:17px}
+  .card .one{font-size:13.5px;margin-bottom:6px}
+  .card .tags span:nth-child(n+4){display:none}
+  .card .more{font-size:18px;margin-top:4px}
+}
+@media (max-width:560px){.filters{flex-wrap:nowrap}.filters button{padding:8px 10px;font-size:13.5px;white-space:nowrap}}
+#worldMap{cursor:pointer}
+@media (max-width:600px){
+  .toasts{top:calc(74px + env(safe-area-inset-top));bottom:auto;flex-direction:column}
+  .toast{animation:toastInTop .6s var(--spring)}
+  .vinyl{bottom:auto;top:calc(74px + env(safe-area-inset-top));transform:translateY(-180%)}
+  .vinyl.on{transform:none}
+}
+@keyframes toastInTop{from{opacity:0;transform:translateY(-20px) scale(.9) rotate(-2deg)}}

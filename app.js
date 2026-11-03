@@ -12,7 +12,7 @@ const T = {
     sProjects:"projektów", sCommits:"commitów", sMarathon:"km maratonu", sUltra:"km ultra", sDegrees:"dyplomy AGH",
     projectsTitle:"Pomysły, które stały się kodem", projectsLead:"Każdy zaczął się od myśli w chmurce. Kliknij kartę, żeby zajrzeć do środka.",
     all:"Wszystkie", web:"Web / PWA", mobile:"Mobile", data:"Dane i AI", game:"Gry",
-    priv:"Prywatne", privLong:"Repozytorium prywatne", code:"Zobacz kod ↗", details:"zajrzyj",
+    priv:"Prywatne", privLong:"Repozytorium prywatne", code:"Zobacz kod ↗︎", details:"zajrzyj",
     numbersTitle:"Kod w liczbach", numbersLead:"Prawdziwe dane z moich repozytoriów.",
     chartLangs:"Języki", langsCenter:"języków", other:"Inne",
     chartCommits:"Commity w ostatnich 12 miesiącach", chartCommitsNote:"XI 2025 – X 2026, sześć aktywnych projektów. Najedź na słupek.",
@@ -55,7 +55,7 @@ const T = {
     sProjects:"projects", sCommits:"commits", sMarathon:"km marathon", sUltra:"km ultra", sDegrees:"AGH degrees",
     projectsTitle:"Ideas that became code", projectsLead:"Each one started as a thought in the cloud. Click a card to peek inside.",
     all:"All", web:"Web / PWA", mobile:"Mobile", data:"Data & AI", game:"Games",
-    priv:"Private", privLong:"Private repository", code:"View code ↗", details:"peek inside",
+    priv:"Private", privLong:"Private repository", code:"View code ↗︎", details:"peek inside",
     numbersTitle:"Code in numbers", numbersLead:"Real data from my repositories.",
     chartLangs:"Languages", langsCenter:"languages", other:"Other",
     chartCommits:"Commits in the last 12 months", chartCommitsNote:"Nov 2025 – Oct 2026, six active projects. Hover a bar.",
@@ -97,7 +97,7 @@ Object.assign(T.pl, {
   trailTitle:"Trasa", trailLead:"Od startu na AGH, przez Comarch, do Nivalit. Każdy punkt kontrolny coś dołożył do plecaka.",
   projectsLead:"Zawodowe, własne i studenckie. Kliknij kartę, żeby zajrzeć do środka.",
   all:"Wszystkie", work:"Zawodowe", own:"Własne", uni:"Studia",
-  site:"Zobacz stronę ↗", team:"zespół", solo:"solo",
+  site:"Zobacz stronę ↗︎", team:"zespół", solo:"solo",
   skillsTitle:"Skrzynka z narzędziami", skillsLead:"Wypełnione na żółto to te, których używałem zawodowo. Reszta: studia i projekty po godzinach.",
   skAll:"Wszystko", skPro:"Tylko zawodowo", skLegPro:"zawodowo", skLegOwn:"studia i projekty",
   langsSpoken:"Języki obce", certsTitle:"Certyfikaty",
@@ -127,7 +127,7 @@ Object.assign(T.en, {
   trailTitle:"The trail", trailLead:"From the start line at AGH, through Comarch, to Nivalit. Every checkpoint added something to the backpack.",
   projectsLead:"Professional, personal and university. Click a card to peek inside.",
   all:"All", work:"Professional", own:"Personal", uni:"University",
-  site:"Visit site ↗", team:"team", solo:"solo",
+  site:"Visit site ↗︎", team:"team", solo:"solo",
   skillsTitle:"The toolbox", skillsLead:"Filled in yellow: used professionally. The rest: university and after-hours projects.",
   skAll:"Everything", skPro:"Professional only", skLegPro:"professional", skLegOwn:"university & projects",
   langsSpoken:"Languages", certsTitle:"Certificates",
@@ -514,7 +514,7 @@ function renderTrail(){
   $("#trailMap").innerHTML = TRAIL.map(c => {
     const L = c[lang];
     const title = c.link ? `<a href="${c.link}" target="_blank" rel="noopener">${esc(L.title)}</a>` : esc(L.title);
-    const items = (L.items || []).map(([e, n, d, u]) => `<div><span class="e">${e}</span><span><b>${u ? `<a href="${u}" target="_blank" rel="noopener">${esc(n)} ↗</a>` : esc(n)}</b><small>${esc(d)}</small></span></div>`).join("");
+    const items = (L.items || []).map(([e, n, d, u]) => `<div><span class="e">${e}</span><span><b>${u ? `<a href="${u}" target="_blank" rel="noopener">${esc(n)} ↗︎</a>` : esc(n)}</b><small>${esc(d)}</small></span></div>`).join("");
     const logo = c.pick ? `<button class="cp-logo pick" id="pickaxe" aria-label="AGH">⚒️</button>` : `<span class="cp-logo">${c.e}</span>`;
     return `<div class="cp reveal${c.now ? " now" : ""}${c.edu ? " edu" : ""}">
       <div class="cp-when">${c.when}${c.sub ? `<small>${c.sub}</small>` : ""}</div>
@@ -739,7 +739,7 @@ function tapHead(user){
   const [x, y] = center(h);
   burst(x, y - 40, ["💡"], { count: 2, spread: 40, speed: [6, 10], gravity: .12, life: 900, size: [16, 24] });
   const now = Date.now();
-  headTaps = headTaps.filter(t => now - t < 1200).concat(now);
+  headTaps = headTaps.filter(t => now - t < 1800).concat(now);
   if (headTaps.length >= 3){
     headTaps = [];
     const [cx, cy] = center($("#cloud"));
@@ -882,6 +882,10 @@ function stepBubbles(){
       }
     }
   }
+  for (const b of bubbles){
+    b.x = Math.max(b.r + 8, Math.min(pgW - b.r - 8, b.x));
+    b.y = Math.max(b.r + 8, Math.min(pgH - b.r - 8, b.y));
+  }
   placeBubbles();
   if (pgVisible) pgRaf = requestAnimationFrame(stepBubbles);
 }
@@ -991,7 +995,7 @@ const ZOOMS = { europe:[[-12,27],[44,70]], all:[[-13,8],[108,68]] };
 let mapState = null, mapZoom = "europe";
 const tName = c => lang === "pl" ? c[2] : c[3];
 const tNote = c => lang === "pl" ? c[4] : c[5];
-const whenLibs = () => new Promise(res => { const ok = () => window.d3 && window.topojson; if (ok()) return res(); addEventListener("load", () => res()); });
+const whenLibs = () => new Promise(res => { const t0 = Date.now(); (function wait(){ if ((window.d3 && window.topojson) || Date.now() - t0 > 12000) return res(); setTimeout(wait, 100); })(); });
 
 async function buildMap(){
   await whenLibs();
@@ -1024,9 +1028,38 @@ async function buildMap(){
     tip.style.left = (e.clientX - r.left) + "px"; tip.style.top = (e.clientY - r.top) + "px";
     tip.classList.add("on");
   };
-  svg.on("pointermove", e => { const n = e.target.dataset && e.target.dataset.name; showTip(n, e); hotCountry(visited.has(n) || n === PLANNED[0] ? n : null); });
-  svg.on("pointerleave", () => { tip.classList.remove("on"); hotCountry(null); });
-  svg.on("click", e => { if (e.target.dataset && e.target.dataset.name === PLANNED[0]) nextStop(); });
+  svg.on("pointermove", e => { if (e.pointerType !== "mouse") return; const n = e.target.dataset && e.target.dataset.name; showTip(n, e); hotCountry(visited.has(n) || n === PLANNED[0] ? n : null); });
+  svg.on("pointerleave", e => { if (e.pointerType !== "mouse") return; tip.classList.remove("on"); hotCountry(null); });
+  /* tap handling via pointer events: iOS Safari doesn't reliably fire click on SVG shapes */
+  let tipTimer, down = null;
+  const nameAt = e => {
+    const own = e.target.dataset && e.target.dataset.name;
+    if (own && (visited.has(own) || own === PLANNED[0])) return own;
+    const pt = svg.node().createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+    const p = pt.matrixTransform(svg.node().getScreenCTM().inverse());
+    const ll = mapState.proj.invert([p.x, p.y]);
+    const f = ll && feats.find(f => (visited.has(f.properties.name) || f.properties.name === PLANNED[0]) && d3.geoContains(f, ll));
+    return f ? f.properties.name : own;
+  };
+  const tapCountry = e => {
+    const n = nameAt(e);
+    if (n === PLANNED[0]) nextStop();
+    if (visited.has(n) || n === PLANNED[0]){
+      const c = visited.get(n) || PLANNED, a = anchor(c);
+      let at = e;
+      if (a){ const pt = svg.node().createSVGPoint(); pt.x = a[0]; pt.y = a[1]; const q = pt.matrixTransform(svg.node().getScreenCTM()); at = { clientX: q.x, clientY: q.y }; }
+      showTip(n, at); hotCountry(n);
+      clearTimeout(tipTimer); tipTimer = setTimeout(() => { tip.classList.remove("on"); hotCountry(null); }, 2200);
+    }
+  };
+  let lastTap = 0;
+  const once = e => { const now = performance.now(); if (now - lastTap < 400) return; lastTap = now; tapCountry(e); };
+  svg.on("pointerdown", e => { down = { x: e.clientX, y: e.clientY, t: performance.now() }; });
+  svg.on("pointerup", e => {
+    if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) < 10 && performance.now() - down.t < 600) once(e);
+    down = null;
+  });
+  svg.on("click", once);
 }
 
 function anchor(c){
@@ -1211,7 +1244,7 @@ let themeClicks = [];
 let vtBusy = false;
 $("#themeBtn").addEventListener("click", e => {
   const root = document.documentElement;
-  const flip = () => { root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light"; store.set("bj-theme", root.dataset.theme); };
+  const flip = () => { root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light"; store.set("bj-theme", root.dataset.theme); syncThemeColor(); };
   if (document.startViewTransition && !reduced && !vtBusy){
     const [x, y] = center(e.currentTarget);
     root.style.setProperty("--vx", x + "px"); root.style.setProperty("--vy", y + "px");
@@ -1346,7 +1379,7 @@ let ticking = false;
 function scrollFx(){
   ticking = false;
   const y = scrollY, h = innerHeight;
-  if (y < h * 1.2 && !reduced){
+  if (y < h * 1.2 && !reduced && innerWidth > 900){
     $(".hero-text").style.transform = `translateY(${y * .28}px)`;
     $(".hero-text").style.opacity = Math.max(0, 1 - y / (h * .75));
     $(".mind-art").style.transform = `translateY(${y * -.12}px) scale(${1 - Math.min(y / h, 1) * .08})`;
@@ -1400,8 +1433,12 @@ if (!store.get("bj-hint-eggs", false)){
   setTimeout(() => { $("#hintEggs").classList.add("on"); store.set("bj-hint-eggs", true); setTimeout(() => $("#hintEggs").classList.remove("on"), 6500); }, 9000);
 }
 $("#trophyBtn").addEventListener("click", () => $("#hintEggs").classList.remove("on"));
-pg.addEventListener("pointerdown", () => $(".h-pg").classList.remove("on"), { once: true });
-new IntersectionObserver(([en], o) => { if (en.isIntersecting){ setTimeout(() => $(".h-pg").classList.add("on"), 900); o.disconnect(); } }, { threshold: .4 }).observe(pg);
+let pgTouched = false;
+pg.addEventListener("pointerdown", () => { pgTouched = true; $(".h-pg").classList.remove("on"); });
+new IntersectionObserver(([en], o) => { if (en.isIntersecting){ setTimeout(() => { if (!pgTouched) $(".h-pg").classList.add("on"); }, 900); o.disconnect(); } }, { threshold: .4 }).observe(pg);
+
+function syncThemeColor(){ const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = document.documentElement.dataset.theme === "light" ? "#f8f4e8" : "#0b0b0c"; }
+syncThemeColor();
 
 /* ═══════════════════════════ boot ═══════════════════════════ */
 $("#year").textContent = new Date().getFullYear();
