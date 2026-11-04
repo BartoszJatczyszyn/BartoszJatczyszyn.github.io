@@ -689,6 +689,7 @@ function startHero(){
   heroStarted = true;
   $("#hero").classList.add("ready");
   $("#scribble").classList.add("go");
+  setTimeout(() => $("#scribble").classList.add("written"), 2400);
   [0, 750, 1500].forEach(d => setTimeout(() => tapHead(false), d + 250));
   setTimeout(() => { restartTyper(); showThought(true); }, 2300);
 }
@@ -727,7 +728,28 @@ $("#cloud").addEventListener("click", () => {
   burst(x, y, ["✨","💡","✦"], { count: 8, speed: [3, 8], gravity: .05, life: 900, size: [12, 20] });
 });
 
-/* head: Pooh's "think, think, think" */
+/* head: Pooh's "think, think, think". The headline itself answers, no second copy on top of it */
+let thinking = false;
+function thinkMoment(){
+  if (thinking) return; thinking = true;
+  const words = $$("#scribble .w"), cloud = $("#cloud"), head = $("#head");
+  $("#scribble").classList.add("written");
+  words.forEach((w, i) => setTimeout(() => {
+    w.classList.remove("hop"); void w.offsetWidth; w.classList.add("hop");
+    SFX.play("note", 5 + i * 2); haptic(10);
+  }, i * 220));
+  setTimeout(() => {
+    cloud.classList.add("lit"); head.classList.add("eureka");
+    showThought(false, T[lang].gotIt);
+    SFX.play("chime"); haptic([12, 40, 24]);
+    const [cx, cy] = center(cloud);
+    burst(cx, cy, ["✨", "✦", "⭐"], { count: 16, speed: [4, 9], gravity: .04, life: 1300, size: [12, 20] });
+    const [hx, hy] = center(head);
+    burst(hx, hy - 70, ["💡"], { count: 1, spread: 0, angle: -90, speed: [3, 3], gravity: -.02, life: 1400, size: [40, 40] });
+    unlock("think");
+  }, 760);
+  setTimeout(() => { cloud.classList.remove("lit"); head.classList.remove("eureka"); words.forEach(w => w.classList.remove("hop")); thinking = false; }, 3200);
+}
 let headTaps = [];
 function tapHead(user){
   const h = $("#head");
@@ -744,11 +766,7 @@ function tapHead(user){
   headTaps = headTaps.filter(t => now - t < 1800).concat(now);
   if (headTaps.length >= 3){
     headTaps = [];
-    const [cx, cy] = center($("#cloud"));
-    burst(cx, cy, ["💡","💡","✨","⭐"], { count: 30, speed: [6, 14], gravity: .08 });
-    banner(T[lang].think, 2400);
-    showThought(false, T[lang].gotIt);
-    unlock("think");
+    thinkMoment();
   }
 }
 $("#head").addEventListener("click", () => tapHead(true));

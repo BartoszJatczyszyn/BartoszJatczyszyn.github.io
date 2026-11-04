@@ -1237,3 +1237,20 @@ button.cont.sel{background:var(--ink-soft);border-color:var(--hl);opacity:1}
 #trail{contain-intrinsic-size:auto 2000px}#projects{contain-intrinsic-size:auto 2340px}#skills{contain-intrinsic-size:auto 1230px}#numbers{contain-intrinsic-size:auto 1180px}#run{contain-intrinsic-size:auto 1330px}
 @media (max-width:640px){#trail{contain-intrinsic-size:auto 3020px}#projects{contain-intrinsic-size:auto 4280px}#skills{contain-intrinsic-size:auto 2700px}#numbers{contain-intrinsic-size:auto 1600px}#run{contain-intrinsic-size:auto 2600px}}
 @keyframes dotPop{from{transform:scale(0)}to{transform:scale(1)}}
+
+/* ═══════════════ think moment ═══════════════ */
+.scribble.written .w{clip-path:none;animation:none}
+.scribble.written .pencil{display:none}
+.scribble.written .w.hop{animation:hop .55s var(--spring)}
+.scribble .w:nth-child(1).hop{--r:-2deg}.scribble .w:nth-child(2).hop{--r:1deg}.scribble .w:nth-child(3).hop{--r:-2deg}
+@keyframes hop{0%{transform:translateY(0) rotate(var(--r,0deg))}35%{transform:translateY(-18px) rotate(calc(var(--r,0deg) - 4deg)) scale(1.06);text-shadow:0 0 28px rgba(255,212,59,.65)}70%{transform:translateY(3px) rotate(var(--r,0deg))}100%{transform:translateY(0) rotate(var(--r,0deg))}}
+.cloud path{transition:fill .5s var(--ease),stroke-width .4s}
+.cloud.lit path{fill:#ffd43b;stroke-width:6}
+.cloud.lit .thought{color:#0b0b0c}
+.cloud.lit{filter:drop-shadow(0 0 36px rgba(255,212,59,.45))}
+.head.eureka{animation:eureka .6s var(--spring)}
+@keyframes eureka{40%{transform:translateY(-10px) scale(1.06) rotate(-4deg)}}
+
+/* banners always sit on their own card, so they never melt into the page */
+.banner div{background:rgba(11,11,12,.86);border:2px solid #ffd43b;border-radius:28px;padding:14px 30px 18px;box-shadow:0 20px 60px rgba(0,0,0,.45);text-shadow:none;max-width:min(92vw,900px);font-size:clamp(44px,8vw,104px)}
+@media (max-width:520px){.banner div{padding:10px 20px 14px;border-radius:22px}}
