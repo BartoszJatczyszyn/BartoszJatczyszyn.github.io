@@ -148,28 +148,38 @@ function toast(icon, title, sub, ms = 4200){
   setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 400); }, ms);
 }
 
-/* emoji particle burst from (x,y) */
+/* emoji particle burst from (x,y): one shared animation loop for every particle, compositor-only transforms */
+const PARTS = []; let partRaf = 0;
+const COARSE = matchMedia("(pointer:coarse)").matches;
+function partLoop(t){
+  for (let i = PARTS.length - 1; i >= 0; i--){
+    const p = PARTS[i], k = (t - p.t0) / p.life;
+    if (k >= 1){ p.el.remove(); PARTS.splice(i, 1); continue; }
+    if (k < 0) continue;
+    p.vy += p.g; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr;
+    p.el.style.transform = `translate3d(${p.x}px,${p.y}px,0) rotate(${p.r}deg)`;
+    p.el.style.opacity = 1 - k * k;
+  }
+  partRaf = PARTS.length ? requestAnimationFrame(partLoop) : 0;
+}
 function burst(x, y, emojis, { count = 24, spread = 360, angle = -90, speed = [6, 14], gravity = .35, life = 1400, size = [16, 30] } = {}){
   if (reduced) count = Math.min(count, 6);
+  else if (COARSE) count = Math.max(1, Math.round(count * .6));
+  count = Math.min(count, 70 - PARTS.length);
+  if (count <= 0) return;
+  const frag = document.createDocumentFragment(), now = performance.now();
   for (let i = 0; i < count; i++){
-    const p = document.createElement("span");
-    p.className = "particle";
-    p.textContent = emojis[i % emojis.length];
-    p.style.fontSize = (size[0] + Math.random() * (size[1] - size[0])) + "px";
-    document.body.appendChild(p);
-    const a = (angle + (Math.random() - .5) * spread) * Math.PI / 180;
-    const v = speed[0] + Math.random() * (speed[1] - speed[0]);
-    let vx = Math.cos(a) * v, vy = Math.sin(a) * v, px = x, py = y, r = 0, vr = (Math.random() - .5) * 20;
-    const t0 = performance.now();
-    (function step(t){
-      const k = (t - t0) / life;
-      if (k >= 1){ p.remove(); return; }
-      vy += gravity; vx *= .99; px += vx; py += vy; r += vr;
-      p.style.transform = `translate(${px}px,${py}px) rotate(${r}deg)`;
-      p.style.opacity = 1 - k * k;
-      requestAnimationFrame(step);
-    })(t0);
+    const el = document.createElement("span");
+    el.className = "particle";
+    el.textContent = emojis[i % emojis.length];
+    el.style.fontSize = (size[0] + Math.random() * (size[1] - size[0])) + "px";
+    el.style.transform = `translate3d(${x}px,${y}px,0)`;
+    frag.appendChild(el);
+    const a = (angle + (Math.random() - .5) * spread) * Math.PI / 180, v = speed[0] + Math.random() * (speed[1] - speed[0]);
+    PARTS.push({ el, x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, g: gravity, r: 0, vr: (Math.random() - .5) * 20, t0: now, life });
   }
+  document.body.appendChild(frag);
+  if (!partRaf) partRaf = requestAnimationFrame(partLoop);
 }
 const confetti = () => burst(innerWidth / 2, innerHeight * .9, ["🎉","✨","💛","⭐","🟡","💡"], { count: 40, spread: 70, speed: [14, 24], gravity: .45, life: 2200, size: [12, 24] });
 

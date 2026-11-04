@@ -636,11 +636,12 @@ function hotLang(i){
 $("#langPanel").addEventListener("pointerover", e => { const el = e.target.closest("[data-i]"); hotLang(el ? +el.dataset.i : null); });
 $("#langPanel").addEventListener("pointerleave", () => hotLang(null));
 
-const barH = () => innerWidth < 520 ? 150 : 190;
+let vw = innerWidth; addEventListener("resize", () => { vw = innerWidth; }, { passive: true });
+const barH = () => vw < 520 ? 150 : 190;
 function renderBars(){
-  const max = Math.max(...COMMITS_MONTHLY), t = T[lang];
+  const max = Math.max(...COMMITS_MONTHLY), t = T[lang], BH = barH();
   $("#bars").innerHTML = COMMITS_MONTHLY.map((v, i) => {
-    const h = Math.round(v / max * barH());
+    const h = Math.round(v / max * BH);
     return `<div class="bar-col${v === max ? " peak" : ""}" style="--h:${h}px;--d:${i*0.06}s" tabindex="0"><span class="tip"><b>${v}</b> ${t.months[i]}</span><div class="b" data-h="${h}"></div><span class="m">${t.months[i]}</span></div>`;
   }).join("");
   if ($("#commitPanel").classList.contains("in")) animateBars();
@@ -1319,6 +1320,14 @@ new IntersectionObserver(([en], obs) => {
 /* ═══════════════════════════ project case studies ═══════════════════════════ */
 const SLUGS = { "Mentalio":"mentalio","Scholario":"scholario","Comarch Loyalty Management":"clm","HR System":"hr","Inquisitio":"inquisitio","GlobeQuest":"globequest","JournAI":"journai","Składomat":"skladomat","Kwit":"kwit","PatoBox":"patobox","OfficeFlow":"officeflow","Randkomat":"randkomat","GarminReport":"garminreport","FireRisk":"firerisk","CarControl":"carcontrol","Wolność dla łapek":"lapki","QoS w SDN":"qos","Domowy alarm":"alarm","Movie Analyzer":"movies" };
 const slugOf = p => SLUGS[p.name] || p.name.toLowerCase();
+/* warm the screenshots as soon as a finger or cursor lands on a card, so opening never waits on decoding */
+const warmed = new Set();
+function warmCase(slug){
+  if (warmed.has(slug)) return; warmed.add(slug);
+  ((CASE[slug] || {}).shots || []).forEach(sh => { const im = new Image(); im.decoding = "async"; im.src = `img/p/${sh.f}.webp`; im.decode && im.decode().catch(() => {}); });
+}
+document.addEventListener("pointerdown", e => { const c = e.target.closest(".card"); if (c) warmCase(slugOf(PROJECTS.find(p => p.name === c.dataset.name))); }, { passive: true, capture: true });
+document.addEventListener("pointerover", e => { const c = e.target.closest && e.target.closest(".card"); if (c && e.pointerType === "mouse") warmCase(slugOf(PROJECTS.find(p => p.name === c.dataset.name))); }, { passive: true });
 /* shots: [file, kind, caption pl, caption en]; flow: [emoji, pl, en] */
 const S = (f, k, pl, en) => ({ f, k, pl, en });
 const F = (e, pl, en) => ({ e, pl, en });
@@ -1369,11 +1378,14 @@ function openCase(slug, push = true){
   const meta = [t[p.cat], p.org, p.team ? (p.team === 1 ? "👤 " + t.solo : "👥 " + t.team + " " + p.team) : null].filter(Boolean);
   $("#chMeta").innerHTML = meta.map(m => `<span>${esc(m)}</span>`).join("");
   $("#chActions").innerHTML = [p.app ? `<a class="btn primary" href="${p.app}" target="_blank" rel="noopener">${t.openApp}</a>` : "", p.url ? `<a class="btn primary" href="${p.url}" target="_blank" rel="noopener">${t.site}</a>` : "", p.repo ? `<a class="btn ${p.url || p.app ? "ghost" : "primary"}" href="${p.repo}" target="_blank" rel="noopener">${t.code}</a>` : "", !p.app && !p.url && !p.repo && p.cat === "own" ? `<span class="ch-lock">🔒 ${t.privLong}</span>` : ""].join("");
-  $$("#caseHero .ch-text > *, #chEmoji").forEach((el, k) => { el.classList.remove("reveal-in"); void el.offsetWidth; el.style.animationDelay = (k * 0.07) + "s"; el.classList.add("reveal-in"); });
+  const heroEls = $$("#caseHero .ch-text > *, #chEmoji");
+  heroEls.forEach(el => el.classList.remove("reveal-in"));
+  requestAnimationFrame(() => heroEls.forEach((el, k) => { el.style.animationDelay = (k * 0.07) + "s"; el.classList.add("reveal-in"); }));
   /* gallery */
   const shots = data.shots || [];
   $("#caseGallery").classList.toggle("empty", !shots.length);
-  $("#cgTrack").innerHTML = shots.map((s, k) => `<figure class="shot" style="--i:${k}"><div class="frame ${s.k}" data-full="img/p/${s.f}.webp"><img src="img/p/${s.f}.webp" alt="${esc(s[lang])}" loading="lazy" decoding="async"></div><figcaption>${esc(s[lang])}</figcaption></figure>`).join("");
+  $("#cgTrack").innerHTML = "";
+  const fillGallery = () => $("#cgTrack").innerHTML = shots.map((s, k) => `<figure class="shot" style="--i:${k}"><div class="frame ${s.k}" data-full="img/p/${s.f}.webp"><img src="img/p/${s.f}.webp" alt="${esc(s[lang])}" loading="lazy" decoding="async"></div><figcaption>${esc(s[lang])}</figcaption></figure>`).join("");
   $("#cgDots").innerHTML = shots.map((_, k) => `<i class="${k ? "" : "on"}"></i>`).join("");
   $("#cgTrack").scrollLeft = 0;
   /* flow */
@@ -1390,6 +1402,7 @@ function openCase(slug, push = true){
   $("#caseScroll").scrollTop = 0;
   SFX.play("swoosh");
   if (!d.open){ d.showModal(); document.documentElement.classList.add("case-open"); requestAnimationFrame(() => document.activeElement && document.activeElement.blur()); }
+  requestAnimationFrame(() => requestAnimationFrame(fillGallery));
   if (push) history.replaceState(null, "", "#p/" + slug);
   setTimeout(() => $("#caseFlow").classList.add("in"), shots.length ? 700 : 250);
 }
@@ -1828,7 +1841,19 @@ $("#themeBtn").addEventListener("click", e => {
   const root = document.documentElement;
   SFX.play("swoosh"); haptic(10);
   const flip = () => { root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light"; store.set("bj-theme", root.dataset.theme); syncThemeColor(); };
-  if (document.startViewTransition && !reduced && !vtBusy){
+  if (matchMedia("(pointer:coarse)").matches && !reduced && !vtBusy){
+    vtBusy = true;
+    const [x, y] = center(e.currentTarget), R = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    const goingLight = root.dataset.theme !== "light";
+    const w = document.createElement("div"); w.className = "theme-wipe";
+    Object.assign(w.style, { left: x - R + "px", top: y - R + "px", width: R * 2 + "px", height: R * 2 + "px", background: goingLight ? "#f8f4e8" : "#0b0b0c" });
+    document.body.appendChild(w);
+    w.animate([{ transform: "scale(0)" }, { transform: "scale(1)" }], { duration: 420, easing: "cubic-bezier(.22,1,.36,1)", fill: "forwards" }).onfinish = () => {
+      root.classList.add("theme-flipping"); flip(); document.body.offsetHeight;
+      setTimeout(() => root.classList.remove("theme-flipping"), 400);
+      requestAnimationFrame(() => requestAnimationFrame(() => w.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, fill: "forwards" }).onfinish = () => { w.remove(); vtBusy = false; }));
+    };
+  } else if (document.startViewTransition && !reduced && !vtBusy){
     const [x, y] = center(e.currentTarget);
     root.style.setProperty("--vx", x + "px"); root.style.setProperty("--vy", y + "px");
     vtBusy = true;
@@ -1939,7 +1964,16 @@ console.log("%c Think, Think, Think ", "font:700 34px Caveat,cursive;color:#ffd4
 console.log("%cHej, deweloperze! 👋  Hey, developer!\n%cWpisz / type:  sekret()", "font:600 14px Inter,sans-serif", "font:500 13px 'JetBrains Mono',monospace;color:#f5a524");
 window.sekret = window.secret = () => { unlock("console"); return "🥚 " + (lang === "pl" ? "Brawo! Masz oko do szczegółów." : "Nice! You've got an eye for detail."); };
 
-$("#langBtn").addEventListener("click", () => { lang = lang === "pl" ? "en" : "pl"; store.set("bj-lang", lang); applyI18n(); });
+let langBusy = false;
+$("#langBtn").addEventListener("click", () => {
+  if (langBusy) return; langBusy = true;
+  const app = $("#app");
+  app.classList.add("lang-out");
+  setTimeout(() => {
+    lang = lang === "pl" ? "en" : "pl"; store.set("bj-lang", lang); applyI18n();
+    requestAnimationFrame(() => { app.classList.remove("lang-out"); setTimeout(() => langBusy = false, 260); });
+  }, 170);
+});
 
 
 /* ═══════════════════════════ polish: smooth scroll, parallax, feedback ═══════════════════════════ */
@@ -1973,7 +2007,7 @@ let ticking = false;
 function scrollFx(){
   ticking = false;
   const y = scrollY, h = innerHeight;
-  if (y < h * 1.2 && !reduced && innerWidth > 900){
+  if (y < h * 1.2 && !reduced && vw > 900){
     $(".hero-text").style.transform = `translateY(${y * .28}px)`;
     $(".hero-text").style.opacity = Math.max(0, 1 - y / (h * .75));
     $(".mind-art").style.transform = `translateY(${y * -.12}px) scale(${1 - Math.min(y / h, 1) * .08})`;

@@ -1254,3 +1254,26 @@ button.cont.sel{background:var(--ink-soft);border-color:var(--hl);opacity:1}
 /* banners always sit on their own card, so they never melt into the page */
 .banner div{background:rgba(11,11,12,.86);border:2px solid #ffd43b;border-radius:28px;padding:14px 30px 18px;box-shadow:0 20px 60px rgba(0,0,0,.45);text-shadow:none;max-width:min(92vw,900px);font-size:clamp(44px,8vw,104px)}
 @media (max-width:520px){.banner div{padding:10px 20px 14px;border-radius:22px}}
+
+/* ═══════════════ smoothness & touch feel ═══════════════ */
+html{-webkit-tap-highlight-color:transparent}
+a,button,.card,.chip,.cchip,.cont,.bubble,.bar-col,.kicker,.frame,[role="button"]{touch-action:manipulation}
+button,.card,.chip,.cchip,.cont,.kicker,.bubble{-webkit-user-select:none;user-select:none}
+.particle{will-change:transform,opacity;contain:layout style}
+.theme-wipe{position:fixed;z-index:400;border-radius:50%;pointer-events:none;transform:scale(0);will-change:transform}
+#app{transition:opacity .17s var(--ease),filter .17s}
+#app.lang-out{opacity:.25;filter:blur(1px)}
+@media (hover:none){
+  /* press feedback that matches the hover language on desktop */
+  .card:active{transform:rotate(var(--rot,0deg)) scale(.975);transition-duration:.08s}
+  .chip:active,.cchip:active,.cont:active,.tag:active{transform:scale(.94)}
+  .cp-sub .go:active{transform:translateX(4px);background:var(--ink-soft)}
+  .medal-card:active{transform:scale(.985)}
+  .bar-col:active .b{filter:brightness(1.15)}
+  /* the case-study hero glow is static on phones (it was a huge animated layer) */
+  .ch-bg{animation:none;inset:-20%}
+  #app.lang-out{filter:none}
+}
+/* every transition that moves something uses the compositor */
+.card,.tile,.cp-card,.medal-card,.stat-card,.chip,.cchip,.cont,.btn,.chip-btn{backface-visibility:hidden}
+.theme-flipping body,.theme-flipping *{transition:none!important}
