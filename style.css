@@ -945,6 +945,7 @@ footer .foot{padding-bottom:calc(40px + env(safe-area-inset-bottom))}
   .case-flow.in .flow-steps li:not(:last-child)::after{transform:scaleY(1)}
 }
 .pt-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.pt-cards:has(> :nth-child(6):last-child){grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr))}
 .pt-card{position:relative;padding:18px 18px 18px 56px;border-radius:18px;background:var(--surface);border:1px solid var(--line);font-size:15px;line-height:1.45;transition:transform .35s var(--spring),border-color .3s}
 .pt-card:hover{transform:translateY(-4px) rotate(-.5deg);border-color:var(--hl)}
 .pt-card::before{content:"✓";position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font:700 18px var(--hand);background:var(--hl);color:#0b0b0c}

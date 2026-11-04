@@ -194,14 +194,14 @@ const PROJECTS = [
     en:P("A platform for building and editing questionnaires. Built solo.","Nivalit · 2026",
       "A questionnaire editor, a step-by-step answering app and a response collection module: six apps in one monorepo.",
       ["The editor preview is exactly what the respondent sees","One screen at a time, tolerant of going offline","CSV/XLSX export, retention and audit of responses","748 commits, designed and built solo"]) },
-  { name:"GlobeQuest", app:"https://globequest.pages.dev/", icon:"🌍", c:"#12d8a5", cat:"own",
-    tags:["Flutter","Dart","WebAssembly","Supabase"],
-    pl:P("Offline-first mapa podróży z quizami i kapsułami czasu.","Web · iOS · Android",
-      "Zaznaczasz, gdzie byłeś, planujesz, gdzie pojedziesz, i uczysz się czegoś o obu miejscach.",
-      ["Zamalowywanie krajów i regionów + dossier każdego kraju","Planowanie tras, import GPX, dziennik ze zdjęciami do PDF","Kilkanaście trybów quizów, rankingi i odznaki","Kapsuły czasu, które otwierają się dopiero na miejscu"]),
-    en:P("Offline-first travel map with quizzes and time capsules.","Web · iOS · Android",
-      "Mark where you've been, plan where you're going, and learn something about both.",
-      ["Paint countries and regions, with a dossier for each","Trip planning, GPX import, a photo journal exportable to PDF","A dozen quiz modes with rankings and badges","Time Capsules that unlock only on location"]) },
+  { name:"GlobeQuest", app:"https://globequest.pages.dev/", icon:"🌍", c:"#12d8a5", cat:"own", team:1,
+    tags:["Flutter","Dart","WebAssembly","Drift","Bloc","Supabase","OpenStreetMap","Wikidata"],
+    pl:P("Offline-first mapa podróży: zamaluj świat, zaplanuj wyjazd, sprawdź się w quizie.","Web (WASM) · iOS · Android",
+      "Zaznaczasz, gdzie byłeś, planujesz, gdzie pojedziesz, i uczysz się czegoś o obu miejscach. Jeden kod we Flutterze, na webie skompilowany do WebAssembly. Działa bez sieci, konto tylko synchronizuje.",
+      ["367 regionów i 193 państwa do zamalowania, a do każdego kraju dossier: kurs waluty, pogoda, czas, sąsiedzi, rozmówki i święta","Perełki z okolicy przeglądane jak karty, trasy po prawdziwych drogach i import GPX","16 trybów quizu, od flag i hymnów po szukanie na mapie, z rankingiem znajomych i odznakami","Kapsuły czasu, które otwierają się dopiero na miejscu","Granice świata z Natural Earth spakowane do 316 kB, dane na żywo z Wikidata, OSM i Open-Meteo","500 commitów i 402 pliki testów, Clean Architecture, zero ostrzeżeń analizy statycznej"]),
+    en:P("Offline-first travel map: paint the world, plan a trip, test yourself in a quiz.","Web (WASM) · iOS · Android",
+      "Mark where you've been, plan where you're going, and learn something about both. One Flutter codebase, compiled to WebAssembly on the web. Works offline; the account only syncs.",
+      ["367 regions and 193 countries to paint, with a dossier for each: exchange rate, weather, local time, neighbours, phrases and holidays","Nearby gems browsed like cards, routes along real roads and GPX import","16 quiz modes, from flags and anthems to find-it-on-the-map, with a friends leaderboard and badges","Time Capsules that unlock only on location","World borders from Natural Earth packed into 316 kB, live data from Wikidata, OSM and Open-Meteo","500 commits and 402 test files, Clean Architecture, zero static-analysis warnings"]) },
   { name:"JournAI", icon:"🩺", c:"#9b7bff", cat:"own",
     tags:["Python","FastAPI","PostgreSQL","React","MCP"],
     pl:P("Dziennik zdrowia: dane z Garmina, analityka i komentarz LLM.","Dane i AI",
@@ -366,7 +366,7 @@ const LANGS = [
 ];
 const LANG_COUNT = 21;
 const COMMITS_MONTHLY = [56,45,20,9,17,0,11,173,128,234,333,467];
-const COMMITS_PROJECT = [["📝","Inquisitio",748],["🩺","JournAI",540],["🌍","GlobeQuest",497],["🥗","Składomat",131],["🧾","Kwit",117],["🎉","PatoBox",106],["🏢","OfficeFlow",37],["⌚","GarminReport",25]];
+const COMMITS_PROJECT = [["📝","Inquisitio",748],["🩺","JournAI",540],["🌍","GlobeQuest",500],["🥗","Składomat",131],["🧾","Kwit",117],["🎉","PatoBox",106],["🏢","OfficeFlow",37],["⌚","GarminReport",25]];
 const RAP = ["Taco Hemingway · Marmur","Taco Hemingway · Café Belga","Taco Hemingway · Pocztówka z WWA, lato '19","Quebonafide · Egzotyka","Quebonafide · Romantic Psycho","Taconafide · Soma 0,5 mg","Taco Hemingway · Jarmark"];
 
 const BUBBLES = [
@@ -1336,8 +1336,8 @@ const CASE = {
   clm:{ flow:[F("⛽","Klient na stacji","A customer at the station"),F("⭐","Punkty i nagrody","Points and rewards"),F("⚙️","Backend CLM: Java + Spring","CLM backend: Java + Spring"),F("🌍","BP i SASOL na 6 rynkach","BP and SASOL in 6 markets")] },
   hr:{ flow:[F("🖥️","Interfejs w Angularze","Angular UI"),F("🔌","REST API w Spring Boot","Spring Boot REST API"),F("🗄️","PostgreSQL + Flyway","PostgreSQL + Flyway"),F("👥","Zespół 3 osób, full stack","3-person team, full stack")] },
   inquisitio:{ flow:[F("✏️","Edytor kwestionariusza","Questionnaire editor"),F("👀","Podgląd 1:1","1:1 preview"),F("🔗","Link dla respondenta","A link for the respondent"),F("📱","Ekran po ekranie","Screen by screen"),F("📊","Odpowiedzi i eksport","Responses and export")] },
-  globequest:{ shots:[S("globequest-1","desktop","Moja mapa: 25 regionów, Maroko w planach","My map: 25 regions, Morocco planned"),S("globequest-2","desktop","Witaj w GlobeQuest","Welcome to GlobeQuest"),S("globequest-3","phone","Na telefonie","On the phone"),S("globequest-4","phone","Samouczek krok po kroku","Step-by-step tour")],
-    flow:[F("🗺️","Zaznacz, gdzie byłeś","Mark where you've been"),F("📇","Dossier kraju","Country dossier"),F("✈️","Zaplanuj trasę","Plan a trip"),F("🧩","Quiz","Quiz"),F("🏅","Odznaki i ranga","Badges and rank")] },
+  globequest:{ shots:[S("globequest-3","phone","Europa zamalowana regionami","Europe, painted region by region"),S("globequest-1","desktop","Moja mapa: 25 z 367 regionów, Maroko w planach","My map: 25 of 367 regions, Morocco planned"),S("globequest-4","phone","Dossier kraju: kurs, pogoda, czas, sąsiedzi","Country dossier: rates, weather, time, neighbours"),S("globequest-5","phone","Perełki w okolicy, jedna karta naraz","Nearby gems, one card at a time"),S("globequest-6","phone","Moje wyniki: 21 gier, 66% celności","My stats: 21 games, 66% accuracy"),S("globequest-7","phone","Dobra odpowiedź i ciekawostka o kraju","Right answer, plus a fact about the country"),S("globequest-8","phone","Gablota odznak","Badge cabinet"),S("globequest-2","desktop","Ekran powitalny","Welcome screen")],
+    flow:[F("🗺️","Zamaluj, gdzie byłeś","Paint where you've been"),F("🧭","Dossier kraju","Country dossier"),F("✨","Perełki w okolicy","Nearby gems"),F("✈️","Zaplanuj trasę","Plan a route"),F("⏳","Kapsuła czasu","Time Capsule"),F("🧩","Quiz i odznaki","Quiz and badges")] },
   journai:{ flow:[F("⌚","Garmin Connect","Garmin Connect"),F("🔌","Serwer MCP","MCP server"),F("🗄️","PostgreSQL","PostgreSQL"),F("📈","Analityka","Analytics"),F("💬","Komentarz LLM","LLM commentary")] },
   skladomat:{ shots:[S("skladomat-1","phone","Dziennik: wpisz albo podyktuj","Diary: type or dictate"),S("skladomat-2","phone","Szukaj produktu","Find a product"),S("skladomat-3","phone","Ocena składu z uzasadnieniem","Ingredient score, explained"),S("skladomat-4","phone","Wartości odżywcze co do grama","Nutrition, gram by gram"),S("skladomat-5","phone","Analiza i trendy","Analysis and trends"),S("skladomat-6","desktop","Na komputerze","On desktop")],
     flow:[F("📷","Skan albo wyszukiwarka","Scan or search"),F("🔬","Skład i ocena","Ingredients and score"),F("➕","Do dziennika w 2 tapnięcia","Logged in 2 taps"),F("📊","Analiza tygodni","Weekly analysis")] },
