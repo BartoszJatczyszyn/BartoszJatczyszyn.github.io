@@ -13,7 +13,7 @@ const EGGS = [
   { id:"matrix",  icon:"💊", pl:["Czerwona pigułka","Wpisz tytuł filmu z 1999 o symulacji."], en:["Red Pill","Type the title of a 1999 film about a simulation."] },
   { id:"force",   icon:"⚔️", pl:["Ciemna strona mocy","Przełącz motyw kilka razy bardzo szybko."], en:["Dark Side","Toggle the theme several times, fast."] },
   { id:"finish",  icon:"🏁", pl:["Meta!","Dobiegnij do samego końca strony."], en:["Finish Line","Run all the way to the bottom."] },
-  { id:"agh",     icon:"⛏️", pl:["Szczęść Boże","Górnicza tradycja AGH. Szukaj kilofa."], en:["Glück auf","AGH's mining tradition. Find the pickaxe."] },
+  { id:"agh",     icon:"⛏️", pl:["My chłopcy z Reymonta","Studencka tradycja AGH. Szukaj kilofa."], en:["Lads from Reymonta","An AGH student tradition. Find the pickaxe."] },
   { id:"tab",     icon:"👋", pl:["Powrót na trasę","Przełącz się na inną kartę i wróć."], en:["Back on Track","Switch to another tab and come back."] },
   { id:"star",    icon:"⭐", pl:["Spadająca gwiazda","W nagłówku coś mruga."], en:["Shooting Star","Something twinkles up top."] },
   { id:"think",   icon:"💡", pl:["Think, Think, Think","Zastukaj w głowę jak Kubuś. Trzy razy."], en:["Think, Think, Think","Tap the head like Pooh does. Three times."] },

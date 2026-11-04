@@ -38,7 +38,7 @@ const T = {
     finish:"🏁 Meta! Dzięki za wizytę", madeIn:"Zrobione w Krakowie, pod okiem smoka",
     eggsTitle:"🥚 Sekrety strony", nowPlaying:"Teraz gra",
     retroOff:"Tryb retro wyłączony", retroOn:"Tryb retro włączony",
-    agh:"Szczęść Boże!", hakuna:"Hakuna Matata", dont:"Nie panikuj. I weź ręcznik.",
+    agh:"My chłopcy z Reymonta!<small>Miasteczko Studenckie AGH ⛏️</small>", hakuna:"Hakuna Matata", dont:"Nie panikuj. I weź ręcznik.",
     force:"Niech moc będzie z Tobą", wish:"When You Wish Upon a Star ✨", ironTitle:"Iron Dragon 🏅",
     tabAway:"🏃 Wracaj na trasę!", popcorn:"Popcorn XXL!", hunny:"🍯 Hunny!", think:"Think, Think, Think!",
     popped:"Pyk! Myśl uciekła… ale zaraz wróci."
@@ -81,7 +81,7 @@ const T = {
     finish:"🏁 Finish! Thanks for visiting", madeIn:"Made in Kraków, under the dragon's watch",
     eggsTitle:"🥚 Site secrets", nowPlaying:"Now playing",
     retroOff:"Retro mode off", retroOn:"Retro mode on",
-    agh:"Szczęść Boże! (Glück auf!)", hakuna:"Hakuna Matata", dont:"Don't panic. And bring a towel.",
+    agh:"My chłopcy z Reymonta!<small>“We, the lads from Reymonta”, AGH student town ⛏️</small>", hakuna:"Hakuna Matata", dont:"Don't panic. And bring a towel.",
     force:"May the Force be with you", wish:"When You Wish Upon a Star ✨", ironTitle:"Iron Dragon 🏅",
     tabAway:"🏃 Get back on track!", popcorn:"XXL popcorn!", hunny:"🍯 Hunny!", think:"Think, Think, Think!",
     popped:"Pop! The thought escaped… it'll be back."
@@ -1818,7 +1818,7 @@ document.addEventListener("click", e => {
   a.classList.remove("dig"); void a.offsetWidth; a.classList.add("dig");
   const [x, y] = center(a);
   setTimeout(() => burst(x, y, ["🪨","💎","🪨","✨","⚫"], { count: 18, speed: [5, 11] }), 300);
-  setTimeout(() => banner(T[lang].agh, 2200), 400);
+  setTimeout(() => banner(T[lang].agh, 3000), 400);
   unlock("agh");
 });
 

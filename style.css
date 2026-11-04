@@ -1247,7 +1247,7 @@ button.cont.sel{background:var(--ink-soft);border-color:var(--hl);opacity:1}
 @keyframes eureka{40%{transform:translateY(-10px) scale(1.06) rotate(-4deg)}}
 
 /* banners always sit on their own card, so they never melt into the page */
-.banner div{background:rgba(11,11,12,.86);border:2px solid #ffd43b;border-radius:28px;padding:14px 30px 18px;box-shadow:0 20px 60px rgba(0,0,0,.45);text-shadow:none;max-width:min(92vw,900px);font-size:clamp(44px,8vw,104px)}
+.banner div{background:rgba(11,11,12,.96);border:2px solid #ffd43b;border-radius:28px;padding:14px 30px 18px;box-shadow:0 20px 60px rgba(0,0,0,.45);text-shadow:none;max-width:min(92vw,900px);font-size:clamp(44px,8vw,104px)}
 @media (max-width:520px){.banner div{padding:10px 20px 14px;border-radius:22px}}
 
 /* ═══════════════ smoothness & touch feel ═══════════════ */
