@@ -1198,3 +1198,42 @@ button.cont.sel{background:var(--ink-soft);border-color:var(--hl);opacity:1}
   .contact .cta.center #copyMail{border:1.5px dashed color-mix(in srgb,var(--ink) 50%,transparent)}
 }
 @media (max-width:640px){.contact-cloud path,.contact-inner.in .contact-cloud path{stroke-dasharray:none;stroke-dashoffset:0;vector-effect:non-scaling-stroke}}
+
+/* ═══════════════ performance ═══════════════ */
+.track-fill{width:100%;transform-origin:0 50%;transform:scaleX(0);will-change:transform}
+.runner{left:0;transform:none;opacity:0;transition:opacity .3s;will-change:transform}
+/* animations that finish must not stay "active" (each would keep a GPU layer forever) */
+#worldMap .land.visited{animation:landIn .7s var(--spring) backwards}
+#worldMap .vdot{opacity:1;animation:dotIn .5s var(--spring) backwards}
+.card.enter{animation:pop .55s var(--spring) backwards;animation-delay:var(--d,0s)}
+.intro-dots i{transform:none;animation:dotPop .5s var(--spring) backwards}
+#intro.done .intro-dots i{animation:none}
+.hero.ready .tdots i{opacity:1;animation:tdIn .4s var(--ease) backwards}
+@keyframes tdIn{from{opacity:0}}
+/* bubbles get their own layers only while the playground is on screen */
+.bubble{will-change:auto}
+.playground.live .bubble{will-change:transform}
+/* off-screen sections: freeze decorative loops */
+.offscreen *,.offscreen *::before,.offscreen *::after{animation-play-state:paused!important}
+/* touch devices: drop the costliest effects, keep the look */
+@media (hover:none){
+  body::after{display:none}
+  .card{transform:rotate(var(--rot,0deg))}
+  header.top.scrolled{background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:none;-webkit-backdrop-filter:none}
+  .chip-btn,.map-count,.map-zoom button,.map-card,.cover .lock,.modal-x,.case-x,.map-hint,.vinyl{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+  header.top:not(.scrolled) .chip-btn{background:rgba(20,20,22,.85)}
+  .map-count,.map-zoom button,.map-card{background:color-mix(in srgb,var(--bg) 94%,transparent)}
+  .hero-text,.mind-art{will-change:auto}
+  dialog::backdrop{backdrop-filter:none;background:rgba(5,5,6,.78)}
+}
+/* pulsing rings via transform instead of box-shadow (no repaint each frame) */
+.tl-item.now .tl-dot,.cp.now .cp-flag{animation:none}
+.cp.now .cp-flag::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--hl);animation:ringOut 2s ease-out infinite;pointer-events:none}
+@keyframes ringOut{from{transform:scale(1);opacity:.8}to{transform:scale(1.9);opacity:0}}
+#triDots i.me{animation:none}
+#triDots i.me::before{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--hl);animation:ringOut 2.4s ease-out infinite}
+/* long sections render lazily */
+#trail,#projects,#skills,#numbers,#run{content-visibility:auto}
+#trail{contain-intrinsic-size:auto 2000px}#projects{contain-intrinsic-size:auto 2340px}#skills{contain-intrinsic-size:auto 1230px}#numbers{contain-intrinsic-size:auto 1180px}#run{contain-intrinsic-size:auto 1330px}
+@media (max-width:640px){#trail{contain-intrinsic-size:auto 3020px}#projects{contain-intrinsic-size:auto 4280px}#skills{contain-intrinsic-size:auto 2700px}#numbers{contain-intrinsic-size:auto 1600px}#run{contain-intrinsic-size:auto 2600px}}
+@keyframes dotPop{from{transform:scale(0)}to{transform:scale(1)}}

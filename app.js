@@ -758,14 +758,18 @@ $("#head").addEventListener("click", () => tapHead(true));
   const cv = $("#neurons"), ctx = cv.getContext("2d");
   let W = 0, H = 0, nodes = [], sparks = [], mouse = { x: -9999, y: -9999 }, visible = true, raf;
   const LINK = 130;
+  const touch = matchMedia("(pointer:coarse)").matches;
+  let lastT = 0;
   function resize(){
-    const dpr = Math.min(2, devicePixelRatio || 1);
+    const dpr = touch ? 1 : Math.min(2, devicePixelRatio || 1);
     W = cv.clientWidth; H = cv.clientHeight;
     cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const n = Math.max(26, Math.min(95, Math.round(W * H / 15000)));
+    const n = touch ? Math.max(18, Math.min(30, Math.round(W * H / 14000))) : Math.max(26, Math.min(95, Math.round(W * H / 15000)));
     nodes = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, r: .8 + Math.random() * 1.8, glow: 0 }));
   }
-  function frame(){
+  function frame(t){
+    if (touch && t && t - lastT < 31){ if (visible && !document.hidden) raf = requestAnimationFrame(frame); return; }
+    lastT = t || 0;
     ctx.clearRect(0, 0, W, H);
     for (const n of nodes){
       const dx = mouse.x - n.x, dy = mouse.y - n.y, d2 = dx * dx + dy * dy;
@@ -965,6 +969,7 @@ function popBubble(b){
 }
 new IntersectionObserver(([en]) => {
   pgVisible = en.isIntersecting && !reduced;
+  pg.classList.toggle("live", en.isIntersecting);
   if (pgVisible){ cancelAnimationFrame(pgRaf); pgRaf = requestAnimationFrame(stepBubbles); }
 }).observe(pg);
 let pgResize;
@@ -1012,7 +1017,9 @@ const HOME = [19.94, 50.06];
 let mapState = null, mapZoom = "all";
 const tName = c => c[lang];
 const tNote = c => lang === "pl" ? c.npl : c.nen;
-const whenLibs = () => new Promise(res => { const t0 = Date.now(); (function wait(){ if ((window.d3 && window.topojson) || Date.now() - t0 > 12000) return res(); setTimeout(wait, 100); })(); });
+const loadScript = src => new Promise(res => { const sc = document.createElement("script"); sc.src = src; sc.onload = res; sc.onerror = res; document.head.appendChild(sc); });
+const whenLibs = () => (window.d3 && window.topojson) ? Promise.resolve() : loadScript("https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js").then(() => loadScript("https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"));
+const _whenLibsPoll = () => new Promise(res => { const t0 = Date.now(); (function wait(){ if ((window.d3 && window.topojson) || Date.now() - t0 > 12000) return res(); setTimeout(wait, 100); })(); });
 const clipPoly = c => ({ type: "Polygon", coordinates: [c.clip.slice().reverse()] });
 
 async function buildMap(){
@@ -1050,6 +1057,7 @@ async function buildMap(){
 
   fitMap(false);
   $("#mapLoading").classList.add("gone");
+  new IntersectionObserver(([en]) => { const n = svg.node(); if (!n.pauseAnimations) return; en.isIntersecting ? n.unpauseAnimations() : n.pauseAnimations(); }).observe(svg.node());
   animateCount();
 
   const tip = $("#mapTip"), wrap = $("#mapWrap");
@@ -1726,14 +1734,22 @@ $$(".magnetic").forEach(b => {
 });
 
 let finishShown = false;
+let docH = 0, scrollQueued = false, lastRunner = "";
+const measureDoc = () => { docH = document.documentElement.scrollHeight - innerHeight; };
+new ResizeObserver(measureDoc).observe(document.body);
+const trackFill = $(".track-fill"), runnerEl = $(".runner"), headerEl = $("header.top");
 function onScroll(){
-  const h = document.documentElement.scrollHeight - innerHeight;
+  if (scrollQueued) return; scrollQueued = true;
+  requestAnimationFrame(() => { scrollQueued = false; paintScroll(); });
+}
+function paintScroll(){
+  const h = docH || (measureDoc(), docH);
   const p = h > 0 ? Math.min(100, scrollY / h * 100) : 0;
-  const tr = $(".track");
-  tr.style.setProperty("--p", p + "%");
-  tr.style.setProperty("--ro", p > 1 ? 1 : 0);
-  $(".runner").textContent = p > 99.5 ? "🏅" : "🏃";
-  $("header.top").classList.toggle("scrolled", scrollY > 30);
+  trackFill.style.transform = `scaleX(${p / 100})`;
+  runnerEl.style.transform = `translateX(calc(${p / 100} * (100vw - 16px))) scaleX(-1)`;
+  runnerEl.style.opacity = p > 1 ? 1 : 0;
+  const r = p > 99.5 ? "🏅" : "🏃"; if (r !== lastRunner){ runnerEl.textContent = r; lastRunner = r; }
+  headerEl.classList.toggle("scrolled", scrollY > 30);
   if (p > 99.5 && !finishShown && h > 200){
     finishShown = true;
     $("#finish").classList.add("won");
@@ -1910,7 +1926,7 @@ $("#langBtn").addEventListener("click", () => { lang = lang === "pl" ? "en" : "p
 
 /* ═══════════════════════════ polish: smooth scroll, parallax, feedback ═══════════════════════════ */
 let lenis = null;
-if (window.Lenis && matchMedia("(pointer:fine)").matches && !reduced){
+function initLenis(){
   try {
     lenis = new Lenis({ lerp: .09, wheelMultiplier: 1, prevent: n => !!(n.closest && (n.closest("dialog") || n.closest(".map-wrap"))) });
     const loop = t => { lenis.raf(t); requestAnimationFrame(loop); };
@@ -1918,7 +1934,14 @@ if (window.Lenis && matchMedia("(pointer:fine)").matches && !reduced){
     document.documentElement.classList.add("has-lenis");
   } catch(e){ lenis = null; }
 }
-const smoothTo = (target, offset = -70) => lenis ? lenis.scrollTo(target, { offset, duration: 1.4 }) : (typeof target === "number" ? scrollTo({ top: target, behavior: "smooth" }) : target.scrollIntoView({ behavior: "smooth" }));
+if (matchMedia("(pointer:fine)").matches && !reduced){
+  const ls = document.createElement("script"); ls.src = "https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js";
+  ls.onload = () => window.Lenis && initLenis(); document.head.appendChild(ls);
+}
+/* lazily-rendered sections can change height on the way; settle on the target once scrolling ends */
+const settleOn = el => { let n = 0; const fix = () => { const top = el.getBoundingClientRect().top - 80; if (Math.abs(top) > 6 && n++ < 3){ scrollTo({ top: scrollY + top, behavior: n > 1 ? "auto" : "smooth" }); } else removeEventListener("scrollend", fix); }; addEventListener("scrollend", fix); setTimeout(() => removeEventListener("scrollend", fix), 4000); };
+const smoothTo = (target, offset = -70) => lenis ? lenis.scrollTo(target, { offset, duration: 1.4 }) : (typeof target === "number" ? scrollTo({ top: target, behavior: "smooth" }) : (target.scrollIntoView({ behavior: "smooth" }), settleOn(target)));
+if (location.hash && !location.hash.startsWith("#p/")){ const t = document.querySelector(location.hash); if (t) setTimeout(() => { t.scrollIntoView(); settleOn(t); }, 120); }
 document.addEventListener("click", e => {
   const a = e.target.closest('a[href^="#"]'); if (!a) return;
   const id = a.getAttribute("href"); const el = id.length > 1 && document.querySelector(id);
@@ -1993,6 +2016,13 @@ new IntersectionObserver(([en], o) => { if (en.isIntersecting){ setTimeout(() =>
 function syncThemeColor(){ const m = document.querySelector('meta[name="theme-color"]'); if (m) m.content = document.documentElement.dataset.theme === "light" ? "#f8f4e8" : "#0b0b0c"; }
 syncThemeColor();
 setTimeout(routeCase, 0);
+
+/* pause decorative CSS animations in whatever is off screen */
+const offIO = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle("offscreen", !e.isIntersecting)), { rootMargin: "120px 0px" });
+$$("#hero, .marquee, main > section, footer").forEach(el => offIO.observe(el));
+let fontsRetro = false;
+const _konami = konami;
+konami = function(){ if (!fontsRetro){ fontsRetro = true; const l = document.createElement("link"); l.rel = "stylesheet"; l.href = "https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"; document.head.appendChild(l); } return _konami(); };
 
 /* ═══════════════════════════ boot ═══════════════════════════ */
 $("#year").textContent = new Date().getFullYear();
