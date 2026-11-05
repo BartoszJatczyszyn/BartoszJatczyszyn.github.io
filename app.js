@@ -202,14 +202,14 @@ const PROJECTS = [
     en:P("Offline-first travel map: paint the world, plan a trip, test yourself in a quiz.","Web (WASM) · iOS · Android",
       "Mark where you've been, plan where you're going, and learn something about both. One Flutter codebase, compiled to WebAssembly on the web. Works offline; the account only syncs.",
       ["367 regions and 193 countries to paint, with a dossier for each: exchange rate, weather, local time, neighbours, phrases and holidays","Nearby gems browsed like cards, routes along real roads and GPX import","16 quiz modes, from flags and anthems to find-it-on-the-map, with a friends leaderboard and badges","Time Capsules that unlock only on location","World borders from Natural Earth packed into 316 kB, live data from Wikidata, OSM and Open-Meteo","500 commits and 402 test files, Clean Architecture, zero static-analysis warnings"]) },
-  { name:"JournAI", icon:"🩺", c:"#9b7bff", cat:"own",
-    tags:["Python","FastAPI","PostgreSQL","React","MCP"],
-    pl:P("Dziennik zdrowia: dane z Garmina, analityka i komentarz LLM.","Dane i AI",
-      "Pobiera dane z Garmin Connect przez serwer MCP, liczy analitykę snu, stresu, treningu i żywienia, a LLM komentuje wyniki.",
-      ["Clean Architecture pilnowana automatycznie","Liczby zawsze z backendu, nigdy z modelu","Zero kosztów, w całości lokalnie"]),
-    en:P("Health diary: Garmin data, analytics and LLM commentary.","Data & AI",
-      "Pulls Garmin Connect data via an MCP server, computes sleep, stress, training and nutrition analytics, and lets an LLM comment.",
-      ["Clean Architecture, enforced automatically","Numbers from the backend, never from the model","Zero cost, runs fully locally"]) },
+  { name:"JournAI", icon:"🩺", c:"#9b7bff", cat:"own", team:1,
+    tags:["Python","FastAPI","PostgreSQL","pgvector","React 19","TypeScript","TanStack","MCP","Gemini"],
+    pl:P("Dziennik zdrowia: dane z Garmina, analityka i komentarz AI, który nie zmyśla liczb.","Dane i AI",
+      "Pobiera dane z Garmin Connect przez serwer MCP, liczy analitykę snu, stresu, HRV, treningu i żywienia, a model językowy tylko komentuje policzone wyniki. Dla jednej osoby, na laptopie, za zero złotych.",
+      ["Przy każdej liczbie „Skąd ta liczba”: z jakich pomiarów powstała i wobec jakiej normy","Porównanie z Twoją normą, nie ze średnią z internetu: mediana z roku i zwykłe wahnięcie","Panel trenera z planem tygodnia, który sam się przestawia, gdy coś boli","Panel lekarski do wydruku: progi, zakresy referencyjne i źródła","51 ekranów: sen, stres, bieganie, siłownia, odżywianie i podsumowanie roku","544 commity i 664 pliki testów, Clean Architecture pilnowana przez import-linter"]),
+    en:P("Health diary: Garmin data, analytics and AI commentary that never makes up numbers.","Data & AI",
+      "Pulls Garmin Connect data via an MCP server, computes sleep, stress, HRV, training and nutrition analytics, and lets a language model only comment on the computed results. For one person, on a laptop, at zero cost.",
+      ["Every number has a “Where it comes from”: which measurements and against what norm","Compared with your own norm, not an internet average: a yearly median and the usual swing","A coach panel whose weekly plan rearranges itself when something hurts","A printable doctor panel: thresholds, reference ranges and sources","51 screens: sleep, stress, running, gym, nutrition and a year in review","544 commits and 664 test files, Clean Architecture enforced by import-linter"]) },
   { name:"Składomat", app:"https://skladomat.pages.dev/", icon:"🥗", c:"#7ed957", cat:"own",
     tags:["TypeScript","PWA","Monorepo","Offline"],
     pl:P("Skanujesz produkt i od razu wiesz, co w nim siedzi.","PWA",
@@ -366,7 +366,7 @@ const LANGS = [
 ];
 const LANG_COUNT = 21;
 const COMMITS_MONTHLY = [56,45,20,9,17,0,11,173,128,234,333,467];
-const COMMITS_PROJECT = [["📝","Inquisitio",748],["🩺","JournAI",540],["🌍","GlobeQuest",500],["🥗","Składomat",131],["🧾","Kwit",117],["🎉","PatoBox",106],["🏢","OfficeFlow",37],["⌚","GarminReport",25]];
+const COMMITS_PROJECT = [["📝","Inquisitio",748],["🩺","JournAI",544],["🌍","GlobeQuest",500],["🥗","Składomat",131],["🧾","Kwit",117],["🎉","PatoBox",106],["🏢","OfficeFlow",37],["⌚","GarminReport",25]];
 const RAP = ["Taco Hemingway · Marmur","Taco Hemingway · Café Belga","Taco Hemingway · Pocztówka z WWA, lato '19","Quebonafide · Egzotyka","Quebonafide · Romantic Psycho","Taconafide · Soma 0,5 mg","Taco Hemingway · Jarmark"];
 
 const BUBBLES = [
@@ -1338,7 +1338,8 @@ const CASE = {
   inquisitio:{ flow:[F("✏️","Edytor kwestionariusza","Questionnaire editor"),F("👀","Podgląd 1:1","1:1 preview"),F("🔗","Link dla respondenta","A link for the respondent"),F("📱","Ekran po ekranie","Screen by screen"),F("📊","Odpowiedzi i eksport","Responses and export")] },
   globequest:{ shots:[S("globequest-3","phone","Europa zamalowana regionami","Europe, painted region by region"),S("globequest-1","desktop","Moja mapa: 25 z 367 regionów, Maroko w planach","My map: 25 of 367 regions, Morocco planned"),S("globequest-4","phone","Dossier kraju: kurs, pogoda, czas, sąsiedzi","Country dossier: rates, weather, time, neighbours"),S("globequest-5","phone","Perełki w okolicy, jedna karta naraz","Nearby gems, one card at a time"),S("globequest-6","phone","Moje wyniki: 21 gier, 66% celności","My stats: 21 games, 66% accuracy"),S("globequest-7","phone","Dobra odpowiedź i ciekawostka o kraju","Right answer, plus a fact about the country"),S("globequest-8","phone","Gablota odznak","Badge cabinet"),S("globequest-2","desktop","Ekran powitalny","Welcome screen")],
     flow:[F("🗺️","Zamaluj, gdzie byłeś","Paint where you've been"),F("🧭","Dossier kraju","Country dossier"),F("✨","Perełki w okolicy","Nearby gems"),F("✈️","Zaplanuj trasę","Plan a route"),F("⏳","Kapsuła czasu","Time Capsule"),F("🧩","Quiz i odznaki","Quiz and badges")] },
-  journai:{ flow:[F("⌚","Garmin Connect","Garmin Connect"),F("🔌","Serwer MCP","MCP server"),F("🗄️","PostgreSQL","PostgreSQL"),F("📈","Analityka","Analytics"),F("💬","Komentarz LLM","LLM commentary")] },
+  journai:{ shots:[S("journai-1","phone","Rano: czy dzień idzie zgodnie z planem","Morning: is the day on plan"),S("journai-2","desktop","Panel zdrowia na komputerze","The health dashboard on desktop"),S("journai-3","phone","Ja: wynik 59 przy normie 50","Me: a score of 59 against a norm of 50"),S("journai-4","phone","Ostatnia noc: 8 godz. 8 min, wynik 96","Last night: 8 h 8 min, score 96"),S("journai-5","phone","Stres dziś, minuta po minucie","Today's stress, minute by minute"),S("journai-6","phone","Plan tygodnia, który omija ból","A weekly plan that works around pain"),S("journai-7","phone","Codzienny check-in: przesuń kartę","Daily check-in: swipe the card"),S("journai-8","phone","Podsumowanie roku: 309 dni pomiarów","Year in review: 309 days measured")],
+    flow:[F("⌚","Garmin Connect","Garmin Connect"),F("🔌","Serwer MCP","MCP server"),F("🗄️","PostgreSQL","PostgreSQL"),F("📈","Analityka wobec Twojej normy","Analytics against your norm"),F("💬","Komentarz AI bez zmyślonych liczb","AI commentary, no made-up numbers")] },
   skladomat:{ shots:[S("skladomat-1","phone","Dziennik: wpisz albo podyktuj","Diary: type or dictate"),S("skladomat-2","phone","Szukaj produktu","Find a product"),S("skladomat-3","phone","Ocena składu z uzasadnieniem","Ingredient score, explained"),S("skladomat-4","phone","Wartości odżywcze co do grama","Nutrition, gram by gram"),S("skladomat-5","phone","Analiza i trendy","Analysis and trends"),S("skladomat-6","desktop","Na komputerze","On desktop")],
     flow:[F("📷","Skan albo wyszukiwarka","Scan or search"),F("🔬","Skład i ocena","Ingredients and score"),F("➕","Do dziennika w 2 tapnięcia","Logged in 2 taps"),F("📊","Analiza tygodni","Weekly analysis")] },
   kwit:{ shots:[S("kwit-1","phone","Wyciąg CSV: wszystko rozpoznane","CSV statement: all recognised"),S("kwit-2","phone","Pulpit: wydatki i trend","Dashboard: spending and trend"),S("kwit-3","phone","Ile wpłynęło, ile zostało","What came in, what's left"),S("kwit-4","phone","Na co idą pieniądze","Where the money goes"),S("kwit-5","phone","Każda transakcja na miejscu","Every transaction in place"),S("kwit-6","phone","Portfel inwestycyjny","Investment portfolio")],
