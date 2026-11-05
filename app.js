@@ -210,30 +210,30 @@ const PROJECTS = [
     en:P("Health diary: Garmin data, analytics and AI commentary that never makes up numbers.","Data & AI",
       "Pulls Garmin Connect data via an MCP server, computes sleep, stress, HRV, training and nutrition analytics, and lets a language model only comment on the computed results. For one person, on a laptop, at zero cost.",
       ["Every number has a “Where it comes from”: which measurements and against what norm","Compared with your own norm, not an internet average: a yearly median and the usual swing","A coach panel whose weekly plan rearranges itself when something hurts","A printable doctor panel: thresholds, reference ranges and sources","51 screens: sleep, stress, running, gym, nutrition and a year in review","544 commits and 664 test files, Clean Architecture enforced by import-linter"]) },
-  { name:"Składomat", app:"https://skladomat.pages.dev/", icon:"🥗", c:"#7ed957", cat:"own",
-    tags:["TypeScript","PWA","Monorepo","Offline"],
-    pl:P("Skanujesz produkt i od razu wiesz, co w nim siedzi.","PWA",
-      "Skład produktów z polskich sklepów, makro i mikro, stopień przetworzenia i ocena z uzasadnieniem opartym na źródłach.",
-      ["Skan kodu lub wyszukiwarka, wynik poniżej 150 ms","Wpis do dziennika w dwóch tapnięciach, offline","Budżety wydajności mierzone na średniej klasy Androidzie"]),
-    en:P("Scan a product and instantly see what's inside.","PWA",
-      "Ingredients of products from Polish stores, macros and micros, processing level and a source-backed rating.",
-      ["Barcode scan or search, result under 150 ms","Log a meal in two taps, offline","Performance budgets measured on a mid-range Android"]) },
-  { name:"Kwit", icon:"🧾", c:"#ffb020", cat:"own",
-    tags:["TypeScript","React","IndexedDB","Web Workers"],
-    pl:P("Analiza wydatków z wyciągu CSV, w 100% w przeglądarce.","Finanse · lokalnie",
-      "Wrzucasz wyciąg z banku i domu maklerskiego, a Kwit pokazuje, na co idą pieniądze i gdzie da się oszczędzić.",
-      ["Bez konta i bez serwera, dane nie opuszczają urządzenia","Kwoty w groszach, nigdy we float","Odporne statystyki: mediana zamiast średniej"]),
-    en:P("Spending analysis from a CSV statement, 100% in the browser.","Finance · local",
-      "Drop in a bank and broker statement; Kwit shows where the money goes and where to save.",
-      ["No account, no server, data never leaves the device","Money as integer cents, never floats","Robust statistics: medians, not means"]) },
-  { name:"PatoBox", app:"https://gra.patobox.workers.dev/", icon:"🎉", c:"#ff4b6e", cat:"own",
-    tags:["TypeScript","WebSockets","Cloudflare","Vite"],
-    pl:P("Gra imprezowa: telefon to kontroler, telewizor to scena.","Gra imprezowa",
-      "Znajomi, w jednym pokoju albo online, wymyślają najgłupsze odpowiedzi na absurdalne polecenia i głosują.",
-      ["Od kliknięcia linku do pierwszego śmiechu poniżej 2 minut","Dołączenie do 20 s, bez konta i instalacji","Wiele trybów, zasady tłumaczone w trakcie gry"]),
-    en:P("Party game: your phone is the controller, the TV is the stage.","Party game",
-      "Friends, in one room or online, come up with the silliest answers to absurd prompts and vote.",
-      ["From link click to first laugh in under 2 minutes","Join in 20 s, no account, no install","Many modes, rules explained in-game"]) },
+  { name:"JTCJ", app:"https://skladomat.pages.dev/", icon:"🥗", c:"#7ed957", cat:"own", team:1,
+    tags:["TypeScript","React","PWA","IndexedDB","Monorepo","USDA FoodData","Gemini"],
+    pl:P("Jesteś Tym, Co Jesz. Piszesz albo mówisz, co zjadłeś, a aplikacja rozkłada to na czynniki pierwsze.","PWA · offline",
+      "Dziennik jedzenia i analiza składu: makro, witaminy i minerały, stopień przetworzenia i ocena produktu z uzasadnieniem opartym na źródłach. Działa offline, dane zostają na urządzeniu.",
+      ["„80 g płatków, banan, 2 jajka”: piszesz albo dyktujesz zdanie, a ilości liczy z katalogu i pyta tylko o to, czego nie umie rozstrzygnąć","Ocena 0–100 rozpisana na części: Nutri-Score, przetworzenie NOVA, gęstość odżywcza i dodatki","Witaminy i minerały wobec referencyjnego spożycia UE, z podanym źródłem każdej liczby","Analiza z 14–90 dni: skąd energia, czego brakuje, trend spożycia i masy ciała","Wynik wyszukiwania poniżej 150 ms na średniej klasy Androidzie, wpis do dziennika w dwóch tapnięciach","134 commity i 75 plików testów, audyt łapie każdy tekst poniżej 11 px"]),
+    en:P("You Are What You Eat. Type or say what you ate, and the app breaks it down to the last nutrient.","PWA · offline",
+      "A food diary with ingredient analysis: macros, vitamins and minerals, processing level and a source-backed product score. Works offline; data stays on the device.",
+      ["“80 g oats, a banana, 2 eggs”: type or dictate a sentence, amounts come from the catalogue and it only asks about what it can't resolve","A 0–100 score broken into parts: Nutri-Score, NOVA processing, nutrient density and additives","Vitamins and minerals against EU reference intakes, with the source of every number","14–90 day analysis: where energy comes from, what's missing, intake and body-mass trends","Search results under 150 ms on a mid-range Android, logging in two taps","134 commits and 75 test files, an audit that catches any text under 11 px"]) },
+  { name:"Kwit", app:"https://kwit-app.pages.dev/", icon:"🧾", c:"#ffb020", cat:"own", team:1,
+    tags:["TypeScript","React 19","IndexedDB","Dexie","Web Workers","pdf.js","SVG"],
+    pl:P("Wrzucasz wyciąg z banku i od razu widzisz, na co idą pieniądze. W 100% na Twoim urządzeniu.","Finanse · lokalnie",
+      "Wyciąg CSV, XLSX albo PDF z banku i domu maklerskiego zamienia się w pulpit, analizę i portfel. Bez konta, bez serwera, a polityka bezpieczeństwa strony nie pozwala jej łączyć się z niczym poza sobą.",
+      ["Rozpoznaje sam: kolumny, format daty, numer konta i walutę, bez ustawiania","„Warto wiedzieć”: subskrypcja, która przestała pobierać, i ile oddadzą zachcianki","Koperty, koszt życia i plan odkładania, z przekroczeniami na czerwono","Analiza w 6 widokach: na co, stałe i rytm, plan, szczegóły, zależności i ciekawostki","Kwoty w groszach, nigdy we float, a statystyki na medianie zamiast średniej","118 commitów i 49 plików testów, granice warstw pilnowane przez ESLint"]),
+    en:P("Drop in a bank statement and see where the money goes. 100% on your device.","Finance · local",
+      "A CSV, XLSX or PDF statement from a bank or broker becomes a dashboard, analysis and a portfolio. No account, no server, and the site's security policy forbids it from talking to anything but itself.",
+      ["Recognises it all: columns, date format, account number and currency, no setup","“Good to know”: a subscription that stopped charging, and what impulse buys would give back","Envelopes, cost of living and a savings plan, with overruns in red","Analysis in 6 views: where, fixed and rhythm, plan, details, relations and trivia","Money in integer cents, never floats, and medians instead of means","118 commits and 49 test files, layer boundaries enforced by ESLint"]) },
+  { name:"PatoBox", app:"https://gra.patobox.workers.dev/scena/", icon:"🎉", c:"#ff4b6e", cat:"own", team:1,
+    tags:["TypeScript","WebSockets","Cloudflare Workers","Durable Objects","Vite","Web Audio"],
+    pl:P("Gra imprezowa: telefon to kontroler, telewizor to scena. 49 trybów i 5 dużych gier.","Gra imprezowa",
+      "Znajomi, w jednym pokoju albo online, wymyślają najgłupsze odpowiedzi na absurdalne polecenia i głosują. Scena ma dwa wyglądy: Neon i Karykaturę z pokojem z boazerią i prowadzącymi, którzy oddychają, mrugają i reagują na grę.",
+      ["49 trybów w 6 rodzinach: na głosy, prawda czy kit, na skali, na trafienie, myśl jak inni i na żywo","Coś większego: PatoBox Party z planszą i 15 minigrami, mapa, golf, Gra z głowy i Wieża z puszek","Pisanie, rysowanie, zdjęcia i nagrania dźwięku prosto z telefonu","Bank pomysłów i kuźnia własnych trybów z gotowych kafelków","Każdy tryb ma swój motyw muzyczny, a muzyka gęstnieje, gdy kończy się czas","Dołączenie w 20 s bez konta i instalacji, 107 commitów i 136 plików testów"]),
+    en:P("Party game: your phone is the controller, the TV is the stage. 49 modes and 5 bigger games.","Party game",
+      "Friends, in one room or online, come up with the silliest answers to absurd prompts and vote. The stage has two looks: Neon, and Caricature, a wood-panelled room with hosts who breathe, blink and react to the game.",
+      ["49 modes in 6 families: vote, bluff, on a scale, guess me, think alike and live","Something bigger: PatoBox Party with a board and 15 minigames, a map, golf, a hat game and a can tower","Writing, drawing, photos and sound recordings straight from the phone","An idea bank and a forge for your own modes built from ready tiles","Every mode has its own theme, and the music thickens as time runs out","Join in 20 s with no account or install, 107 commits and 136 test files"]) },
   { name:"OfficeFlow", app:"https://officeflow.pages.dev/", icon:"🏢", c:"#5b8cff", cat:"own",
     tags:["TypeScript","React","Supabase","i18n"],
     pl:P("Zgłoszenia biurowe i usługi cykliczne w jednym miejscu.","Narzędzie dla firm",
@@ -366,7 +366,7 @@ const LANGS = [
 ];
 const LANG_COUNT = 21;
 const COMMITS_MONTHLY = [56,45,20,9,17,0,11,173,128,234,333,467];
-const COMMITS_PROJECT = [["📝","Inquisitio",748],["🩺","JournAI",544],["🌍","GlobeQuest",500],["🥗","Składomat",131],["🧾","Kwit",117],["🎉","PatoBox",106],["🏢","OfficeFlow",37],["⌚","GarminReport",25]];
+const COMMITS_PROJECT = [["📝","Inquisitio",748],["🩺","JournAI",544],["🌍","GlobeQuest",500],["🥗","JTCJ",134],["🧾","Kwit",118],["🎉","PatoBox",107],["🏢","OfficeFlow",37],["⌚","GarminReport",25]];
 const RAP = ["Taco Hemingway · Marmur","Taco Hemingway · Café Belga","Taco Hemingway · Pocztówka z WWA, lato '19","Quebonafide · Egzotyka","Quebonafide · Romantic Psycho","Taconafide · Soma 0,5 mg","Taco Hemingway · Jarmark"];
 
 const BUBBLES = [
@@ -1315,7 +1315,7 @@ new IntersectionObserver(([en], obs) => {
 }, { rootMargin: "300px" }).observe($("#mapPanel"));
 
 /* ═══════════════════════════ project case studies ═══════════════════════════ */
-const SLUGS = { "Mentalio":"mentalio","Scholario":"scholario","Comarch Loyalty Management":"clm","HR System":"hr","Inquisitio":"inquisitio","GlobeQuest":"globequest","JournAI":"journai","Składomat":"skladomat","Kwit":"kwit","PatoBox":"patobox","OfficeFlow":"officeflow","Randkomat":"randkomat","GarminReport":"garminreport","FireRisk":"firerisk","CarControl":"carcontrol","Wolność dla łapek":"lapki","QoS w SDN":"qos","Domowy alarm":"alarm","Movie Analyzer":"movies" };
+const SLUGS = { "Mentalio":"mentalio","Scholario":"scholario","Comarch Loyalty Management":"clm","HR System":"hr","Inquisitio":"inquisitio","GlobeQuest":"globequest","JournAI":"journai","JTCJ":"skladomat","Kwit":"kwit","PatoBox":"patobox","OfficeFlow":"officeflow","Randkomat":"randkomat","GarminReport":"garminreport","FireRisk":"firerisk","CarControl":"carcontrol","Wolność dla łapek":"lapki","QoS w SDN":"qos","Domowy alarm":"alarm","Movie Analyzer":"movies" };
 const slugOf = p => SLUGS[p.name] || p.name.toLowerCase();
 /* warm the screenshots as soon as a finger or cursor lands on a card, so opening never waits on decoding */
 const warmed = new Set();
@@ -1340,12 +1340,12 @@ const CASE = {
     flow:[F("🗺️","Zamaluj, gdzie byłeś","Paint where you've been"),F("🧭","Dossier kraju","Country dossier"),F("✨","Perełki w okolicy","Nearby gems"),F("✈️","Zaplanuj trasę","Plan a route"),F("⏳","Kapsuła czasu","Time Capsule"),F("🧩","Quiz i odznaki","Quiz and badges")] },
   journai:{ shots:[S("journai-1","phone","Rano: czy dzień idzie zgodnie z planem","Morning: is the day on plan"),S("journai-2","desktop","Panel zdrowia na komputerze","The health dashboard on desktop"),S("journai-3","phone","Ja: wynik 59 przy normie 50","Me: a score of 59 against a norm of 50"),S("journai-4","phone","Ostatnia noc: 8 godz. 8 min, wynik 96","Last night: 8 h 8 min, score 96"),S("journai-5","phone","Stres dziś, minuta po minucie","Today's stress, minute by minute"),S("journai-6","phone","Plan tygodnia, który omija ból","A weekly plan that works around pain"),S("journai-7","phone","Codzienny check-in: przesuń kartę","Daily check-in: swipe the card"),S("journai-8","phone","Podsumowanie roku: 309 dni pomiarów","Year in review: 309 days measured")],
     flow:[F("⌚","Garmin Connect","Garmin Connect"),F("🔌","Serwer MCP","MCP server"),F("🗄️","PostgreSQL","PostgreSQL"),F("📈","Analityka wobec Twojej normy","Analytics against your norm"),F("💬","Komentarz AI bez zmyślonych liczb","AI commentary, no made-up numbers")] },
-  skladomat:{ shots:[S("skladomat-1","phone","Dziennik: wpisz albo podyktuj","Diary: type or dictate"),S("skladomat-2","phone","Szukaj produktu","Find a product"),S("skladomat-3","phone","Ocena składu z uzasadnieniem","Ingredient score, explained"),S("skladomat-4","phone","Wartości odżywcze co do grama","Nutrition, gram by gram"),S("skladomat-5","phone","Analiza i trendy","Analysis and trends"),S("skladomat-6","desktop","Na komputerze","On desktop")],
-    flow:[F("📷","Skan albo wyszukiwarka","Scan or search"),F("🔬","Skład i ocena","Ingredients and score"),F("➕","Do dziennika w 2 tapnięcia","Logged in 2 taps"),F("📊","Analiza tygodni","Weekly analysis")] },
-  kwit:{ shots:[S("kwit-1","phone","Wyciąg CSV: wszystko rozpoznane","CSV statement: all recognised"),S("kwit-2","phone","Pulpit: wydatki i trend","Dashboard: spending and trend"),S("kwit-3","phone","Ile wpłynęło, ile zostało","What came in, what's left"),S("kwit-4","phone","Na co idą pieniądze","Where the money goes"),S("kwit-5","phone","Każda transakcja na miejscu","Every transaction in place"),S("kwit-6","phone","Portfel inwestycyjny","Investment portfolio")],
-    flow:[F("🏦","Wyciąg CSV z banku","Bank CSV statement"),F("🔍","Rozpoznaje sam","Recognised automatically"),F("🏷️","Kategorie i zachcianki","Categories and impulses"),F("📊","Wnioski","Insights"),F("🔒","Wszystko zostaje na urządzeniu","Everything stays on device")] },
-  patobox:{ shots:[S("patobox-1","phone","Telefon: kod z telewizora i imię","Phone: TV code and a name"),S("patobox-2","phone","Bank pomysłów na polecenia","An idea bank for prompts"),S("patobox-3","desktop","Wejście na dużym ekranie","Joining on the big screen")],
-    flow:[F("📺","Telewizor pokazuje kod","The TV shows a code"),F("📱","Telefony dołączają","Phones join in"),F("✍️","Najgłupsze odpowiedzi","The silliest answers"),F("🗳️","Głosowanie","Voting"),F("😂","Śmiech w 2 minuty","A laugh within 2 minutes")] },
+  skladomat:{ shots:[S("jtcj-1","phone","Dzień: 1935 kcal i makro","The day: 1935 kcal and macros"),S("jtcj-2","phone","Zdanie zamienione w produkty, a pyta tylko o niejasne","A sentence turned into foods, asking only about the unclear"),S("jtcj-3","phone","Posiłek rozpisany na składniki","A meal broken into ingredients"),S("jtcj-4","phone","Szukaj: soczewica, ocena 98","Search: lentils, score 98"),S("jtcj-5","phone","Ocena składu z uzasadnieniem","The score, explained"),S("jtcj-6","phone","Witaminy i minerały wobec normy UE","Vitamins and minerals vs EU reference"),S("jtcj-7","phone","Analiza tygodnia: skąd energia","The week: where energy comes from"),S("jtcj-8","phone","Spożycie dzień po dniu","Intake, day by day"),S("skladomat-6","desktop","Na komputerze","On desktop")],
+    flow:[F("💬","Napisz albo powiedz, co zjadłeś","Type or say what you ate"),F("🔎","Rozpoznaje produkty i ilości","Recognises foods and amounts"),F("🔬","Skład, ocena i witaminy","Ingredients, score, vitamins"),F("📊","Analiza tygodni","Weekly analysis")] },
+  kwit:{ shots:[S("kwit-1","phone","Wyciąg CSV: wszystko rozpoznane","CSV statement: all recognised"),S("kwit-2","phone","Pulpit: pół roku wydatków","Dashboard: half a year of spending"),S("kwit-3","phone","Kiedy wydajesz i wydatki w czasie","When you spend, and spending over time"),S("kwit-4","phone","Warto wiedzieć: do odzyskania","Good to know: money to win back"),S("kwit-5","phone","Koperty i przekroczenia","Envelopes and overruns"),S("kwit-6","phone","Dokąd to zmierza i typowy dzień","Where it's heading, and a typical day"),S("kwit-7","phone","Ciekawostki z Twoich wydatków","Trivia from your spending"),S("kwit-8","phone","Portfel inwestycyjny","Investment portfolio")],
+    flow:[F("🏦","Wyciąg CSV, XLSX albo PDF","CSV, XLSX or PDF statement"),F("🔍","Rozpoznaje sam","Recognised automatically"),F("🏷️","Kategorie i zachcianki","Categories and impulses"),F("📊","Wnioski i plan","Insights and a plan"),F("🔒","Wszystko zostaje na urządzeniu","Everything stays on device")] },
+  patobox:{ shots:[S("patobox-1","desktop","Karykatura: poczekalnia z kodem i graczami","Caricature: the lobby with a code and players"),S("patobox-2","phone","Gospodarz wybiera, w co gramy","The host picks what to play"),S("patobox-3","phone","Coś większego: Party, mapa, golf","Something bigger: Party, map, golf"),S("patobox-4","desktop","Pokaz trybu: Opis na GG","Mode intro: a GG status"),S("patobox-5","desktop","Za co punkty, a obok prowadzący","How to score, with the hosts"),S("patobox-6","desktop","Głosujcie na najlepszą recenzję","Vote for the best review"),S("patobox-7","desktop","Wyniki rundy","Round results"),S("patobox-8","desktop","Drugi wygląd: Neon","The other look: Neon")],
+    flow:[F("📺","Telewizor pokazuje kod","The TV shows a code"),F("📱","Telefony dołączają","Phones join in"),F("🎲","Gospodarz wybiera tryby","The host picks modes"),F("✍️","Najgłupsze odpowiedzi","The silliest answers"),F("🗳️","Głosowanie i wyniki","Voting and results")] },
   officeflow:{ shots:[S("officeflow-1","phone","Zgłoszenie czeka na decyzję","A request awaits a decision"),S("officeflow-2","phone","Aplikacja podpowiada, kto się tym zajmie","The app suggests who handles it"),S("officeflow-3","phone","Stałe usługi w kalendarzu","Recurring services on a calendar"),S("officeflow-4","phone","Firmy i ludzie w jednym miejscu","Vendors and people in one place"),S("officeflow-5","desktop","Na dużym ekranie","On a big screen")],
     flow:[F("🙋","Zgłoszenie w 2 krokach","A request in 2 steps"),F("🤖","Propozycja: kto i kiedy","Suggestion: who and when"),F("👩‍💼","Office manager decyduje","The office manager decides"),F("📅","Kalendarz usług","Service calendar")] },
   randkomat:{ shots:[S("randkomat-1","phone","Kim jesteś: nick, nastrój, kolor","Who you are: nick, mood, colour"),S("randkomat-2","phone","Kogo porywamy: dla kogo, kiedy, gdzie","Who we're stealing: for whom, when, where"),S("randkomat-3","phone","Tak to zobaczy druga osoba","What the other person sees"),S("randkomat-4","phone","Trzecie „nie” i ostatnia szansa","The third “no” and a last chance"),S("randkomat-5","phone","Po „tak”: szczegóły i termin","After “yes”: details and time"),S("randkomat-6","phone","Karteczka na zwykły dzień albo okazję","A card for any day or occasion"),S("randkomat-7","phone","Urodzinowa: zdmuchnij świeczki palcem","Birthday: blow out the candles"),S("randkomat-8","phone","Tęsknię: dojedź łyżwami do flagi","Miss you: skate to the flag")],
@@ -1468,7 +1468,7 @@ addEventListener("deviceorientation", e => {
 });
 
 /* donut ↔ project bars: hover a language, see where it lives */
-const LANG_PROJECTS = { TypeScript:["Inquisitio","Składomat","Kwit","PatoBox","OfficeFlow"], Dart:["GlobeQuest"], Python:["JournAI","GarminReport"], Jupyter:[], "*other":[] };
+const LANG_PROJECTS = { TypeScript:["Inquisitio","JTCJ","Kwit","PatoBox","OfficeFlow"], Dart:["GlobeQuest"], Python:["JournAI","GarminReport"], Jupyter:[], "*other":[] };
 const _hotLang = hotLang;
 hotLang = function(i){
   _hotLang(i);
