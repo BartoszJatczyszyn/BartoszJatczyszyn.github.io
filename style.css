@@ -1291,3 +1291,36 @@ button,.card,.chip,.cchip,.cont,.kicker,.bubble{-webkit-user-select:none;user-se
 .logo .d2{animation-delay:.25s}
 @keyframes lgDot{0%,70%,100%{opacity:1}80%{opacity:.35}}
 .logo:hover .d1,.logo:hover .d2{animation:none}
+
+/* ── project cards: a real screen peeking out of the cover ── */
+.cover.has-shot{place-items:center start;padding-left:34px}
+.cover .peek{position:absolute;right:22px;bottom:-58px;width:92px;border-radius:14px;border:3px solid #121214;box-shadow:0 16px 34px rgba(0,0,0,.45);transform:rotate(8deg);transition:transform .55s var(--spring);pointer-events:none}
+.cover .peek.wide{width:178px;border-radius:9px;bottom:-34px;right:14px;border-width:2px;transform:rotate(-5deg)}
+.card:hover .cover .peek{transform:rotate(3deg) translateY(-14px)}
+.card:hover .cover .peek.wide{transform:rotate(-2deg) translateY(-10px)}
+.cover .lock,.cover .kind-badge{z-index:2}
+@media (hover:none){.card:hover .cover .peek{transform:rotate(8deg)}.card:hover .cover .peek.wide{transform:rotate(-5deg)}}
+@media (max-width:560px){
+  .cover.has-shot{place-items:center;padding-left:0}
+  .cover.has-shot .emo{display:none}
+  .cover .peek{right:50%;bottom:-22px;width:58px;border-radius:10px;border-width:2px;transform:translateX(50%) rotate(6deg)}
+  .cover .peek.wide{width:80px;bottom:16px;border-radius:6px;transform:translateX(50%) rotate(-5deg)}
+}
+
+/* ── case study: numbers as heroes ── */
+.case-nums{padding:26px 48px 8px}
+@media (max-width:640px){.case-nums{padding:22px 22px 4px}}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:14px}
+.nm{position:relative;padding:18px 18px 16px;border-radius:18px;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:6px;opacity:0;transform:translateY(18px) scale(.96);transition:opacity .5s var(--ease),transform .7s var(--spring);transition-delay:calc(var(--i) * .08s)}
+.case-nums.in .nm{opacity:1;transform:none}
+.nm b{font:700 clamp(40px,5vw,54px)/1 var(--hand);color:var(--ink);letter-spacing:0;display:flex;align-items:baseline;gap:4px;font-variant-numeric:tabular-nums}
+.nm b small{font:700 .45em var(--hand);color:var(--muted)}
+.nm > span{font-size:14px;line-height:1.35;color:var(--muted);text-wrap:balance}
+.nm::after{content:"";position:absolute;left:18px;right:18px;bottom:10px;height:3px;border-radius:3px;background:var(--hl);opacity:.0;transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease),opacity .3s;transition-delay:calc(.3s + var(--i) * .08s)}
+.case-nums.in .nm::after{opacity:.55;transform:scaleX(.28)}
+@media (hover:hover){.nm:hover{transform:translateY(-4px) rotate(-.6deg);border-color:var(--hl)}}
+
+/* ── gallery: figures and charts on a sheet of paper ── */
+.frame.fig{height:clamp(220px,34vw,380px);max-width:min(82vw,640px);border-radius:14px;padding:12px;background:#fff;box-shadow:0 0 0 1.5px #2c2c30,0 30px 60px rgba(0,0,0,.45);display:grid;place-items:center}
+.frame.fig img{width:auto;max-width:100%;height:100%;object-fit:contain;border-radius:6px}
+@media (max-width:640px){.frame.fig{height:auto;width:82vw}.frame.fig img{width:100%;height:auto}}
