@@ -1321,7 +1321,7 @@ const slugOf = p => SLUGS[p.name] || p.name.toLowerCase();
 const warmed = new Set();
 function warmCase(slug){
   if (warmed.has(slug)) return; warmed.add(slug);
-  ((CASE[slug] || {}).shots || []).forEach(sh => { const im = new Image(); im.decoding = "async"; im.src = `img/p/${sh.f}.webp`; im.decode && im.decode().catch(() => {}); });
+  ((CASE[slug] || {}).shots || []).forEach(sh => { const im = new Image(); im.decoding = "async"; im.src = `img/p/${sh.f.includes(".") ? sh.f : sh.f + ".webp"}`; im.decode && im.decode().catch(() => {}); });
 }
 document.addEventListener("pointerdown", e => { const c = e.target.closest(".card"); if (c) warmCase(slugOf(PROJECTS.find(p => p.name === c.dataset.name))); }, { passive: true, capture: true });
 document.addEventListener("pointerover", e => { const c = e.target.closest && e.target.closest(".card"); if (c && e.pointerType === "mouse") warmCase(slugOf(PROJECTS.find(p => p.name === c.dataset.name))); }, { passive: true });
@@ -1337,7 +1337,8 @@ const CASE = {
   scholario:{ nums:[N(1,"","krótka refleksja dziennie","short reflection a day"),N(3,"","grupy wsparcia: nauczyciel, psycholog, pedagog","support roles: teacher, psychologist, counsellor"),N(5,"","partnerów, m.in. UNICEF Polska","partners, incl. UNICEF Poland")],
     shots:[S("scholario-app-1","phone","Scholario: Twoje połączenie z klasą","Scholario: your connection with the class"),S("scholario-app-2","desktop","Wyniki klasy na wykresie radarowym","Class results on a radar chart"),S("scholario-app-3","phone","Krótki puls: jedno pytanie, jeden tap","A quick pulse: one question, one tap"),S("scholario-app-4","desktop","Wyniki ankiety: obszar po obszarze","Survey results, area by area"),S("scholario-app-5","desktop","Trend klasy przez cały semestr","The class trend across a semester"),S("scholario-app-6","desktop","Skrzynka narzędzi: materiały dla uczniów","Toolbox: materials for students"),S("scholario-app-7","desktop","Partnerzy, w tym Mentalio i UNICEF Polska","Partners, including Mentalio and UNICEF Poland"),S("scholario-1","desktop","Strona produktu","The product site")],
     flow:[F("🧒","Uczeń: krótka refleksja","Student: a short reflection"),F("📊","Analiza na bieżąco","Instant analysis"),F("🧑‍🏫","Zespół szkolny reaguje","The school team responds"),F("💛","Uczeń czuje się zauważony","The student feels seen")] },
-  clm:{ nums:[N(6,"","rynków","markets"),N(2,"","klientów: BP i SASOL","clients: BP and SASOL"),N(5,"","osób w zespole","people on the team"),N(2,"","lata","years")],
+  clm:{ shots:[S("clm-1.svg","art","Ilustracja: od tankowania do punktów","Illustration: from a fill-up to points"),S("clm-2.svg","art","Ilustracja: dwa wdrożenia, dwa stosy","Illustration: two rollouts, two stacks")],
+    nums:[N(6,"","rynków","markets"),N(2,"","klientów: BP i SASOL","clients: BP and SASOL"),N(5,"","osób w zespole","people on the team"),N(2,"","lata","years")],
     flow:[F("⛽","Klient na stacji","A customer at the station"),F("⭐","Punkty i nagrody","Points and rewards"),F("⚙️","Backend CLM: Java + Spring","CLM backend: Java + Spring"),F("🌍","BP i SASOL na 6 rynkach","BP and SASOL in 6 markets")] },
   hr:{ nums:[N(3,"","osoby w zespole","people on the team"),N(3,"","miesiące stażu","months of internship"),N(2,"","warstwy: Angular i Spring","layers: Angular and Spring")],
     flow:[F("🖥️","Interfejs w Angularze","Angular UI"),F("🔌","REST API w Spring Boot","Spring Boot REST API"),F("🗄️","PostgreSQL + Flyway","PostgreSQL + Flyway"),F("👥","Zespół 3 osób, full stack","3-person team, full stack")] },
@@ -1407,7 +1408,7 @@ function openCase(slug, push = true){
   const shots = data.shots || [];
   $("#caseGallery").classList.toggle("empty", !shots.length);
   $("#cgTrack").innerHTML = "";
-  const fillGallery = () => $("#cgTrack").innerHTML = shots.map((s, k) => `<figure class="shot" style="--i:${k}"><div class="frame ${s.k}" data-full="img/p/${s.f}.webp"><img src="img/p/${s.f}.webp" alt="${esc(s[lang])}" loading="lazy" decoding="async"></div><figcaption>${esc(s[lang])}</figcaption></figure>`).join("");
+  const fillGallery = () => $("#cgTrack").innerHTML = shots.map((s, k) => `<figure class="shot" style="--i:${k}"><div class="frame ${s.k}" data-full="img/p/${s.f.includes(".") ? s.f : s.f + ".webp"}"><img src="img/p/${s.f.includes(".") ? s.f : s.f + ".webp"}" alt="${esc(s[lang])}" loading="lazy" decoding="async"></div><figcaption>${esc(s[lang])}</figcaption></figure>`).join("");
   $("#cgDots").innerHTML = shots.map((_, k) => `<i class="${k ? "" : "on"}"></i>`).join("");
   $("#cgTrack").scrollLeft = 0;
   /* flow */

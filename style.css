@@ -1324,3 +1324,8 @@ button,.card,.chip,.cchip,.cont,.kicker,.bubble{-webkit-user-select:none;user-se
 .frame.fig{height:clamp(220px,34vw,380px);max-width:min(82vw,640px);border-radius:14px;padding:12px;background:#fff;box-shadow:0 0 0 1.5px #2c2c30,0 30px 60px rgba(0,0,0,.45);display:grid;place-items:center}
 .frame.fig img{width:auto;max-width:100%;height:100%;object-fit:contain;border-radius:6px}
 @media (max-width:640px){.frame.fig{height:auto;width:82vw}.frame.fig img{width:100%;height:auto}}
+
+/* illustrations drawn for projects without public screenshots: no browser chrome, so they never pass for a screenshot */
+.frame.art{width:clamp(300px,62vw,720px);border-radius:18px;overflow:hidden;box-shadow:0 0 0 1.5px #3a3228,0 30px 60px rgba(0,0,0,.45);background:#14110d}
+.frame.art img{height:auto;aspect-ratio:1200/620}
+@media (max-width:640px){.frame.art{width:88vw}}

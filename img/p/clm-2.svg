@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" font-family="Inter, Helvetica, Arial, sans-serif">
+  <rect width="1200" height="620" fill="#14110d"/>
+  <defs><pattern id="d" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" opacity=".07"/></pattern></defs>
+  <rect width="1200" height="620" fill="url(#d)"/>
+  <text x="60" y="70" fill="#ffd43b" font-size="30" font-weight="700">Dwa wdrożenia, dwa stosy</text>
+  <text x="60" y="102" fill="#a8a29a" font-size="17">Ilustracja na podstawie mojej pracy w zespole CLM, Comarch 2022–2024</text>
+
+  <g transform="translate(60,140)">
+    <rect width="520" height="420" rx="26" fill="#221d16" stroke="#3a3228"/>
+    <text x="36" y="62" fill="#f4efe6" font-size="26" font-weight="700">Europa</text>
+    <text x="36" y="92" fill="#a8a29a" font-size="16">Polska, Niemcy, Hiszpania, Portugalia, Austria</text>
+    <g font-size="17" fill="#e7dfd2">
+      <rect x="36" y="124" width="448" height="48" rx="14" fill="#2c261d"/><text x="58" y="155">☕  Java 8</text>
+      <rect x="36" y="182" width="448" height="48" rx="14" fill="#2c261d"/><text x="58" y="213">🗄️  Oracle, WebLogic</text>
+      <rect x="36" y="240" width="448" height="48" rx="14" fill="#2c261d"/><text x="58" y="271">🌱  Spring Boot, mikroserwisy</text>
+      <rect x="36" y="298" width="448" height="48" rx="14" fill="#2c261d"/><text x="58" y="329">🔌  REST API, Postman</text>
+    </g>
+    <text x="36" y="390" fill="#a8a29a" font-size="15">rozwój i utrzymanie istniejącego systemu</text>
+  </g>
+
+  <g transform="translate(620,140)">
+    <rect width="520" height="420" rx="26" fill="#2b2310" stroke="#ffd43b" stroke-width="2.5"/>
+    <text x="36" y="62" fill="#f4efe6" font-size="26" font-weight="700">RPA</text>
+    <text x="36" y="92" fill="#a8a29a" font-size="16">nowsze wdrożenie</text>
+    <g font-size="17" fill="#e7dfd2">
+      <rect x="36" y="124" width="448" height="48" rx="14" fill="#3a2f15"/><text x="58" y="155">☕  Java 17</text>
+      <rect x="36" y="182" width="448" height="48" rx="14" fill="#3a2f15"/><text x="58" y="213">🐘  PostgreSQL, Flyway</text>
+      <rect x="36" y="240" width="448" height="48" rx="14" fill="#3a2f15"/><text x="58" y="271">🐳  Docker, Kubernetes</text>
+      <rect x="36" y="298" width="448" height="48" rx="14" fill="#3a2f15"/><text x="58" y="329">🦊  GitLab CI, Jira</text>
+    </g>
+    <text x="36" y="390" fill="#a8a29a" font-size="15">zespół 5 osób, od zgłoszenia po wdrożenie</text>
+  </g>
+</svg>

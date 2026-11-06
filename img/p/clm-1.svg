@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" font-family="Inter, Helvetica, Arial, sans-serif">
+  <rect width="1200" height="620" fill="#14110d"/>
+  <defs>
+    <pattern id="d" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" opacity=".07"/></pattern>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#ffd43b"/></marker>
+  </defs>
+  <rect width="1200" height="620" fill="url(#d)"/>
+  <text x="60" y="70" fill="#ffd43b" font-size="30" font-weight="700">Jak działa program lojalnościowy na stacji</text>
+  <text x="60" y="102" fill="#a8a29a" font-size="17">Ilustracja przepływu, nie zrzut ekranu systemu</text>
+
+  <!-- 1 customer -->
+  <g transform="translate(60,170)">
+    <rect width="200" height="230" rx="22" fill="#221d16" stroke="#3a3228"/>
+    <text x="100" y="78" text-anchor="middle" font-size="58">⛽</text>
+    <text x="100" y="128" text-anchor="middle" fill="#f4efe6" font-size="20" font-weight="700">Klient na stacji</text>
+    <text x="100" y="156" text-anchor="middle" fill="#a8a29a" font-size="15">tankuje, płaci</text>
+    <text x="100" y="178" text-anchor="middle" fill="#a8a29a" font-size="15">kartą albo aplikacją</text>
+  </g>
+  <!-- 2 POS -->
+  <g transform="translate(330,170)">
+    <rect width="200" height="230" rx="22" fill="#221d16" stroke="#3a3228"/>
+    <text x="100" y="78" text-anchor="middle" font-size="58">🧾</text>
+    <text x="100" y="128" text-anchor="middle" fill="#f4efe6" font-size="20" font-weight="700">Transakcja</text>
+    <text x="100" y="156" text-anchor="middle" fill="#a8a29a" font-size="15">kasa wysyła paragon</text>
+    <text x="100" y="178" text-anchor="middle" fill="#a8a29a" font-size="15">do systemu</text>
+  </g>
+  <!-- 3 CLM backend (highlight) -->
+  <g transform="translate(600,140)">
+    <rect width="260" height="290" rx="24" fill="#2b2310" stroke="#ffd43b" stroke-width="2.5"/>
+    <text x="130" y="48" text-anchor="middle" fill="#ffd43b" font-size="15" font-weight="700" letter-spacing="2">MOJA CZĘŚĆ</text>
+    <text x="130" y="96" text-anchor="middle" fill="#f4efe6" font-size="24" font-weight="700">Backend CLM</text>
+    <g font-size="15" fill="#e7dfd2">
+      <rect x="30" y="120" width="200" height="34" rx="10" fill="#3a2f15"/><text x="130" y="142" text-anchor="middle">naliczanie punktów</text>
+      <rect x="30" y="162" width="200" height="34" rx="10" fill="#3a2f15"/><text x="130" y="184" text-anchor="middle">reguły i promocje</text>
+      <rect x="30" y="204" width="200" height="34" rx="10" fill="#3a2f15"/><text x="130" y="226" text-anchor="middle">nagrody i poziomy</text>
+    </g>
+    <text x="130" y="268" text-anchor="middle" fill="#a8a29a" font-size="14">Java · Spring · Oracle / PostgreSQL</text>
+  </g>
+  <!-- 4 member -->
+  <g transform="translate(930,170)">
+    <rect width="210" height="230" rx="22" fill="#221d16" stroke="#3a3228"/>
+    <text x="105" y="78" text-anchor="middle" font-size="58">⭐</text>
+    <text x="105" y="128" text-anchor="middle" fill="#f4efe6" font-size="20" font-weight="700">Punkty i nagrody</text>
+    <text x="105" y="156" text-anchor="middle" fill="#a8a29a" font-size="15">saldo w aplikacji,</text>
+    <text x="105" y="178" text-anchor="middle" fill="#a8a29a" font-size="15">kawa gratis, rabat</text>
+  </g>
+  <g stroke="#ffd43b" stroke-width="3" stroke-dasharray="8 8" fill="none" marker-end="url(#a)">
+    <path d="M268 285 H322"/><path d="M538 285 H592"/><path d="M868 285 H922"/>
+  </g>
+
+  <!-- markets -->
+  <text x="60" y="490" fill="#a8a29a" font-size="16" font-weight="700" letter-spacing="2">RYNKI</text>
+  <g font-size="17" fill="#f4efe6">
+    <g transform="translate(60,510)"><rect width="150" height="54" rx="27" fill="#221d16" stroke="#3a3228"/><text x="75" y="34" text-anchor="middle">Polska</text></g>
+    <g transform="translate(226,510)"><rect width="150" height="54" rx="27" fill="#221d16" stroke="#3a3228"/><text x="75" y="34" text-anchor="middle">Niemcy</text></g>
+    <g transform="translate(392,510)"><rect width="160" height="54" rx="27" fill="#221d16" stroke="#3a3228"/><text x="80" y="34" text-anchor="middle">Hiszpania</text></g>
+    <g transform="translate(568,510)"><rect width="170" height="54" rx="27" fill="#221d16" stroke="#3a3228"/><text x="85" y="34" text-anchor="middle">Portugalia</text></g>
+    <g transform="translate(754,510)"><rect width="150" height="54" rx="27" fill="#221d16" stroke="#3a3228"/><text x="75" y="34" text-anchor="middle">Austria</text></g>
+    <g transform="translate(920,510)"><rect width="220" height="54" rx="27" fill="#2b2310" stroke="#ffd43b"/><text x="110" y="34" text-anchor="middle">RPA</text></g>
+  </g>
+</svg>
