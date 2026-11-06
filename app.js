@@ -460,7 +460,7 @@ function renderFilters(){
 function movePill(){
   const on = $("#filters button.on"), pill = $("#filters .pill");
   if (!on) return;
-  Object.assign(pill.style, { left:on.offsetLeft+"px", top:on.offsetTop+"px", width:on.offsetWidth+"px", height:on.offsetHeight+"px" });
+  Object.assign(pill.style, { transform:`translate(${on.offsetLeft}px,${on.offsetTop}px)`, width:on.offsetWidth+"px", height:on.offsetHeight+"px" });
 }
 $("#filters").addEventListener("click", e => {
   const b = e.target.closest("button"); if (!b || b.dataset.cat === filter) return;
@@ -1914,7 +1914,7 @@ $("#themeBtn").addEventListener("click", e => {
   const root = document.documentElement;
   SFX.play("swoosh"); haptic(10);
   const flip = () => { root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light"; store.set("bj-theme", root.dataset.theme); syncThemeColor(); };
-  if (matchMedia("(pointer:coarse)").matches && !reduced && !vtBusy){
+  if (!reduced && !vtBusy){
     vtBusy = true;
     const [x, y] = center(e.currentTarget), R = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
     const goingLight = root.dataset.theme !== "light";
@@ -1926,13 +1926,7 @@ $("#themeBtn").addEventListener("click", e => {
       setTimeout(() => root.classList.remove("theme-flipping"), 400);
       requestAnimationFrame(() => requestAnimationFrame(() => w.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, fill: "forwards" }).onfinish = () => { w.remove(); vtBusy = false; }));
     };
-  } else if (document.startViewTransition && !reduced && !vtBusy){
-    const [x, y] = center(e.currentTarget);
-    root.style.setProperty("--vx", x + "px"); root.style.setProperty("--vy", y + "px");
-    vtBusy = true;
-    const vt = document.startViewTransition(flip);
-    vt.finished.finally(() => vtBusy = false);
-  } else flip();
+  } else if (!vtBusy) flip();
   const now = Date.now();
   themeClicks = themeClicks.filter(t => now - t < 2500).concat(now);
   if (themeClicks.length >= 5){
