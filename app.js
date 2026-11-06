@@ -153,7 +153,7 @@ Object.assign(T.en, {
 const P = (one, kind, desc, pts) => ({ one, kind, desc, pts });
 const PROJECTS = [
   /* ── work ── */
-  { name:"Mentalio", cover:"mentalio-2", icon:"🧠", c:"#7f8cff", cat:"work", url:"https://www.mentalio.eu/", org:"Nivalit",
+  { name:"Mentalio", cover:"mentalio-app-5", icon:"🧠", c:"#7f8cff", cat:"work", url:"https://www.mentalio.eu/", org:"Nivalit",
     tags:["AI","MedTech","Web"],
     pl:P("AI wspierające specjalistów w diagnozie i terapii młodzieży.","Nivalit · MedTech",
       "Narzędzie, które pomaga specjalistom zdrowia psychicznego szybciej i dokładniej diagnozować problemy u młodzieży i dobierać ścieżki terapii. Obecnie w badaniach klinicznych.",
@@ -1331,7 +1331,8 @@ const F = (e, pl, en) => ({ e, pl, en });
 /* nums: value, unit, label pl, label en */
 const N = (v, u, pl, en) => ({ v, u, pl, en });
 const CASE = {
-  mentalio:{ shots:[S("mentalio-1","desktop","Strona produktu","The product site"),S("mentalio-2","phone","Dla rodzica i specjalisty","For parents and specialists"),S("mentalio-3","phone","Skala problemu w liczbach","The problem, in numbers")],
+  mentalio:{ nums:[N(4,"","role uczestników: badany, opiekun, profesjonalista, lekarz","participant roles: subject, carer, professional, doctor"),N(13,"–21","wiek badanych","age of subjects"),N(2,"","kody: badanie i kwestionariusz","codes: exam and questionnaire")],
+    shots:[S("mentalio-app-1","desktop","Panel jednostki: badania w trakcie i zakończone","The unit dashboard: exams in progress and done"),S("mentalio-app-4","phone","Badany wpisuje kod badania i kwestionariusza","The subject enters exam and questionnaire codes"),S("mentalio-app-2","desktop","Kto wypełnia: badany, opiekun, profesjonalista, lekarz","Who fills it in: subject, carer, professional, doctor"),S("mentalio-app-5","phone","Urządzenie trafia do osoby badanej","The device goes to the person being examined"),S("mentalio-app-3","desktop","Kody do przekazania i wydruku","Codes to share and print"),S("mentalio-app-6","phone","AI patrzy też na sposób odpowiadania","AI also looks at how you answer"),S("mentalio-1","desktop","Strona produktu","The product site")],
     flow:[F("👨‍👩‍👧","Rodzic i dziecko wypełniają kwestionariusz","Parent and child fill in a questionnaire"),F("🧠","AI analizuje odpowiedzi","AI analyses the answers"),F("🩺","Specjalista dostaje wskazówki","The specialist gets insights"),F("🌱","Terapia szyta na miarę","Therapy that fits")] },
   scholario:{ nums:[N(1,"","krótka refleksja dziennie","short reflection a day"),N(3,"","grupy wsparcia: nauczyciel, psycholog, pedagog","support roles: teacher, psychologist, counsellor"),N(5,"","partnerów, m.in. UNICEF Polska","partners, incl. UNICEF Poland")],
     shots:[S("scholario-app-1","phone","Scholario: Twoje połączenie z klasą","Scholario: your connection with the class"),S("scholario-app-2","desktop","Wyniki klasy na wykresie radarowym","Class results on a radar chart"),S("scholario-app-3","phone","Krótki puls: jedno pytanie, jeden tap","A quick pulse: one question, one tap"),S("scholario-app-4","desktop","Wyniki ankiety: obszar po obszarze","Survey results, area by area"),S("scholario-app-5","desktop","Trend klasy przez cały semestr","The class trend across a semester"),S("scholario-app-6","desktop","Skrzynka narzędzi: materiały dla uczniów","Toolbox: materials for students"),S("scholario-app-7","desktop","Partnerzy, w tym Mentalio i UNICEF Polska","Partners, including Mentalio and UNICEF Poland"),S("scholario-1","desktop","Strona produktu","The product site")],
