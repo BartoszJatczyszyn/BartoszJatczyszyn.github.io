@@ -459,7 +459,7 @@ footer{margin-top:60px;position:relative}
 #eggList li.found{border-color:var(--hl)}
 
 /* ═══════════════ easter egg fx ═══════════════ */
-.particle{position:fixed;z-index:160;pointer-events:none;font-size:22px;left:0;top:0;will-change:transform,opacity}
+.particle{position:fixed;z-index:160;pointer-events:none;font-size:30px;line-height:1;left:0;top:0;will-change:transform,opacity}
 .racer{position:fixed;z-index:110;font-size:56px;pointer-events:none;left:0;top:50%;will-change:transform}
 .racer.swim::after{content:"〰〰〰";position:absolute;left:-30px;bottom:-8px;font-size:22px;color:#4fa3ff}
 .banner{position:fixed;inset:0;z-index:155;display:grid;place-items:center;pointer-events:none}
@@ -1329,3 +1329,18 @@ button,.card,.chip,.cchip,.cont,.kicker,.bubble{-webkit-user-select:none;user-se
 .frame.art{width:clamp(300px,62vw,720px);border-radius:18px;overflow:hidden;box-shadow:0 0 0 1.5px #3a3228,0 30px 60px rgba(0,0,0,.45);background:#14110d}
 .frame.art img{height:auto;aspect-ratio:1200/620}
 @media (max-width:640px){.frame.art{width:88vw}}
+
+/* bubbles at rest: the physics loop sleeps, only the emoji keeps a slow compositor-only sway */
+@keyframes restSway{50%{transform:translateY(-3px) rotate(3deg)}}
+#playground.rest .bubble:not(.gone) .be{animation:restSway 4.5s ease-in-out infinite;animation-delay:calc(var(--r) * -37ms)}
+@media (prefers-reduced-motion:reduce){#playground.rest .bubble .be{animation:none}}
+
+/* phones: "All" shows 8 cards first */
+.grid-more{display:none}
+@media (max-width:560px){
+  .grid.folded .card:nth-child(n+9){display:none}
+  .grid-more:not([hidden]){display:flex;align-items:center;justify-content:center;gap:8px;margin:22px auto 0;padding:13px 22px;border-radius:999px;border:1.5px dashed var(--line);background:var(--surface);color:var(--text);font:600 15px Inter;cursor:pointer;transition:transform .3s var(--spring),border-color .3s}
+  .grid-more i{font-style:normal;color:var(--ink);display:inline-block;animation:bob 2.4s ease-in-out infinite}
+  .grid-more:active{transform:scale(.94)}
+  #projects{contain-intrinsic-size:auto 2150px}
+}

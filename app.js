@@ -116,7 +116,7 @@ Object.assign(T.pl, {
   tvCountries:"krajów świata", tvRegions:"regionów w GlobeQuest", tvWorld:"% świata odkryte", tvRank:"ranga: Odkrywca",
   tvEurope:"Europa", tvAll:"Cały świat", tvCountriesShort:"krajów świata", tvHint:"Przytrzymaj Ctrl / ⌘, żeby przybliżyć kółkiem", tvTour:"Wycieczka", tvTourStop:"Stop", tvLegVisited:"byłem", tvLegPlanned:"w planie",
   tvNextSmall:"Następny przystanek", tvNext:"Maroko", tvGq:"Te dane pochodzą z mojego GlobeQuesta",
-  tvBanner:"Maroko, czekaj!", copyMail:"Kopiuj e-mail", soundOn:"Dźwięk włączony", soundOff:"Dźwięk wyłączony", eHome:"Wszędzie dobrze,<small>ale w domu najlepiej 🏠</small>", eRocket:"Start!", eChalk:"Ładnie rysujesz", eChalkSub:"Kreda zawsze schnie za szybko", eLumos:"Lumos ✨", eNox:"Nox 🌙", eOvertake:"Wyprzedzanie!", eOvertakeSub:"Każda kropka to ktoś, kogo minąłem na trasie", eHeart:"❤️ 150 bpm<small>tak bije serce na 35. km</small>", eOwl:"Też nie śpisz?", eOwlSub:"Najlepsze pomysły przychodzą w nocy 🦉", eBird:"Ranny ptaszek!", eBirdSub:"Pora na kawę i pierwszy commit 🐦", eCoffee:"☕ +10 do kodu", eNewton:"F = m·a", eXylo:"Muzyka commitów 🎶", usedIn:"Użyte w:", tiltOn:"Przechyl telefon, a myśli się przesypią 📱", tiltBtn:"📱 Przechyl", csNums:"W liczbach", csFlow:"Jak to działa", openApp:"Otwórz aplikację ↗︎", csWhy:"Co jest w tym fajne", csStack:"Z czego to zbudowane", csPrevL:"Poprzedni projekt", csNextL:"Następny projekt", hintHead:"puk, puk?", hintPg:"złap i rzuć!", hintEggs:`${EGGS.length} sekrety… znajdziesz?`, cDetails:"zajrzyj", cDrag:"rzuć mną", cMap:"✈️ leć", cTap:"puk!", cThought:"💭 myśl", cDice:"🎲 rzuć", spyStart:"Start", copied:"Skopiowane!", copiedSub:"Adres e-mail jest w schowku", tvBannerSub:"Następny przystanek: Afryka"
+  tvBanner:"Maroko, czekaj!", copyMail:"Kopiuj e-mail", soundOn:"Dźwięk włączony", soundOff:"Dźwięk wyłączony", eHome:"Wszędzie dobrze,<small>ale w domu najlepiej 🏠</small>", eRocket:"Start!", eChalk:"Ładnie rysujesz", eChalkSub:"Kreda zawsze schnie za szybko", eLumos:"Lumos ✨", eNox:"Nox 🌙", eOvertake:"Wyprzedzanie!", eOvertakeSub:"Każda kropka to ktoś, kogo minąłem na trasie", eHeart:"❤️ 150 bpm<small>tak bije serce na 35. km</small>", eOwl:"Też nie śpisz?", eOwlSub:"Najlepsze pomysły przychodzą w nocy 🦉", eBird:"Ranny ptaszek!", eBirdSub:"Pora na kawę i pierwszy commit 🐦", eCoffee:"☕ +10 do kodu", eNewton:"F = m·a", eXylo:"Muzyka commitów 🎶", usedIn:"Użyte w:", tiltOn:"Przechyl telefon, a myśli się przesypią 📱", tiltBtn:"📱 Przechyl", csNums:"W liczbach", gridMore:n => `Pokaż wszystkie ${n} projektów`, csFlow:"Jak to działa", openApp:"Otwórz aplikację ↗︎", csWhy:"Co jest w tym fajne", csStack:"Z czego to zbudowane", csPrevL:"Poprzedni projekt", csNextL:"Następny projekt", hintHead:"puk, puk?", hintPg:"złap i rzuć!", hintEggs:`${EGGS.length} sekrety… znajdziesz?`, cDetails:"zajrzyj", cDrag:"rzuć mną", cMap:"✈️ leć", cTap:"puk!", cThought:"💭 myśl", cDice:"🎲 rzuć", spyStart:"Start", copied:"Skopiowane!", copiedSub:"Adres e-mail jest w schowku", tvBannerSub:"Następny przystanek: Afryka"
 });
 Object.assign(T.en, {
   navTrail:"Trail", navSkills:"Toolbox",
@@ -146,7 +146,7 @@ Object.assign(T.en, {
   tvCountries:"countries of the world", tvRegions:"regions in GlobeQuest", tvWorld:"% of the world explored", tvRank:"rank: Explorer",
   tvEurope:"Europe", tvAll:"Whole world", tvCountriesShort:"countries", tvHint:"Hold Ctrl / ⌘ to zoom with the wheel", tvTour:"Take the tour", tvTourStop:"Stop", tvLegVisited:"visited", tvLegPlanned:"planned",
   tvNextSmall:"Next stop", tvNext:"Morocco", tvGq:"This data comes from my GlobeQuest",
-  tvBanner:"Morocco, here I come!", copyMail:"Copy e-mail", soundOn:"Sound on", soundOff:"Sound off", eHome:"East or west,<small>home is best 🏠</small>", eRocket:"Lift-off!", eChalk:"Nice drawing", eChalkSub:"Chalk always dries too fast", eLumos:"Lumos ✨", eNox:"Nox 🌙", eOvertake:"Overtaking!", eOvertakeSub:"Every dot is someone I passed on course", eHeart:"❤️ 150 bpm<small>a heart at kilometre 35</small>", eOwl:"Can’t sleep either?", eOwlSub:"The best ideas come at night 🦉", eBird:"Early bird!", eBirdSub:"Time for coffee and the first commit 🐦", eCoffee:"☕ +10 to code", eNewton:"F = m·a", eXylo:"The sound of commits 🎶", usedIn:"Used in:", tiltOn:"Tilt your phone and the thoughts will roll 📱", tiltBtn:"📱 Tilt", csNums:"By the numbers", csFlow:"How it works", openApp:"Open the app ↗︎", csWhy:"What makes it good", csStack:"Built with", csPrevL:"Previous project", csNextL:"Next project", hintHead:"knock, knock?", hintPg:"grab & throw!", hintEggs:`${EGGS.length} secrets… find them?`, cDetails:"peek", cDrag:"throw me", cMap:"✈️ fly", cTap:"knock!", cThought:"💭 think", cDice:"🎲 roll", spyStart:"Start", copied:"Copied!", copiedSub:"The e-mail address is on your clipboard", tvBannerSub:"Next stop: Africa"
+  tvBanner:"Morocco, here I come!", copyMail:"Copy e-mail", soundOn:"Sound on", soundOff:"Sound off", eHome:"East or west,<small>home is best 🏠</small>", eRocket:"Lift-off!", eChalk:"Nice drawing", eChalkSub:"Chalk always dries too fast", eLumos:"Lumos ✨", eNox:"Nox 🌙", eOvertake:"Overtaking!", eOvertakeSub:"Every dot is someone I passed on course", eHeart:"❤️ 150 bpm<small>a heart at kilometre 35</small>", eOwl:"Can’t sleep either?", eOwlSub:"The best ideas come at night 🦉", eBird:"Early bird!", eBirdSub:"Time for coffee and the first commit 🐦", eCoffee:"☕ +10 to code", eNewton:"F = m·a", eXylo:"The sound of commits 🎶", usedIn:"Used in:", tiltOn:"Tilt your phone and the thoughts will roll 📱", tiltBtn:"📱 Tilt", csNums:"By the numbers", gridMore:n => `Show all ${n} projects`, csFlow:"How it works", openApp:"Open the app ↗︎", csWhy:"What makes it good", csStack:"Built with", csPrevL:"Previous project", csNextL:"Next project", hintHead:"knock, knock?", hintPg:"grab & throw!", hintEggs:`${EGGS.length} secrets… find them?`, cDetails:"peek", cDrag:"throw me", cMap:"✈️ fly", cTap:"knock!", cThought:"💭 think", cDice:"🎲 roll", spyStart:"Start", copied:"Copied!", copiedSub:"The e-mail address is on your clipboard", tvBannerSub:"Next stop: Africa"
 });
 
 /* ═══════════════════════════ data ═══════════════════════════ */
@@ -396,7 +396,7 @@ const BUBBLES = [
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 let lang = store.get("bj-lang", null) || ((navigator.language || "pl").toLowerCase().startsWith("pl") ? "pl" : "en");
-let filter = "all";
+let filter = "all", gridOpen = false;
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const cssVar = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 const center = el => { const r = el.getBoundingClientRect(); return [r.left + r.width / 2, r.top + r.height / 2]; };
@@ -405,16 +405,34 @@ const savedTheme = store.get("bj-theme", null);
 if (savedTheme) document.documentElement.dataset.theme = savedTheme;
 
 /* ═══════════════════════════ render ═══════════════════════════ */
-function applyI18n(){
+let i18nGen = 0;
+function applyI18n(deferOffscreen = false){
   const t = T[lang];
+  /* read section positions before any write, so this costs one layout, not a forced one per section */
+  const SECTIONS = [".marquee", "#projects", "#numbers", "#mind", "#trail", "#skills", "#travel", "#run"];
+  const onScreen = new Set(deferOffscreen ? SECTIONS.filter(sel => { const r = $(sel).getBoundingClientRect(); return r.bottom > -300 && r.top < innerHeight + 300; }) : SECTIONS);
   document.documentElement.lang = lang;
   $$("[data-i18n]").forEach(el => { const v = t[el.dataset.i18n]; if (typeof v === "string") el.textContent = v; });
   $("#langBtn").textContent = lang === "pl" ? "EN" : "PL";
   if (typeof splitHeads === "function"){ splitHeads(); renderSpy(); }
   $("#donutLbl").textContent = t.langsCenter;
-  buildMarquee(); renderFilters(); renderGrid(); renderBars(); renderHBars(); renderLegend(); labelBubbles();
-  renderTrail(); renderSkills(); renderCountryChips(); if (mapState) mapState.svg.attr("aria-label", lang === "pl" ? "Mapa odwiedzonych krajów" : "Map of visited countries"); renderMedals(); renderMarathon(); renderUltra(); renderTri();
-  $("#marCallout").textContent = t.marCallout; $("#ultCallout").textContent = t.ultCallout;
+  /* sections on screen re-render now; the rest one per idle slot, so switching language never stalls a frame */
+  const parts = [
+    [".marquee", buildMarquee],
+    ["#projects", () => { renderFilters(); renderGrid(); }],
+    ["#numbers", () => { renderBars(); renderHBars(); renderLegend(); }],
+    ["#mind", labelBubbles],
+    ["#trail", renderTrail],
+    ["#skills", renderSkills],
+    ["#travel", () => { renderCountryChips(); if (mapState) mapState.svg.attr("aria-label", lang === "pl" ? "Mapa odwiedzonych krajów" : "Map of visited countries"); }],
+    ["#run", () => { renderMedals(); renderMarathon(); renderUltra(); renderTri(); $("#marCallout").textContent = t.marCallout; $("#ultCallout").textContent = t.ultCallout; }],
+  ];
+  const later = [];
+  for (const [sel, fn] of parts) (onScreen.has(sel) ? fn() : later.push(fn));
+  const idle = globalThis.requestIdleCallback || (f => setTimeout(f, 30));
+  const gen = ++i18nGen;
+  const next = () => { const fn = later.shift(); if (!fn || gen !== i18nGen) return; fn(); idle(next, { timeout: 400 }); };
+  idle(next, { timeout: 400 });
   setCaption(t.capIdle);
   if ($("#eggs").open) renderEggPanel();
   if (heroStarted){ restartTyper(); showThought(true); }
@@ -466,7 +484,18 @@ function renderGrid(animate){
         <div class="more">${t.details} <i>→</i></div>
       </div></button>`;
   }).join("");
+  /* on phones "All" starts with the first 8 cards; the rest is one tap away, so the page below is reachable */
+  const shown = $("#grid").children.length, folded = filter === "all" && !gridOpen && shown > 8;
+  $("#grid").classList.toggle("folded", folded);
+  $("#gridMore").hidden = !folded;
+  $("#gridMore").innerHTML = `${t.gridMore(shown)} <i>↓</i>`;
 }
+$("#gridMore").addEventListener("click", () => {
+  gridOpen = true; SFX.play("click"); haptic(8);
+  $$("#grid .card").forEach((c, i) => { if (i >= 8){ c.classList.add("enter"); c.style.setProperty("--d", ((i - 8) * 0.05) + "s"); } });
+  $("#grid").classList.remove("folded"); $("#gridMore").hidden = true;
+  $$("#grid .card")[8]?.focus({ preventScroll: true });
+});
 
 /* 3D tilt */
 $("#grid").addEventListener("pointermove", e => {
@@ -710,9 +739,10 @@ function showThought(restart, text){
   const el = $("#thought"), list = T[lang].thoughts;
   clearTimeout(thoughtTimer);
   const swap = () => {
-    el.classList.remove("out"); void el.offsetWidth;
+    /* restart the entry animation on the next frame instead of forcing a layout with offsetWidth */
+    el.classList.remove("out", "in");
     el.textContent = text || list[thoughtIdx % list.length];
-    el.classList.add("in");
+    requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add("in")));
     if (!text) thoughtIdx++;
     thoughtTimer = setTimeout(() => showThought(false), text ? 2600 : 2800);
   };
@@ -733,7 +763,7 @@ function thinkMoment(){
   const words = $$("#scribble .w"), cloud = $("#cloud"), head = $("#head");
   $("#scribble").classList.add("written");
   words.forEach((w, i) => setTimeout(() => {
-    w.classList.remove("hop"); void w.offsetWidth; w.classList.add("hop");
+    replay(w, "hop");
     SFX.play("note", 5 + i * 2); haptic(10);
   }, i * 220));
   setTimeout(() => {
@@ -751,7 +781,7 @@ function thinkMoment(){
 let headTaps = [];
 function tapHead(user){
   const h = $("#head");
-  h.classList.remove("tap"); void h.offsetWidth; h.classList.add("tap");
+  replay(h, "tap");
   if (user){ SFX.play("knock"); haptic(14); }
   const k = document.createElement("span");
   k.className = "knock"; k.textContent = T[lang].knock;
@@ -845,10 +875,19 @@ $("#head").addEventListener("click", () => tapHead(true));
 
 /* ═══════════════════════════ mind playground ═══════════════════════════ */
 const pg = $("#playground");
-let bubbles = [], pgW = 0, pgH = 0, pgVisible = false, pgRaf;
+let bubbles = [], pgW = 0, pgH = 0, pgVisible = false, pgRaf, pgFloor = 0, pgAsleep = false, pgCalm = 0;
+/* the caption's height is read only when it can change, never per frame (a per-frame read forces layout) */
+const measureFloor = () => { pgFloor = pgH - ($("#caption").offsetHeight + 34); };
+/* the loop sleeps once every bubble is at rest; any touch, pointer, tilt or resize wakes it */
+function wakeBubbles(){
+  if (!pgVisible || !pgAsleep) return;
+  pgAsleep = false; pgCalm = 0; pg.classList.remove("rest");
+  cancelAnimationFrame(pgRaf); pgRaf = requestAnimationFrame(stepBubbles);
+}
 function setCaption(html, flash){
   $("#captionTxt").innerHTML = html;
-  if (flash){ const c = $("#caption"); c.classList.remove("flash"); void c.offsetWidth; c.classList.add("flash"); }
+  if (flash){ const c = $("#caption"); replay(c, "flash"); }
+  if (pgVisible) requestAnimationFrame(() => { measureFloor(); wakeBubbles(); });
 }
 function labelBubbles(){
   bubbles.forEach(b => { b.el.querySelector(".bl").textContent = b.d[lang][0]; });
@@ -870,6 +909,7 @@ function buildBubbles(){
     return b;
   });
   labelBubbles();
+  measureFloor();
   placeBubbles();
 }
 function placeBubbles(){ for (const b of bubbles) b.el.style.transform = `translate(${b.x - b.r}px,${b.y - b.r}px)`; }
@@ -910,18 +950,21 @@ function stepBubbles(){
       }
     }
   }
-  const floor = pgH - ($("#caption").offsetHeight + 34);
+  let fastest = 0, held = false;
   for (const b of bubbles){
     b.x = Math.max(b.r + 8, Math.min(pgW - b.r - 8, b.x));
-    b.y = Math.max(b.r + 8, Math.min((b.drag ? pgH - 8 : floor) - b.r, b.y));
+    b.y = Math.max(b.r + 8, Math.min((b.drag ? pgH - 8 : pgFloor) - b.r, b.y));
+    if (b.drag) held = true; else if (!b.gone) fastest = Math.max(fastest, Math.abs(b.vx) + Math.abs(b.vy));
   }
   placeBubbles();
+  pgCalm = !held && !pgPointer.on && !tilt.on && fastest < .25 ? pgCalm + 1 : 0;
+  if (pgCalm > 90){ pgAsleep = true; pg.classList.add("rest"); return; }
   if (pgVisible) pgRaf = requestAnimationFrame(stepBubbles);
 }
 function bindBubble(b){
   let sx, sy, lx, ly, lt, moved;
   b.el.addEventListener("pointerdown", e => {
-    e.preventDefault();
+    e.preventDefault(); wakeBubbles();
     b.el.setPointerCapture(e.pointerId);
     b.drag = true; moved = 0; b.el.classList.add("drag"); haptic(6);
     const r = pg.getBoundingClientRect();
@@ -965,7 +1008,7 @@ function clickBubble(b){
     burst(x, y, ["🍿"], { count: 2 + Math.min(popcornClicks, 6), spread: 60, speed: [5, 10], size: [14, 22] });
     if (popcornClicks >= 10){
       popcornClicks = 0;
-      burst(x, y, ["🍿","🍿","🎬","⭐"], { count: 50, speed: [8, 20] });
+      burst(x, y, ["🍿","🍿","🎬","⭐"], { count: 36, speed: [8, 20] });
       toast("🍿", T[lang].popcorn, "🎬", 3000);
       unlock("popcorn");
     }
@@ -981,15 +1024,15 @@ function popBubble(b){
   burst(x, y, ["💧","✨","🫧"], { count: 14, speed: [4, 10], gravity: .15, size: [12, 20] });
   setCaption(T[lang].popped, true);
   unlock("pop");
-  setTimeout(() => { b.x = pgW / 2; b.y = b.r + 20; b.vx = (Math.random() - .5) * 4; b.vy = 2; b.gone = false; b.el.classList.remove("gone"); }, 1600);
+  setTimeout(() => { b.x = pgW / 2; b.y = b.r + 20; b.vx = (Math.random() - .5) * 4; b.vy = 2; b.gone = false; b.el.classList.remove("gone"); wakeBubbles(); }, 1600);
 }
 new IntersectionObserver(([en]) => {
   pgVisible = en.isIntersecting && !reduced;
   pg.classList.toggle("live", en.isIntersecting);
-  if (pgVisible){ cancelAnimationFrame(pgRaf); pgRaf = requestAnimationFrame(stepBubbles); }
+  if (pgVisible){ pgAsleep = false; pgCalm = 0; pg.classList.remove("rest"); measureFloor(); cancelAnimationFrame(pgRaf); pgRaf = requestAnimationFrame(stepBubbles); }
 }).observe(pg);
 let pgResize;
-addEventListener("resize", () => { clearTimeout(pgResize); pgResize = setTimeout(() => { if (Math.abs(pg.clientWidth - pgW) > 40) buildBubbles(); else { pgW = pg.clientWidth; pgH = pg.clientHeight; } }, 200); });
+addEventListener("resize", () => { clearTimeout(pgResize); pgResize = setTimeout(() => { if (Math.abs(pg.clientWidth - pgW) > 40) buildBubbles(); else { pgW = pg.clientWidth; pgH = pg.clientHeight; measureFloor(); } wakeBubbles(); }, 200); });
 
 
 /* ═══════════════════════════ travel map ═══════════════════════════ */
@@ -1256,7 +1299,7 @@ function showCard(key){
   card.querySelector("b").textContent = tName(c);
   card.querySelector("small").textContent = [tNote(c), cont && cont[3][lang]].filter(Boolean).join(" · ");
   card.querySelector(".mci").textContent = `${cardIdx + 1}/${ALL_PLACES.length}`;
-  card.classList.remove("on"); void card.offsetWidth; card.classList.add("on");
+  replay(card, "on");
 }
 function hideCard(){ $("#mapCard").classList.remove("on"); cardIdx = -1; }
 $("#mapCard").addEventListener("click", e => {
@@ -1483,12 +1526,13 @@ const pgPointer = { on: false, x: 0, y: 0 };
 const tilt = { on: false, x: 0, y: 0 };
 pg.addEventListener("pointermove", e => { if (e.pointerType !== "mouse") return; const r = pg.getBoundingClientRect(); pgPointer.x = e.clientX - r.left; pgPointer.y = e.clientY - r.top; pgPointer.on = !bubbles.some(b => b.drag); });
 pg.addEventListener("pointerleave", () => pgPointer.on = false);
+pg.addEventListener("pointermove", wakeBubbles, { passive: true });
 const tiltBtn = $("#tiltBtn");
 if (matchMedia("(pointer:coarse)").matches && "DeviceOrientationEvent" in window) tiltBtn.hidden = false;
 tiltBtn.addEventListener("click", async () => {
   if (tilt.on){ tilt.on = false; tiltBtn.classList.remove("on"); return; }
   try { if (typeof DeviceOrientationEvent.requestPermission === "function" && (await DeviceOrientationEvent.requestPermission()) !== "granted") return; } catch(e){ return; }
-  tilt.on = true; tiltBtn.classList.add("on");
+  tilt.on = true; tiltBtn.classList.add("on"); wakeBubbles();
   setCaption(T[lang].tiltOn, true);
 });
 addEventListener("deviceorientation", e => {
@@ -1557,6 +1601,7 @@ $("#toolbox").addEventListener("click", e => {
   hideSkillPop();
   const names = new Set(list.map(p => p.name));
   if (filter !== "all"){ $('#filters button[data-cat="all"]').click(); }
+  if ($("#grid").classList.contains("folded")) $("#gridMore").click();
   smoothTo($("#grid"), -110);
   setTimeout(() => $$("#grid .card").forEach((card, i) => {
     const hit = names.has(card.dataset.name);
@@ -1604,7 +1649,7 @@ document.addEventListener("click", e => {
   const cols = $$("#bars .bar-col"), i = cols.indexOf(col);
   const h = +col.querySelector(".b").dataset.h, max = Math.max(...cols.map(c => +c.querySelector(".b").dataset.h));
   SFX.play("note", Math.round(h / max * 11) + 1, (i / (cols.length - 1)) * 1.4 - .7); haptic(6);
-  const b = col.querySelector(".b"); b.classList.remove("ring"); void b.offsetWidth; b.classList.add("ring");
+  const b = col.querySelector(".b"); replay(b, "ring");
   const r = b.getBoundingClientRect(); burst(r.left + r.width / 2, r.top, ["♪", "♫"], { count: 2, spread: 50, speed: [3, 6], gravity: -.02, life: 1100, size: [16, 22] });
   playedBars.add(i);
   if (playedBars.size >= 7 && unlock("xylo")) banner(T[lang].eXylo, 2200);
@@ -1615,7 +1660,7 @@ const litKickers = new Set();
 $$(".kicker").forEach(k => {
   k.setAttribute("role", "button"); k.tabIndex = 0;
   k.addEventListener("click", () => {
-    k.classList.remove("zap"); void k.offsetWidth; k.classList.add("zap", "lit");
+    replay(k, "zap"); k.classList.add("lit");
     litKickers.add(k.textContent.trim());
     SFX.play("note", litKickers.size + 2); haptic(8);
     if (litKickers.size === $$(".kicker").length) launch();
@@ -1706,7 +1751,7 @@ $("#medals").addEventListener("pointerdown", e => {
   let beats = 0, iv = null;
   const hold = setTimeout(() => {
     m.classList.add("pulse");
-    const beat = () => { SFX.play("beat"); haptic([20, 160, 14]); m.classList.remove("thump"); void m.offsetWidth; m.classList.add("thump"); if (++beats === 4 && unlock("heart")) banner(T[lang].eHeart, 2600); };
+    const beat = () => { SFX.play("beat"); haptic([20, 160, 14]); replay(m, "thump"); if (++beats === 4 && unlock("heart")) banner(T[lang].eHeart, 2600); };
     beat(); iv = setInterval(beat, 400);
   }, 550);
   const stop = () => { clearTimeout(hold); clearInterval(iv); m.classList.remove("pulse", "thump"); removeEventListener("pointerup", stop); removeEventListener("pointercancel", stop); };
@@ -1737,7 +1782,7 @@ function newton(){
     SFX.play("apple"); haptic([10, 400, 30]);
     const r = pg.getBoundingClientRect();
     for (let i = 0; i < 6; i++) setTimeout(() => burst(r.left + Math.random() * r.width, r.top + 10, ["🍎"], { count: 1, angle: 90, spread: 20, speed: [1, 3], gravity: .5, life: 1600, size: [26, 34] }), i * 120);
-    tilt.on = true; tilt.x = 0; tilt.y = 1.2;
+    tilt.on = true; tilt.x = 0; tilt.y = 1.2; wakeBubbles();
     banner(T[lang].eNewton, 2200);
     setTimeout(() => { tilt.on = $("#tiltBtn").classList.contains("on"); tilt.y = 0; }, 6000);
     unlock("newton");
@@ -1838,7 +1883,7 @@ function triathlon(){
 }
 
 $("#dragon").addEventListener("click", e => {
-  const d = e.currentTarget; d.classList.remove("roar"); void d.offsetWidth; d.classList.add("roar");
+  const d = e.currentTarget; replay(d, "roar");
   const [x, y] = center(d);
   burst(x + 14, y - 6, ["🔥","🔥","💥","🔥"], { count: 22, angle: -45, spread: 40, speed: [8, 16], gravity: -.05, life: 1000 });
   unlock("dragon");
@@ -1846,7 +1891,7 @@ $("#dragon").addEventListener("click", e => {
 
 document.addEventListener("click", e => {
   const a = e.target.closest("#pickaxe"); if (!a) return;
-  a.classList.remove("dig"); void a.offsetWidth; a.classList.add("dig");
+  replay(a, "dig");
   const [x, y] = center(a);
   setTimeout(() => burst(x, y, ["🪨","💎","🪨","✨","⚫"], { count: 18, speed: [5, 11] }), 300);
   setTimeout(() => banner(T[lang].agh, 3000), 400);
@@ -1998,7 +2043,7 @@ $("#langBtn").addEventListener("click", () => {
   const app = $("#app");
   app.classList.add("lang-out");
   setTimeout(() => {
-    lang = lang === "pl" ? "en" : "pl"; store.set("bj-lang", lang); applyI18n();
+    lang = lang === "pl" ? "en" : "pl"; store.set("bj-lang", lang); applyI18n(true);
     requestAnimationFrame(() => { app.classList.remove("lang-out"); setTimeout(() => langBusy = false, 260); });
   }, 170);
 });

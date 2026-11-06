@@ -1,3 +1,8 @@
+/* restart a CSS animation on the next frame: no forced layout, unlike the classic "void el.offsetWidth" */
+function replay(el, cls){
+  el.classList.remove(cls);
+  requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add(cls)));
+}
 /* Easter eggs: shared by index.html and 404.html.
    Jeśli to czytasz, to i tak się liczy. Prawie. */
 
@@ -157,7 +162,7 @@ function partLoop(t){
     if (k >= 1){ p.el.remove(); PARTS.splice(i, 1); continue; }
     if (k < 0) continue;
     p.vy += p.g; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr;
-    p.el.style.transform = `translate3d(${p.x}px,${p.y}px,0) rotate(${p.r}deg)`;
+    p.el.style.transform = `translate3d(${p.x}px,${p.y}px,0) rotate(${p.r}deg) scale(${p.s})`;
     p.el.style.opacity = 1 - k * k;
   }
   partRaf = PARTS.length ? requestAnimationFrame(partLoop) : 0;
@@ -172,11 +177,12 @@ function burst(x, y, emojis, { count = 24, spread = 360, angle = -90, speed = [6
     const el = document.createElement("span");
     el.className = "particle";
     el.textContent = emojis[i % emojis.length];
-    el.style.fontSize = (size[0] + Math.random() * (size[1] - size[0])) + "px";
-    el.style.transform = `translate3d(${x}px,${y}px,0)`;
+    /* one font size for every particle (each glyph rasterises once); the size spread comes from scale() on the compositor */
+    const s = (size[0] + Math.random() * (size[1] - size[0])) / 30;
+    el.style.transform = `translate3d(${x}px,${y}px,0) scale(${s})`;
     frag.appendChild(el);
     const a = (angle + (Math.random() - .5) * spread) * Math.PI / 180, v = speed[0] + Math.random() * (speed[1] - speed[0]);
-    PARTS.push({ el, x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, g: gravity, r: 0, vr: (Math.random() - .5) * 20, t0: now, life });
+    PARTS.push({ el, x, y, s, vx: Math.cos(a) * v, vy: Math.sin(a) * v, g: gravity, r: 0, vr: (Math.random() - .5) * 20, t0: now, life });
   }
   document.body.appendChild(frag);
   if (!partRaf) partRaf = requestAnimationFrame(partLoop);
@@ -208,7 +214,7 @@ function unlock(id){
 function updateEggCount(bump){
   const c = document.getElementById("eggCount"); if (!c) return;
   c.textContent = found.size;
-  if (bump){ const b = document.getElementById("trophyBtn"); b.classList.remove("bump"); void b.offsetWidth; b.classList.add("bump"); }
+  if (bump){ const b = document.getElementById("trophyBtn"); replay(b, "bump"); }
 }
 
 function renderEggPanel(){
