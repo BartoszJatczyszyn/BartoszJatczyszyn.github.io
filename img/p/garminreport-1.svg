@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" font-family="Inter, Helvetica, Arial, sans-serif">
+  <rect width="1200" height="620" fill="#0f1416"/>
+  <defs>
+    <pattern id="d" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" opacity=".07"/></pattern>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#ffd43b"/></marker>
+  </defs>
+  <rect width="1200" height="620" fill="url(#d)"/>
+  <text x="60" y="70" fill="#ffd43b" font-size="30" font-weight="700">Jedna komenda, jeden raport dla AI</text>
+  <text x="60" y="102" fill="#9fb0b5" font-size="17">Ilustracja: komenda i spis treści raportu, bez danych z zegarka</text>
+
+  <!-- terminal -->
+  <g transform="translate(60,140)">
+    <rect width="470" height="420" rx="20" fill="#0a0d0e" stroke="#26363a"/>
+    <circle cx="28" cy="26" r="6" fill="#ff5f57"/><circle cx="48" cy="26" r="6" fill="#febc2e"/><circle cx="68" cy="26" r="6" fill="#28c840"/>
+    <g font-family="JetBrains Mono, Menlo, monospace" font-size="16">
+      <text x="28" y="84" fill="#7ee0a8">$</text>
+      <text x="48" y="84" fill="#e8eef0">python generate_reports.py</text>
+      <text x="48" y="110" fill="#e8eef0">  --od 2025-04-14 --do 2025-05-25</text>
+      <text x="28" y="160" fill="#9fb0b5">↳ Garmin Connect: trening, sen, HRV</text>
+      <text x="28" y="188" fill="#9fb0b5">↳ liczy: ACWR, monotonia, dług snu</text>
+      <text x="28" y="216" fill="#9fb0b5">↳ trendy, z-score, korelacje</text>
+      <text x="28" y="268" fill="#7ee0a8">✓ raport_2025-05-25.md</text>
+      <text x="28" y="296" fill="#e8eef0">  2147 linii, gotowy do wklejenia</text>
+      <text x="28" y="350" fill="#ffd43b">→ wklej do dowolnego modelu AI</text>
+    </g>
+  </g>
+
+  <path d="M548 350 H610" stroke="#ffd43b" stroke-width="3" stroke-dasharray="8 8" fill="none" marker-end="url(#a)"/>
+
+  <!-- report outline -->
+  <g transform="translate(630,140)">
+    <rect width="510" height="420" rx="20" fill="#f7f3e6"/>
+    <rect x="0" y="0" width="510" height="56" rx="20" fill="#ffd43b"/><rect x="0" y="36" width="510" height="20" fill="#ffd43b"/>
+    <text x="26" y="36" fill="#1d1c1a" font-size="19" font-weight="700">🏅 Raport Garmin · 6 tygodni</text>
+    <g font-size="17" fill="#1d1c1a">
+      <text x="26" y="96">🧭  0. Jak czytać ten raport (dla AI)</text>
+      <text x="26" y="136">⭐  1. Podsumowanie (TL;DR)</text>
+      <text x="26" y="176">🚨  Zagrożenia i wąskie gardła</text>
+      <text x="26" y="216">🔋  2. Obciążenie i forma</text>
+      <text x="26" y="256">🚀  3. Wydolność i prognozy</text>
+      <text x="26" y="296">📊  4. Progresja z 90 dni</text>
+      <text x="26" y="336">📈  5. Regeneracja i trendy</text>
+      <text x="26" y="376">📐  5b. Analiza ilościowa</text>
+    </g>
+    <g fill="#d8cfb4"><rect x="420" y="84" width="64" height="14" rx="7"/><rect x="420" y="124" width="48" height="14" rx="7"/><rect x="420" y="164" width="56" height="14" rx="7"/><rect x="420" y="204" width="70" height="14" rx="7"/><rect x="420" y="244" width="40" height="14" rx="7"/><rect x="420" y="284" width="60" height="14" rx="7"/><rect x="420" y="324" width="66" height="14" rx="7"/><rect x="420" y="364" width="52" height="14" rx="7"/></g>
+  </g>
+</svg>

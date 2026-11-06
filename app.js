@@ -169,7 +169,7 @@ const PROJECTS = [
     en:P("Everyday support for students' emotional wellbeing.","Nivalit · EdTech",
       "Students reflect briefly on their emotions every day, so the school team sees sooner who needs support.",
       ["A short daily reflection on emotions","Quick insight for teachers, psychologists and counsellors","Data security and GDPR compliance"]) },
-  { name:"Comarch Loyalty Management", icon:"⛽", c:"#ff8a3d", cat:"work", org:"Comarch", team:5,
+  { name:"Comarch Loyalty Management", cover:"clm-1-cover|w", icon:"⛽", c:"#ff8a3d", cat:"work", org:"Comarch", team:5,
     tags:["Java","Spring Boot","Hibernate","Oracle","PostgreSQL","Kubernetes"],
     pl:P("System lojalnościowy dla BP i SASOL. Głównie backend.","Comarch · 2022–2024",
       "Program lojalnościowy, z którego korzystają klienci stacji BP i SASOL w sześciu krajach. Rozwój i utrzymanie backendu.",
@@ -250,7 +250,7 @@ const PROJECTS = [
     en:P("A date invite in 4 taps, answered in one.","PWA",
       "An invite for one specific person. Every couple is its own sealed world.",
       ["The first invite needs no account", "Details only after a “yes”", "A runaway “no” with an honest way out", "Cards you open by playing"]) },
-  { name:"GarminReport", icon:"⌚", c:"#22b8e6", cat:"own", repo:"https://github.com/BartoszJatczyszyn/GarminReport",
+  { name:"GarminReport", cover:"garminreport-1-cover|w", icon:"⌚", c:"#22b8e6", cat:"own", repo:"https://github.com/BartoszJatczyszyn/GarminReport",
     tags:["Python","CLI","Markdown"],
     pl:P("Dane z Garmina w jednym raporcie gotowym dla AI.","CLI · open source",
       "Wyciąga dane treningowe, sen i HRV, liczy metryki, których Garmin nie liczy, i składa jeden raport Markdown.",
@@ -419,7 +419,7 @@ function applyI18n(deferOffscreen = false){
   /* sections on screen re-render now; the rest one per idle slot, so switching language never stalls a frame */
   const parts = [
     [".marquee", buildMarquee],
-    ["#projects", () => { renderFilters(); renderGrid(); }],
+    ["#projects", () => { renderFilters(); deferOffscreen ? relabelGrid() : renderGrid(); }],
     ["#numbers", () => { renderBars(); renderHBars(); renderLegend(); }],
     ["#mind", labelBubbles],
     ["#trail", renderTrail],
@@ -475,7 +475,7 @@ function renderGrid(animate){
     const c = p[lang];
     return `<button class="card${animate ? " enter" : ""}" data-name="${esc(p.name)}" style="--c:${p.c};--d:${i*0.05}s">
       <span class="tape" aria-hidden="true"></span>
-      <div class="cover${p.cover ? " has-shot" : ""}">${p.cover ? `<img class="peek${p.cover.endsWith("|w") ? " wide" : ""}" src="img/p/${p.cover.split("|")[0]}.webp" alt="" loading="lazy" decoding="async">` : ""}<span class="emo">${p.icon}</span><span class="kind-badge">${t[p.cat]}</span>${p.app ? `<span class="lock live">● live</span>` : p.repo || p.url || p.cat !== "own" ? "" : `<span class="lock">🔒 ${t.priv}</span>`}</div>
+      <div class="cover${p.cover ? " has-shot" : ""}">${p.cover ? `<img class="peek${p.cover.endsWith("|w") ? " wide" : ""}" src="img/p/${p.cover.split("|")[0].includes(".") ? p.cover.split("|")[0] : p.cover.split("|")[0] + ".webp"}" alt="" loading="lazy" decoding="async">` : ""}<span class="emo">${p.icon}</span><span class="kind-badge">${t[p.cat]}</span>${p.app ? `<span class="lock live">● live</span>` : p.repo || p.url || p.cat !== "own" ? "" : `<span class="lock">🔒 ${t.priv}</span>`}</div>
       <div class="card-body">
         <div class="meta"><span>${esc(c.kind)}</span>${p.team ? `<span>👥 ${p.team === 1 ? t.solo : p.team}</span>` : ""}</div>
         <h3>${esc(p.name)}</h3>
@@ -489,6 +489,19 @@ function renderGrid(animate){
   $("#grid").classList.toggle("folded", folded);
   $("#gridMore").hidden = !folded;
   $("#gridMore").innerHTML = `${t.gridMore(shown)} <i>↓</i>`;
+}
+/* language switch: same cards, new words; the cover images stay decoded instead of being rebuilt */
+function relabelGrid(){
+  const t = T[lang];
+  $$("#grid .card").forEach(card => {
+    const p = PROJECTS.find(x => x.name === card.dataset.name), c = p[lang];
+    card.querySelector(".kind-badge").textContent = t[p.cat];
+    const lock = card.querySelector(".lock:not(.live)"); if (lock) lock.textContent = "🔒 " + t.priv;
+    card.querySelector(".meta").innerHTML = `<span>${esc(c.kind)}</span>${p.team ? `<span>👥 ${p.team === 1 ? t.solo : p.team}</span>` : ""}`;
+    card.querySelector(".one").textContent = c.one;
+    card.querySelector(".more").innerHTML = `${t.details} <i>→</i>`;
+  });
+  $("#gridMore").innerHTML = `${t.gridMore($("#grid").children.length)} <i>↓</i>`;
 }
 $("#gridMore").addEventListener("click", () => {
   gridOpen = true; SFX.play("click"); haptic(8);
@@ -1409,7 +1422,8 @@ const CASE = {
   randkomat:{ nums:[N(4,"","tapnięcia, by zaprosić","taps to invite"),N(1,"","by odpowiedzieć","to answer"),N(14,"","sposobów otwarcia karteczki","ways to open a card"),N(3,"","zależności w produkcji","production dependencies")],
     shots:[S("randkomat-1","phone","Kim jesteś: nick, nastrój, kolor","Who you are: nick, mood, colour"),S("randkomat-2","phone","Kogo porywamy: dla kogo, kiedy, gdzie","Who we're stealing: for whom, when, where"),S("randkomat-3","phone","Tak to zobaczy druga osoba","What the other person sees"),S("randkomat-4","phone","Trzecie „nie” i ostatnia szansa","The third “no” and a last chance"),S("randkomat-5","phone","Po „tak”: szczegóły i termin","After “yes”: details and time"),S("randkomat-6","phone","Karteczka na zwykły dzień albo okazję","A card for any day or occasion"),S("randkomat-7","phone","Urodzinowa: zdmuchnij świeczki palcem","Birthday: blow out the candles"),S("randkomat-8","phone","Tęsknię: dojedź łyżwami do flagi","Miss you: skate to the flag")],
     flow:[F("🥚","Nick, nastrój, kolor","Nick, mood, colour"),F("💌","Zaproszenie w 4 tapnięcia","An invite in 4 taps"),F("🔗","Link dla jednej osoby","A link for one person"),F("👉","Przesuń w prawo, jeśli tak","Swipe right for yes"),F("🎉","Odsłona szczegółów","Details revealed")] },
-  garminreport:{ nums:[N(1,"","komenda","command"),N(1,"","raport Markdown dla AI","Markdown report for AI"),N(25,"","commitów","commits")],
+  garminreport:{ shots:[S("garminreport-1.svg","art","Ilustracja: od komendy do raportu dla AI","Illustration: from one command to a report for AI")],
+    nums:[N(1,"","komenda","command"),N(2147,"","linii w jednym raporcie","lines in one report"),N(8,"","rozdziałów, od instrukcji dla AI po korelacje","sections, from AI instructions to correlations"),N(25,"","commitów","commits")],
     flow:[F("⌚","Garmin Connect","Garmin Connect"),F("🧮","ACWR, HRV, dług snu","ACWR, HRV, sleep debt"),F("📝","Raport Markdown","Markdown report"),F("🤖","Analiza z AI","AI analysis")] },
   firerisk:{ shots:[S("firerisk-1","fig","Zdjęcie, prawdziwa maska i predykcja sieci","Image, ground truth and the prediction"),S("firerisk-2","fig","IoU rośnie do 0,70 w 25 epokach","IoU climbs to 0.70 in 25 epochs"),S("firerisk-3","fig","Macierz pomyłek dla 5 klas","Confusion matrix for 5 classes"),S("firerisk-4","fig","Zdjęcie lotnicze i jego maska","An aerial image and its mask"),S("firerisk-5","fig","Kafel 256×256 i maska do treningu","A 256×256 tile and its training mask")],
     nums:[N("0.70","","IoU na walidacji","validation IoU"),N(5,"","klas terenu","land classes"),N(256,"px","kafelki","tiles"),N(25,"","epok treningu","training epochs")],
