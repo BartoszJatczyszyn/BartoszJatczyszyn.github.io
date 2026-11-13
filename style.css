@@ -316,8 +316,8 @@ dialog.closing{animation:dlgOut .25s var(--ease) forwards}
 .hb .t{height:16px;border-radius:99px;border:1.5px solid var(--line);overflow:hidden}
 .hb .f{height:100%;width:0;border-radius:99px;background:repeating-linear-gradient(-45deg,var(--hl) 0 5px,#f5b60b 5px 9px);transition:width 1.3s var(--ease);transition-delay:var(--d)}
 .hb b{font:700 21px var(--hand);text-align:right;color:var(--ink)}
-.hb span{display:flex;gap:6px;align-items:center}
-@media (max-width:520px){.hb{grid-template-columns:104px 1fr 40px;font-size:13px}}
+.hb span{display:flex;gap:6px;align-items:center;white-space:nowrap;min-width:0}
+@media (max-width:520px){.hb{grid-template-columns:118px minmax(0,1fr) 40px;gap:10px;font-size:13px}}
 
 /* ═══════════════ mind playground ═══════════════ */
 .playground{position:relative;height:540px;border-radius:28px;background:radial-gradient(circle at 50% 50%,var(--ink-soft),transparent 65%),var(--surface);overflow:hidden;user-select:none;-webkit-user-select:none}
@@ -564,7 +564,8 @@ footer{margin-top:60px;position:relative}
 .extras{display:grid;grid-template-columns:1fr 2fr;gap:18px;margin-top:4px}
 @media (max-width:760px){.extras{grid-template-columns:1fr}}
 .spoken{display:grid;gap:14px}
-.spoken div{display:grid;grid-template-columns:80px 1fr 40px;align-items:center;gap:10px;font-size:14px}
+.spoken .sp-n{white-space:nowrap}
+.spoken div{display:grid;grid-template-columns:100px minmax(0,1fr) auto;align-items:center;gap:10px;font-size:14px}
 .spoken .t{height:12px;border-radius:99px;border:1.5px solid var(--line);overflow:hidden}
 .spoken .f{height:100%;width:0;background:repeating-linear-gradient(-45deg,var(--hl) 0 5px,#f5b60b 5px 9px);transition:width 1.4s var(--ease)}
 .panel.in .spoken .f{width:var(--w)}
@@ -1507,3 +1508,7 @@ button,.card,.chip,.cchip,.cont,.kicker,.bubble{-webkit-user-select:none;user-se
   .st-head,.st-dot{animation:none}
   .st-dot{opacity:.8;transform:none}
 }
+/* the commit chart grows to the height of the donut panel next to it instead of leaving a blank strip */
+#commitPanel{display:flex;flex-direction:column}
+#commitPanel .bars{flex:1 1 auto;height:auto;min-height:250px}
+@media (max-width:520px){#commitPanel .bars{min-height:220px}}

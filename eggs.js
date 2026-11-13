@@ -127,6 +127,8 @@ const haptic = (() => {
   let lbl = null, last = 0;
   return (pattern = 8) => {
     if (!SFX.on) return;
+    /* the browser refuses vibration before the first tap and logs an error, so wait for a real gesture */
+    if (navigator.userActivation && !navigator.userActivation.hasBeenActive) return;
     const now = performance.now(); if (now - last < 40) return; last = now;
     if (navigator.vibrate){ try { navigator.vibrate(pattern); } catch(e){} return; }
     if (!matchMedia("(pointer:coarse)").matches) return;

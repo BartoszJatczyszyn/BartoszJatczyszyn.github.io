@@ -105,7 +105,7 @@ Object.assign(T.pl, {
   runLead:"Najlepsze pomysły przychodzą po trzydziestym kilometrze. Prawdziwe wyniki, prawdziwe wykresy.",
   marChartTitle:"Maraton: druga połowa to wyprzedzanie", marCallout:"+809 miejsc między 5. a 40. km",
   marChartNote:"Linia: miejsce w klasyfikacji na punktach pomiarowych (wyżej = lepiej). Słupki: tempo na odcinkach.",
-  ultChartTitle:"Ultra: 19,5 godziny w górach", ultCallout:"100 km · 100. mężczyzna na mecie 💯",
+  ultChartTitle:"Ultra: 19,5 godziny w górach", ultCallout:"100 km · 100. mężczyzna na\u00a0mecie\u00a0💯",
   ultChartNote:"Linia: czas na punktach kontrolnych. Słupki: średnia prędkość na odcinkach (km/h).",
   triChartTitle:"Triathlon: 29. z 44 w kategorii", triChartNote:"Iron Dragon 2024, dystans Standard · 2:57:24 · 126. miejsce w open.",
   distTitle:"Maraton kontra ultra: czas na trasie", distNote:"Ultra trwało prawie 5 razy dłużej niż maraton.",
@@ -135,7 +135,7 @@ Object.assign(T.en, {
   runLead:"The best ideas show up after kilometre thirty. Real results, real charts.",
   marChartTitle:"Marathon: the second half is overtaking", marCallout:"+809 places between km 5 and 40",
   marChartNote:"Line: overall position at timing points (higher = better). Bars: pace per segment.",
-  ultChartTitle:"Ultra: 19.5 hours in the mountains", ultCallout:"100 km · 100th man at the finish 💯",
+  ultChartTitle:"Ultra: 19.5 hours in the mountains", ultCallout:"100 km · 100th man at the\u00a0finish\u00a0💯",
   ultChartNote:"Line: time at checkpoints. Bars: average speed per segment (km/h).",
   triChartTitle:"Triathlon: 29th of 44 in category", triChartNote:"Iron Dragon 2024, Standard distance · 2:57:24 · 126th overall.",
   distTitle:"Marathon vs ultra: time on course", distNote:"The ultra took almost 5 times as long as the marathon.",
@@ -154,7 +154,7 @@ const P = (one, kind, desc, pts) => ({ one, kind, desc, pts });
 const PROJECTS = [
   /* ── work ── */
   { name:"Mentalio", cover:"mentalio-app-5", icon:"🧠", c:"#7f8cff", cat:"work", url:"https://www.mentalio.eu/", org:"Nivalit",
-    tags:["AI","MedTech","Web"],
+    tags:["Kotlin","Spring Boot","React","TypeScript","PostgreSQL","RabbitMQ"],
     pl:P("AI wspierające specjalistów w diagnozie i terapii młodzieży.","Nivalit · MedTech",
       "Narzędzie, które pomaga specjalistom zdrowia psychicznego szybciej i dokładniej diagnozować problemy u młodzieży i dobierać ścieżki terapii. Obecnie w badaniach klinicznych.",
       ["Algorytmy AI analizują dane i sugerują spersonalizowane ścieżki terapii","Badane jest nie tylko dziecko, ale i jego otoczenie","Rozwijane w firmie z certyfikatem ISO 13485"]),
@@ -162,7 +162,7 @@ const PROJECTS = [
       "A tool that helps mental health specialists diagnose problems in young people faster and more accurately and choose therapy paths. Currently in clinical trials.",
       ["AI algorithms analyse data and suggest personalised therapy paths","It looks at the child and their environment","Built at an ISO 13485-certified company"]) },
   { name:"Scholario", cover:"scholario-app-1", icon:"🏫", c:"#34d399", cat:"work", url:"https://scholario.eu/", org:"Nivalit",
-    tags:["Mobile","Web","RODO"],
+    tags:["Kotlin","Spring Boot","React Native","Expo","React","PostgreSQL"],
     pl:P("Codzienne wsparcie dobrostanu emocjonalnego uczniów.","Nivalit · EdTech",
       "Uczeń codziennie krótko zastanawia się nad swoimi emocjami, a szkolny zespół szybciej widzi, komu potrzeba wsparcia.",
       ["Krótka, codzienna refleksja ucznia nad emocjami","Szybka informacja dla nauczycieli, psychologów i pedagogów","Bezpieczeństwo danych i zgodność z RODO"]),
@@ -575,7 +575,7 @@ function renderSkills(){
     `<div class="tool-group sketch reveal"><h4><span>${g.e}</span>${esc(g[lang])}</h4><div class="chips">${g.s.map(([n, pro]) => `<span class="chip${pro ? " pro" : ""}">${esc(nm(n))}</span>`).join("")}</div></div>`).join("");
   $("#toolbox").classList.toggle("pro-only", skillMode === "pro");
   $$("#toolbox .reveal").forEach(observe);
-  $("#spoken").innerHTML = SPOKEN.map(([f, n, lvl, w]) => `<div><span>${f} ${n[lang]}</span><span class="t"><span class="f" style="--w:${w};display:block"></span></span><b>${lvl[lang]}</b></div>`).join("");
+  $("#spoken").innerHTML = SPOKEN.map(([f, n, lvl, w]) => `<div><span class="sp-n">${f}\u00a0${n[lang]}</span><span class="t"><span class="f" style="--w:${w};display:block"></span></span><b>${lvl[lang]}</b></div>`).join("");
   $("#certs").innerHTML = CERTS.map(([e, n, by]) => `<li><span class="seal">${e}</span><span>${esc(n[lang])}<small>${esc(by)}</small></span></li>`).join("");
 }
 $("#skillToggle").addEventListener("click", e => {
@@ -612,13 +612,18 @@ function renderMedals(){
 }
 
 /* hand-drawn race charts in SVG */
-const CW = 520, CH = 240, PADL = 34, PADR = 14;
+/* the chart's coordinate width follows its real width (300–520), so labels stay a readable size on a phone instead of shrinking with the viewBox */
+let CW = 520; const CH = 240, PADL = 34, PADR = 14;
 const xOf = (km, max) => PADL + km / max * (CW - PADL - PADR);
+const chartW = svg => { const w = Math.round(svg.parentElement.clientWidth || 520); CW = Math.max(300, Math.min(520, w)); svg.setAttribute("viewBox", `0 0 ${CW} 250`); };
+let raceW = 0;
+addEventListener("resize", () => { const w = $("#marChart").parentElement.clientWidth; if (Math.abs(w - raceW) > 40){ raceW = w; renderMarathon(); renderUltra(); } }, { passive: true });
 function renderMarathon(){
+  chartW($("#marChart")); raceW = $("#marChart").parentElement.clientWidth;
   const sp = MARATHON.splits, pl = MARATHON.places, max = 42.195;
   const yP = v => 18 + (v - 1700) / (2650 - 1700) * 120;
   let g = `<line class="ax" x1="${PADL}" y1="226" x2="${CW - PADR}" y2="226"/>`;
-  [5,10,15,20,25,30,35,40].forEach(k => g += `<line class="grid" x1="${xOf(k,max)}" y1="10" x2="${xOf(k,max)}" y2="226"/><text class="lbl" x="${xOf(k,max)}" y="240" text-anchor="middle">${k}</text>`);
+  [5,10,15,20,25,30,35,40].filter(k => CW > 380 || k % 10 === 0).forEach(k => g += `<line class="grid" x1="${xOf(k,max)}" y1="10" x2="${xOf(k,max)}" y2="226"/><text class="lbl" x="${xOf(k,max)}" y="240" text-anchor="middle">${k}</text>`);
   for (let i = 1; i < sp.length; i++){
     const d = sp[i][0] - sp[i-1][0], pace = (toSec(sp[i][1]) - toSec(sp[i-1][1])) / d;
     const h = Math.max(4, (pace - 300) / 80 * 46), x0 = xOf(sp[i-1][0], max) + 2, w = xOf(sp[i][0], max) - x0 - 2;
@@ -631,10 +636,12 @@ function renderMarathon(){
   $("#marChart").innerHTML = g;
 }
 function renderUltra(){
+  chartW($("#ultChart"));
   const sp = ULTRA.splits, max = 100, total = toSec(sp.at(-1)[1]);
   const yT = s => 150 - s / total * 128;
   let g = `<line class="ax" x1="${PADL}" y1="226" x2="${CW - PADR}" y2="226"/>`;
-  sp.slice(1).forEach(([k]) => g += `<line class="grid" x1="${xOf(k,max)}" y1="10" x2="${xOf(k,max)}" y2="226"/><text class="lbl" x="${xOf(k,max)}" y="240" text-anchor="middle">${k}</text>`);
+  let lastX = -99;
+  sp.slice(1).forEach(([k]) => { const x = xOf(k, max); g += `<line class="grid" x1="${x}" y1="10" x2="${x}" y2="226"/>`; if (x - lastX > 30 || k === max){ g += `<text class="lbl" x="${x}" y="240" text-anchor="middle">${String(k).replace(".", lang === "pl" ? "," : ".")}</text>`; lastX = x; } });
   for (let i = 1; i < sp.length; i++){
     const d = sp[i][0] - sp[i-1][0], kmh = d / ((toSec(sp[i][1]) - toSec(sp[i-1][1])) / 3600);
     const h = kmh / 7 * 52, x0 = xOf(sp[i-1][0], max) + 2, w = xOf(sp[i][0], max) - x0 - 2;
