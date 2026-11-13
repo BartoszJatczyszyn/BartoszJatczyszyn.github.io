@@ -330,7 +330,7 @@ const TRAIL = [
 
 /* skills: [name, professional?] */
 const SKILLS = [
-  { e:"☕", pl:"Języki", en:"Languages", s:[["Java",1],["TypeScript",0],["JavaScript",0],["Python",0],["Dart",0],["C",0],["C++",0],["C#",0],["R",0],["HTML",0],["CSS",0]] },
+  { e:"☕", pl:"Języki", en:"Languages", s:[["Java",1],["Kotlin",1],["TypeScript",0],["JavaScript",0],["Python",0],["Dart",0],["C",0],["C++",0],["C#",0],["R",0],["HTML",0],["CSS",0]] },
   { e:"🧩", pl:"Frameworki", en:"Frameworks", s:[["Spring Boot",1],["Hibernate (JPA)",1],["REST API",1],["Mikroserwisy|Microservices",1],["Flyway",1],["JUnit",1],["React",0],["Angular",0],["Flutter",0],["FastAPI",0],["Android SDK",0],["Kafka",0]] },
   { e:"🗄️", pl:"Bazy danych", en:"Databases", s:[["PostgreSQL",1],["Oracle",1],["MongoDB",0],["MySQL",0],["SQLite",0],["Redis",0],["Cassandra",0]] },
   { e:"🐳", pl:"DevOps i CI/CD", en:"DevOps & CI/CD", s:[["Docker",1],["Kubernetes",1],["Minikube",1],["Helm",1],["Maven",1],["Git",1],["SonarLint",1],["Jenkins",0]] },
