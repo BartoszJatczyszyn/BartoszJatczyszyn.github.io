@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" font-family="Inter, Helvetica, Arial, sans-serif">
+  <rect width="1200" height="620" fill="#0f1218"/>
+  <defs>
+    <pattern id="d" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#ffffff" opacity=".07"/></pattern>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10z" fill="#ffd43b"/></marker>
+  </defs>
+  <rect width="1200" height="620" fill="url(#d)"/>
+  <text x="60" y="70" fill="#ffd43b" font-size="30" font-weight="700">Jak raport dla sanepidu stał się szybki</text>
+  <text x="60" y="102" fill="#9aa3b2" font-size="17">Ilustracja architektury modułu, bez danych z systemu</text>
+
+  <!-- 1 filters -->
+  <g transform="translate(60,150)">
+    <rect width="230" height="250" rx="22" fill="#181c25" stroke="#2c3240"/>
+    <text x="115" y="70" text-anchor="middle" font-size="50">🧭</text>
+    <text x="115" y="118" text-anchor="middle" fill="#eef1f6" font-size="20" font-weight="700">Filtry</text>
+    <text x="115" y="148" text-anchor="middle" fill="#9aa3b2" font-size="15">własny silnik</text>
+    <text x="115" y="170" text-anchor="middle" fill="#9aa3b2" font-size="15">na QueryDSL,</text>
+    <text x="115" y="192" text-anchor="middle" fill="#9aa3b2" font-size="15">także po zagnieżdżonym</text>
+    <text x="115" y="214" text-anchor="middle" fill="#9aa3b2" font-size="15">JSONB</text>
+  </g>
+  <!-- 2 hybrid model (highlight) -->
+  <g transform="translate(345,125)">
+    <rect width="270" height="300" rx="24" fill="#23200f" stroke="#ffd43b" stroke-width="2.5"/>
+    <text x="135" y="44" text-anchor="middle" fill="#ffd43b" font-size="14" font-weight="700" letter-spacing="2">MODEL HYBRYDOWY</text>
+    <g font-size="15">
+      <rect x="26" y="66" width="218" height="74" rx="12" fill="#2f2a12"/>
+      <text x="135" y="96" text-anchor="middle" fill="#f4efe0" font-weight="700">kolumny SQL</text>
+      <text x="135" y="120" text-anchor="middle" fill="#cfc6ad">to, co stałe i często filtrowane</text>
+      <rect x="26" y="152" width="218" height="74" rx="12" fill="#2f2a12"/>
+      <text x="135" y="182" text-anchor="middle" fill="#f4efe0" font-weight="700">JSONB</text>
+      <text x="135" y="206" text-anchor="middle" fill="#cfc6ad">ponad 50 słowników</text>
+    </g>
+    <text x="135" y="262" text-anchor="middle" fill="#ffd43b" font-size="15" font-weight="700">nowy słownik = zero migracji</text>
+  </g>
+  <!-- 3 materialized views -->
+  <g transform="translate(670,150)">
+    <rect width="230" height="250" rx="22" fill="#181c25" stroke="#2c3240"/>
+    <text x="115" y="70" text-anchor="middle" font-size="50">⚡</text>
+    <text x="115" y="118" text-anchor="middle" fill="#eef1f6" font-size="20" font-weight="700">Widoki</text>
+    <text x="115" y="142" text-anchor="middle" fill="#eef1f6" font-size="20" font-weight="700">zmaterializowane</text>
+    <text x="115" y="172" text-anchor="middle" fill="#9aa3b2" font-size="15">wynik policzony</text>
+    <text x="115" y="194" text-anchor="middle" fill="#9aa3b2" font-size="15">z wyprzedzeniem,</text>
+    <text x="115" y="216" text-anchor="middle" fill="#9aa3b2" font-size="15">odświeżany współbieżnie</text>
+  </g>
+  <!-- 4 report -->
+  <g transform="translate(955,150)">
+    <rect width="185" height="250" rx="22" fill="#181c25" stroke="#2c3240"/>
+    <text x="92" y="70" text-anchor="middle" font-size="50">📊</text>
+    <text x="92" y="118" text-anchor="middle" fill="#eef1f6" font-size="20" font-weight="700">Raport</text>
+    <text x="92" y="148" text-anchor="middle" fill="#9aa3b2" font-size="15">szybszy</text>
+    <text x="92" y="170" text-anchor="middle" fill="#9aa3b2" font-size="15">o rzędy</text>
+    <text x="92" y="192" text-anchor="middle" fill="#9aa3b2" font-size="15">wielkości</text>
+  </g>
+  <g stroke="#ffd43b" stroke-width="3" stroke-dasharray="8 8" fill="none" marker-end="url(#a)">
+    <path d="M296 275 H337"/><path d="M621 275 H662"/><path d="M906 275 H947"/>
+  </g>
+
+  <!-- under the hood -->
+  <text x="60" y="482" fill="#9aa3b2" font-size="16" font-weight="700" letter-spacing="2">POD MASKĄ</text>
+  <g font-size="16" fill="#eef1f6">
+    <g transform="translate(60,502)"><rect width="330" height="54" rx="27" fill="#181c25" stroke="#2c3240"/><text x="165" y="33" text-anchor="middle">@EntityGraph: koniec z N+1</text></g>
+    <g transform="translate(406,502)"><rect width="370" height="54" rx="27" fill="#181c25" stroke="#2c3240"/><text x="185" y="33" text-anchor="middle">rekurencyjne CTE: hierarchia stacji</text></g>
+    <g transform="translate(792,502)"><rect width="348" height="54" rx="27" fill="#23200f" stroke="#ffd43b"/><text x="174" y="33" text-anchor="middle">75% pokrycia: JUnit 5 + Testcontainers</text></g>
+  </g>
+</svg>

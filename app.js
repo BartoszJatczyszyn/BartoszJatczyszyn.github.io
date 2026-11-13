@@ -94,7 +94,7 @@ Object.assign(T.pl, {
   roles:["programistą","triathlonistą","maratończykiem","ultrasem","graczem","kinomaniakiem","fanem Disneya","podróżnikiem","fotografem amatorem","wiecznym uczniem"],
   marquee:["pomysły","Java","Spring Boot","TypeScript","triathlon","kino","gry","planszówki","podróże","fotografia","Disney","polski rap","góry","ultra","AGH","taniec","Kraków"],
   sYears:"lata komercyjnie", sProjects:"projektów", sCommits:"commitów", sUltra:"km ultra",
-  trailTitle:"Trasa", trailLead:"Od startu na AGH, przez Comarch, do Nivalit. Każdy punkt kontrolny coś dołożył do plecaka.",
+  trailTitle:"Trasa", trailLead:"Od startu na AGH, przez Comarch i co.brick, do Nivalit. Każdy punkt kontrolny coś dołożył do plecaka.",
   projectsLead:"Zawodowe, własne i studenckie. Kliknij kartę, żeby zajrzeć do środka.",
   all:"Wszystkie", work:"Zawodowe", own:"Własne", uni:"Studia",
   site:"Zobacz stronę ↗︎", team:"zespół", solo:"solo",
@@ -124,7 +124,7 @@ Object.assign(T.en, {
   roles:["developer","triathlete","marathoner","ultrarunner","gamer","movie buff","Disney fan","traveller","amateur photographer","lifelong learner"],
   marquee:["ideas","Java","Spring Boot","TypeScript","triathlon","movies","games","board games","travel","photography","Disney","Polish rap","mountains","ultra","AGH","dance","Kraków"],
   sYears:"years in industry", sProjects:"projects", sCommits:"commits", sUltra:"km ultra",
-  trailTitle:"The trail", trailLead:"From the start line at AGH, through Comarch, to Nivalit. Every checkpoint added something to the backpack.",
+  trailTitle:"The trail", trailLead:"From the start line at AGH, through Comarch and co.brick, to Nivalit. Every checkpoint added something to the backpack.",
   projectsLead:"Professional, personal and university. Click a card to peek inside.",
   all:"All", work:"Professional", own:"Personal", uni:"University",
   site:"Visit site ↗︎", team:"team", solo:"solo",
@@ -169,6 +169,14 @@ const PROJECTS = [
     en:P("Everyday support for students' emotional wellbeing.","Nivalit · EdTech",
       "Students reflect briefly on their emotions every day, so the school team sees sooner who needs support.",
       ["A short daily reflection on emotions","Quick insight for teachers, psychologists and counsellors","Data security and GDPR compliance"]) },
+  { name:"Raporty GIS", cover:"gis-1-cover|w", icon:"📊", c:"#4dabf7", cat:"work", org:"co.brick", url:"https://softiq.pl/", siteLbl:{ pl:"Softiq ↗︎", en:"Softiq ↗︎" },
+    tags:["Spring Boot","Hibernate","PostgreSQL","JSONB","QueryDSL","Testcontainers"],
+    pl:P("Moduł raportów i statystyk dla Głównego Inspektoratu Sanitarnego.","co.brick → Softiq · 2025–2026",
+      "Z co.brick trafiłem w outsourcingu do Softiq, gdzie rozwijałem moduł raportów i statystyk dla Głównego Inspektoratu Sanitarnego. Najwięcej pracy poszło w wydajność i model danych, który nie wymaga migracji przy każdym nowym słowniku.",
+      ["Raporty szybsze o rzędy wielkości dzięki współbieżnie odświeżanym widokom zmaterializowanym","Hybrydowy model SQL + JSONB: ponad 50 słowników bez migracji schematu","Własny silnik filtrów na QueryDSL, także po zagnieżdżonym JSONB","Problem N+1 rozwiązany przez @EntityGraph, hierarchia stacji przez rekurencyjne CTE","75% pokrycia testami: JUnit 5 i Testcontainers"]),
+    en:P("Reporting and statistics module for Poland's Chief Sanitary Inspectorate.","co.brick → Softiq · 2025–2026",
+      "Through co.brick I was outsourced to Softiq, where I built the reporting and statistics module for Poland's Chief Sanitary Inspectorate (GIS). Most of the work went into performance and a data model that needs no migration for every new dictionary.",
+      ["Reports faster by orders of magnitude with concurrently refreshed materialized views","A hybrid SQL + JSONB model: 50+ dictionaries with no schema migrations","A generic filter engine on QueryDSL, including nested JSONB","N+1 solved with @EntityGraph, station hierarchies with recursive CTEs","75% test coverage with JUnit 5 and Testcontainers"]) },
   { name:"Comarch Loyalty Management", cover:"clm-1-cover|w", icon:"⛽", c:"#ff8a3d", cat:"work", org:"Comarch", team:5,
     tags:["Java","Spring Boot","Hibernate","Oracle","PostgreSQL","Kubernetes"],
     pl:P("System lojalnościowy dla BP i SASOL. Głównie backend.","Comarch · 2022–2024",
@@ -321,6 +329,11 @@ const TRAIL = [
   { when:"2024", flag:"4", e:"🔥", edu:true, link:"https://github.com/BartoszJatczyszyn/FireRisk-master-s-degree",
     pl:{ role:"Magister", title:"Teleinformatyka", desc:"Praca (po angielsku): segmentacja stref zagrożenia pożarowego na zdjęciach lotniczych obszarów miejskich i wiejskich.", badge:"AGH" },
     en:{ role:"MSc", title:"ICT (Teleinformatics)", desc:"Thesis (in English): fire-hazard zone segmentation in aerial images of urban and rural areas.", badge:"AGH" } },
+  { when:"2025", sub:"IX → II", flag:"5", e:"📊", link:"https://cobrick.com/pl",
+    pl:{ role:"Programista", title:"co.brick", desc:"Pół roku w outsourcingu do Softiq. Moduł raportów i statystyk dla Głównego Inspektoratu Sanitarnego, z naciskiem na wydajność.", badge:"6 mies.",
+         items:[["📊","Raporty GIS","Spring Boot, Hibernate, PostgreSQL (JSONB, widoki zmaterializowane), QueryDSL, Testcontainers"]] },
+    en:{ role:"Developer", title:"co.brick", desc:"Six months outsourced to Softiq. The reporting and statistics module for Poland's Chief Sanitary Inspectorate, with a focus on performance.", badge:"6 months",
+         items:[["📊","Raporty GIS","Spring Boot, Hibernate, PostgreSQL (JSONB, materialized views), QueryDSL, Testcontainers"]] } },
   { when:"2026", sub:"III →", flag:"★", e:"🩺", now:true, link:"https://nivalit.com/",
     pl:{ role:"Programista", title:"Nivalit", desc:"Software i AI dla ochrony zdrowia. Pracuję przy trzech produktach:", badge:"teraz",
          items:[["🧠","Mentalio","AI wspierające specjalistów w diagnozie i terapii młodzieży","https://www.mentalio.eu/"],["🏫","Scholario","Codzienne wsparcie dobrostanu emocjonalnego uczniów","https://scholario.eu/"],["📝","Inquisitio","Platforma do kwestionariuszy, którą rozwijam solo"]] },
@@ -331,11 +344,11 @@ const TRAIL = [
 /* skills: [name, professional?] */
 const SKILLS = [
   { e:"☕", pl:"Języki", en:"Languages", s:[["Java",1],["Kotlin",1],["TypeScript",0],["JavaScript",0],["Python",0],["Dart",0],["C",0],["C++",0],["C#",0],["R",0],["HTML",0],["CSS",0]] },
-  { e:"🧩", pl:"Frameworki", en:"Frameworks", s:[["Spring Boot",1],["Hibernate (JPA)",1],["REST API",1],["Mikroserwisy|Microservices",1],["Flyway",1],["JUnit",1],["React",0],["Angular",0],["Flutter",0],["FastAPI",0],["Android SDK",0],["Kafka",0]] },
+  { e:"🧩", pl:"Frameworki", en:"Frameworks", s:[["Spring Boot",1],["Hibernate (JPA)",1],["REST API",1],["Mikroserwisy|Microservices",1],["Flyway",1],["JUnit",1],["QueryDSL",1],["React",0],["Angular",0],["Flutter",0],["FastAPI",0],["Android SDK",0],["Kafka",0]] },
   { e:"🗄️", pl:"Bazy danych", en:"Databases", s:[["PostgreSQL",1],["Oracle",1],["MongoDB",0],["MySQL",0],["SQLite",0],["Redis",0],["Cassandra",0]] },
   { e:"🐳", pl:"DevOps i CI/CD", en:"DevOps & CI/CD", s:[["Docker",1],["Kubernetes",1],["Minikube",1],["Helm",1],["Maven",1],["Git",1],["SonarLint",1],["Jenkins",0]] },
   { e:"🔐", pl:"API i bezpieczeństwo", en:"API & security", s:[["RAML",1],["Swagger",1],["OAuth 2.0",1],["JWT",1],["OpenAPI",0]] },
-  { e:"🛠️", pl:"Narzędzia", en:"Tools", s:[["IntelliJ IDEA",1],["Postman",1],["Oracle WebLogic",1],["Apache Tomcat",1],["Jira",1],["VS Code",0],["Android Studio",0],["PyCharm",0],["Figma",0]] },
+  { e:"🛠️", pl:"Narzędzia", en:"Tools", s:[["IntelliJ IDEA",1],["Postman",1],["Oracle WebLogic",1],["Apache Tomcat",1],["Jira",1],["Testcontainers",1],["VS Code",0],["Android Studio",0],["PyCharm",0],["Figma",0]] },
   { e:"🧠", pl:"ML i dane", en:"ML & data", s:[["TensorFlow",0],["Keras",0],["scikit-learn",0],["NumPy",0],["Web scraping",0],["RStudio",0]] },
   { e:"☁️", pl:"Chmura i monitoring", en:"Cloud & monitoring", s:[["AWS (S3, EC2, Lambda, RDS)",0],["Grafana",0],["Prometheus",0]] },
   { e:"🌐", pl:"Sieci", en:"Networking", s:[["SDN",0],["Mininet",0],["Floodlight",0],["Cisco Packet Tracer",0]] },
@@ -538,7 +551,7 @@ function openProject(p){
   const teamTxt = p.team ? `👥 ${p.team === 1 ? t.solo : t.team + " " + p.team}` : "";
   $("#mFoot").innerHTML = p.repo
     ? `<span>🟢 Open source ${teamTxt}</span><a class="btn small primary" href="${p.repo}" target="_blank" rel="noopener">${t.code}</a>`
-    : p.url ? `<span>${esc(p.org || "")} ${teamTxt}</span><a class="btn small primary" href="${p.url}" target="_blank" rel="noopener">${t.site}</a>`
+    : p.url ? `<span>${esc(p.org || "")} ${teamTxt}</span><a class="btn small primary" href="${p.url}" target="_blank" rel="noopener">${p.siteLbl ? p.siteLbl[lang] : t.site}</a>`
     : `<span>${p.cat === "own" ? "🔒 " + t.privLong : esc(p.org || "")} ${teamTxt}</span>`;
   $("#modal").showModal();
 }
@@ -1378,7 +1391,7 @@ new IntersectionObserver(([en], obs) => {
 }, { rootMargin: "300px" }).observe($("#mapPanel"));
 
 /* ═══════════════════════════ project case studies ═══════════════════════════ */
-const SLUGS = { "Mentalio":"mentalio","Scholario":"scholario","Comarch Loyalty Management":"clm","HR System":"hr","Inquisitio":"inquisitio","GlobeQuest":"globequest","JournAI":"journai","JTCJ":"skladomat","Kwit":"kwit","PatoBox":"patobox","OfficeFlow":"officeflow","Randkomat":"randkomat","GarminReport":"garminreport","FireRisk":"firerisk","CarControl":"carcontrol","Wolność dla łapek":"lapki","QoS w SDN":"qos","Domowy alarm":"alarm","Movie Analyzer":"movies" };
+const SLUGS = { "Mentalio":"mentalio","Scholario":"scholario","Raporty GIS":"gis","Comarch Loyalty Management":"clm","HR System":"hr","Inquisitio":"inquisitio","GlobeQuest":"globequest","JournAI":"journai","JTCJ":"skladomat","Kwit":"kwit","PatoBox":"patobox","OfficeFlow":"officeflow","Randkomat":"randkomat","GarminReport":"garminreport","FireRisk":"firerisk","CarControl":"carcontrol","Wolność dla łapek":"lapki","QoS w SDN":"qos","Domowy alarm":"alarm","Movie Analyzer":"movies" };
 const slugOf = p => SLUGS[p.name] || p.name.toLowerCase();
 /* warm the screenshots as soon as a finger or cursor lands on a card, so opening never waits on decoding */
 const warmed = new Set();
@@ -1403,6 +1416,9 @@ const CASE = {
   clm:{ shots:[S("clm-1.svg","art","Ilustracja: od tankowania do punktów","Illustration: from a fill-up to points"),S("clm-2.svg","art","Ilustracja: dwa wdrożenia, dwa stosy","Illustration: two rollouts, two stacks")],
     nums:[N(6,"","rynków","markets"),N(2,"","klientów: BP i SASOL","clients: BP and SASOL"),N(5,"","osób w zespole","people on the team"),N(2,"","lata","years")],
     flow:[F("⛽","Klient na stacji","A customer at the station"),F("⭐","Punkty i nagrody","Points and rewards"),F("⚙️","Backend CLM: Java + Spring","CLM backend: Java + Spring"),F("🌍","BP i SASOL na 6 rynkach","BP and SASOL in 6 markets")] },
+  gis:{ shots:[S("gis-1.svg","art","Ilustracja: od filtra do szybkiego raportu","Illustration: from a filter to a fast report")],
+    nums:[N(50,"+","słowników bez migracji schematu","dictionaries with no schema migrations"),N(75,"%","pokrycia testami","test coverage"),N(6,"","miesięcy","months")],
+    flow:[F("🧭","Filtry na QueryDSL","Filters on QueryDSL"),F("🧩","Model SQL + JSONB","SQL + JSONB model"),F("⚡","Widoki zmaterializowane","Materialized views"),F("📊","Raport od ręki","Report on demand")] },
   hr:{ nums:[N(3,"","osoby w zespole","people on the team"),N(3,"","miesiące stażu","months of internship"),N(2,"","warstwy: Angular i Spring","layers: Angular and Spring")],
     flow:[F("🖥️","Interfejs w Angularze","Angular UI"),F("🔌","REST API w Spring Boot","Spring Boot REST API"),F("🗄️","PostgreSQL + Flyway","PostgreSQL + Flyway"),F("👥","Zespół 3 osób, full stack","3-person team, full stack")] },
   inquisitio:{ nums:[N(7,"","typów pytań","question types"),N(3,"","widoki edytora","editor views"),N(6,"","aplikacji w monorepo","apps in the monorepo"),N(751,"","commitów","commits")],
@@ -1464,7 +1480,7 @@ function openCase(slug, push = true){
   $("#chOne").textContent = c.desc;
   const meta = [t[p.cat], p.org, p.team ? (p.team === 1 ? "👤 " + t.solo : "👥 " + t.team + " " + p.team) : null].filter(Boolean);
   $("#chMeta").innerHTML = meta.map(m => `<span>${esc(m)}</span>`).join("");
-  $("#chActions").innerHTML = [p.app ? `<a class="btn primary" href="${p.app}" target="_blank" rel="noopener">${t.openApp}</a>` : "", p.url ? `<a class="btn primary" href="${p.url}" target="_blank" rel="noopener">${t.site}</a>` : "", p.repo ? `<a class="btn ${p.url || p.app ? "ghost" : "primary"}" href="${p.repo}" target="_blank" rel="noopener">${t.code}</a>` : "", !p.app && !p.url && !p.repo && p.cat === "own" ? `<span class="ch-lock">🔒 ${t.privLong}</span>` : ""].join("");
+  $("#chActions").innerHTML = [p.app ? `<a class="btn primary" href="${p.app}" target="_blank" rel="noopener">${t.openApp}</a>` : "", p.url ? `<a class="btn primary" href="${p.url}" target="_blank" rel="noopener">${p.siteLbl ? p.siteLbl[lang] : t.site}</a>` : "", p.repo ? `<a class="btn ${p.url || p.app ? "ghost" : "primary"}" href="${p.repo}" target="_blank" rel="noopener">${t.code}</a>` : "", !p.app && !p.url && !p.repo && p.cat === "own" ? `<span class="ch-lock">🔒 ${t.privLong}</span>` : ""].join("");
   const heroEls = $$("#caseHero .ch-text > *, #chEmoji");
   heroEls.forEach(el => el.classList.remove("reveal-in"));
   requestAnimationFrame(() => heroEls.forEach((el, k) => { el.style.animationDelay = (k * 0.07) + "s"; el.classList.add("reveal-in"); }));
