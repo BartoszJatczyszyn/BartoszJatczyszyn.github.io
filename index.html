@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=65">
+<link rel="stylesheet" href="style.css?v=66">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='4 8 60 42'%3E%3Cpath fill='%23ffd43b' stroke='%230b0b0c' stroke-width='1.6' d='M17 40h33a10.5 10.5 0 0 0 1.2-20.9A13.5 13.5 0 0 0 26 13.6a10.5 10.5 0 0 0-16.6 8.8A8.8 8.8 0 0 0 17 40z'/%3E%3Cg fill='none' stroke='%230b0b0c' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round' transform='translate(0 1.4)'%3E%3Cpath d='M22.6 22.4V34.4M22.6 22.4h4.9a3 3 0 0 1 0 6h-4.9M22.6 28.4h5.7a3 3 0 0 1 0 6h-5.7'/%3E%3Cpath d='M37 22.4h7M42 22.4v8.4a3.6 3.6 0 0 1-7.2.3'/%3E%3C/g%3E%3C/svg%3E">
 </head>
 <body>
@@ -344,13 +344,43 @@
         <div class="ch-actions" id="chActions"></div>
       </div>
     </header>
+    <section class="pitch-hook" id="pHook">
+      <p class="ph-kicker" data-i18n="pKicker"></p>
+      <blockquote class="ph-quote" id="pQuote"></blockquote>
+      <svg class="ph-arrow" viewBox="0 0 120 70" aria-hidden="true"><path pathLength="1" d="M70 6 C 112 14, 104 56, 30 60"/><path pathLength="1" d="M44 49 30 60 45 68"/></svg>
+      <p class="ph-answer"><mark id="pAnswer"></mark></p>
+    </section>
     <section class="case-gallery" id="caseGallery">
       <div class="cg-track" id="cgTrack"></div>
       <div class="cg-nav"><button id="cgPrev" aria-label="Poprzedni">←</button><div class="cg-dots" id="cgDots"></div><button id="cgNext" aria-label="Następny">→</button></div>
     </section>
+    <section class="pitch-mid" id="pMid">
+      <div class="ba" id="pBA">
+        <div class="ba-head">
+          <h3 class="cs-h" id="pBATitle"></h3>
+          <button class="ba-switch" id="pSwitch" type="button" role="switch" aria-checked="false"><span class="bs-a" id="pSwA"></span><span class="bs-knob" aria-hidden="true"></span><span class="bs-b" id="pSwB"></span></button>
+        </div>
+        <ul class="ba-rows" id="pRows"></ul>
+      </div>
+      <figure class="story" id="pStory">
+        <span class="tape" aria-hidden="true"></span>
+        <img class="st-head" src="head.png" alt="" width="125" height="71" loading="lazy">
+        <figcaption>
+          <h3 class="cs-h" data-i18n="pWhy"></h3>
+          <p id="pStoryTxt"></p>
+          <b class="st-sign">— Bartek</b>
+        </figcaption>
+      </figure>
+    </section>
     <section class="case-nums" id="caseNums">
       <h3 class="cs-h" data-i18n="csNums"></h3>
       <div class="nums" id="numsGrid"></div>
+    </section>
+    <section class="pitch-who" id="pWho">
+      <h3 class="cs-h" data-i18n="pWho"></h3>
+      <p class="pw-hint" id="pWhoHint"></p>
+      <div class="pw-list" id="pWhoList"></div>
+      <p class="pw-not" id="pNot"></p>
     </section>
     <section class="case-flow" id="caseFlow">
       <h3 class="cs-h" data-i18n="csFlow"></h3>
@@ -363,6 +393,16 @@
     <section class="case-stack">
       <h3 class="cs-h" data-i18n="csStack"></h3>
       <div class="tags big" id="csTags"></div>
+    </section>
+    <section class="pitch-try" id="pTry">
+      <div class="pt-sticker">
+        <span class="tape" aria-hidden="true"></span>
+        <h3 class="pt-title" id="pTryTitle"></h3>
+        <ol class="pt-steps" id="pSteps"></ol>
+        <div class="pt-go" id="pGo"></div>
+        <div class="pt-chips" id="pChips"></div>
+        <p class="pt-without"><span data-i18n="pWithout"></span> <span id="pWithoutList"></span></p>
+      </div>
     </section>
     <footer class="case-nav">
       <button id="csPrev"><small data-i18n="csPrevL"></small><b id="csPrevN"></b></button>
@@ -390,7 +430,8 @@
 </div>
 <canvas id="matrix" aria-hidden="true"></canvas>
 
-<script src="eggs.js?v=65"></script>
-<script src="app.js?v=65"></script>
+<script src="eggs.js?v=66"></script>
+<script src="pitch.js?v=66"></script>
+<script src="app.js?v=66"></script>
 </body>
 </html>

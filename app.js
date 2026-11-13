@@ -116,7 +116,7 @@ Object.assign(T.pl, {
   tvCountries:"krajów świata", tvRegions:"regionów w GlobeQuest", tvWorld:"% świata odkryte", tvRank:"ranga: Odkrywca",
   tvEurope:"Europa", tvAll:"Cały świat", tvCountriesShort:"krajów świata", tvHint:"Przytrzymaj Ctrl / ⌘, żeby przybliżyć kółkiem", tvTour:"Wycieczka", tvTourStop:"Stop", tvLegVisited:"byłem", tvLegPlanned:"w planie",
   tvNextSmall:"Następny przystanek", tvNext:"Maroko", tvGq:"Te dane pochodzą z mojego GlobeQuesta",
-  tvBanner:"Maroko, czekaj!", copyMail:"Kopiuj e-mail", soundOn:"Dźwięk włączony", soundOff:"Dźwięk wyłączony", eHome:"Wszędzie dobrze,<small>ale w domu najlepiej 🏠</small>", eRocket:"Start!", eChalk:"Ładnie rysujesz", eChalkSub:"Kreda zawsze schnie za szybko", eLumos:"Lumos ✨", eNox:"Nox 🌙", eOvertake:"Wyprzedzanie!", eOvertakeSub:"Każda kropka to ktoś, kogo minąłem na trasie", eHeart:"❤️ 150 bpm<small>tak bije serce na 35. km</small>", eOwl:"Też nie śpisz?", eOwlSub:"Najlepsze pomysły przychodzą w nocy 🦉", eBird:"Ranny ptaszek!", eBirdSub:"Pora na kawę i pierwszy commit 🐦", eCoffee:"☕ +10 do kodu", eNewton:"F = m·a", eXylo:"Muzyka commitów 🎶", usedIn:"Użyte w:", tiltOn:"Przechyl telefon, a myśli się przesypią 📱", tiltBtn:"📱 Przechyl", csNums:"W liczbach", gridMore:n => `Pokaż wszystkie ${n} projektów`, csFlow:"Jak to działa", openApp:"Otwórz aplikację ↗︎", csWhy:"Co jest w tym fajne", csStack:"Z czego to zbudowane", csPrevL:"Poprzedni projekt", csNextL:"Następny projekt", hintHead:"puk, puk?", hintPg:"złap i rzuć!", hintEggs:`${EGGS.length} sekrety… znajdziesz?`, cDetails:"zajrzyj", cDrag:"rzuć mną", cMap:"✈️ leć", cTap:"puk!", cThought:"💭 myśl", cDice:"🎲 rzuć", spyStart:"Start", copied:"Skopiowane!", copiedSub:"Adres e-mail jest w schowku", tvBannerSub:"Następny przystanek: Afryka"
+  tvBanner:"Maroko, czekaj!", copyMail:"Kopiuj e-mail", soundOn:"Dźwięk włączony", soundOff:"Dźwięk wyłączony", eHome:"Wszędzie dobrze,<small>ale w domu najlepiej 🏠</small>", eRocket:"Start!", eChalk:"Ładnie rysujesz", eChalkSub:"Kreda zawsze schnie za szybko", eLumos:"Lumos ✨", eNox:"Nox 🌙", eOvertake:"Wyprzedzanie!", eOvertakeSub:"Każda kropka to ktoś, kogo minąłem na trasie", eHeart:"❤️ 150 bpm<small>tak bije serce na 35. km</small>", eOwl:"Też nie śpisz?", eOwlSub:"Najlepsze pomysły przychodzą w nocy 🦉", eBird:"Ranny ptaszek!", eBirdSub:"Pora na kawę i pierwszy commit 🐦", eCoffee:"☕ +10 do kodu", eNewton:"F = m·a", eXylo:"Muzyka commitów 🎶", usedIn:"Użyte w:", tiltOn:"Przechyl telefon, a myśli się przesypią 📱", tiltBtn:"📱 Przechyl", csNums:"W liczbach", pKicker:"Znasz to?", pWhy:"Dlaczego to zrobiłem", pWho:"To dla ciebie, jeśli…", pWithout:"Świadomie bez:", pBA:"Co się zmienia", pBefore:"Zwykle", pAfter:"Po nowemu", pHint:"Zaznacz, co pasuje.", pHint1:"Jedno już jest. Coś jeszcze?", pMatch:"Brzmi jak ty. Wypróbuj ↓", pNot:"Raczej nie, jeśli ", pTryApp:"Wypróbuj w minutę", pTryRepo:"Uruchom u siebie", pTryMail:"Zobacz na żywo", pGoApp:"Wypróbuj teraz ↗︎", pGoRepo:"Kod na GitHubie ↗︎", pGoMail:"Napisz do mnie ↗︎", gridMore:n => `Pokaż wszystkie ${n} projektów`, csFlow:"Jak to działa", openApp:"Otwórz aplikację ↗︎", csWhy:"Co jest w tym fajne", csStack:"Z czego to zbudowane", csPrevL:"Poprzedni projekt", csNextL:"Następny projekt", hintHead:"puk, puk?", hintPg:"złap i rzuć!", hintEggs:`${EGGS.length} sekrety… znajdziesz?`, cDetails:"zajrzyj", cDrag:"rzuć mną", cMap:"✈️ leć", cTap:"puk!", cThought:"💭 myśl", cDice:"🎲 rzuć", spyStart:"Start", copied:"Skopiowane!", copiedSub:"Adres e-mail jest w schowku", tvBannerSub:"Następny przystanek: Afryka"
 });
 Object.assign(T.en, {
   navTrail:"Trail", navSkills:"Toolbox",
@@ -146,7 +146,7 @@ Object.assign(T.en, {
   tvCountries:"countries of the world", tvRegions:"regions in GlobeQuest", tvWorld:"% of the world explored", tvRank:"rank: Explorer",
   tvEurope:"Europe", tvAll:"Whole world", tvCountriesShort:"countries", tvHint:"Hold Ctrl / ⌘ to zoom with the wheel", tvTour:"Take the tour", tvTourStop:"Stop", tvLegVisited:"visited", tvLegPlanned:"planned",
   tvNextSmall:"Next stop", tvNext:"Morocco", tvGq:"This data comes from my GlobeQuest",
-  tvBanner:"Morocco, here I come!", copyMail:"Copy e-mail", soundOn:"Sound on", soundOff:"Sound off", eHome:"East or west,<small>home is best 🏠</small>", eRocket:"Lift-off!", eChalk:"Nice drawing", eChalkSub:"Chalk always dries too fast", eLumos:"Lumos ✨", eNox:"Nox 🌙", eOvertake:"Overtaking!", eOvertakeSub:"Every dot is someone I passed on course", eHeart:"❤️ 150 bpm<small>a heart at kilometre 35</small>", eOwl:"Can’t sleep either?", eOwlSub:"The best ideas come at night 🦉", eBird:"Early bird!", eBirdSub:"Time for coffee and the first commit 🐦", eCoffee:"☕ +10 to code", eNewton:"F = m·a", eXylo:"The sound of commits 🎶", usedIn:"Used in:", tiltOn:"Tilt your phone and the thoughts will roll 📱", tiltBtn:"📱 Tilt", csNums:"By the numbers", gridMore:n => `Show all ${n} projects`, csFlow:"How it works", openApp:"Open the app ↗︎", csWhy:"What makes it good", csStack:"Built with", csPrevL:"Previous project", csNextL:"Next project", hintHead:"knock, knock?", hintPg:"grab & throw!", hintEggs:`${EGGS.length} secrets… find them?`, cDetails:"peek", cDrag:"throw me", cMap:"✈️ fly", cTap:"knock!", cThought:"💭 think", cDice:"🎲 roll", spyStart:"Start", copied:"Copied!", copiedSub:"The e-mail address is on your clipboard", tvBannerSub:"Next stop: Africa"
+  tvBanner:"Morocco, here I come!", copyMail:"Copy e-mail", soundOn:"Sound on", soundOff:"Sound off", eHome:"East or west,<small>home is best 🏠</small>", eRocket:"Lift-off!", eChalk:"Nice drawing", eChalkSub:"Chalk always dries too fast", eLumos:"Lumos ✨", eNox:"Nox 🌙", eOvertake:"Overtaking!", eOvertakeSub:"Every dot is someone I passed on course", eHeart:"❤️ 150 bpm<small>a heart at kilometre 35</small>", eOwl:"Can’t sleep either?", eOwlSub:"The best ideas come at night 🦉", eBird:"Early bird!", eBirdSub:"Time for coffee and the first commit 🐦", eCoffee:"☕ +10 to code", eNewton:"F = m·a", eXylo:"The sound of commits 🎶", usedIn:"Used in:", tiltOn:"Tilt your phone and the thoughts will roll 📱", tiltBtn:"📱 Tilt", csNums:"By the numbers", pKicker:"Sound familiar?", pWhy:"Why I built it", pWho:"It's for you if…", pWithout:"Deliberately without:", pBA:"What changes", pBefore:"Usually", pAfter:"With this", pHint:"Tick what fits.", pHint1:"That's one. Anything else?", pMatch:"Sounds like you. Try it ↓", pNot:"Probably not if ", pTryApp:"Try it in a minute", pTryRepo:"Run it yourself", pTryMail:"See it live", pGoApp:"Try it now ↗︎", pGoRepo:"Code on GitHub ↗︎", pGoMail:"Drop me a line ↗︎", gridMore:n => `Show all ${n} projects`, csFlow:"How it works", openApp:"Open the app ↗︎", csWhy:"What makes it good", csStack:"Built with", csPrevL:"Previous project", csNextL:"Next project", hintHead:"knock, knock?", hintPg:"grab & throw!", hintEggs:`${EGGS.length} secrets… find them?`, cDetails:"peek", cDrag:"throw me", cMap:"✈️ fly", cTap:"knock!", cThought:"💭 think", cDice:"🎲 roll", spyStart:"Start", copied:"Copied!", copiedSub:"The e-mail address is on your clipboard", tvBannerSub:"Next stop: Africa"
 });
 
 /* ═══════════════════════════ data ═══════════════════════════ */
@@ -1490,7 +1490,80 @@ function openCase(slug, push = true){
   requestAnimationFrame(() => requestAnimationFrame(fillGallery));
   if (push) history.replaceState(null, "", "#p/" + slug);
   setTimeout(() => $("#caseFlow").classList.add("in"), shots.length ? 700 : 250);
+  renderPitch(slug, p);
 }
+
+/* ═══════════════════════════ pitch: why a personal project exists and why to try it ═══════════════════════════ */
+const PITCH_PARTS = ["#pHook", "#pMid", "#pWho", "#pTry"];
+let pitchFlipTimer = 0, pitchTouched = false;
+const pitchIO = new IntersectionObserver(entries => entries.forEach(en => {
+  if (!en.isIntersecting) return;
+  en.target.classList.add("in");
+  if (en.target.id === "pMid" && !pitchTouched){ clearTimeout(pitchFlipTimer); pitchFlipTimer = setTimeout(() => setBA(true, true), reduced ? 0 : 900); }
+  pitchIO.unobserve(en.target);
+}), { root: $("#caseScroll"), threshold: .35 });
+function renderPitch(slug, proj){
+  const P = PITCH[slug], t = T[lang];
+  PITCH_PARTS.forEach(sel => { const el = $(sel); el.hidden = !P; el.classList.remove("in"); pitchIO.unobserve(el); });
+  $("#pTry").classList.remove("ready");
+  clearTimeout(pitchFlipTimer); pitchTouched = false;
+  if (!P) return;
+  const q = P.hook[lang].split(" ");
+  $("#pQuote").innerHTML = q.map((w, i) => `<span class="w" style="--i:${i}">${i === 0 ? "„" : ""}${esc(w)}${i === q.length - 1 ? "”" : ""}</span>`).join(" ");
+  $("#pAnswer").textContent = P.answer[lang];
+  $("#pBATitle").textContent = t.pBA;
+  $("#pSwA").textContent = t.pBefore; $("#pSwB").textContent = t.pAfter;
+  $("#pRows").innerHTML = P.ba.map(([a, b], i) => `<li style="--i:${i}"><button class="ba-r" type="button" aria-pressed="false"><span class="ba-pain"><i class="ba-x" aria-hidden="true">✕</i><span>${esc(a[lang])}<i class="ba-strike" aria-hidden="true"></i></span></span><span class="ba-gain"><i class="ba-ok" aria-hidden="true">✓</i><span>${esc(b[lang])}</span></span></button></li>`).join("");
+  setBA(false);
+  $("#pStoryTxt").textContent = P.story[lang];
+  $("#pWhoList").innerHTML = P.who.map((w, i) => `<button class="pw" type="button" role="checkbox" aria-checked="false" style="--i:${i}"><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="2.5" y="2.5" width="23" height="23" rx="7"/><path pathLength="1" d="M7.5 14.5 12 19 20.5 9"/></svg><span>${esc(w[lang])}</span></button>`).join("");
+  $("#pWhoHint").textContent = t.pHint; $("#pWhoHint").classList.remove("go");
+  $("#pNot").textContent = t.pNot + P.notWho[lang] + ".";
+  const kind = P.cta;
+  $("#pTryTitle").textContent = kind === "repo" ? t.pTryRepo : kind === "mail" ? t.pTryMail : t.pTryApp;
+  $("#pSteps").innerHTML = P.steps.map((st, i) => `<li style="--i:${i}"><b>${i + 1}</b><span>${esc(st[lang])}</span></li>`).join("");
+  const href = kind === "repo" ? proj.repo : kind === "mail" ? `mailto:bartosz.jat@gmail.com?subject=${encodeURIComponent(proj.name)}` : proj.app;
+  $("#pGo").innerHTML = href ? `<a class="btn primary pt-btn" href="${href}" ${kind === "mail" ? "" : 'target="_blank" rel="noopener"'}>${kind === "repo" ? t.pGoRepo : kind === "mail" ? t.pGoMail : t.pGoApp}</a>` : "";
+  $("#pChips").innerHTML = P.chips.map(c => `<span>${esc(c[lang])}</span>`).join("");
+  $("#pWithoutList").innerHTML = P.without.map(w => `<s>${esc(w[lang])}</s>`).join("");
+  requestAnimationFrame(() => PITCH_PARTS.forEach(sel => pitchIO.observe($(sel))));
+}
+/* before ⇄ after: the whole card flips row by row, or one row on its own when tapped */
+function setBA(on, auto){
+  const sw = $("#pSwitch"), rows = $$("#pRows .ba-r");
+  sw.setAttribute("aria-checked", on); sw.classList.toggle("on", on);
+  rows.forEach((r, i) => {
+    const flip = () => { r.classList.toggle("on", on); r.setAttribute("aria-pressed", on); if (on && !reduced && $("#case").open){ SFX.play("tick"); } };
+    reduced ? flip() : setTimeout(flip, i * 170);
+  });
+  if (on && !auto) haptic([8, 40, 8]);
+}
+$("#pSwitch").addEventListener("click", () => { pitchTouched = true; clearTimeout(pitchFlipTimer); setBA($("#pSwitch").getAttribute("aria-checked") !== "true"); SFX.play("click"); });
+$("#pRows").addEventListener("click", e => {
+  const r = e.target.closest(".ba-r"); if (!r) return;
+  pitchTouched = true; clearTimeout(pitchFlipTimer);
+  const on = !r.classList.contains("on"); r.classList.toggle("on", on); r.setAttribute("aria-pressed", on);
+  SFX.play(on ? "pop" : "tick", 1.2); haptic(8);
+  const all = $$("#pRows .ba-r"), n = all.filter(x => x.classList.contains("on")).length;
+  if (n === all.length || n === 0){ $("#pSwitch").setAttribute("aria-checked", n > 0); $("#pSwitch").classList.toggle("on", n > 0); }
+});
+/* "it's for you if…": ticking two of three turns the hint into a nudge towards trying it */
+$("#pWhoList").addEventListener("click", e => {
+  const b = e.target.closest(".pw"); if (!b) return;
+  const on = b.getAttribute("aria-checked") !== "true";
+  b.setAttribute("aria-checked", on); SFX.play(on ? "tick" : "click"); haptic(on ? 10 : 6);
+  const n = $$("#pWhoList .pw[aria-checked=true]").length, t = T[lang], hint = $("#pWhoHint");
+  hint.textContent = n >= 2 ? t.pMatch : n === 1 ? t.pHint1 : t.pHint;
+  hint.classList.toggle("go", n >= 2);
+  const was = $("#pTry").classList.contains("ready");
+  $("#pTry").classList.toggle("ready", n >= 2);
+  if (n >= 2 && !was){ SFX.play("chime"); const [x, y] = center(b); burst(x, y, ["✨", "💛", "✓"], { count: 10, speed: [3, 8], gravity: .05, life: 900, size: [12, 20] }); }
+});
+$("#pWhoHint").addEventListener("click", () => {
+  if (!$("#pWhoHint").classList.contains("go")) return;
+  const sc = $("#caseScroll"), tgt = $("#pTry");
+  sc.scrollTo({ top: tgt.offsetTop - 40, behavior: reduced ? "auto" : "smooth" });
+});
 function closeCase(){
   const d = $("#case"); if (!d.open) return;
   d.classList.add("closing");
