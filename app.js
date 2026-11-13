@@ -146,7 +146,7 @@ Object.assign(T.en, {
   tvCountries:"countries of the world", tvRegions:"regions in GlobeQuest", tvWorld:"% of the world explored", tvRank:"rank: Explorer",
   tvEurope:"Europe", tvAll:"Whole world", tvCountriesShort:"countries", tvHint:"Hold Ctrl / ⌘ to zoom with the wheel", tvTour:"Take the tour", tvTourStop:"Stop", tvLegVisited:"visited", tvLegPlanned:"planned",
   tvNextSmall:"Next stop", tvNext:"Morocco", tvGq:"This data comes from my GlobeQuest",
-  tvBanner:"Morocco, here I come!", copyMail:"Copy e-mail", soundOn:"Sound on", soundOff:"Sound off", eHome:"East or west,<small>home is best 🏠</small>", eRocket:"Lift-off!", eChalk:"Nice drawing", eChalkSub:"Chalk always dries too fast", eLumos:"Lumos ✨", eNox:"Nox 🌙", eOvertake:"Overtaking!", eOvertakeSub:"Every dot is someone I passed on course", eHeart:"❤️ 150 bpm<small>a heart at kilometre 35</small>", eOwl:"Can’t sleep either?", eOwlSub:"The best ideas come at night 🦉", eBird:"Early bird!", eBirdSub:"Time for coffee and the first commit 🐦", eCoffee:"☕ +10 to code", eNewton:"F = m·a", eXylo:"The sound of commits 🎶", usedIn:"Used in:", tiltOn:"Tilt your phone and the thoughts will roll 📱", tiltBtn:"📱 Tilt", csNums:"By the numbers", pKicker:"Sound familiar?", pWhy:"Why I built it", pWho:"It's for you if…", pWithout:"Deliberately without:", pBA:"What changes", pBefore:"Usually", pAfter:"With this", pHint:"Tick what fits.", pHint1:"That's one. Anything else?", pMatch:"Sounds like you. Try it ↓", pNot:"Probably not if ", pTryApp:"Try it in a minute", pTryRepo:"Run it yourself", pTryMail:"See it live", pGoApp:"Try it now ↗︎", pGoRepo:"Code on GitHub ↗︎", pGoMail:"Drop me a line ↗︎", gridMore:n => `Show all ${n} projects`, csFlow:"How it works", openApp:"Open the app ↗︎", csWhy:"What makes it good", csStack:"Built with", csPrevL:"Previous project", csNextL:"Next project", hintHead:"knock, knock?", hintPg:"grab & throw!", hintEggs:`${EGGS.length} secrets… find them?`, cDetails:"peek", cDrag:"throw me", cMap:"✈️ fly", cTap:"knock!", cThought:"💭 think", cDice:"🎲 roll", spyStart:"Start", copied:"Copied!", copiedSub:"The e-mail address is on your clipboard", tvBannerSub:"Next stop: Africa"
+  tvBanner:"Morocco, here I come!", copyMail:"Copy e-mail", soundOn:"Sound on", soundOff:"Sound off", eHome:"East or west,<small>home is best 🏠</small>", eRocket:"Lift-off!", eChalk:"Nice drawing", eChalkSub:"Chalk always dries too fast", eLumos:"Lumos ✨", eNox:"Nox 🌙", eOvertake:"Overtaking!", eOvertakeSub:"Every dot is someone I passed on course", eHeart:"❤️ 150 bpm<small>a heart at kilometre 35</small>", eOwl:"Can’t sleep either?", eOwlSub:"The best ideas come at night 🦉", eBird:"Early bird!", eBirdSub:"Time for coffee and the first commit 🐦", eCoffee:"☕ +10 to code", eNewton:"F = m·a", eXylo:"The sound of commits 🎶", usedIn:"Used in:", tiltOn:"Tilt your phone and the thoughts will roll 📱", tiltBtn:"📱 Tilt", csNums:"By the numbers", pKicker:"Sound familiar?", pWhy:"Why I built it", pWho:"It's for you if…", pWithout:"Deliberately without:", pBA:"What changes", pBefore:"Before", pAfter:"Now", pHint:"Tick what fits.", pHint1:"That's one. Anything else?", pMatch:"Sounds like you. Try it ↓", pNot:"Probably not if ", pTryApp:"Try it in a minute", pTryRepo:"Run it yourself", pTryMail:"See it live", pGoApp:"Try it now ↗︎", pGoRepo:"Code on GitHub ↗︎", pGoMail:"Drop me a line ↗︎", gridMore:n => `Show all ${n} projects`, csFlow:"How it works", openApp:"Open the app ↗︎", csWhy:"What makes it good", csStack:"Built with", csPrevL:"Previous project", csNextL:"Next project", hintHead:"knock, knock?", hintPg:"grab & throw!", hintEggs:`${EGGS.length} secrets… find them?`, cDetails:"peek", cDrag:"throw me", cMap:"✈️ fly", cTap:"knock!", cThought:"💭 think", cDice:"🎲 roll", spyStart:"Start", copied:"Copied!", copiedSub:"The e-mail address is on your clipboard", tvBannerSub:"Next stop: Africa"
 });
 
 /* ═══════════════════════════ data ═══════════════════════════ */
@@ -244,7 +244,7 @@ const PROJECTS = [
       ["An “as last time” suggestion instead of an empty form","Four roles in one app: employee, office manager, vendor coordinator, admin","Rules: small expenses without asking, an empty bottle always to the same person","Recurring services on a calendar, subscribable from Google, Outlook and Apple"]) },
   { name:"Randkomat", cover:"randkomat-3", app:"https://randkomat.pages.dev/", icon:"💌", c:"#ff7eb6", cat:"own", team:1,
     tags:["TypeScript","React 19","Vite","PWA","Supabase","Web Audio","Vitest"],
-    pl:P("Zaproszenie na randkę w 4 tapnięciach, odpowiedź w jednym.","PWA",
+    pl:P("Zaproszenie na randkę w 4 kliknięciach, odpowiedź w jednym.","PWA",
       "Zaproszenie dla jednej konkretnej osoby. Każda para to osobny, zamknięty świat.",
       ["Pierwsze zaproszenie bez konta", "Szczegóły dopiero po „tak”", "Uciekające „nie” z uczciwym wyjściem", "Karteczki otwierane zabawą"]),
     en:P("A date invite in 4 taps, answered in one.","PWA",
@@ -1407,7 +1407,7 @@ const CASE = {
   journai:{ nums:[N(51,"","ekranów","screens"),N(664,"","pliki testów","test files"),N(544,"","commity","commits"),N(0,"zł","kosztów utrzymania","running cost")],
     shots:[S("journai-1","phone","Rano: czy dzień idzie zgodnie z planem","Morning: is the day on plan"),S("journai-2","desktop","Panel zdrowia na komputerze","The health dashboard on desktop"),S("journai-3","phone","Ja: wynik 59 przy normie 50","Me: a score of 59 against a norm of 50"),S("journai-4","phone","Ostatnia noc: 8 godz. 8 min, wynik 96","Last night: 8 h 8 min, score 96"),S("journai-5","phone","Stres dziś, minuta po minucie","Today's stress, minute by minute"),S("journai-6","phone","Plan tygodnia, który omija ból","A weekly plan that works around pain"),S("journai-7","phone","Codzienny check-in: przesuń kartę","Daily check-in: swipe the card"),S("journai-8","phone","Podsumowanie roku: 309 dni pomiarów","Year in review: 309 days measured")],
     flow:[F("⌚","Garmin Connect","Garmin Connect"),F("🔌","Serwer MCP","MCP server"),F("🗄️","PostgreSQL","PostgreSQL"),F("📈","Analityka wobec Twojej normy","Analytics against your norm"),F("💬","Komentarz AI bez zmyślonych liczb","AI commentary, no made-up numbers")] },
-  skladomat:{ nums:[N(150,"ms","do wyniku wyszukiwania","to a search result"),N(2,"","tapnięcia do dziennika","taps to log"),N(75,"","plików testów","test files"),N(134,"","commity","commits")],
+  skladomat:{ nums:[N(150,"ms","do wyniku wyszukiwania","to a search result"),N(2,"","kliknięcia do dziennika","taps to log"),N(75,"","plików testów","test files"),N(134,"","commity","commits")],
     shots:[S("jtcj-1","phone","Dzień: 1935 kcal i makro","The day: 1935 kcal and macros"),S("jtcj-2","phone","Zdanie zamienione w produkty, a pyta tylko o niejasne","A sentence turned into foods, asking only about the unclear"),S("jtcj-3","phone","Posiłek rozpisany na składniki","A meal broken into ingredients"),S("jtcj-4","phone","Szukaj: soczewica, ocena 98","Search: lentils, score 98"),S("jtcj-5","phone","Ocena składu z uzasadnieniem","The score, explained"),S("jtcj-6","phone","Witaminy i minerały wobec normy UE","Vitamins and minerals vs EU reference"),S("jtcj-7","phone","Analiza tygodnia: skąd energia","The week: where energy comes from"),S("jtcj-8","phone","Spożycie dzień po dniu","Intake, day by day"),S("skladomat-6","desktop","Na komputerze","On desktop")],
     flow:[F("💬","Napisz albo powiedz, co zjadłeś","Type or say what you ate"),F("🔎","Rozpoznaje produkty i ilości","Recognises foods and amounts"),F("🔬","Skład, ocena i witaminy","Ingredients, score, vitamins"),F("📊","Analiza tygodni","Weekly analysis")] },
   kwit:{ nums:[N(3,"","formaty: CSV, XLSX, PDF","formats: CSV, XLSX, PDF"),N(6,"","widoków analizy","analysis views"),N(0,"","serwerów","servers"),N(118,"","commitów","commits")],
@@ -1419,9 +1419,9 @@ const CASE = {
   officeflow:{ nums:[N(2,"","kroki do zgłoszenia","steps to a request"),N(4,"","role w aplikacji","roles in the app"),N(51,"","plików testów","test files"),N(37,"","commitów","commits")],
     shots:[S("officeflow-1","phone","4 zgłoszenia czekają na decyzję","4 requests await a decision"),S("officeflow-8","desktop","Lista i szczegóły obok siebie","List and details side by side"),S("officeflow-2","phone","Propozycja: Fresh Office, tak było ostatnio","Suggestion: Fresh Office, as last time"),S("officeflow-3","phone","Koordynator firmy: zlecenie do przyjęcia","Vendor coordinator: an order to accept"),S("officeflow-4","phone","Kalendarz stałych usług","Recurring services calendar"),S("officeflow-5","phone","Reguły, które robią za Ciebie","Rules that do it for you"),S("officeflow-6","phone","Zobacz aplikację jako: 4 role","See the app as: 4 roles"),S("officeflow-7","phone","Firmy i ludzie w biurze","Vendors and people in the office")],
     flow:[F("🙋","Zgłoszenie w 2 krokach","A request in 2 steps"),F("💡","Propozycja: kto i kiedy","Suggestion: who and when"),F("👩‍💼","Office manager zatwierdza","The office manager approves"),F("🏢","Firma przyjmuje zlecenie","The vendor accepts the order"),F("📅","Kalendarz usług","Service calendar")] },
-  randkomat:{ nums:[N(4,"","tapnięcia, by zaprosić","taps to invite"),N(1,"","by odpowiedzieć","to answer"),N(14,"","sposobów otwarcia karteczki","ways to open a card"),N(3,"","zależności w produkcji","production dependencies")],
+  randkomat:{ nums:[N(4,"","kliknięcia, by zaprosić","taps to invite"),N(1,"","by odpowiedzieć","to answer"),N(14,"","sposobów otwarcia karteczki","ways to open a card"),N(3,"","zależności w produkcji","production dependencies")],
     shots:[S("randkomat-1","phone","Kim jesteś: nick, nastrój, kolor","Who you are: nick, mood, colour"),S("randkomat-2","phone","Kogo porywamy: dla kogo, kiedy, gdzie","Who we're stealing: for whom, when, where"),S("randkomat-3","phone","Tak to zobaczy druga osoba","What the other person sees"),S("randkomat-4","phone","Trzecie „nie” i ostatnia szansa","The third “no” and a last chance"),S("randkomat-5","phone","Po „tak”: szczegóły i termin","After “yes”: details and time"),S("randkomat-6","phone","Karteczka na zwykły dzień albo okazję","A card for any day or occasion"),S("randkomat-7","phone","Urodzinowa: zdmuchnij świeczki palcem","Birthday: blow out the candles"),S("randkomat-8","phone","Tęsknię: dojedź łyżwami do flagi","Miss you: skate to the flag")],
-    flow:[F("🥚","Nick, nastrój, kolor","Nick, mood, colour"),F("💌","Zaproszenie w 4 tapnięcia","An invite in 4 taps"),F("🔗","Link dla jednej osoby","A link for one person"),F("👉","Przesuń w prawo, jeśli tak","Swipe right for yes"),F("🎉","Odsłona szczegółów","Details revealed")] },
+    flow:[F("🥚","Nick, nastrój, kolor","Nick, mood, colour"),F("💌","Zaproszenie w 4 kliknięciach","An invite in 4 taps"),F("🔗","Link dla jednej osoby","A link for one person"),F("👉","Przesuń w prawo, jeśli tak","Swipe right for yes"),F("🎉","Odsłona szczegółów","Details revealed")] },
   garminreport:{ shots:[S("garminreport-1.svg","art","Ilustracja: od komendy do raportu dla AI","Illustration: from one command to a report for AI")],
     nums:[N(1,"","komenda","command"),N(2147,"","linii w jednym raporcie","lines in one report"),N(8,"","rozdziałów, od instrukcji dla AI po korelacje","sections, from AI instructions to correlations"),N(25,"","commitów","commits")],
     flow:[F("⌚","Garmin Connect","Garmin Connect"),F("🧮","ACWR, HRV, dług snu","ACWR, HRV, sleep debt"),F("📝","Raport Markdown","Markdown report"),F("🤖","Analiza z AI","AI analysis")] },
@@ -1517,7 +1517,7 @@ function renderPitch(slug, proj){
   setBA(false);
   $("#pStoryTxt").textContent = P.story[lang];
   $("#pWhoList").innerHTML = P.who.map((w, i) => `<button class="pw" type="button" role="checkbox" aria-checked="false" style="--i:${i}"><svg viewBox="0 0 28 28" aria-hidden="true"><rect x="2.5" y="2.5" width="23" height="23" rx="7"/><path pathLength="1" d="M7.5 14.5 12 19 20.5 9"/></svg><span>${esc(w[lang])}</span></button>`).join("");
-  $("#pWhoHint").textContent = t.pHint; $("#pWhoHint").classList.remove("go");
+  $("#pWhoHint").textContent = t.pHint; $("#pWhoHint").classList.remove("go"); $("#pWhoHint").tabIndex = -1;
   $("#pNot").textContent = t.pNot + P.notWho[lang] + ".";
   const kind = P.cta;
   $("#pTryTitle").textContent = kind === "repo" ? t.pTryRepo : kind === "mail" ? t.pTryMail : t.pTryApp;
@@ -1533,7 +1533,7 @@ function setBA(on, auto){
   const sw = $("#pSwitch"), rows = $$("#pRows .ba-r");
   sw.setAttribute("aria-checked", on); sw.classList.toggle("on", on);
   rows.forEach((r, i) => {
-    const flip = () => { r.classList.toggle("on", on); r.setAttribute("aria-pressed", on); if (on && !reduced && $("#case").open){ SFX.play("tick"); } };
+    const flip = () => { r.classList.toggle("on", on); r.setAttribute("aria-pressed", on); if (on && !reduced && i === 0 && $("#case").open){ SFX.play("tick"); } };
     reduced ? flip() : setTimeout(flip, i * 170);
   });
   if (on && !auto) haptic([8, 40, 8]);
@@ -1554,7 +1554,7 @@ $("#pWhoList").addEventListener("click", e => {
   b.setAttribute("aria-checked", on); SFX.play(on ? "tick" : "click"); haptic(on ? 10 : 6);
   const n = $$("#pWhoList .pw[aria-checked=true]").length, t = T[lang], hint = $("#pWhoHint");
   hint.textContent = n >= 2 ? t.pMatch : n === 1 ? t.pHint1 : t.pHint;
-  hint.classList.toggle("go", n >= 2);
+  hint.classList.toggle("go", n >= 2); hint.tabIndex = n >= 2 ? 0 : -1;
   const was = $("#pTry").classList.contains("ready");
   $("#pTry").classList.toggle("ready", n >= 2);
   if (n >= 2 && !was){ SFX.play("chime"); const [x, y] = center(b); burst(x, y, ["✨", "💛", "✓"], { count: 10, speed: [3, 8], gravity: .05, life: 900, size: [12, 20] }); }
@@ -1891,6 +1891,8 @@ function newton(){
   const labelFor = t => {
     const L = T[lang];
     if (t.closest(".frame")) return "🔍";
+    if (t.closest(".ba-r, #pSwitch")) return "⇄";
+    if (t.closest(".pw")) return "✓ ?";
     if (t.closest(".card")) return L.cDetails;
     if (t.closest(".bubble")) return t.closest(".bubble.mini") ? "🍯" : L.cDrag;
     if (t.closest("#head")) return L.cTap;

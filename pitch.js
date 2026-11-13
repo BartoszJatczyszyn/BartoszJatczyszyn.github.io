@@ -50,7 +50,7 @@ const PITCH = {
     who: [PL("czytasz składy w sklepie", "you read ingredient lists in the shop"), PL("liczysz kalorie, ale nudzi cię ich wpisywanie", "you count calories but hate typing them in"), PL("chcesz wiedzieć, dlaczego coś jest zdrowe albo nie", "you want to know why something is good or bad")],
     notWho: PL("szukasz gotowej diety. Tu dostaniesz wiedzę, a nie jadłospis", "you want a ready-made diet. You get knowledge here, not a plan"),
     steps: [PL("Otwórz na telefonie", "Open it on your phone"), PL("Wpisz dzisiejsze posiłki", "Type what you ate today"), PL("Kliknij produkt i zobacz ocenę", "Tap a product and see its score")],
-    chips: [PL("Bez konta", "No account"), PL("Działa bez internetu", "Works offline"), PL("Działa jak aplikacja na telefonie", "Add it to your home screen")],
+    chips: [PL("Bez konta", "No account"), PL("Działa bez internetu", "Works offline"), PL("Jak aplikacja na telefonie", "Add it to your home screen")],
     without: [PL("serii i kar za przerwy", "streaks and penalties for a break"), PL("czatu z AI zamiast danych", "a chatbot instead of data"), PL("gotowych diet", "diet plans")],
     cta: "app",
   },

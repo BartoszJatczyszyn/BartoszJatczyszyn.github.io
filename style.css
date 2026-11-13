@@ -1356,10 +1356,10 @@ button,.card,.chip,.cchip,.cont,.kicker,.bubble{-webkit-user-select:none;user-se
 /* ═══════════════ pitch: why my own projects are worth a try ═══════════════ */
 .pitch-hook[hidden],.pitch-mid[hidden],.pitch-who[hidden],.pitch-try[hidden]{display:none!important}
 /* hook continues the dark hero (brand, fixed theme): a thought you overhear, an arrow, the answer */
-.pitch-hook{position:relative;padding:4px 48px 30px;background:#0b0b0c;color:#f3f1ea;display:grid;grid-template-columns:minmax(0,1fr) 120px;column-gap:10px;align-items:end}
+.pitch-hook{position:relative;padding:4px 48px 30px;background:#0b0b0c;color:#f3f1ea;display:grid;grid-template-columns:minmax(0,max-content) 120px;justify-content:start;column-gap:10px;align-items:end}
 .pitch-hook::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:18px 18px;pointer-events:none}
 .ph-kicker{grid-column:1/-1;margin:0 0 4px;font:700 22px/1 var(--hand);color:#ffd43b;opacity:0;transition:opacity .6s var(--ease)}
-.ph-quote{grid-column:1;margin:0;font:700 clamp(30px,4.6vw,52px)/1.08 var(--hand);color:#fff;text-wrap:balance}
+.ph-quote{grid-column:1;margin:0;max-width:780px;font:700 clamp(30px,4.6vw,52px)/1.08 var(--hand);color:#fff;text-wrap:balance}
 .ph-quote .w{display:inline-block;opacity:0;transform:translateY(.45em) rotate(6deg);transform-origin:left bottom;transition:opacity .5s var(--ease),transform .8s var(--spring);transition-delay:calc(var(--i) * 70ms + 120ms)}
 .ph-arrow{grid-column:2;width:120px;height:70px;fill:none;stroke:#ffd43b;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;transform:translateY(22px)}
 .ph-arrow path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .7s var(--ease) .75s}
@@ -1410,7 +1410,7 @@ button,.card,.chip,.cchip,.cont,.kicker,.bubble{-webkit-user-select:none;user-se
 .story{position:relative;margin:18px 0 0;padding:34px 24px 22px;border-radius:8px;background:var(--surface);box-shadow:var(--shadow);opacity:0;transform:translateY(30px) rotate(3deg);transition:opacity .8s var(--ease) .25s,transform 1s var(--spring) .25s}
 .story .tape{left:38%}
 .st-head{position:absolute;top:-34px;right:14px;width:84px;height:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.25));animation:floaty 5s ease-in-out infinite}
-.story .cs-h{margin-bottom:12px;padding-right:80px}
+.story .cs-h{margin-bottom:12px}
 .story p{margin:0;font-size:15.5px;line-height:1.62;color:var(--text)}
 .st-sign{position:relative;display:inline-block;margin-top:12px;font:700 28px/1 var(--hand);color:var(--ink)}
 .st-sign::after{content:"";position:absolute;left:0;right:-6px;bottom:-4px;height:3px;border-radius:3px;background:var(--hl);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease) 1.2s}
@@ -1422,7 +1422,7 @@ button,.card,.chip,.cchip,.cont,.kicker,.bubble{-webkit-user-select:none;user-se
 /* it's for you if… */
 .pitch-who{padding:30px 48px 10px}
 .pitch-who .cs-h{margin-bottom:6px}
-.pw-hint{display:inline-block;margin:0 0 14px;padding:0;font:700 23px/1.1 var(--hand);color:var(--muted);transition:color .3s}
+.pw-hint{display:inline-block;margin:0 0 14px;padding:0;border:0;background:none;cursor:default;text-align:left;font:700 23px/1.1 var(--hand);color:var(--muted);transition:color .3s}
 .pw-hint.go{color:var(--ink);cursor:pointer;animation:hintNudge 1.6s var(--ease) 2}
 @keyframes hintNudge{0%,60%,100%{transform:none}20%{transform:translateY(4px)}40%{transform:translateY(-1px)}}
 .pw-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:12px}
